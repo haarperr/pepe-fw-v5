@@ -44,7 +44,7 @@ AddEventHandler('playerConnecting', function(playerName, setKickReason, deferral
 	local steamid = identifiers[1]
 	local license = identifiers[2]
     if (Config.IdentifierType == "steam" and (steamid:sub(1,6) == "steam:") == false) then
-        Framework.Functions.Kick(src, 'Turn on Steam if you want to play here.', setKickReason, deferrals)
+        Framework.Functions.Kick(src, 'Vui long mo Steam truoc khi choi!', setKickReason, deferrals)
         CancelEvent()
 		return false
 	elseif (Config.IdentifierType == "license" and (steamid:sub(1,6) == "license:") == false) then
@@ -144,7 +144,7 @@ AddEventHandler('chatMessage', function(source, n, message)
 						Framework.Commands.List[command].callback(source, args)
 					end
 				else
-					TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Bạn không có quyền truy cập hành động này!")
+					TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Bạn không có quyền truy cập hành động này...")
 				end
 			end
 		end
@@ -166,7 +166,7 @@ AddEventHandler('Framework:CallCommand', function(command, args)
 		if Player ~= nil then
 			if (Framework.Functions.HasPermission(source, "user")) or (Framework.Functions.HasPermission(source, Framework.Commands.List[command].permission)) or (Framework.Commands.List[command].permission == Player.PlayerData.job.name) then
 				if (Framework.Commands.List[command].argsrequired and #Framework.Commands.List[command].arguments ~= 0 and args[#Framework.Commands.List[command].arguments] == nil) then
-					TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Invalid parameters")
+					TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Thông số không hợp lệ")
 					local agus = ""
 					for name, help in pairs(Framework.Commands.List[command].arguments) do
 						agus = agus .. " ["..help.name.."]"
@@ -176,7 +176,7 @@ AddEventHandler('Framework:CallCommand', function(command, args)
 					Framework.Commands.List[command].callback(source, args)
 				end
 			else
-				TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "No access for this command..")
+				TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Bạn không có quyền truy cập hành động này...")
 			end
 		end
 	end

@@ -250,7 +250,7 @@ Framework.Player.CreatePlayer = function(PlayerData)
 	self.Functions.AddItem = function(item, amount, slot, info)
 		local totalWeight = Framework.Player.GetTotalWeight(self.PlayerData.items)
 		local itemInfo = Framework.Shared.Items[item:lower()]
-		if itemInfo == nil then TriggerClientEvent('chatMessage', -1, "SYSTEM",  "warning", "No item found?? Check core! Missing item: " .. itemInfo .."") return end
+		if itemInfo == nil then TriggerClientEvent('chatMessage', -1, "HỆ THỐNG",  "warning", "Không tìm thấy mặt hàng ?? Vui lòng kiểm tra: " .. itemInfo .."") return end
 		local amount = tonumber(amount)
 		local slot = tonumber(slot) ~= nil and tonumber(slot) or Framework.Player.GetFirstSlotByItem(self.PlayerData.items, item)
 		if itemInfo["type"] == "weapon" and info == nil then
