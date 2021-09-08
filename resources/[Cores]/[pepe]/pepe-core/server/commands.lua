@@ -98,49 +98,49 @@ Framework.Commands.Add("givemoney", "Đưa tiền cho người chơi", {{name="i
 	end
 end, "user")
 
-Framework.Commands.Add("setmoney", "Set money for player", {{name="id", help="Player id"},{name="moneytype", help="What sort of money (cash, bank, crypto)"}, {name="amount", help="Amount"}}, true, function(source, args)
+Framework.Commands.Add("setmoney", "Thêm tiền cho người chơi", {{name="id", help="ID người chơi"},{name="moneytype", help="Loại tiền (cash, bank)"}, {name="amount", help="Số tiền"}}, true, function(source, args)
 	local Player = Framework.Functions.GetPlayer(tonumber(args[1]))
 	if Player ~= nil then
 		Player.Functions.SetMoney(tostring(args[2]), tonumber(args[3]))
 	else
-		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")
+		TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Người chơi không online.")
 	end
 end, "admin")
 
-Framework.Commands.Add("setjob", "Give a job to a player", {{name="id", help="Player id"}, {name="job", help="Name of the job"}}, true, function(source, args)
+Framework.Commands.Add("setjob", "Thêm nghề nghiệp cho người chơi", {{name="id", help="ID người chơi"}, {name="job", help="Tên nghề nghiệp"}}, true, function(source, args)
 	local Player = Framework.Functions.GetPlayer(tonumber(args[1]))
 	if Player ~= nil then
 		if not Player.Functions.SetJob(tostring(args[2]), args[3]) then
-			TriggerClientEvent('chatMessage', source, "SYSTEM", "warning", "Job format incorrect")
+			TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "warning", "Định dạng nghề nghiệp không đúng")
 		end
 	else
-		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")
+		TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Người chơi không online.")
 	end
 end, "god")
 
-Framework.Commands.Add("job", "Check job and grade", {}, false, function(source, args)
+Framework.Commands.Add("job", "Kiểm tra nghề nghiệp và cấp độ", {}, false, function(source, args)
 	local Player = Framework.Functions.GetPlayer(source)
 	local duty = ""
 	if Player.PlayerData.job.onduty then
-		duty = "In Duty"
+		duty = "Trong ca"
 	else
-		duty = "Off Duty"
+		duty = "Hết ca"
 	end
 	
 	local grade = (Player.PlayerData.job.grade ~= nil and Player.PlayerData.job.grade.name ~= nil) and Player.PlayerData.job.grade.name or 'No Grades'
 	TriggerClientEvent('chat:addMessage', source, {
-        template = '<div class="chat-message" style="background-color: rgba(219, 52, 235, 0.75);"><b>Job Information</b> {0} [{1}] | {2}</div>',
+        template = '<div class="chat-message" style="background-color: rgba(219, 52, 235, 0.75);"><b>Thông tin nghề nghiệp</b> {0} [{1}] | {2}</div>',
     	args = { Player.PlayerData.job.label, duty, grade}
 	})
 end)
 
-Framework.Commands.Add("clearinv", "Clear own inventory or someone else", {{name="id", help="Player id"}}, false, function(source, args)
+Framework.Commands.Add("clearinv", "Xoá túi người chơi", {{name="id", help="ID người chơi"}}, false, function(source, args)
 	local playerId = args[1] ~= nil and args[1] or source 
 	local Player = Framework.Functions.GetPlayer(tonumber(playerId))
 	if Player ~= nil then
 		Player.Functions.ClearInventory()
 	else
-		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")
+		TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Người chơi không online.")
 	end
 end, "admin")
 
