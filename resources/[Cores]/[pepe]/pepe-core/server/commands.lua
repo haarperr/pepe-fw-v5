@@ -30,7 +30,7 @@ Framework.Commands.Add("tp", "Teleport đến người chơi hoặc điểm cụ
 		if Player ~= nil then
 			TriggerClientEvent('Framework:Command:TeleportToPlayer', source, Player.PlayerData.source)
 		else
-			TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")
+			TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Người chơi không online.")
 		end
 	else
 		-- tp to location
