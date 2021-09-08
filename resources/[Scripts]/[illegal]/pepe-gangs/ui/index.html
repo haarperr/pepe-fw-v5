@@ -1,0 +1,77 @@
+<!--
+    ____  ___    ____  ______________  ___
+   / __ \/   |  / __ \/ ____/ ____/  |/  /
+  / /_/ / /| | / /_/ / __/ /___ \/ /|_/ / 
+ / _, _/ ___ |/ _, _/ /_______/ / /  / /  
+/_/ |_/_/  |_/_/ |_/_____/_____/_/  /_/  
+!-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+</head>
+<body>
+    <div class="container">
+        <div class="alerts"></div>
+
+        <div class="menu" id="vehicles">
+            <div class="help">Vehicles<i class="fas fa-times-circle pointer" to="0"></i></div>
+            <div v-for="vehicle in vehicles">
+                <div class="item" :model='vehicle.model' onclick="SpawnVehicle(this);">{{ vehicle.label }}<i :class="vehicle.icon"></i></div>
+            </div>
+        </div>
+        <div class="menu" id="management">
+            <div class="help">{{ menuLabel }}<i class="fas fa-times-circle pointer" to="0"></i></div>
+            <span v-if="isBoss === true">
+                <div class="item" to="manage_members">Manage Gang Members</div>
+                <div class="item" to="add_member" onclick="app.to('add_member');">Add Gang Member</div>
+            </span>
+            <span v-else>
+                <div class="item" to="manage_members">View Gang Members</div>
+            </span>
+            <div class="item" to="moneysafe">Money Safe</div>
+        </div>
+        <div class="menu" id="manage_grade">
+            <div class="help">Manage Grade<i class="fas fa-arrow-circle-right pointer" to="manage_members"></i></div>
+            <div v-for="grade in grades" class="items">
+                <div class="item" :grade='grade' onclick="SelectGrade(this);">{{ grade }}<i class="fas fa-archive"></i></div>
+            </div>
+        </div>
+        <div class="menu" id="manage_member">
+            <div class="help">{{ selected.name }} - {{ selected.grade }}<i class="fas fa-arrow-circle-right pointer" to="manage_members"></i></div>
+            <div class="item" action="grade" onclick="MemberAction(this);">Manage grade</div>
+            <div class="item" action="remove" onclick="MemberAction(this);">Remove from gang</div>
+        </div>
+        <div class="menu" id="manage_members">
+            <div v-if="isBoss === true" class="help">Manage Members<i class="fas fa-arrow-circle-right pointer" to="management"></i></div>
+            <div v-else class="help">Members List<i class="fas fa-arrow-circle-right pointer" to="management"></i></div>
+            <span v-for="player in members">
+                <div class="item" :id='player.id' :grade='player.grade' :name='player.char' :editable='player.editable' onclick="ManageMember(this);">{{ player.char }}<i class="fas fa-user-ninja"></i></div>
+            </span>
+        </div>
+        <div class="menu" id="add_member">
+            <div class="help">Add Gang Member<i class="fas fa-arrow-circle-right pointer" to="management"></i></div>
+            <div v-if="nearby.length === 0" class="item" editable="0">There is no players nearby<i class="fas fa-user-plus"></i></div>
+            <div v-else v-for="player in nearby">
+                <div class="item" :id='player.id' onclick="AddMember(this);">{{ player.name }}<i class="fas fa-user-plus"></i></div>
+            </div>
+        </div>
+        <div class="menu" id="moneysafe">
+            <div class="help">Money Safe - ${{ money }}<i class="fas fa-arrow-circle-right pointer" to="management"></i></div>
+            <input type="number" class="item" placeholder="Amount" min="1" max="100000" id="amount">
+            <div class="item" onclick="Withdraw();" v-if="isBoss === true">Withdraw<i class="fas fa-arrow-right red"></i></div>
+            <div class="item" onclick="Deposit();">Deposit<i class="fas fa-arrow-left green"></i></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

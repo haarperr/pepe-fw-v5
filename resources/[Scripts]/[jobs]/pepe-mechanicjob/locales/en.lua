@@ -1,0 +1,25 @@
+Locales['en'] = {
+	["jobname"]  = "Autocare Mechanic",
+	["estash"]  = "[E] Open Stash",
+	["eboss"]  = "[E] Boss Menu",
+	["evehicles"]  = "[E] Vehicles",
+	["epark"]  = "[E] Park Vehicle",
+	["offduty"]  = "[E] Off Duty",
+	["induty"]  = "[E] In Duty",
+	["elock"]  = "[E] Lock vehicle",
+	["emenu"]  = "[E] Open Menu",
+	["nobikes"]  = "No bikes please!",
+	["options"]  = "Options",
+	["close"]  = "Close Menu",
+	["back"]  = "Back",
+	["parts"]  = "Parts",
+	["check"]  = "Check Status",
+	["detach"]  = "Detach Vehicle",
+	["repair"]  = "Repair",
+	["nodmg"]  = "No damage on this part",
+	["beingrepaired"]  = "is being repaired",
+	["cancel"]  = "Cancelled",
+	["nomats"]  = "Not enough materials in the shop..",
+}
+-- _U("beingrepaired") .."
+--                         _U("nomats")

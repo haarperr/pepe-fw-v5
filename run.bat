@@ -1,0 +1,1 @@
+F:\HIHI\pepe\FXServer.exe +exec server.cfg +set onesync infinity

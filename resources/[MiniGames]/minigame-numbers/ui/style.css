@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+}
+
+.ui-container {
+    display: none;
+}
+
+.number-table {
+    position: absolute;
+    bottom: 17rem;
+    left: 45rem;
+    width: 480px;
+    height: 420px;
+    background: rgba(17, 17, 17, 0.89);
+    padding: 15px;
+    border-radius: 6px;
+    background-size: cover;
+    background-position: center;
+}
+
+.col {
+    float: left;
+    height: 75px;
+    width: 75px;
+    display: block;
+    line-height: 4.6rem;
+    margin: 7px;
+    font-size: 22px;
+    border-radius: 50%;
+    font-weight: 500;
+    text-align: center;
+    background: url('https://i.imgur.com/yz6CV7R.png');
+    background-size: cover;
+    background-position: center;
+    -webkit-box-shadow: 0px 0px 15px -5px #000000; 
+    box-shadow: 0px 0px 15px -5px #000000;
+    border: 2px solid rgba(0,0,0,0);
+}
+
+.col:hover {
+    border: 2px solid rgba(255, 255, 255, 0.658);
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Timer */
+
+.progress-bar {
+    position: absolute;
+    bottom:17rem;
+    left: 45.95rem;
+    width: 450px;
+    margin: 10px auto;
+    height: 22px;
+    background: rgba(0, 0, 0, 0.842);
+    box-shadow: 0px 0px 15px -5px #00000077;
+}
+
+.inner-bar {
+    height: 100%;
+    text-align: right;
+    line-height: 22px;
+    width: 100%;
+    background-color: #69ea00ab;
+    /* background: #dde000d5; */
+     /* background-color: #c90202d2; */
+    transition: 1.5s ease-in-out background-color;
+    box-sizing: border-box;
+}

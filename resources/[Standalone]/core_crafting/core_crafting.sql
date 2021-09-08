@@ -1,0 +1,1 @@
+ALTER TABLE `characters_metadata` ADD `crafting_level` INT;

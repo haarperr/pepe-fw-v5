@@ -1,0 +1,120 @@
+/* html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', helvetica, arial, sans-serif;
+} */
+body {
+    display: inline-block;
+    overflow: hidden;
+}
+
+/**
+ MINIGAME SQUARES
+ */
+
+ #container {
+    display: none;
+    position: relative;
+    width: 400px;
+    margin: 5% auto;
+    overflow: visible;
+}
+
+.streaks {
+    display: block;
+    margin: 80px auto 40px;
+    text-align: center;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    width: fit-content;
+    background-color: #028000;
+    padding: 12px;
+    border-radius: 18px;
+}
+.best_time,
+.time {
+    display: block;
+    width: 100px;
+}
+.streaks .fa {
+    padding: 0 10px;
+}
+.speed{
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: fit-content;
+    background-color: #20282e;
+    padding: 10px 20px;
+    margin: 0 auto 10px;
+    border-radius: 6px;
+}
+.speed input{
+    vertical-align: text-top;
+}
+.speed_value{
+    display: inline-block;
+    width: 18px;
+    text-align: right;
+}
+.minigame{
+    margin: 0 auto 20px;
+    width: 540px;
+    min-width: 540px;
+    max-width: 540px;
+    height: 540px;
+    min-height: 540px;
+    max-height: 540px;
+    background-color: #232832;
+}
+.splash{
+    display: inline-block;
+    width: 100%;
+    margin: 220px auto;
+    font-family: sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+}
+.splash .hacker{
+    font-size: 65px;
+    margin-bottom: 30px;
+}
+.groups{
+    display: block;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    user-select: none;
+}
+.group{
+    width: 74px;
+    height: 24px;
+    border: 2px #232832 solid;
+    background-color: #34475C;
+}
+.proper{
+    background-color: #006600;
+}
+.good{
+    background-color: #CCCCCC;
+}
+.bad{
+    background-color: #F00F18;
+}
+.hidden {
+    display: none;
+}
+.restart{
+    font-family: sans-serif;
+    text-align: center;
+}
+.btn_again {
+    padding: 6px 15px;
+    font-weight: bold;
+}
