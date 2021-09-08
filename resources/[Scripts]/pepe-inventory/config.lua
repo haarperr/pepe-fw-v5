@@ -43,24 +43,24 @@ Config.JailContainers = {
 }
 
 Config.TrunkClasses = {
- [0] = {['MaxWeight'] = 14000, ['MaxSlots'] = 3},
- [1] = {['MaxWeight'] = 25000, ['MaxSlots'] = 5},
- [2] = {['MaxWeight'] = 25000, ['MaxSlots'] = 5},
- [3] = {['MaxWeight'] = 14000, ['MaxSlots'] = 3},
- [4] = {['MaxWeight'] = 14000, ['MaxSlots'] = 3},
- [5] = {['MaxWeight'] = 14000, ['MaxSlots'] = 3},
- [6] = {['MaxWeight'] = 14000, ['MaxSlots'] = 3},
- [7] = {['MaxWeight'] = 14000, ['MaxSlots'] = 3},
- [9] = {['MaxWeight'] = 25000, ['MaxSlots'] = 5},
- [10] = {['MaxWeight'] = 160000, ['MaxSlots'] = 5},
- [11] = {['MaxWeight'] = 160000, ['MaxSlots'] = 5},
- [12] = {['MaxWeight'] = 160000, ['MaxSlots'] = 5},
- [14] = {['MaxWeight'] = 10000, ['MaxSlots'] = 5},
- [15] = {['MaxWeight'] = 10000, ['MaxSlots'] = 5},
- [17] = {['MaxWeight'] = 10000, ['MaxSlots'] = 5},
- [18] = {['MaxWeight'] = 55000, ['MaxSlots'] = 5},
- [19] = {['MaxWeight'] = 160000, ['MaxSlots'] = 10},
- [20] = {['MaxWeight'] = 160000, ['MaxSlots'] = 10},
+ [0] = {['MaxWeight'] = 14000, ['MaxSlots'] = 3}, --Cpmpact
+ [1] = {['MaxWeight'] = 25000, ['MaxSlots'] = 5}, --Sedan
+ [2] = {['MaxWeight'] = 300000, ['MaxSlots'] = 10}, --SUV
+ [3] = {['MaxWeight'] = 14000, ['MaxSlots'] = 3}, --Coupes
+ [4] = {['MaxWeight'] = 14000, ['MaxSlots'] = 3}, --Muscle
+ [5] = {['MaxWeight'] = 14000, ['MaxSlots'] = 3}, --Sports Classics
+ [6] = {['MaxWeight'] = 14000, ['MaxSlots'] = 3},   --Sports
+ [7] = {['MaxWeight'] = 14000, ['MaxSlots'] = 3},   --Super
+ [9] = {['MaxWeight'] = 25000, ['MaxSlots'] = 5},   --Off-road
+ [10] = {['MaxWeight'] = 160000, ['MaxSlots'] = 5}, --Industrial
+ [11] = {['MaxWeight'] = 160000, ['MaxSlots'] = 5}, --Utility
+ [12] = {['MaxWeight'] = 160000, ['MaxSlots'] = 5}, --Vans
+ [14] = {['MaxWeight'] = 10000, ['MaxSlots'] = 5}, --Boats
+ [15] = {['MaxWeight'] = 10000, ['MaxSlots'] = 5}, --Helicopters
+ [17] = {['MaxWeight'] = 10000, ['MaxSlots'] = 5}, --Service
+ [18] = {['MaxWeight'] = 55000, ['MaxSlots'] = 5},  --Emergency
+ [19] = {['MaxWeight'] = 160000, ['MaxSlots'] = 10}, --Military
+ [20] = {['MaxWeight'] = 160000, ['MaxSlots'] = 10}, --Commercial
 }
 
 for i = 48,  57 do table.insert(NumberCharset, string.char(i)) end
