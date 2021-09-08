@@ -23,14 +23,14 @@ Framework.Commands.Refresh = function(source)
 	end
 end
 
-Framework.Commands.Add("tp", "Teleport to player or coords", {{name="id/x", help="Player id or X Position"}, {name="y", help="Y Position"}, {name="z", help="Z Position"}}, false, function(source, args)
+Framework.Commands.Add("tp", "Teleport đến người chơi hoặc điểm cụ thể", {{name="id/x", help="ID người chơi hoặc Vị trí X"}, {name="y", help="Vị trí Y"}, {name="z", help="Vị trí Z"}}, false, function(source, args)
 	if (args[1] ~= nil and (args[2] == nil and args[3] == nil)) then
 		-- tp to player
 		local Player = Framework.Functions.GetPlayer(tonumber(args[1]))
 		if Player ~= nil then
 			TriggerClientEvent('Framework:Command:TeleportToPlayer', source, Player.PlayerData.source)
 		else
-			TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Player not online.")
+			TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")
 		end
 	else
 		-- tp to location

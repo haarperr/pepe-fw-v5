@@ -5044,7 +5044,7 @@ Shared.Jobs = {
 		defaultDuty = true,
 	},
 	["realestate"] = {
-		label = "Real Estate Agent",
+		label = "Đại lý bất động sản.",
 		payment = 80,
 		grades = {
 			['0'] = {
@@ -5060,7 +5060,7 @@ Shared.Jobs = {
 		defaultDuty = true,
 	},
 	["tow"] = {
-		label = "Towing Service",
+		label = "Dịch vụ kéo xe",
 		payment = 80,
 		grades = {
             ['0'] = {
@@ -5071,7 +5071,7 @@ Shared.Jobs = {
 		defaultDuty = true,
 	},
 	["reporter"] = {
-		label = "News Reporter",
+		label = "Phóng viên thời sự",
 		payment = 80,
 		grades = {
             ['0'] = {
@@ -5082,7 +5082,7 @@ Shared.Jobs = {
 		defaultDuty = true,
 	},
 	["judge"] = {
-		label = "Judge",
+		label = "Phán xét",
 		payment = 500,
 		grades = {
             ['0'] = {
@@ -5093,7 +5093,7 @@ Shared.Jobs = {
 		defaultDuty = true,
 	},
 	["lawyer"] = {
-		label = "Lawyer",
+		label = "Luật sư",
 		payment = 50,
 		defaultDuty = true,
 		grades = {
@@ -5108,7 +5108,7 @@ Shared.Jobs = {
 		}
 	},
 	["cardealer"] = {
-		label = "Car Dealer",
+		label = "Cửa hàng Dealer",
 		payment = 150,
 		grades = {
             ['0'] = {
@@ -5124,7 +5124,7 @@ Shared.Jobs = {
 		defaultDuty = true,
 	},
 	["mechanic"] = {
-		label = "Mechanic",
+		label = "Thợ sửa xe",
 		payment = 150,
 		defaultDuty = true,
 		grades = {
@@ -5168,7 +5168,7 @@ Shared.Jobs = {
 		}
 	},
 	["garbage"] = {
-		label = "Garbage",
+		label = "Rác",
 		payment = 80,
 		grades = {
             ['0'] = {
@@ -5179,7 +5179,7 @@ Shared.Jobs = {
 		defaultDuty = true,
 	},
 	["burger"] = {
-		label = "Burgershot",
+		label = "Bánh Burger",
 		payment = 80,
 		grades = {
             ['0'] = {
@@ -5190,7 +5190,7 @@ Shared.Jobs = {
 		defaultDuty = true,
 	},
 	["butcher"] = {
-		label = "Butcher",
+		label = "Người bán thịt",
 		payment = 80,
 		grades = {
             ['0'] = {
@@ -5201,7 +5201,7 @@ Shared.Jobs = {
 		defaultDuty = true,
 	},
 	["fueler"] = {
-		label = "Fueler",
+		label = "Nhiên liệu",
 		payment = 80,
 		grades = {
             ['0'] = {
