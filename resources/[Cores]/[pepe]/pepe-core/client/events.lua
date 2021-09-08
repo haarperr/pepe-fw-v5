@@ -45,7 +45,7 @@ AddEventHandler('Framework:Command:SpawnVehicle', function(model)
 	 exports['pepe-vehiclekeys']:SetVehicleKey(GetVehicleNumberPlateText(vehicle), true)
 	 Citizen.Wait(100)
 	 exports['pepe-fuel']:SetFuelLevel(vehicle, GetVehicleNumberPlateText(vehicle), 100, true)
-	 Framework.Functions.Notify('Vehicle spawned', 'success')
+	 Framework.Functions.Notify('Phương tiện đã được lấy ra..', 'success')
 	end, nil, true, true)
 end)
 
@@ -57,7 +57,7 @@ AddEventHandler('Framework:Command:DeleteVehicle', function()
 		local vehicle = Framework.Functions.GetClosestVehicle()
 		Framework.Functions.DeleteVehicle(vehicle)
 	end
-	Framework.Functions.Notify('Vehicle deleted', 'error')
+	Framework.Functions.Notify('Đã xoá phương tiện..', 'error')
 end)
 
 RegisterNetEvent('Framework:Command:Revive')
