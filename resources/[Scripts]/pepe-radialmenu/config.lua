@@ -8,7 +8,7 @@ Config.Keys = {["F1"] = 288}
 Config.Menu = {
  [1] = {
     id = "citizen",
-    displayName = "Citizen",
+    displayName = "Công dân",
     icon = "#citizen-action",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() then
@@ -19,7 +19,7 @@ Config.Menu = {
  },
  [2] = {
     id = "animations",
-    displayName = "Walkstyle",
+    displayName = "Kiểu đi bộ",
     icon = "#walking",
     enableMenu = function()
        if not exports['pepe-hospital']:GetDeathStatus() then
@@ -30,7 +30,7 @@ Config.Menu = {
  },
  [3] = {
      id = "expressions",
-     displayName = "Facial Expressions",
+     displayName = "Nét mặt",
      icon = "#expressions",
      enableMenu = function()
          if not exports['pepe-hospital']:GetDeathStatus() then
@@ -41,7 +41,7 @@ Config.Menu = {
  },
  [4] = {
     id = "police",
-    displayName = "Police",
+    displayName = "Cảnh sát",
     icon = "#police-action",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() and Framework.Functions.GetPlayerData().job.name == 'police' and Framework.Functions.GetPlayerData().job.onduty then
@@ -52,7 +52,7 @@ Config.Menu = {
  },
  [5] = {
     id = "police",
-    displayName = "Police Objects",
+    displayName = "Đối tượng",
     icon = "#police-action",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() and Framework.Functions.GetPlayerData().job.name == 'police' and Framework.Functions.GetPlayerData().job.onduty then
@@ -91,7 +91,7 @@ Config.Menu = {
  },
  [8] = {
     id = "ambulance",
-    displayName = "Ambulance",
+    displayName = "Xe cứu thương",
     icon = "#ambulance-action",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() and Framework.Functions.GetPlayerData().job.name == 'ambulance' and Framework.Functions.GetPlayerData().job.onduty then
@@ -102,7 +102,7 @@ Config.Menu = {
  },
  [9] = {
     id = "vehicle",
-    displayName = "Vehicle",
+    displayName = "Phương tiện",
     icon = "#citizen-action-vehicle",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() then
@@ -116,7 +116,7 @@ Config.Menu = {
  },
  [10] = {
     id = "vehicle-doors",
-    displayName = "Vehicle Doors",
+    displayName = "Cửa phương tiện",
     icon = "#citizen-action-vehicle",
     close = true,
     functiontype = "client",
@@ -131,7 +131,7 @@ Config.Menu = {
  },
  [11] = {
     id = "police-garage",
-    displayName = "Police Garage",
+    displayName = "Nhà để xe cảnh sát",
     icon = "#citizen-action-garage",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() then
@@ -144,7 +144,7 @@ Config.Menu = {
  },
  [12] = {
     id = "garage",
-    displayName = "Garage",
+    displayName = "Ga-ra",
     icon = "#citizen-action-garage",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() then
@@ -172,7 +172,7 @@ Config.Menu = {
  },
  [14] = {
     id = "atm",
-    displayName = "Bank",
+    displayName = "Ngân hàng",
     icon = "#global-bank",
     close = true,
     functiontype = "client",
@@ -187,7 +187,7 @@ Config.Menu = {
  },
  [15] = {
     id = "shop",
-    displayName = "Shop",
+    displayName = "Cửa hàng",
     icon = "#global-store",
     close = true,
     functiontype = "client",
@@ -202,7 +202,7 @@ Config.Menu = {
  },
  [16] = {
     id = "appartment",
-    displayName = "Go Inside",
+    displayName = "Đi vào bên trong",
     icon = "#global-appartment",
     close = true,
     functiontype = "client",
@@ -234,7 +234,7 @@ Config.Menu = {
  },
  [18] = {
     id = "housing",
-    displayName = "Go Inside",
+    displayName = "Đi vào bên trong",
     icon = "#global-appartment",
     close = true,
     functiontype = "client",
@@ -250,7 +250,7 @@ Config.Menu = {
  },
  [19] = {
     id = "housing-options",
-    displayName = "House Options",
+    displayName = "Tùy chọn nhà",
     icon = "#citizen-action-garage",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() then
@@ -263,7 +263,7 @@ Config.Menu = {
  },
  [20] = {
     id = "judge-actions",
-    displayName = "Judge",
+    displayName = "Phán xét",
     icon = "#judge-actions",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() and Framework.Functions.GetPlayerData().job.name == 'judge' then
@@ -274,7 +274,7 @@ Config.Menu = {
  },
  [21] = {
     id = "ambulance-garage",
-    displayName = "Ambulance Garage",
+    displayName = "Nhà để xe cứu thương",
     icon = "#citizen-action-garage",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() and Framework.Functions.GetPlayerData().job.name == 'ambulance' and Framework.Functions.GetPlayerData().job.onduty then
@@ -287,7 +287,7 @@ Config.Menu = {
  },
  [22] = {
     id = "scrapyard",
-    displayName = "Scrap Vehicle",
+    displayName = "Rã xe",
     icon = "#police-action-vehicle-spawn",
     close = true,
     functiontype = "client",
@@ -302,7 +302,7 @@ Config.Menu = {
  },
  [23] = {
     id = "trash",
-    displayName = "Search Bin",
+    displayName = "Lục thùng rác",
     icon = "#global-trash",
     close = true,
     functiontype = "client",
@@ -317,7 +317,7 @@ Config.Menu = {
  },
   [24] = {
     id = "cityhall",
-    displayName = "Cityhall",
+    displayName = "Toà thị chính",
     icon = "#global-cityhall",
     close = true,
     functiontype = "client",
@@ -332,7 +332,7 @@ Config.Menu = {
  },
  [25] = {
     id = "dealer",
-    displayName = "Dealer Shop",
+    displayName = "Cửa hàng Dealer",
     icon = "#global-dealer",
     close = true,
     functiontype = "client",
@@ -347,7 +347,7 @@ Config.Menu = {
  },
  [26] = {
     id = "traphouse",
-    displayName = "Traphouse",
+    displayName = "Nhà bẫy",
     icon = "#global-appartment",
     close = true,
     functiontype = "client",
@@ -362,7 +362,7 @@ Config.Menu = {
  },
  [27] = {
     id = "tow-menu",
-    displayName = "Tow Actions",
+    displayName = "Hành động kéo",
     icon = "#citizen-action-garage",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() and Framework.Functions.GetPlayerData().job.name == 'tow' then
@@ -373,7 +373,7 @@ Config.Menu = {
  },
  [28] = {
     id = "police-impound",
-    displayName = "Police Impound",
+    displayName = "Cảnh sát tạm giữ.",
     icon = "#citizen-action-garage",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() then
@@ -386,7 +386,7 @@ Config.Menu = {
  },
  [29] = {
     id = "cuff",
-    displayName = "Cuff",
+    displayName = "Cổ tay áo",
     icon = "#citizen-action-cuff",
     close = true,
     functiontype = "client",
@@ -410,7 +410,7 @@ Config.Menu = {
  },
  [31] = {
     id = "door",
-    displayName = "Doorlock",
+    displayName = "Mở/Khoá cửa",
     icon = "#global-doors",
     close = true,
     functiontype = "client",
@@ -425,7 +425,7 @@ Config.Menu = {
  },
 [32] = {
     id = "mechanic",
-    displayName = "Mechanic",
+    displayName = "Thợ cơ khí",
     icon = "#citizen-action-vehicle",
     enableMenu = function()
         if not exports['pepe-hospital']:GetDeathStatus() and Framework.Functions.GetPlayerData().job.name == 'mechanic' and Framework.Functions.GetPlayerData().job.onduty then
@@ -438,14 +438,14 @@ Config.Menu = {
 
 Config.SubMenus = {
     ['police:checkstatus'] = {
-     title = "Status",
+     title = "Trạng thái",
      icon = "#police-action-search",
      close = true,
      functiontype = "client",
      functionName = "police:client:CheckStatus"
     },
     ['police:panic'] = {
-        title = "Emergency",
+        title = "Khẩn cấp",
         icon = "#police-action-panic",
         close = true,
         functiontype = "client",
@@ -459,42 +459,42 @@ Config.SubMenus = {
      functionName = "pepe-police:client:show:tablet"
     },
     ['police:impound'] = {
-    title = "Remove Vehicle",
+    title = "Loại bỏ phương tiện",
     icon = "#police-action-vehicle",
     close = true,
     functiontype = "client",
     functionName = "pepe-police:client:impound:closest"
     },
     ['police:impoundhard'] = {
-    title = "Impound",
+    title = "Tạm giữ.",
     icon = "#police-action-vehicle",
     close = true,
     functiontype = "client",
     functionName = "pepe-police:client:impound:hard:closest"
     },
     ['police:search'] = {
-     title = "Search",
+     title = "Lục soát",
      icon = "#police-action-search",
      close = true,
      functiontype = "client",
      functionName = "pepe-police:client:search:closest"
     },
     ['police:resetdoor'] = {
-     title = "Reset House Door",
+     title = "Đặt lại nhà nhà",
      icon = "#global-appartment",
      close = true,
      functiontype = "client",
      functionName = "pepe-housing:client:reset:house:door"
     },
     ['police:enkelband'] = {
-     title = "Location",
+     title = "Vị trí",
      icon = "#police-action-enkelband",
      close = true,
      functiontype = "client",
      functionName = "pepe-police:client:enkelband:closest"
     },
     ['police:badge'] = {
-        title = "Show Badge",
+        title = "Hiển thị huy hiệu.",
         icon = "#police-action-tablet",
         close = true,
         functiontype = "client",
@@ -653,7 +653,7 @@ Config.SubMenus = {
         functionName = "pepe-police:client:spawn:vehicle"
     },
     ['police:object:cone'] = {
-     title = "Cone",
+     title = "Cọc tiêu giao thông",
      icon = "#global-box",
      close = true,
      functionParameters = 'cone',
@@ -661,7 +661,7 @@ Config.SubMenus = {
      functionName = "pepe-police:client:spawn:object"
     },
     ['police:object:barrier'] = {
-     title = "Barrier",
+     title = "Rào chắn",
      icon = "#global-box",
      close = true,
      functionParameters = 'barrier',
@@ -669,7 +669,7 @@ Config.SubMenus = {
      functionName = "pepe-police:client:spawn:object"
     },
     ['police:object:schot'] = {
-     title = "Fence",
+     title = "Rào chắn",
      icon = "#global-box",
      close = true,
      functionParameters = 'schot',
@@ -677,7 +677,7 @@ Config.SubMenus = {
      functionName = "pepe-police:client:spawn:object"
     },
     ['police:object:tent'] = {
-     title = "Tent",
+     title = "Lều",
      icon = "#global-tent",
      close = true,
      functionParameters = 'tent',
@@ -685,7 +685,7 @@ Config.SubMenus = {
      functionName = "pepe-police:client:spawn:object"
     },
     ['police:object:light'] = {
-     title = "Light",
+     title = "Đèn",
      icon = "#global-box",
      close = true,
      functionParameters = 'light',
@@ -693,35 +693,35 @@ Config.SubMenus = {
      functionName = "pepe-police:client:spawn:object"
     },
     ['police:object:delete'] = {
-     title = "Delete Object",
+     title = "Xóa đối tượng",
      icon = "#global-delete",
      close = false,
      functiontype = "client",
      functionName = "pepe-police:client:delete:object"
     },
     ["mechanic:repair"] = {
-        title = "Repair Vehicle",
+        title = "Sửa chữa xe",
         icon = "#citizen-action-vehicle",
         close = true,
         functiontype = "client",
         functionName = "ft-repair:client:triggerMenu",
     },
     ['ambulance:heal'] = {
-      title = "Heal",
+      title = "Chữa trị",
       icon = "#ambulance-action-heal",
       close = true,
       functiontype = "client",
       functionName = "pepe-hospital:client:heal:closest"
     },
     ['ambulance:revive'] = {
-      title = "Revive",
+      title = "Hồi sinh",
       icon = "#ambulance-action-heal",
       close = true,
       functiontype = "client",
       functionName = "pepe-hospital:client:revive:closest"
     },
     ['ambulance:blood'] = {
-      title = "Take Bloodsample",
+      title = "Đưa mẫu máu",
       icon = "#ambulance-action-blood",
       close = true,
       functiontype = "client",
@@ -760,7 +760,7 @@ Config.SubMenus = {
      functionName = "pepe-hospital:client:spawn:vehicle"
     },
     ['vehicle:delete'] = {
-     title = "Delete Vehicle",
+     title = "Xoá phương tiện",
      icon = "#police-action-vehicle-delete",
      close = true,
      functiontype = "client",
