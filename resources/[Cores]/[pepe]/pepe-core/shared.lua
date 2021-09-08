@@ -4938,7 +4938,7 @@ Shared.Vehicles = {
 
 Shared.Jobs = {
 	["unemployed"] = {
-		label = "Thất nghiệp",
+		label = "Unemployed",
 		payment = 50,
 		grades = {
             ['0'] = {
@@ -4949,31 +4949,31 @@ Shared.Jobs = {
 		defaultDuty = true,
 	},
 	["police"] = {
-        label = "Cảnh sát",
+        label = "Police Officer",
         grades = {
             ['0'] = {
-                name = "Tập sự",
+                name = "Cadet",
                 payment = 1000
             },
             ['1'] = {
-                name = "Nhân viên văn phòng",
+                name = "Officer",
                 payment = 1200
             },
             ['2'] = {
-                name = "Cán bộ cao cấp",
+                name = "Senior Officer",
                 payment = 1400
             },
 			['3'] = {
-                name = "Hạ sĩ",
+                name = "Corporal",
                 payment = 1600
             },
 			['4'] = {
-                name = "Trung sĩ",
+                name = "Sergeant",
 				isboss = true,
                 payment = 1800
             },
 			['5'] = {
-				name = "Cảnh sát trưởng",
+				name = "Chief Of Police",
 				isboss = true,
                 payment = 1900
             },
@@ -4981,40 +4981,41 @@ Shared.Jobs = {
         defaultDuty = true,
 	},	
 	["ambulance"] = {
-		label = "Xe cứu thương",
+		label = "Ambulance",
 		grades = {
 			['0'] = {
-                name = "Đào tạo",
+                name = "In training",
                 payment = 520
             },
 			['1'] = {
-                name = "Hỗ trợ người mới",
+                name = "Supporting rookie",
                 payment = 620
             },
 			['2'] = {
-                name = "Người lái xe cứu thương",
+                name = "Ambulance Driver",
                 payment = 720
             },
 			['3'] = {
-                name = "Bác sĩ / Y tá",
+                name = "Docter / Nurse",
                 payment = 820
             },
 			['4'] = {
-                name = "Chuyên gia.",
+                name = "Specialist",
                 payment = 920
             },
 			['5'] = {
-                name = "Bác sĩ",
+                name = "Physician",
                 payment = 1020
             },
 			['6'] = {
-				name = "Viện trưởng",
+				name = "Head Physician",
 				isboss = true,
                 payment = 1110
             },
         },
 		defaultDuty = true,
 	},
+
 
 	["trucker"] = {
 		label = "Tài xế xe tải",
