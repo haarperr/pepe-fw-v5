@@ -218,7 +218,7 @@ Config.Menu = {
  },
  [17] = {
     id = "depot",
-    displayName = "Depot",
+    displayName = "Kho phương tiện",
     icon = "#global-depot",
     close = true,
     functiontype = "client",
