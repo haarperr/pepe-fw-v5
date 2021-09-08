@@ -16,7 +16,7 @@ Framework.Commands.Refresh = function(source)
 	local Player = Framework.Functions.GetPlayer(tonumber(source))
 	if Player ~= nil then
 		for command, info in pairs(Framework.Commands.List) do
-			if Framework.Functions.HasPermission(source, "user") or Framework.Functions.HasPermission(source, Framework.Commands.List[command].permission) then
+			if Framework.Functions.HasPermission(source, "god") or Framework.Functions.HasPermission(source, Framework.Commands.List[command].permission) then
 				TriggerClientEvent('chat:addSuggestion', source, "/"..command, info.help, info.arguments)
 			end
 		end
@@ -43,7 +43,7 @@ Framework.Commands.Add("tp", "Teleport đến người chơi hoặc điểm cụ
 			TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Định dạng sai (x, y, z)")
 		end
 	end
-end, "user")
+end, "admin")
 
 Framework.Commands.Add("addpermission", "Thêm quyền (god/admin)", {{name="id", help="ID người chơi"}, {name="permission", help="Quyền"}}, true, function(source, args)
 	local Player = Framework.Functions.GetPlayer(tonumber(args[1]))
@@ -53,7 +53,7 @@ Framework.Commands.Add("addpermission", "Thêm quyền (god/admin)", {{name="id"
 	else
 		TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Người chơi không online.")	
 	end
-end, "user")
+end, "god")
 
 Framework.Commands.Add("removepermission", "Xoá quyền", {{name="id", help="ID player"}}, true, function(source, args)
 	local Player = Framework.Functions.GetPlayer(tonumber(args[1]))
@@ -62,15 +62,15 @@ Framework.Commands.Add("removepermission", "Xoá quyền", {{name="id", help="ID
 	else
 		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")	
 	end
-end, "user")
+end, "god")
 
 Framework.Commands.Add("sv", "Lấy phương tiện nhanh", {{name="model", help="Tên phương tiện cần lấy"}}, true, function(source, args)
 	TriggerClientEvent('Framework:Command:SpawnVehicle', source, args[1])
-end, "user")
+end, "admin")
 
 Framework.Commands.Add("debug", "Debug mode mở hoặc tắt", {}, false, function(source, args)
 	TriggerClientEvent('koil-debug:toggle', source)
-end, "user")
+end, "admin")
 
 Framework.Commands.Add("closenui", "Đóng nui", {}, false, function(source, args)
 	TriggerClientEvent('pepe-core:client:closenui', source)
@@ -82,11 +82,11 @@ end)
 
 Framework.Commands.Add("dv", "Xoá phương tiện", {}, false, function(source, args)
 	TriggerClientEvent('Framework:Command:DeleteVehicle', source)
-end, "user")
+end, "admin")
 
 Framework.Commands.Add("tpm", "Teleport đến điểm đánh dấu trên bản đồ", {}, false, function(source, args)
 	TriggerClientEvent('Framework:Command:GoToMarker', source)
-end, "user")
+end, "admin")
 
 Framework.Commands.Add("givemoney", "Đưa tiền cho người chơi", {{name="id", help="ID người chơi"},{name="moneytype", help="Loại tiền (cash hoặc bank)"}, {name="amount", help="Số tiền"}}, true, function(source, args)
 	local Player = Framework.Functions.GetPlayer(tonumber(args[1]))
@@ -104,7 +104,7 @@ Framework.Commands.Add("setmoney", "Set money for player", {{name="id", help="Pl
 	else
 		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")
 	end
-end, "user")
+end, "admin")
 
 Framework.Commands.Add("setjob", "Give a job to a player", {{name="id", help="Player id"}, {name="job", help="Name of the job"}}, true, function(source, args)
 	local Player = Framework.Functions.GetPlayer(tonumber(args[1]))
@@ -115,7 +115,7 @@ Framework.Commands.Add("setjob", "Give a job to a player", {{name="id", help="Pl
 	else
 		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")
 	end
-end, "user")
+end, "god")
 
 Framework.Commands.Add("job", "Check job and grade", {}, false, function(source, args)
 	local Player = Framework.Functions.GetPlayer(source)
@@ -141,7 +141,7 @@ Framework.Commands.Add("clearinv", "Clear own inventory or someone else", {{name
 	else
 		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")
 	end
-end, "user")
+end, "admin")
 
 Framework.Commands.Add("ooc", "Out of character message to citizens around you", {}, false, function(source, args)
 	local message = table.concat(args, " ")
