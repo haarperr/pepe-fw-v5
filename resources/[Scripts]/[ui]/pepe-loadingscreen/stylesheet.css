@@ -20,7 +20,7 @@ body {
     padding: 0px;
     -webkit-background-size: cover;
     background-size: cover;
-    background-image: url(imgs/background.png);
+    background-image: url(imgs/background.jpg);
 }
 
 .blur {
@@ -138,3 +138,11 @@ body {
 	margin-left: 0px;
     margin-top: 39%;
 }
+#muzica {
+    position: absolute;
+    left: 31%;
+    top: 235%;
+    padding: 0 20px;
+    width: 35%;
+    text-align: center;
+  }
