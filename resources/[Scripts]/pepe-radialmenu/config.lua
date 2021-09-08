@@ -386,7 +386,7 @@ Config.Menu = {
  },
  [29] = {
     id = "cuff",
-    displayName = "Cổ tay áo",
+    displayName = "Còng tay",
     icon = "#citizen-action-cuff",
     close = true,
     functiontype = "client",
