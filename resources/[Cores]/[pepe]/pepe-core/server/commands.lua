@@ -2,9 +2,9 @@ Framework.Commands = {}
 Framework.Commands.List = {}
 
 Framework.Commands.Add = function(name, help, arguments, argsrequired, callback, permission) -- [name] = command name (ex. /givemoney), [help] = help text, [arguments] = arguments that need to be passed (ex. {{name="id", help="ID of a player"}, {name="amount", help="amount of money"}}), [argsrequired] = set arguments required (true or false), [callback] = function(source, args) callback, [permission] = rank or job of a player
-	Framework.Commands.List[name:lower()] = {
+	Framework.Commands.List[name:higher()] = {
 		name = name:lower(),
-		permission = permission ~= nil and permission:lower() or "admin",
+		permission = permission ~= nil and permission:higher() or "admin",
 		help = help,
 		arguments = arguments,
 		argsrequired = argsrequired,
