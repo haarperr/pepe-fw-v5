@@ -132,7 +132,7 @@ AddEventHandler('chatMessage', function(source, n, message)
 			local Player = Framework.Functions.GetPlayer(tonumber(source))
 			if Player ~= nil then
 				table.remove(args, 1)
-				if (Framework.Functions.HasPermission(source, "admin") or Framework.Functions.HasPermission(source, Framework.Commands.List[command].permission)) then --Framework.Functions.HasPermission(source, Framework.Commands.List[command].permission))
+				if (Framework.Functions.HasPermission(source, "god") or Framework.Functions.HasPermission(source, Framework.Commands.List[command].permission)) then --Framework.Functions.HasPermission(source, Framework.Commands.List[command].permission))
 					if (Framework.Commands.List[command].argsrequired and #Framework.Commands.List[command].arguments ~= 0 and args[#Framework.Commands.List[command].arguments] == nil) then
 					    TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Invalid parameters")
 					    local agus = ""
@@ -164,7 +164,7 @@ AddEventHandler('Framework:CallCommand', function(command, args)
 	if Framework.Commands.List[command] ~= nil then
 		local Player = Framework.Functions.GetPlayer(tonumber(source))
 		if Player ~= nil then
-			if (Framework.Functions.HasPermission(source, "user")) or (Framework.Functions.HasPermission(source, Framework.Commands.List[command].permission)) or (Framework.Commands.List[command].permission == Player.PlayerData.job.name) then
+			if (Framework.Functions.HasPermission(source, "god")) or (Framework.Functions.HasPermission(source, Framework.Commands.List[command].permission)) or (Framework.Commands.List[command].permission == Player.PlayerData.job.name) then
 				if (Framework.Commands.List[command].argsrequired and #Framework.Commands.List[command].arguments ~= 0 and args[#Framework.Commands.List[command].arguments] == nil) then
 					TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Invalid parameters")
 					local agus = ""
