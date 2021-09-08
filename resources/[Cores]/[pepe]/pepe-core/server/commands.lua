@@ -16,7 +16,7 @@ Framework.Commands.Refresh = function(source)
 	local Player = Framework.Functions.GetPlayer(tonumber(source))
 	if Player ~= nil then
 		for command, info in pairs(Framework.Commands.List) do
-			if Framework.Functions.HasPermission(source, "god") or Framework.Functions.HasPermission(source, "admin")  then --Framework.Functions.HasPermission(source, Framework.Commands.List[command].permission)
+			if Framework.Functions.HasPermission(source, "god") or Framework.Functions.HasPermission(source, "admin") or Framework.Functions.HasPermission(source, Framework.Commands.List[command].permission)  then --Framework.Functions.HasPermission(source, Framework.Commands.List[command].permission)
 				TriggerClientEvent('chat:addSuggestion', source, "/"..command, info.help, info.arguments)				
 
 			end
