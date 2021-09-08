@@ -200,111 +200,111 @@ Shared.Items = {
 	["420-choco"] 				 	 = {["name"] = "420-choco", 			  	  	["label"] = "420 socola", 			["weight"] = 200, 		["type"] = "item", 		["image"] = "420-choco.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "420 blaze it"},
 	["420-choco"] 				 	 = {["name"] = "420-choco", 			  	  	["label"] = "420 socola", 			["weight"] = 200, 		["type"] = "item", 		["image"] = "420-choco.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "420?"},
 
-	["ciggy"] 						 = {["name"] = "ciggy", 			  	  		["label"] = "Cigarette", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "cigarette.png", 			["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Cigarettes..."},
-	["beer"] 				 		 = {["name"] = "beer", 			  	  			["label"] = "Beer", 					["weight"] = 1000, 		["type"] = "item", 		["image"] = "beer.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Beer"},
-	["whiskey"] 				 	 = {["name"] = "whiskey", 			  	  		["label"] = "Whiskey", 					["weight"] = 1000, 		["type"] = "item", 		["image"] = "whiskey.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Whiskey"},
-	["glasswhiskey"] 				 = {["name"] = "glasswhiskey", 			  	  	["label"] = "Glass of Whiskey", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "glasswhiskey.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Glass of Whiskey"},
-	["glasswine"] 				 	 = {["name"] = "glasswine", 			  	  	["label"] = "Glass of Wine", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "glasswine.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Glass of Wine"},
-	["glassbeer"] 				 	 = {["name"] = "glassbeer", 			  	  	["label"] = "Glass of Beer", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "glassbeer.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Glass of Beer"},
+	["ciggy"] 						 = {["name"] = "ciggy", 			  	  		["label"] = "Thuốc lá", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "cigarette.png", 			["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Cigarettes..."},
+	["beer"] 				 		 = {["name"] = "beer", 			  	  			["label"] = "Bia", 					["weight"] = 1000, 		["type"] = "item", 		["image"] = "beer.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Beer"},
+	["whiskey"] 				 	 = {["name"] = "whiskey", 			  	  		["label"] = "Rượu mạnh", 					["weight"] = 1000, 		["type"] = "item", 		["image"] = "whiskey.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Whiskey"},
+	["glasswhiskey"] 				 = {["name"] = "glasswhiskey", 			  	  	["label"] = "Ly rượu whisky.", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "glasswhiskey.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Glass of Whiskey"},
+	["glasswine"] 				 	 = {["name"] = "glasswine", 			  	  	["label"] = "Ly rượu", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "glasswine.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Glass of Wine"},
+	["glassbeer"] 				 	 = {["name"] = "glassbeer", 			  	  	["label"] = "Ly bia", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "glassbeer.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Glass of Beer"},
 	["bloodymary"] 				 	 = {["name"] = "bloodymary", 			  	  	["label"] = "Bloody Mary", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "bloodymary.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Bloody Mary"},
-	["champagne"] 				 	 = {["name"] = "champagne", 			  	  	["label"] = "Champagne", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "champagne.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Champagne"},
-	["glasschampagne"] 				 = {["name"] = "glasschampagne", 			  	["label"] = "Glass of Champagne", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "glasschampagne.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Glass of Champagne"},
-	["dusche"] 				 		 = {["name"] = "dusche", 			  			["label"] = "Dusche Gold", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "dusche.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Dusche"},
-	["tequila"] 				 	 = {["name"] = "tequila", 			  			["label"] = "Tequila", 					["weight"] = 0, 		["type"] = "item", 		["image"] = "tequila.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Tequila"},
-	["tequilashot"] 				 = {["name"] = "tequilashot", 			  		["label"] = "Shot of Tequila", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "tequilashot.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Shot of Tequila"},
-	["whitewine"] 				 	 = {["name"] = "whitewine", 			  		["label"] = "White Wine", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "whitewine.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "White Wine"},
+	["champagne"] 				 	 = {["name"] = "champagne", 			  	  	["label"] = "Rượu sâm banh", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "champagne.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Champagne"},
+	["glasschampagne"] 				 = {["name"] = "glasschampagne", 			  	["label"] = "Ly rượu sâm banh", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "glasschampagne.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Glass of Champagne"},
+	["dusche"] 				 		 = {["name"] = "dusche", 			  			["label"] = "Vàng Dusche", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "dusche.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Dusche"},
+	["tequila"] 				 	 = {["name"] = "tequila", 			  			["label"] = "Rượu tequila.", 					["weight"] = 0, 		["type"] = "item", 		["image"] = "tequila.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Tequila"},
+	["tequilashot"] 				 = {["name"] = "tequilashot", 			  		["label"] = "Bắn rượu tequila.", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "tequilashot.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Shot of Tequila"},
+	["whitewine"] 				 	 = {["name"] = "whitewine", 			  		["label"] = "Rượu trắng", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "whitewine.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "White Wine"},
 	["pinacolada"] 				 	 = {["name"] = "pinacolada", 			  	  	["label"] = "Pina Colada", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "pinacolada.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Pina Colada"},
-	["vodka"] 				 		 = {["name"] = "vodka", 			  	  		["label"] = "Vodka", 					["weight"] = 1000, 		["type"] = "item", 		["image"] = "vodka.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Vodka"},
-	["fishrod"] 					 = {["name"] = "fishrod", 			 	  	  	["label"] = "Fishing Rod", 		    	["weight"] = 500, 		["type"] = "item", 		["image"] = "vishengel.png", 			["unique"] = true, 	    ["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Just enjoy fishing.."},
-	["fish-1"] 						 = {["name"] = "fish-1", 			 	  	  	["label"] = "Almost Goldfish", 			["weight"] = 750, 		["type"] = "item", 		["image"] = "fish-1.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "This is almost a goldfish.."},
-	["fish-2"] 						 = {["name"] = "fish-2", 			 	  	  	["label"] = "Small Perch", 				["weight"] = 1500, 		["type"] = "item", 		["image"] = "fish-2.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Beware I can sting.."},
-	["fish-3"] 						 = {["name"] = "fish-3", 			 	  	  	["label"] = "Big Pike", 				["weight"] = 2000, 		["type"] = "item", 		["image"] = "fish-3.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "What a whopper of a fish."},
-	["stripedbass"] 	 		     = {["name"] = "stripedbass", 	  	  	        ["label"] = "Fish Stripedbass", 	    ["weight"] = 500, 		["type"] = "item", 		["image"] = "stripedbass.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. stripedbass"},
-	["bluefish"] 	 		         = {["name"] = "bluefish", 	  	  		        ["label"] = "Bluefish", 			    ["weight"] = 500, 		["type"] = "item", 		["image"] = "bluefish.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. bluefish"},
-	["redfish"] 	 		         = {["name"] = "redfish", 	  	  		        ["label"] = "Red Fish", 			    ["weight"] = 500, 		["type"] = "item", 		["image"] = "redfish.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. redfish"},
-	["pacifichalibut"] 	 		     = {["name"] = "pacifichalibut", 	  	  		["label"] = "Pacifichalibut Fish", 	    ["weight"] = 500, 		["type"] = "item", 		["image"] = "pacifichalibut.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. pacifichalibut"},
-	["goldfish"] 	 		         = {["name"] = "goldfish", 	  	  		        ["label"] = "Gold Fish", 			    ["weight"] = 500, 		["type"] = "item", 		["image"] = "goldfish.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. goldfish"},
-	["largemouthbass"] 	 		     = {["name"] = "largemouthbass", 	  	  		["label"] = "Largemouthbass", 			["weight"] = 500, 		["type"] = "item", 		["image"] = "largemouthbass.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish, largemouthbass"},
-	["salmon"] 	 		             = {["name"] = "salmon", 	  	  		        ["label"] = "Salmon Fish", 			    ["weight"] = 500, 		["type"] = "item", 		["image"] = "salmon.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. salmon"},
-	["catfish"] 	 		         = {["name"] = "catfish", 	  	  		        ["label"] = "Catfish", 			     	["weight"] = 500, 		["type"] = "item", 		["image"] = "catfish.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. catfish"},
-	["tigersharkmeat"] 	 		     = {["name"] = "tigersharkmeat", 	  	  		["label"] = "Tigersharkmeat", 			["weight"] = 500, 		["type"] = "item", 		["image"] = "tigersharkmeat.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. tigersharkmeat"},
-	["stingraymeat"] 	 		     = {["name"] = "stingraymeat", 	  	  		    ["label"] = "Fish Stingraymeat", 		["weight"] = 500, 		["type"] = "item", 		["image"] = "stingraymeat.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. stingraymeat"},
-	["killerwhalemeat"] 	 		 = {["name"] = "killerwhalemeat", 	            ["label"] = "Fish Killerwhalemeat", 	["weight"] = 500, 		["type"] = "item", 		["image"] = "killerwhalemeat.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. killerwhalemeat"},
-	["fish"] 	 		             = {["name"] = "fish", 	  	  		            ["label"] = "Fish", 			     	["weight"] = 500, 		["type"] = "item", 		["image"] = "fish.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish."},
-	["fishingbait"] 	 		     = {["name"] = "fishingbait", 	  	            ["label"] = "Fishing Bait", 			["weight"] = 500, 		["type"] = "item", 		["image"] = "fishingbait.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Fishing Bait."},
-	["plasticbag"] 					 = {["name"] = "plasticbag", 			 	 	["label"] = "Plasticbag", 				["weight"] = 125, 		["type"] = "item", 		["image"] = "plasticbag.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Bag over the head and go, anyway??"},
-	["shoe"] 						 = {["name"] = "shoe", 			 	     	  	["label"] = "Old Shoe", 				["weight"] = 1500, 		["type"] = "item", 		["image"] = "shoe.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Sporty model though."},
-	["trojan_usb"] 				 	 = {["name"] = "trojan_usb", 			  	  	["label"] = "Trojan USB", 				["weight"] = 5000, 		["type"] = "item", 		["image"] = "usbplugin.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Handy software to switch off certain systems."},
-	["id-card"] 					 = {["name"] = "id-card", 			 	  	  	["label"] = "ID card", 					["weight"] = 100, 		["type"] = "item", 		["image"] = "license-id.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A card that contains all your data."},
-	["drive-card"] 			    	 = {["name"] = "drive-card", 		    	  	["label"] = "Drivers license", 			["weight"] = 100, 		["type"] = "item", 		["image"] = "license-drive.png", 		["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Evidence to show that you can drive a vehicle."},
+	["vodka"] 				 		 = {["name"] = "vodka", 			  	  		["label"] = "Rượu vodka", 					["weight"] = 1000, 		["type"] = "item", 		["image"] = "vodka.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Vodka"},
+	["fishrod"] 					 = {["name"] = "fishrod", 			 	  	  	["label"] = "Cần câu", 		    	["weight"] = 500, 		["type"] = "item", 		["image"] = "vishengel.png", 			["unique"] = true, 	    ["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Just enjoy fishing.."},
+	["fish-1"] 						 = {["name"] = "fish-1", 			 	  	  	["label"] = "Gần như cá vàng", 			["weight"] = 750, 		["type"] = "item", 		["image"] = "fish-1.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "This is almost a goldfish.."},
+	["fish-2"] 						 = {["name"] = "fish-2", 			 	  	  	["label"] = "Cá rô nhỏ", 				["weight"] = 1500, 		["type"] = "item", 		["image"] = "fish-2.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Beware I can sting.."},
+	["fish-3"] 						 = {["name"] = "fish-3", 			 	  	  	["label"] = "Pike lớn", 				["weight"] = 2000, 		["type"] = "item", 		["image"] = "fish-3.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "What a whopper of a fish."},
+	["stripedbass"] 	 		     = {["name"] = "stripedbass", 	  	  	        ["label"] = "Cá sọc", 	    ["weight"] = 500, 		["type"] = "item", 		["image"] = "stripedbass.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. stripedbass"},
+	["bluefish"] 	 		         = {["name"] = "bluefish", 	  	  		        ["label"] = "Cá xanh", 			    ["weight"] = 500, 		["type"] = "item", 		["image"] = "bluefish.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. bluefish"},
+	["redfish"] 	 		         = {["name"] = "redfish", 	  	  		        ["label"] = "Cá đỏ", 			    ["weight"] = 500, 		["type"] = "item", 		["image"] = "redfish.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. redfish"},
+	["pacifichalibut"] 	 		     = {["name"] = "pacifichalibut", 	  	  		["label"] = "Cá Pacifichalibut", 	    ["weight"] = 500, 		["type"] = "item", 		["image"] = "pacifichalibut.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. pacifichalibut"},
+	["goldfish"] 	 		         = {["name"] = "goldfish", 	  	  		        ["label"] = "Cá vàng", 			    ["weight"] = 500, 		["type"] = "item", 		["image"] = "goldfish.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. goldfish"},
+	["largemouthbass"] 	 		     = {["name"] = "largemouthbass", 	  	  		["label"] = "Largemouthbass.", 			["weight"] = 500, 		["type"] = "item", 		["image"] = "largemouthbass.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish, largemouthbass"},
+	["salmon"] 	 		             = {["name"] = "salmon", 	  	  		        ["label"] = "Cá hồi", 			    ["weight"] = 500, 		["type"] = "item", 		["image"] = "salmon.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. salmon"},
+	["catfish"] 	 		         = {["name"] = "catfish", 	  	  		        ["label"] = "Cá mèo", 			     	["weight"] = 500, 		["type"] = "item", 		["image"] = "catfish.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. catfish"},
+	["tigersharkmeat"] 	 		     = {["name"] = "tigersharkmeat", 	  	  		["label"] = "Tigersharkmeat.", 			["weight"] = 500, 		["type"] = "item", 		["image"] = "tigersharkmeat.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. tigersharkmeat"},
+	["stingraymeat"] 	 		     = {["name"] = "stingraymeat", 	  	  		    ["label"] = "Cá stingraymeat.", 		["weight"] = 500, 		["type"] = "item", 		["image"] = "stingraymeat.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. stingraymeat"},
+	["killerwhalemeat"] 	 		 = {["name"] = "killerwhalemeat", 	            ["label"] = "Cá giết người", 	["weight"] = 500, 		["type"] = "item", 		["image"] = "killerwhalemeat.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish. killerwhalemeat"},
+	["fish"] 	 		             = {["name"] = "fish", 	  	  		            ["label"] = "Cá", 			     	["weight"] = 500, 		["type"] = "item", 		["image"] = "fish.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Sea Fish."},
+	["fishingbait"] 	 		     = {["name"] = "fishingbait", 	  	            ["label"] = "Mồi câu cá", 			["weight"] = 500, 		["type"] = "item", 		["image"] = "fishingbait.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Fishing Bait."},
+	["plasticbag"] 					 = {["name"] = "plasticbag", 			 	 	["label"] = "Túi nhựa", 				["weight"] = 125, 		["type"] = "item", 		["image"] = "plasticbag.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Bag over the head and go, anyway??"},
+	["shoe"] 						 = {["name"] = "shoe", 			 	     	  	["label"] = "Giày cũ", 				["weight"] = 1500, 		["type"] = "item", 		["image"] = "shoe.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Sporty model though."},
+	["trojan_usb"] 				 	 = {["name"] = "trojan_usb", 			  	  	["label"] = "Trojan USB.", 				["weight"] = 5000, 		["type"] = "item", 		["image"] = "usbplugin.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Handy software to switch off certain systems."},
+	["id-card"] 					 = {["name"] = "id-card", 			 	  	  	["label"] = "Thẻ căn cước", 					["weight"] = 100, 		["type"] = "item", 		["image"] = "license-id.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A card that contains all your data."},
+	["drive-card"] 			    	 = {["name"] = "drive-card", 		    	  	["label"] = "Bằng lái xe", 			["weight"] = 100, 		["type"] = "item", 		["image"] = "license-drive.png", 		["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Evidence to show that you can drive a vehicle."},
 	["lawyerpass"] 					 = {["name"] = "lawyerpass", 			 	  	["label"] = "Lawyerpass", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "lawyerpass.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Only for lawyers as proof that they may represent a suspect."},
-	["bag"] 						 = {["name"] = "bag", 			 	  			["label"] = "Bag", 		    			["weight"] = 0, 		["type"] = "item", 		["image"] = "bag.png", 		    	["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "What will be in it?"},
-	["kerstkado"] 					 = {["name"] = "kerstkado", 			 	  	["label"] = "Christmas Gift", 		    ["weight"] = 0, 		["type"] = "item", 		["image"] = "kadoo.png", 		    	["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Ho Ho Ho? What will be in it?"},
+	["bag"] 						 = {["name"] = "bag", 			 	  			["label"] = "Cái túi", 		    			["weight"] = 0, 		["type"] = "item", 		["image"] = "bag.png", 		    	["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "What will be in it?"},
+	["kerstkado"] 					 = {["name"] = "kerstkado", 			 	  	["label"] = "Quà Giáng sinh", 		    ["weight"] = 0, 		["type"] = "item", 		["image"] = "kadoo.png", 		    	["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Ho Ho Ho? What will be in it?"},
 	["notenkraker"] 				 = {["name"] = "notenkraker", 			 	  	["label"] = "Nut Cracker", 		   		["weight"] = 3500, 		["type"] = "item", 		["image"] = "notenkraker.png", 		    ["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Special Christmas 2021 Event Item."},
     ["jerry_can"] 			 		 = {["name"] = "jerry_can", 					["label"] = "Jerrycan 20L", 			["weight"] = 20000, 	["type"] = "item", 		["image"] = "jerry_can.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Bit heavy"},
-	["scissor"] 				 		 = {["name"] = "scissor", 			 			["label"] = "Scissor", 					["weight"] = 250, 		["type"] = "item", 		["image"] = "switch-part-1.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A scissor to open stuff."},
+	["scissor"] 				 		 = {["name"] = "scissor", 			 			["label"] = "Cái kéo", 					["weight"] = 250, 		["type"] = "item", 		["image"] = "switch-part-1.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A scissor to open stuff."},
 
 	-- Hout
-	["wood_cut"] 		 		 	= {["name"] = "wood_cut",           			["label"] = "Cut Wood",	 				["weight"] = 1000,  	["type"] = "item", 		["image"] = "wood_cut.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Wood"},
+	["wood_cut"] 		 		 	= {["name"] = "wood_cut",           			["label"] = "Cắt gỗ",	 				["weight"] = 1000,  	["type"] = "item", 		["image"] = "wood_cut.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Wood"},
 	["wood_proc"] 		 		 	= {["name"] = "wood_proc",           			["label"] = "Proc Wood",	 			["weight"] = 1000,  	["type"] = "item", 		["image"] = "wood_proc.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Wood"},
 
 	-- Drugs --
-	["wetbud"] 						 = {["name"] = "wetbud", 			 	  	  	["label"] = "Wet bud", 					["weight"] = 240, 		["type"] = "item", 		["image"] = "wetbud.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Wetbud"},
-	["drybud"] 						 = {["name"] = "drybud", 			 	  	  	["label"] = "Dry bud", 					["weight"] = 140, 		["type"] = "item", 		["image"] = "wetbud.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Drybud"},
-	["cokeleafs"] 					 = {["name"] = "cokeleafs", 			 	  	["label"] = "Coke Leafs", 				["weight"] = 150, 		["type"] = "item", 		["image"] = "cokeleafs.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Cokeleafs"},
-	["coke"] 						 = {["name"] = "coke", 			 	  	  		["label"] = "Coke", 					["weight"] = 150, 		["type"] = "item", 		["image"] = "coke.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,    ["description"] = "A suspicious pill, try it or not ?"},
+	["wetbud"] 						 = {["name"] = "wetbud", 			 	  	  	["label"] = "Nụ ướt", 					["weight"] = 240, 		["type"] = "item", 		["image"] = "wetbud.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Wetbud"},
+	["drybud"] 						 = {["name"] = "drybud", 			 	  	  	["label"] = "Nụ khô", 					["weight"] = 140, 		["type"] = "item", 		["image"] = "wetbud.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Drybud"},
+	["cokeleafs"] 					 = {["name"] = "cokeleafs", 			 	  	["label"] = "Lá than cốc.", 				["weight"] = 150, 		["type"] = "item", 		["image"] = "cokeleafs.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Cokeleafs"},
+	["coke"] 						 = {["name"] = "coke", 			 	  	  		["label"] = "Than cốc", 					["weight"] = 150, 		["type"] = "item", 		["image"] = "coke.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,    ["description"] = "A suspicious pill, try it or not ?"},
 	-- Taco job --
 	["taco"] 		 			 	 = {["name"] = "taco",       		    		["label"] = "Taco",	 					["weight"] = 300, 		["type"] = "item", 		["image"] = "taco.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Some big taco brother"},
-	["meat"] 		 			 	 = {["name"] = "meat",       		    		["label"] = "Meat",	 					["weight"] = 100, 		["type"] = "item", 		["image"] = "meat.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,	  ["description"] = "Some big taco brother"},
-	["meath"] 						 = {["name"] = "meath", 			  	  		["label"] = "Vension", 					["weight"] = 100, 		["type"] = "item", 		["image"] = "meath.png", 	    	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Deer Venison"},
-	["leather"] 					 = {["name"] = "leather", 			  			["label"] = "Leather", 					["weight"] = 100, 		["type"] = "item", 		["image"] = "leather.png", 		    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Deer Leather"},	["lettuce"] 	 			 	 = {["name"] = "lettuce",       			    ["label"] = "Lettuce",	 				["weight"] = 100, 		["type"] = "item", 		["image"] = "lettuce.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,  ["description"] = "Some big taco brother"},
-	["taco-box"] 	 			 	 = {["name"] = "taco-box",       			    ["label"] = "Taco Box",	 				["weight"] = 100, 		["type"] = "item", 		["image"] = "taco-box.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,    ["expire"] = 5,	  ["description"] = "Some big taco brother"},
-	["taco-bag"] 	 			 	 = {["name"] = "taco-bag",       			    ["label"] = "Taco Bag",	 				["weight"] = 100, 		["type"] = "item", 		["image"] = "taco-bag.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,	  ["description"] = "Some big taco brother"},
+	["meat"] 		 			 	 = {["name"] = "meat",       		    		["label"] = "Thịt",	 					["weight"] = 100, 		["type"] = "item", 		["image"] = "meat.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,	  ["description"] = "Some big taco brother"},
+	["meath"] 						 = {["name"] = "meath", 			  	  		["label"] = "Giải khát", 					["weight"] = 100, 		["type"] = "item", 		["image"] = "meath.png", 	    	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Deer Venison"},
+	["leather"] 					 = {["name"] = "leather", 			  			["label"] = "Da thú", 					["weight"] = 100, 		["type"] = "item", 		["image"] = "leather.png", 		    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Deer Leather"},	["lettuce"] 	 			 	 = {["name"] = "lettuce",       			    ["label"] = "Lettuce",	 				["weight"] = 100, 		["type"] = "item", 		["image"] = "lettuce.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,  ["description"] = "Some big taco brother"},
+	["taco-box"] 	 			 	 = {["name"] = "taco-box",       			    ["label"] = "Hộp taco",	 				["weight"] = 100, 		["type"] = "item", 		["image"] = "taco-box.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,    ["expire"] = 5,	  ["description"] = "Some big taco brother"},
+	["taco-bag"] 	 			 	 = {["name"] = "taco-bag",       			    ["label"] = "TACO BAG.",	 				["weight"] = 100, 		["type"] = "item", 		["image"] = "taco-bag.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,	  ["description"] = "Some big taco brother"},
 	-- Burger Shot
 	["burger-bleeder"] 				 = {["name"] = "burger-bleeder", 			 	["label"] = "Bleeder", 					["weight"] = 250, 		["type"] = "item", 		["image"] = "burger-bleeder.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "One of the finest will it kill you?"},
 	["burger-moneyshot"] 			 = {["name"] = "burger-moneyshot", 			 	["label"] = "Moneyshot", 				["weight"] = 300, 		["type"] = "item", 		["image"] = "burger-moneyshot.png", 	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Is there money in here?! ?"},
-	["burger-torpedo"] 				 = {["name"] = "burger-torpedo", 			 	["label"] = "Torpedo", 					["weight"] = 310, 		["type"] = "item", 		["image"] = "burger-torpedo.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Does this not belong in a submarine."},
-	["burger-heartstopper"] 		 = {["name"] = "burger-heartstopper", 			["label"] = "Heartstopper", 			["weight"] = 2500, 		["type"] = "item", 		["image"] = "burger-heartstopper.png", 	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "My heart can not handle this."},
-	["burger-softdrink"] 			 = {["name"] = "burger-softdrink", 				["label"] = "Soda Cup", 				["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-softdrink.png", 	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Take a sippie."},
-	["burger-coffee"] 			     = {["name"] = "burger-coffee", 				["label"] = "Cup of offee", 			["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-coffee.png", 	    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Watch it, hot!"},
+	["burger-torpedo"] 				 = {["name"] = "burger-torpedo", 			 	["label"] = "Ngư lôi", 					["weight"] = 310, 		["type"] = "item", 		["image"] = "burger-torpedo.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Does this not belong in a submarine."},
+	["burger-heartstopper"] 		 = {["name"] = "burger-heartstopper", 			["label"] = "Trái tim ngưng đập", 			["weight"] = 2500, 		["type"] = "item", 		["image"] = "burger-heartstopper.png", 	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "My heart can not handle this."},
+	["burger-softdrink"] 			 = {["name"] = "burger-softdrink", 				["label"] = "Soda Cup.", 				["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-softdrink.png", 	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Take a sippie."},
+	["burger-coffee"] 			     = {["name"] = "burger-coffee", 				["label"] = "Cốc thua cuộc", 			["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-coffee.png", 	    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Watch it, hot!"},
 	["burger-fries"] 				 = {["name"] = "burger-fries", 			 	  	["label"] = "Fries", 				["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-fries.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Some nice fries"},
 	
 	["burger-bun"] 				 	 = {["name"] = "burger-bun", 			 	  	["label"] = "Burger Bun", 			["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-bun.png", 		    ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Lekker warm en knapperig."},
-	["burger-meat"] 				 = {["name"] = "burger-meat", 			 	  	["label"] = "Burger Meat", 			["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-meat.png", 		    ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Juicy meat."},
-	["burger-lettuce"] 				 = {["name"] = "burger-lettuce", 			 	["label"] = "Burger Lettuce", 				["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-lettuce.png", 	    ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Looks like poison."},
+	["burger-meat"] 				 = {["name"] = "burger-meat", 			 	  	["label"] = "Thịt burger", 			["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-meat.png", 		    ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Juicy meat."},
+	["burger-lettuce"] 				 = {["name"] = "burger-lettuce", 			 	["label"] = "Rau xà lách", 				["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-lettuce.png", 	    ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Looks like poison."},
 	
-	["burger-raw"] 				 	 = {["name"] = "burger-raw", 			 		["label"] = "Raw Meat", 				["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-raw.png", 	        ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "You can not eat this yet..."},
-	["burger-potato"] 				 = {["name"] = "burger-potato", 			 	["label"] = "Raw Potatoe", 		["weight"] = 1500, 		["type"] = "item", 		["image"] = "burger-potato.png", 	    ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Potatoe or potatoe."},
+	["burger-raw"] 				 	 = {["name"] = "burger-raw", 			 		["label"] = "Thịt sống", 				["weight"] = 125, 		["type"] = "item", 		["image"] = "burger-raw.png", 	        ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "You can not eat this yet..."},
+	["burger-potato"] 				 = {["name"] = "burger-potato", 			 	["label"] = "Khoai tây thô", 		["weight"] = 1500, 		["type"] = "item", 		["image"] = "burger-potato.png", 	    ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Potatoe or potatoe."},
 	
-	["burger-ticket"] 				 = {["name"] = "burger-ticket", 			 	["label"] = "Receipt", 	     	["weight"] = 150, 		["type"] = "item", 		["image"] = "burger-ticket.png", 	    ["unique"] = true,   	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "This contains a order that needs to be made!"},
+	["burger-ticket"] 				 = {["name"] = "burger-ticket", 			 	["label"] = "Biên nhận", 	     	["weight"] = 150, 		["type"] = "item", 		["image"] = "burger-ticket.png", 	    ["unique"] = true,   	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "This contains a order that needs to be made!"},
 	["burger-box"] 				 	 = {["name"] = "burger-box", 			 	    ["label"] = "Burger Box", 	     	    ["weight"] = 1000, 		["type"] = "item", 		["image"] = "burger-box.png", 	        ["unique"] = true,   	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "There is some delicious stuff in here!"},
 	-- butcher job --
 
-	["alivechicken"] 				 = {["name"] = "alivechicken", 			 	 	["label"] = "Alive Chicken", 			["weight"] = 1100, 		["type"] = "item", 		["image"] = "Alivechicken.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "What a beautiful chicken pls dont kill it"},
-	["slaughteredchicken"] 		     = {["name"] = "slaughteredchicken", 			["label"] = "Slaughtered Chicken", 		["weight"] = 500, 		["type"] = "item", 		["image"] = "SlaughteredChicken.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "Since you killed the chicken i hate you"},
-	["packedchicken"] 				 = {["name"] = "packedchicken", 			 	["label"] = "Packed Chicken", 			["weight"] = 200, 		["type"] = "item", 		["image"] = "packedchicken.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "So you plan to sell this chicken after what have you done ? zZzZz"},
-	["alivecow"] 				 	 = {["name"] = "alivecow", 			 	 	    ["label"] = "Alive Cow", 				["weight"] = 1300, 		["type"] = "item", 		["image"] = "alivecow.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "What a beautiful cow pls dont kill it"},
-	["alivepig"] 		     		 = {["name"] = "alivepig", 						["label"] = "Alive Pig", 				["weight"] = 1300, 		["type"] = "item", 		["image"] = "alivepig.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "What a beautiful pig pls dont kill it"},
-	["slaughteredbeef"] 			 = {["name"] = "slaughteredbeef", 			 	["label"] = "Slaughtered Beef", 		["weight"] = 1500, 		["type"] = "item", 		["image"] = "slaughteredbeef.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "Since you killed the cow i hate you"},
-	["slaughteredpig"] 				 = {["name"] = "slaughteredpig", 			 	["label"] = "Slaughtered Pig", 			["weight"] = 1500, 		["type"] = "item", 		["image"] = "slaughteredpig.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "Since you killed the pig i hate you"},
-	["packedbeef"] 		     		 = {["name"] = "packedbeef", 					["label"] = "Packed Beef", 				["weight"] = 1000, 		["type"] = "item", 		["image"] = "packedchicken.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "So you plan to sell this cow after what have you done ? zZzZz"},
-	["packedpig"] 					 = {["name"] = "packedpig", 			 		["label"] = "Packed Pig", 				["weight"] = 1000, 		["type"] = "item", 		["image"] = "packedbeef.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "So you plan to sell this pig after what have you done ? zZzZz"},
-	["coke-bag"] 			     	= {["name"] = "coke-bag", 			  			["label"] = "Bag of Coke", 			["weight"] = 250, 		["type"] = "item", 		["image"] = "coke-bag.png", 		    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Gram of coke."},
-	["packed-coke-brick"] 			= {["name"] = "packed-coke-brick", 			    ["label"] = "Packed Coke Brick", 		["weight"] = 7500, 		["type"] = "item", 		["image"] = "packaged-brick.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Packaged white powder"},
-	["pure-coke-brick"] 			= {["name"] = "pure-coke-brick", 			    ["label"] = "Pure Cocaine Brick", 		["weight"] = 4500, 		["type"] = "item", 		["image"] = "pure-coke-brick.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Dont think coke looks like this?"},
-	["coke-brick"] 					= {["name"] = "coke-brick", 			   		["label"] = "Cocaine Brick", 			["weight"] = 1550, 		["type"] = "item", 		["image"] = "coke-brick.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "The real deal"},
-	["coke-powder"] 				= {["name"] = "coke-powder", 			   		["label"] = "Cocaine Powder", 			["weight"] = 250, 		["type"] = "item", 		["image"] = "coke-powder.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Sugar?"},
-	["meth-bag"] 					= {["name"] = "meth-bag", 			   			["label"] = "Bag Meth", 				["weight"] = 250, 		["type"] = "item", 		["image"] = "meth-bag.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Blauwe suiker?"},
+	["alivechicken"] 				 = {["name"] = "alivechicken", 			 	 	["label"] = "Gà sống", 			["weight"] = 1100, 		["type"] = "item", 		["image"] = "Alivechicken.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "What a beautiful chicken pls dont kill it"},
+	["slaughteredchicken"] 		     = {["name"] = "slaughteredchicken", 			["label"] = "Gà giết mổ", 		["weight"] = 500, 		["type"] = "item", 		["image"] = "SlaughteredChicken.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "Since you killed the chicken i hate you"},
+	["packedchicken"] 				 = {["name"] = "packedchicken", 			 	["label"] = "Gà đóng gói", 			["weight"] = 200, 		["type"] = "item", 		["image"] = "packedchicken.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "So you plan to sell this chicken after what have you done ? zZzZz"},
+	["alivecow"] 				 	 = {["name"] = "alivecow", 			 	 	    ["label"] = "Bò sống", 				["weight"] = 1300, 		["type"] = "item", 		["image"] = "alivecow.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "What a beautiful cow pls dont kill it"},
+	["alivepig"] 		     		 = {["name"] = "alivepig", 						["label"] = "Lợn sống", 				["weight"] = 1300, 		["type"] = "item", 		["image"] = "alivepig.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "What a beautiful pig pls dont kill it"},
+	["slaughteredbeef"] 			 = {["name"] = "slaughteredbeef", 			 	["label"] = "Giết mổ thịt bò.", 		["weight"] = 1500, 		["type"] = "item", 		["image"] = "slaughteredbeef.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "Since you killed the cow i hate you"},
+	["slaughteredpig"] 				 = {["name"] = "slaughteredpig", 			 	["label"] = "Lợn giết mổ", 			["weight"] = 1500, 		["type"] = "item", 		["image"] = "slaughteredpig.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "Since you killed the pig i hate you"},
+	["packedbeef"] 		     		 = {["name"] = "packedbeef", 					["label"] = "Thịt bò đóng gói.", 				["weight"] = 1000, 		["type"] = "item", 		["image"] = "packedchicken.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "So you plan to sell this cow after what have you done ? zZzZz"},
+	["packedpig"] 					 = {["name"] = "packedpig", 			 		["label"] = "Lợn đóng gói", 				["weight"] = 1000, 		["type"] = "item", 		["image"] = "packedbeef.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil, ["expire"] = 14,   ["description"] = "So you plan to sell this pig after what have you done ? zZzZz"},
+	["coke-bag"] 			     	= {["name"] = "coke-bag", 			  			["label"] = "Túi Coke.", 			["weight"] = 250, 		["type"] = "item", 		["image"] = "coke-bag.png", 		    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Gram of coke."},
+	["packed-coke-brick"] 			= {["name"] = "packed-coke-brick", 			    ["label"] = "Gạch Coke đóng gói", 		["weight"] = 7500, 		["type"] = "item", 		["image"] = "packaged-brick.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Packaged white powder"},
+	["pure-coke-brick"] 			= {["name"] = "pure-coke-brick", 			    ["label"] = "Gạch cocaine nguyên chất", 		["weight"] = 4500, 		["type"] = "item", 		["image"] = "pure-coke-brick.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Dont think coke looks like this?"},
+	["coke-brick"] 					= {["name"] = "coke-brick", 			   		["label"] = "Gạch cocaine", 			["weight"] = 1550, 		["type"] = "item", 		["image"] = "coke-brick.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "The real deal"},
+	["coke-powder"] 				= {["name"] = "coke-powder", 			   		["label"] = "Bột cocaine.", 			["weight"] = 250, 		["type"] = "item", 		["image"] = "coke-powder.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Sugar?"},
+	["meth-bag"] 					= {["name"] = "meth-bag", 			   			["label"] = "Túi meth.", 				["weight"] = 250, 		["type"] = "item", 		["image"] = "meth-bag.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Blauwe suiker?"},
 	["meth-powder"] 				= {["name"] = "meth-powder", 			   		["label"] = "Meth Poeder", 				["weight"] = 250, 		["type"] = "item", 		["image"] = "meth-powder.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Wat een mooie berg met blauwe poeder joh."},
-	["meth-ingredient-1"] 			= {["name"] = "meth-ingredient-1", 			   	["label"] = "Meth Ingredient", 			["weight"] = 2500, 		["type"] = "item", 		["image"] = "meth-ingredient-1.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Lijkt wel op een ingredient voor meth?"},
-	["meth-ingredient-2"] 			= {["name"] = "meth-ingredient-2", 			   	["label"] = "Meth Ingredient", 			["weight"] = 2500, 		["type"] = "item", 		["image"] = "meth-ingredient-2.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Dit lijkt ook wel op een ingredient voor meth?"},
+	["meth-ingredient-1"] 			= {["name"] = "meth-ingredient-1", 			   	["label"] = "Thành phần meth", 			["weight"] = 2500, 		["type"] = "item", 		["image"] = "meth-ingredient-1.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Lijkt wel op een ingredient voor meth?"},
+	["meth-ingredient-2"] 			= {["name"] = "meth-ingredient-2", 			   	["label"] = "Thành phần meth", 			["weight"] = 2500, 		["type"] = "item", 		["image"] = "meth-ingredient-2.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Dit lijkt ook wel op een ingredient voor meth?"},
 	["knife"] 				 		= {["name"] = "knife", 			    			["label"] = "Mes", 						["weight"] = 1250, 		["type"] = "item", 		["image"] = "knife.png", 				["unique"] = true, 		["useable"] = false, 	["shouldClose"] = true,	   ["combinable"] = {accept = {"pure-coke-brick"}, reward = "coke-brick", RemoveToItem = false, RemoveToItem = true, anim = {["dict"] = "amb@world_human_clipboard@male@idle_a", ["lib"] = "idle_c", ["text"] = "Cutting brick..", ["timeOut"] = 7500,}}, ["description"] = "Sharp knife right."},
 	
-	["money-roll"] 					= {["name"] = "money-roll", 			   		["label"] = "Money Rolls", 			["weight"] = 25, 		["type"] = "item", 		["image"] = "money-roll.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Weer die rolletjes met geld joh.."},
-	["knife-part-1"] 				 = {["name"] = "knife-part-1", 			 	  	["label"] = "Knife Part", 			["weight"] = 450, 		["type"] = "item", 		["image"] = "knife-part-1.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = {accept = {"knife-part-2"}, reward = "weapon_knife", RemoveToItem = true, anim = {["dict"] = "amb@world_human_clipboard@male@idle_a", ["lib"] = "idle_c", ["text"] = "Combine..", ["timeOut"] = 7500,}},   ["description"] = "Looks like a component for a knife."},
-	["knife-part-2"] 				 = {["name"] = "knife-part-2", 			 	  	["label"] = "Knife Part", 			["weight"] = 450, 		["type"] = "item", 		["image"] = "knife-part-2.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = {accept = {"knife-part-1"}, reward = "weapon_knife", RemoveToItem = true, anim = {["dict"] = "amb@world_human_clipboard@male@idle_a", ["lib"] = "idle_c", ["text"] = "Combine..", ["timeOut"] = 7500,}},   ["description"] = "Looks like a component for a knife."},
-	["switch-part-1"] 				 = {["name"] = "switch-part-1", 			 	["label"] = "Switchblade Part", 	["weight"] = 450, 		["type"] = "item", 		["image"] = "switch-part-1.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = {accept = {"switch-part-2"}, reward = "weapon_switchblade", RemoveToItem = true, anim = {["dict"] = "amb@world_human_clipboard@male@idle_a", ["lib"] = "idle_c", ["text"] = "Combine..", ["timeOut"] = 7500,}},   ["description"] = "Looks like a component for a knife."},
-	["switch-part-2"] 				 = {["name"] = "switch-part-2", 			 	["label"] = "Switchblade Part", 	["weight"] = 450, 		["type"] = "item", 		["image"] = "switch-part-2.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = {accept = {"switch-part-1"}, reward = "weapon_switchblade", RemoveToItem = true, anim = {["dict"] = "amb@world_human_clipboard@male@idle_a", ["lib"] = "idle_c", ["text"] = "Combine..", ["timeOut"] = 7500,}},   ["description"] = "Looks like a component for a knife."},
+	["money-roll"] 					= {["name"] = "money-roll", 			   		["label"] = "Tiền Rolls", 			["weight"] = 25, 		["type"] = "item", 		["image"] = "money-roll.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Weer die rolletjes met geld joh.."},
+	["knife-part-1"] 				 = {["name"] = "knife-part-1", 			 	  	["label"] = "Dao một phần", 			["weight"] = 450, 		["type"] = "item", 		["image"] = "knife-part-1.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = {accept = {"knife-part-2"}, reward = "weapon_knife", RemoveToItem = true, anim = {["dict"] = "amb@world_human_clipboard@male@idle_a", ["lib"] = "idle_c", ["text"] = "Combine..", ["timeOut"] = 7500,}},   ["description"] = "Looks like a component for a knife."},
+	["knife-part-2"] 				 = {["name"] = "knife-part-2", 			 	  	["label"] = "Dao một phần", 			["weight"] = 450, 		["type"] = "item", 		["image"] = "knife-part-2.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = {accept = {"knife-part-1"}, reward = "weapon_knife", RemoveToItem = true, anim = {["dict"] = "amb@world_human_clipboard@male@idle_a", ["lib"] = "idle_c", ["text"] = "Combine..", ["timeOut"] = 7500,}},   ["description"] = "Looks like a component for a knife."},
+	["switch-part-1"] 				 = {["name"] = "switch-part-1", 			 	["label"] = "Switchblade phần", 	["weight"] = 450, 		["type"] = "item", 		["image"] = "switch-part-1.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = {accept = {"switch-part-2"}, reward = "weapon_switchblade", RemoveToItem = true, anim = {["dict"] = "amb@world_human_clipboard@male@idle_a", ["lib"] = "idle_c", ["text"] = "Combine..", ["timeOut"] = 7500,}},   ["description"] = "Looks like a component for a knife."},
+	["switch-part-2"] 				 = {["name"] = "switch-part-2", 			 	["label"] = "Switchblade phần", 	["weight"] = 450, 		["type"] = "item", 		["image"] = "switch-part-2.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = {accept = {"switch-part-1"}, reward = "weapon_switchblade", RemoveToItem = true, anim = {["dict"] = "amb@world_human_clipboard@male@idle_a", ["lib"] = "idle_c", ["text"] = "Combine..", ["timeOut"] = 7500,}},   ["description"] = "Looks like a component for a knife."},
 
 	["snspistol_part_1"] 			 = {["name"] = "snspistol_part_1", 				["label"] = "SNS Barrel", 				["weight"] = 1500, 		["type"] = "item", 		["image"] = "snspistol_part_1.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = {accept = {"snspistol_part_3"}, reward = "snspistol_stage_1", RemoveToItem = true, anim = {["dict"] = "amb@world_human_clipboard@male@idle_a", ["lib"] = "idle_c", ["text"] = "Onderdelen aan het bevestigen", ["timeOut"] = 15000,}},   ["description"] = "Loop for a SNS Pistol"},
 	["snspistol_part_2"] 			 = {["name"] = "snspistol_part_2", 				["label"] = "SNS Trigger", 				["weight"] = 1500, 		["type"] = "item", 		["image"] = "snspistol_part_2.png", 	["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,    ["combinable"] = {accept = {"snspistol_stage_1"}, reward = "weapon_snspistol_mk2", RemoveToItem = true, anim = {["dict"] = "amb@world_human_clipboard@male@idle_a", ["lib"] = "idle_c", ["text"] = "Onderdelen aan het bevestigen", ["timeOut"] = 15000,}},   ["description"] = "Trigger for a SNS Pistol"},
@@ -4938,7 +4938,7 @@ Shared.Vehicles = {
 
 Shared.Jobs = {
 	["unemployed"] = {
-		label = "Unemployed",
+		label = "Thất nghiệp",
 		payment = 50,
 		grades = {
             ['0'] = {
@@ -4949,31 +4949,31 @@ Shared.Jobs = {
 		defaultDuty = true,
 	},
 	["police"] = {
-        label = "Police Officer",
+        label = "Cảnh sát",
         grades = {
             ['0'] = {
-                name = "Cadet",
+                name = "Tập sự",
                 payment = 1000
             },
             ['1'] = {
-                name = "Officer",
+                name = "Nhân viên văn phòng",
                 payment = 1200
             },
             ['2'] = {
-                name = "Senior Officer",
+                name = "Cán bộ cao cấp",
                 payment = 1400
             },
 			['3'] = {
-                name = "Corporal",
+                name = "Hạ sĩ",
                 payment = 1600
             },
 			['4'] = {
-                name = "Sergeant",
+                name = "Trung sĩ",
 				isboss = true,
                 payment = 1800
             },
 			['5'] = {
-				name = "Chief Of Police",
+				name = "Cảnh sát trưởng",
 				isboss = true,
                 payment = 1900
             },
@@ -4981,34 +4981,34 @@ Shared.Jobs = {
         defaultDuty = true,
 	},	
 	["ambulance"] = {
-		label = "Ambulance",
+		label = "Xe cứu thương",
 		grades = {
 			['0'] = {
-                name = "In training",
+                name = "Đào tạo",
                 payment = 520
             },
 			['1'] = {
-                name = "Supporting rookie",
+                name = "Hỗ trợ người mới",
                 payment = 620
             },
 			['2'] = {
-                name = "Ambulance Driver",
+                name = "Người lái xe cứu thương",
                 payment = 720
             },
 			['3'] = {
-                name = "Docter / Nurse",
+                name = "Bác sĩ / Y tá",
                 payment = 820
             },
 			['4'] = {
-                name = "Specialist",
+                name = "Chuyên gia.",
                 payment = 920
             },
 			['5'] = {
-                name = "Physician",
+                name = "Bác sĩ",
                 payment = 1020
             },
 			['6'] = {
-				name = "Head Physician",
+				name = "Viện trưởng",
 				isboss = true,
                 payment = 1110
             },
@@ -5017,7 +5017,7 @@ Shared.Jobs = {
 	},
 
 	["trucker"] = {
-		label = "Truck Driver",
+		label = "Tài xế xe tải",
 		payment = 80,
 		grades = {
             ['0'] = {
@@ -5028,7 +5028,7 @@ Shared.Jobs = {
 		defaultDuty = true,
 	},
 	["taxi"] = {
-		label = "Taxi Driver",
+		label = "Tài xế taxi",
 		payment = 80,
 		grades = {
 			['0'] = {
