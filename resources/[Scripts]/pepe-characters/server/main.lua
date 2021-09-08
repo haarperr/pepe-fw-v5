@@ -2,7 +2,7 @@ Framework = nil
 
 TriggerEvent('Framework:GetObject', function(obj) Framework = obj end)
 
-Framework.Commands.Add("logout", "Go back to the character selection", {}, false, function(source, args)
+Framework.Commands.Add("logout", "Quay trở lại lựa chọn nhân vật", {}, false, function(source, args)
     local src = source
     local Player = Framework.Functions.GetPlayer(src)
     Framework.Player.Logout(src)
@@ -14,7 +14,7 @@ RegisterServerEvent('pepe-characters:server:loadUserData')
 AddEventHandler('pepe-characters:server:loadUserData', function(cData)
     local src = source
     if Framework.Player.Login(src, false, cData.citizenid) then
-        print('^2[pepe-CORE]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') has succesfully loaded!')
+        print('^2[pepe-CORE]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') đã tải thành công!')
         Framework.Commands.Refresh(src)
         TriggerClientEvent('pepe-spawn:client:choose:spawn', src)
         TriggerEvent("pepe-logs:server:SendLog", "joinleave", "Loaded", "green", "**".. GetPlayerName(src) .. "** ("..cData.citizenid.." | "..src..") loaded..")

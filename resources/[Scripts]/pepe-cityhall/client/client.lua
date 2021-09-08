@@ -39,7 +39,7 @@ end)
 RegisterNUICallback('requestId', function(data)
     local idType = data.idType
     TriggerServerEvent('pepe-cityhall:server:requestId', Config.IdTypes[idType])
-    TriggerClientEvent('Framework:Notify', src, "You requested a new"..Config.IdTypes[idType].label.." for $50", "success")
+    TriggerClientEvent('Framework:Notify', src, "Bạn vừa yêu cầu lấy căn cước mới"..Config.IdTypes[idType].label.." giá $50", "success")
 end)
 
 RegisterNUICallback('requestLicenses', function(data, cb)
@@ -50,7 +50,7 @@ RegisterNUICallback('requestLicenses', function(data, cb)
         if licensesMeta[type] then
             local licenseType = nil
             local label = nil
-            if type == "driver" then licenseType = "rijbewijs" label = "Driverlicense" end
+            if type == "driver" then licenseType = "rijbewijs" label = "Bằng lái xe" end
             table.insert(availableLicenses, {
                 idType = licenseType,
                 label = label

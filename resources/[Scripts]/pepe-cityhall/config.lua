@@ -4,11 +4,11 @@ Config.Location = {['X'] = -554.70, ['Y'] = -187.32, ['Z'] = 38.28}
 
 Config.IdTypes = {
     ["id-kaart"] = {
-        label = "ID-Card",
+        label = "Thẻ căn cước",
         item = "id-card"
     },
     ["rijbewijs"] = {
-        label = "Drivers License",
+        label = "Bằng lái xe",
         item = "drive-card"
     }
 }

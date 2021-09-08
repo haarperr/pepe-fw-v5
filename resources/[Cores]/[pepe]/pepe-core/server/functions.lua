@@ -103,7 +103,7 @@ end
 
 Framework.Functions.Kick = function(source, reason, setKickReason, deferrals)
 	local src = source
-	reason = "\n"..reason.."\n🔸 Kijk op onze Discord voor meer informatie: "..Framework.Config.Server.discord
+	reason = "\n"..reason.."\n🔸 Kiểm tra Discord của chúng tôi để biết thêm thông tin: "..Framework.Config.Server.discord
 	if(setKickReason ~=nil) then
 		setKickReason(reason)
 	end
@@ -228,7 +228,7 @@ Framework.Functions.IsPlayerBanned = function(source)
 	local Message = nil
 	Framework.Functions.ExecuteSql(true, "SELECT * FROM `server_bans` WHERE `steam` = '"..GetPlayerIdentifiers(source)[1].."' OR `license` = '"..GetPlayerIdentifiers(source)[2].."'", function(result)
 		if result[1] ~= nil then
-			Message = "\n🔰 Je bent verbannen van de server. \n🛑 Reden: " ..result[1].reason.. '\n🛑 Verbannen Door: ' ..result[1].bannedby.. '\n\n Onterecht verbannen of iets dergelijks? Maak een ticket aan op onze Discord.'
+			Message = "\n🔰 Bạn đã bị cấm vào máy chủ. \n🛑 Reden: " ..result[1].reason.. '\n🛑 Bị cấm bởi: ' ..result[1].bannedby.. '\n\n Nếu bạn thấy không đúng hãy liên hệ Discord.'
 			IsBanned = true
 		else
 			IsBanned = false

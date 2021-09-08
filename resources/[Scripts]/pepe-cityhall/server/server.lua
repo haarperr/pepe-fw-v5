@@ -35,5 +35,5 @@ AddEventHandler('pepe-cityhall:server:ApplyJob', function(job)
 
     Player.Functions.SetJob(job, 0)
 
-    TriggerClientEvent('Framework:Notify', src, "Congratulations with your new job as "..JobInfo.label.."", "success")
+    TriggerClientEvent('Framework:Notify', src, "Xin chúc mừng bạn đã có công việc mới là "..JobInfo.label.."", "success")
 end)

@@ -156,7 +156,7 @@ AddEventHandler("DevMode", function()
     local src = source
     --TriggerEvent("9bfc3dda2d58f3dd581b9fb0ff967e5e", src, 75)
     TriggerEvent("pepe-log:server:CreateLog", "anticheat", "Opening devtools", "orange", "**".. GetPlayerName(src) .. " tried to open devtools")
-    Framework.Functions.Kick(src, "You don't have permission...", nil, nil)
+    Framework.Functions.Kick(src, "Bạn không có quyền...", nil, nil)
 
 end)
 RegisterServerEvent('Framework:CallCommand')
