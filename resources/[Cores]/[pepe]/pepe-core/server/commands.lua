@@ -40,60 +40,60 @@ Framework.Commands.Add("tp", "Teleport đến người chơi hoặc điểm cụ
 			local z = tonumber(args[3])
 			TriggerClientEvent('Framework:Command:TeleportToCoords', source, x, y, z)
 		else
-			TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Invalid format (x, y, z)")
+			TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Định dạng sai (x, y, z)")
 		end
 	end
 end, "user")
 
-Framework.Commands.Add("addpermission", "Give perms (god/admin)", {{name="id", help="Player id"}, {name="permission", help="Permission level"}}, true, function(source, args)
+Framework.Commands.Add("addpermission", "Thêm quyền (god/admin)", {{name="id", help="ID người chơi"}, {name="permission", help="Quyền"}}, true, function(source, args)
 	local Player = Framework.Functions.GetPlayer(tonumber(args[1]))
 	local permission = tostring(args[2]):lower()
 	if Player ~= nil then
 		Framework.Functions.AddPermission(Player.PlayerData.source, permission)
 	else
-		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Player not online.")	
+		TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Người chơi không online.")	
 	end
 end, "user")
 
-Framework.Commands.Add("removepermission", "Remove perms", {{name="id", help="Player id"}}, true, function(source, args)
+Framework.Commands.Add("removepermission", "Xoá quyền", {{name="id", help="ID player"}}, true, function(source, args)
 	local Player = Framework.Functions.GetPlayer(tonumber(args[1]))
 	if Player ~= nil then
 		Framework.Functions.RemovePermission(Player.PlayerData.source)
 	else
-		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Player not online.")	
+		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")	
 	end
 end, "user")
 
-Framework.Commands.Add("sv", "Spawn vehicle", {{name="model", help="Model name of the vehicle"}}, true, function(source, args)
+Framework.Commands.Add("sv", "Lấy phương tiện nhanh", {{name="model", help="Tên phương tiện cần lấy"}}, true, function(source, args)
 	TriggerClientEvent('Framework:Command:SpawnVehicle', source, args[1])
 end, "user")
 
-Framework.Commands.Add("debug", "Debug mode on or off", {}, false, function(source, args)
+Framework.Commands.Add("debug", "Debug mode mở hoặc tắt", {}, false, function(source, args)
 	TriggerClientEvent('koil-debug:toggle', source)
 end, "user")
 
-Framework.Commands.Add("closenui", "Close nui", {}, false, function(source, args)
+Framework.Commands.Add("closenui", "Đóng nui", {}, false, function(source, args)
 	TriggerClientEvent('pepe-core:client:closenui', source)
 end)
 
-Framework.Commands.Add("opennui", "Open nui", {}, false, function(source, args)
+Framework.Commands.Add("opennui", "Mở nui", {}, false, function(source, args)
 	TriggerClientEvent('pepe-core:client:opennui', source)
 end)
 
-Framework.Commands.Add("dv", "Delete vehicle", {}, false, function(source, args)
+Framework.Commands.Add("dv", "Xoá phương tiện", {}, false, function(source, args)
 	TriggerClientEvent('Framework:Command:DeleteVehicle', source)
 end, "user")
 
-Framework.Commands.Add("tpm", "Teleport to marker", {}, false, function(source, args)
+Framework.Commands.Add("tpm", "Teleport đến điểm đánh dấu trên bản đồ", {}, false, function(source, args)
 	TriggerClientEvent('Framework:Command:GoToMarker', source)
 end, "user")
 
-Framework.Commands.Add("givemoney", "Give money to a player", {{name="id", help="Player id"},{name="moneytype", help="What sort of money (cash, bank, crypto)"}, {name="amount", help="Amount"}}, true, function(source, args)
+Framework.Commands.Add("givemoney", "Đưa tiền cho người chơi", {{name="id", help="ID người chơi"},{name="moneytype", help="Loại tiền (cash hoặc bank)"}, {name="amount", help="Số tiền"}}, true, function(source, args)
 	local Player = Framework.Functions.GetPlayer(tonumber(args[1]))
 	if Player ~= nil then
 		Player.Functions.AddMoney(tostring(args[2]), tonumber(args[3]))
 	else
-		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Player not online.")
+		TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Người chơi không online.")
 	end
 end, "user")
 
@@ -102,7 +102,7 @@ Framework.Commands.Add("setmoney", "Set money for player", {{name="id", help="Pl
 	if Player ~= nil then
 		Player.Functions.SetMoney(tostring(args[2]), tonumber(args[3]))
 	else
-		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Player not online.")
+		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")
 	end
 end, "user")
 
@@ -113,7 +113,7 @@ Framework.Commands.Add("setjob", "Give a job to a player", {{name="id", help="Pl
 			TriggerClientEvent('chatMessage', source, "SYSTEM", "warning", "Job format incorrect")
 		end
 	else
-		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Player not online.")
+		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")
 	end
 end, "user")
 
@@ -139,7 +139,7 @@ Framework.Commands.Add("clearinv", "Clear own inventory or someone else", {{name
 	if Player ~= nil then
 		Player.Functions.ClearInventory()
 	else
-		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Player not online.")
+		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Người chơi không online.")
 	end
 end, "user")
 
