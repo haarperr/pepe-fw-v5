@@ -144,7 +144,7 @@ AddEventHandler('chatMessage', function(source, n, message)
 						Framework.Commands.List[command].callback(source, args)
 					end
 				else
-					TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "No access to this command")
+					TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Bạn không có quyền truy cập hành động này!")
 				end
 			end
 		end
