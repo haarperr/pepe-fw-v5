@@ -767,49 +767,49 @@ Config.SubMenus = {
      functionName = "Framework:Command:DeleteVehicle"
     },
     ['judge:tablet'] = {
-     title = "Judge Tablet",
+     title = "Thẩm phán Tablet.",
      icon = "#police-action-tablet",
      close = true,
      functiontype = "client",
      functionName = "pepe-judge:client:toggle"
     },
     ['judge:job'] = {
-     title = "Hire Lawyer",
+     title = "Thuê luật sư.",
      icon = "#judge-actions",
      close = true,
      functiontype = "client",
      functionName = "pepe-judge:client:lawyer:add:closest"
     },
     ['citizen:contact'] = {
-     title = "Share Contact",
+     title = "Chia sẻ danh bạ",
      icon = "#citizen-contact",
      close = true,
      functiontype = "client",
      functionName = "pepe-phone:client:GiveContactDetails"
     },
     ['citizen:escort'] = {
-     title = "Escort",
+     title = "Hộ tống",
      icon = "#citizen-action-escort",
      close = true,
      functiontype = "client",
      functionName = "pepe-police:client:escort:closest"
     },
     ['citizen:steal'] = {
-     title = "Rob",
+     title = "Cướp",
      icon = "#citizen-action-steal",
      close = true,
      functiontype = "client",
      functionName = "pepe-police:client:steal:closest"
     },
     ['citizen:vehicle:getout'] = {
-     title = "Out Vehicle",
+     title = "Ra khỏi xe",
      icon = "#citizen-put-out-veh",
      close = true,
      functiontype = "client",
      functionName = "pepe-police:client:SetPlayerOutVehicle"
     },
     ['citizen:vehicle:getin'] = {
-     title = "In Vehicle",
+     title = "Vào xe",
      icon = "#citizen-put-in-veh",
      close = true,
      functiontype = "client",
@@ -823,20 +823,20 @@ Config.SubMenus = {
         functionName = "pepe-illegal:client:toggle:corner:selling"
     },
     ['vehicle:flip'] = {
-     title = "Flip Vehicle",
+     title = "Lật phương tiện",
      icon = "#citizen-action-vehicle",
      close = true,
      functiontype = "client",
      functionName = "pepe-radialmenu:client:flip:vehicle"
     },
     ['vehicle:key'] = {
-     title = "Give Keys",
+     title = "Đưa chìa khóa",
      icon = "#citizen-action-vehicle-key",
      close = true,
      functiontype = "client",
      functionName = "pepe-vehiclekeys:client:give:key"
     },
-    ['vehicle:extra'] = {
+  --[[  ['vehicle:extra'] = {
         title = "Extra1",
         icon = "#citizen-action-vehicle",
         close = false,
@@ -883,10 +883,10 @@ Config.SubMenus = {
         functionParameters = 5,
         functiontype = "client",
         functionName = "pepe-radialmenu:client:setExtra"
-    },
+    },]]--
 
     ['vehicle:door:left:front'] = {
-     title = "Left Front",
+     title = "Cửa trước bên trái",
      icon = "#global-arrow-left",
      close = true,
      functionParameters = 0,
@@ -894,7 +894,7 @@ Config.SubMenus = {
      functionName = "pepe-radialmenu:client:open:door"
     },
     ['vehicle:door:motor'] = {
-     title = "Hood",
+     title = "Mui xe",
      icon = "#global-arrow-up",
      close = true,
      functionParameters = 4,
@@ -902,7 +902,7 @@ Config.SubMenus = {
      functionName = "pepe-radialmenu:client:open:door"
     },
     ['vehicle:door:right:front'] = {
-     title = "Right Front",
+     title = "Cửa trước bên phải",
      icon = "#global-arrow-right",
      close = true,
      functionParameters = 1,
@@ -910,7 +910,7 @@ Config.SubMenus = {
      functionName = "pepe-radialmenu:client:open:door"
     },
     ['vehicle:door:right:back'] = {
-     title = "Right Back",
+     title = "Cửa phải phía sau",
      icon = "#global-arrow-right",
      close = true,
      functionParameters = 3,
@@ -918,7 +918,7 @@ Config.SubMenus = {
      functionName = "pepe-radialmenu:client:open:door"
     },
     ['vehicle:door:trunk'] = {
-     title = "Trunk",
+     title = "Cốp xe",
      icon = "#global-arrow-down",
      close = true,
      functionParameters = 5,
@@ -926,7 +926,7 @@ Config.SubMenus = {
      functionName = "pepe-radialmenu:client:open:door"
     },
     ['vehicle:door:left:back'] = {
-     title = "Left Back",
+     title = "Cửa trái phía sau",
      icon = "#global-arrow-left",
      close = true,
      functionParameters = 2,
@@ -936,35 +936,35 @@ Config.SubMenus = {
 
 
     ['tow:hook'] = {
-     title = "Tow Vehicle",
+     title = "Xe kéo",
      icon = "#citizen-action-vehicle",
      close = true,
      functiontype = "client",
      functionName = "pepe-tow:client:hook:car"
     },
     ['tow:npc'] = {
-     title = "Toggle NPC",
+     title = "Kéo xe NPC",
      icon = "#citizen-action",
      close = true,
      functiontype = "client",
      functionName = "pepe-tow:client:toggle:npc"
     },
     ['taxi:togglemeter'] = {
-        title = "Show/Hide Meter",
+        title = "Hiện/ẩn đồng hồ",
         icon = "#taxi-meter",
         close = true,
         functiontype = "client",
         functionName = "pepe-taxi:client:toggleMeter"
        },
        ['taxi:mouse'] = {
-        title = "Start/Stop Meter",
+        title = "Bắt đầu/Dừng đồng hồ",
         icon = "#taxi-start",
         close = true,
         functiontype = "client",
         functionName = "pepe-taxi:client:enableMeter"
        },
        ['taxi:npc'] = {
-        title = "NPC Missions",
+        title = "Đón NPC",
         icon = "#taxi-npc",
         close = true,
         functiontype = "client",
@@ -974,21 +974,21 @@ Config.SubMenus = {
 
 
     ['garage:putin'] = {
-     title = "Park Vehicle",
+     title = "Đậu xe",
      icon = "#citizen-put-in-veh",
      close = true,
      functiontype = "client",
      functionName = "pepe-garages:client:check:owner"
     },
     ['garage:getout'] = {
-     title = "Take Vehicle",
+     title = "Đi xe",
      icon = "#citizen-put-out-veh",
      close = true,
      functiontype = "client",
      functionName = "pepe-garages:client:set:vehicle:out:garage"
     }, 
     ['house:setstash'] = {
-     title = "Set Stash",
+     title = "Đặt thùng rác",
      icon = "#citizen-put-out-veh",
      close = true,
      functionParameters = 'stash',
@@ -996,7 +996,7 @@ Config.SubMenus = {
      functionName = "pepe-housing:client:set:location"
     },
     ['house:setlogout'] = {
-     title = "Set Logout",
+     title = "Đặt logut.",
      icon = "#citizen-put-out-veh",
      close = true,
      functionParameters = 'logout',
@@ -1004,7 +1004,7 @@ Config.SubMenus = {
      functionName = "pepe-housing:client:set:location"
     },
     ['house:setclothes'] = {
-     title = "Set Wardrobe",
+     title = "Đặt tủ quần áo",
      icon = "#citizen-put-out-veh",
      close = true,
      functionParameters = 'clothes',
@@ -1012,7 +1012,7 @@ Config.SubMenus = {
      functionName = "pepe-housing:client:set:location"
     },
     ['house:givekey'] = {
-     title = "Give Keys",
+     title = "Đưa chìa khóa",
      icon = "#citizen-action-vehicle-key",
      close = true,
      functiontype = "client",
