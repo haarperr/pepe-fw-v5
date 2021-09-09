@@ -68,7 +68,7 @@ Citizen.CreateThread(function()
                     hunger, thirst, stress = PlayerData.metadata["hunger"], PlayerData.metadata["thirst"], PlayerData.metadata["stress"]
                 end
             end)
-            speed = GetEntitySpeed(GetVehiclePedIsIn(PlayerPedId(), false)) * 2.236936
+            speed = GetEntitySpeed(GetVehiclePedIsIn(PlayerPedId(), false)) * 3.6
             local Plate = GetVehicleNumberPlateText(GetVehiclePedIsIn(PlayerPedId()))
             local pos = GetEntityCoords(PlayerPedId())
             local time = CalculateTimeToDisplay()
@@ -113,7 +113,7 @@ Citizen.CreateThread(function()
     while true do
         if Framework ~= nil and isLoggedIn and QBHud.Show then
             if IsPedInAnyVehicle(PlayerPedId(), false) then
-                speed = GetEntitySpeed(GetVehiclePedIsIn(PlayerPedId(), false)) * 2.236936
+                speed = GetEntitySpeed(GetVehiclePedIsIn(PlayerPedId(), false)) * 3.6
                 if speed >= QBStress.MinimumSpeed then
                     TriggerServerEvent('pepe-hud:server:gain:stress', math.random(1, 2))
                 end
