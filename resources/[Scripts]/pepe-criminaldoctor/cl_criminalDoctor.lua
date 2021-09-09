@@ -70,7 +70,7 @@ Citizen.CreateThread(function()
       -- local pDeath = 
       for k,v in ipairs(Config.Doctor) do
           if (GetDistanceBetweenCoords(coords, v.x, v.y, v.z, true) < 2.0) then     
-              Draw3DText(v.x, v.y, v.z, "~b~[E]~s~ to get help [~g~$" .. Config.toPay .. "~s~]" )
+              Draw3DText(v.x, v.y, v.z, "~b~[E]~s~ để được giúp đỡ [~g~$" .. Config.toPay .. "~s~]" )
               -- Framework.Functions.GetPlayerData(function(PlayerData)
 
               if IsControlJustReleased(0, 38) and GetDistanceBetweenCoords(coords, v.x, v.y, v.z, true) < 3.0 and  IsEntityDead(playerPed) then 
@@ -81,7 +81,7 @@ Citizen.CreateThread(function()
               elseif IsControlJustReleased(0, 38) and IsEntityDead(playerPed) and CurrentBed ~= nil then
                 -- exports['mythic_notify']:DoHudText('error', 'You are not hurt!', { ['background-color'] = 'red', ['color'] = '#fff' })
                 
-                Framework.Functions.Notify("You are not injured", "error")
+                Framework.Functions.Notify("Bạn không bị thương", "error")
               end
             -- end)
           end
@@ -138,7 +138,7 @@ AddEventHandler("chip_cDoc:getHelp", function()
     TaskPlayAnim(doc, 'mini@repair', 'fixing_a_ped', 8.0, -8.0, -1, 1, 0, false, false, false)
   end
 
-Framework.Functions.Progressbar("use_bandage", "You are being treated", 60000, false, true, {
+Framework.Functions.Progressbar("use_bandage", "Bạn đang được chữa trị", 60000, false, true, {
   disableMovement = true,
   disableCarMovement = true,
 disableMouse = false,

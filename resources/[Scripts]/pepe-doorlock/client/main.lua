@@ -130,14 +130,14 @@ AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
 		    					TriggerServerEvent('Framework:Server:RemoveItem', 'advancedlockpick', 1)
 		    					TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['advancedlockpick'], "remove")
 		    				end
-		    				Framework.Functions.Notify('You failed..', 'error', 2500)
+		    				Framework.Functions.Notify('Bạn đã thất bại..', 'error', 2500)
 		    			end
 					end)
 					else
-					 Framework.Functions.Notify('This lockpick aint strong enough..', 'error', 2500)
+					 Framework.Functions.Notify('Khóa này đủ mạnh..', 'error', 2500)
 				end
 			else
-				Framework.Functions.Notify('This door has a massive lock on it..', 'error', 2500)
+				Framework.Functions.Notify('Cánh cửa này có một khóa lớn trên đó..', 'error', 2500)
 			end
 		end
 	end
@@ -204,12 +204,12 @@ function LockpickFinish(Success)
  		disableCombat = true,
  	}, {}, {}, {}, function() -- Done
  		ClearPedTasks(PlayerPedId())
- 		Framework.Functions.Notify('You unlocked the door!', 'success', 2500)
+ 		Framework.Functions.Notify('Bạn đã mở khóa cửa!', 'success', 2500)
  		SetDoorLock(DoorValue, DoorKey)
  	end, function() -- Cancel
  		openingDoor = false
  		ClearPedTasks(PlayerPedId())
- 		Framework.Functions.Notify("Process Canceled..", "error")
+ 		Framework.Functions.Notify("Quá trình bị hủy..", "error")
  	end)
  else
      Framework.Functions.Notify('You failed..', 'error', 2500)

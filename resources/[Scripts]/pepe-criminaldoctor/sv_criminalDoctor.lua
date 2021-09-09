@@ -35,7 +35,7 @@ AddEventHandler("emma:chargehim", function(item, count)
             Player.Functions.RemoveMoney('cash', Config.toPay)
             TriggerClientEvent("chip_cDoc:getHelp", src)
 		else
-            TriggerClientEvent('Framework:Notify', src, 'You dont have enough money.', 'error')
+            TriggerClientEvent('Framework:Notify', src, 'Bạn không có đủ tiền.', 'error')
 		end
     end
     
