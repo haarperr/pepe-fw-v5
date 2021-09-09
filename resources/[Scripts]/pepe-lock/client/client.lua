@@ -59,7 +59,7 @@ RegisterNUICallback('success', function()
         --if vehicle ~= nil then
         local lockpickTime = 2000
         LockpickDoorAnim(lockpickTime)
-        Framework.Functions.Progressbar("veh_slot", "Forcing ignition..", lockpickTime, false, true, {
+        Framework.Functions.Progressbar("veh_slot", "Buộc đánh lửa...", lockpickTime, false, true, {
             disableMovement = true,
             disableCarMovement = true,
             disableMouse = false,
@@ -71,10 +71,10 @@ RegisterNUICallback('success', function()
         }, {}, {}, function() -- Done
             openingDoor = false
             ClearPedTasks(PlayerPedId())
-            Framework.Functions.Notify("Lockpick succesful!", 'success')
+            Framework.Functions.Notify("Lockpick thành công!", 'success')
             HasKey = true
             SetVehicleDoorsLocked(Vehicle, 1)
-            Framework.Functions.Notify("Vehicle lockpicked!", 'success')
+            Framework.Functions.Notify("Phương tiện bị khóa!", 'success')
             TriggerEvent('pepe-vehicleley:client:blink:lights', Vehicle)
             TriggerServerEvent("pepe-sound:server:play:distance", 5, "car-unlock", 0.2)
             StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
@@ -87,7 +87,7 @@ RegisterNUICallback('success', function()
         end, function() -- Cancel
             openingDoor = false
             ClearPedTasks(PlayerPedId())
-            Framework.Functions.Notify("Lockpick canceled..", "error")
+            Framework.Functions.Notify("Lockpick hủy bỏ..", "error")
         end)
         Citizen.CreateThread(function()
             while openingDoor do

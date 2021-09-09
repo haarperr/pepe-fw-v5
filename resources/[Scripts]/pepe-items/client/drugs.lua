@@ -4,7 +4,7 @@ local OnWeed = false
 RegisterNetEvent('pepe-items:client:use:joint')
 AddEventHandler('pepe-items:client:use:joint', function()
   Citizen.SetTimeout(1000, function()
-    Framework.Functions.Progressbar("smoke-joint", "Smoking joint..", 4500, false, true, {
+    Framework.Functions.Progressbar("smoke-joint", "Đang hút thuốc..", 4500, false, true, {
      disableMovement = false,
      disableCarMovement = false,
      disableMouse = false,
@@ -26,7 +26,7 @@ end)
 RegisterNetEvent("pepe-items:client:use:oxy")
 AddEventHandler("pepe-items:client:use:oxy", function()
   Citizen.SetTimeout(1000, function()
-    Framework.Functions.Progressbar("snort_coke", "Taking Oxy..", 1500, false, true, {
+    Framework.Functions.Progressbar("snort_coke", "Đang dùng oxy...", 1500, false, true, {
         disableMovement = false,
         disableCarMovement = false,
         disableMouse = false,
@@ -45,7 +45,7 @@ AddEventHandler("pepe-items:client:use:oxy", function()
         --Effectlsd()
     end, function() -- Cancel
         StopAnimTask(PlayerPedId(), "mp_suicide", "pill", 1.0)
-        Framework.Functions.Notify("Canceled..", "error")
+        Framework.Functions.Notify("Hủy bỏ..", "error")
     end)
   end)
 end)
@@ -75,7 +75,7 @@ AddEventHandler("pepe-items:client:use:coke", function()
         CokeBagEffect()
     end, function() -- Cancel
         StopAnimTask(PlayerPedId(), "switch@trevor@trev_smoking_meth", "trev_smoking_meth_loop", 1.0)
-        Framework.Functions.Notify("Canceled..", "error")
+        Framework.Functions.Notify("Hủy bỏ..", "error")
     end)
   end)
 end)
@@ -100,7 +100,7 @@ AddEventHandler("pepe-items:client:use:lsd", function()
         Effectlsd()
     end, function() -- Cancel
         StopAnimTask(PlayerPedId(), "mp_suicide", "pill", 1.0)
-        Framework.Functions.Notify("Canceled..", "error")
+        Framework.Functions.Notify("Hủy bỏ..", "error")
     end)
   end)
 end)

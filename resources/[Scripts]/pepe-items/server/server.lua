@@ -256,7 +256,7 @@ end)
 Framework.Functions.CreateUseableItem("bag", function(source, item)
     local Player = Framework.Functions.GetPlayer(source)
     TriggerClientEvent("pepe-inventory:bag:UseBag", source)
-    TriggerEvent("pepe-log:server:CreateLog", "inventory", "Bags", "white", "Player opened a bag **"..GetPlayerName(source).."** Citizen ID: **"..Player.PlayerData.citizenid.. "**", false)
+    TriggerEvent("pepe-log:server:CreateLog", "inventory", "Bags", "white", "Người chơi mở một cái túi **"..GetPlayerName(source).."** Citizen ID: **"..Player.PlayerData.citizenid.. "**", false)
 end)
 
 Framework.Functions.CreateUseableItem("armor", function(source, item)
@@ -432,7 +432,7 @@ Framework.Functions.CreateUseableItem("coin", function(source, item)
     end
 end)
 
-Framework.Commands.Add("dice", "Play some dice!", {{name="amount", help="Amounts of dices"}, {name="zijdes", help="How many sides?"}}, true, function(source, args)
+Framework.Commands.Add("dice", "Chơi xúc xắc!", {{name="amount", help="Số lượng súc sắc"}, {name="zijdes", help="Có bao nhiêu mặt.?"}}, true, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     local DiceItems = Player.Functions.GetItemByName("dice")
     if args[1] ~= nil and args[2] ~= nil then 
@@ -442,10 +442,10 @@ Framework.Commands.Add("dice", "Play some dice!", {{name="amount", help="Amounts
          if (Sides > 0 and Sides <= 20) and (Amount > 0 and Amount <= 5) then 
              TriggerClientEvent('pepe-items:client:dobbel', source, Amount, Sides)
          else
-             TriggerClientEvent('Framework:Notify', source, "To many dices 0 (max: 5) or too many sides 0 (max: 20)", "error", 3500)
+             TriggerClientEvent('Framework:Notify', source, "Có bao nhiêu mặt 0 (tối đa: 5) hoặc quá nhiều mặt 0 (tối đa: 20)", "error", 3500)
          end
       else
-        TriggerClientEvent('Framework:Notify', source, "You dont have any dices..", "error", 3500)
+        TriggerClientEvent('Framework:Notify', source, "Bạn không có bất kỳ súc sắc nào..", "error", 3500)
       end
   end
 end)
@@ -457,12 +457,12 @@ Framework.Functions.CreateUseableItem("ciggy", function(source, item)
     end
 end)
 
-Framework.Commands.Add("armoroff", "Take of your armor", {}, false, function(source, args)
+Framework.Commands.Add("armoroff", "Lấy áo giáp của bạn", {}, false, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("pepe-items:client:reset:armor", source)
     else
-        TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "This command is for emergency personal")
+        TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Lệnh này là dành cho cá nhân khẩn cấp")
     end
 end)
 

@@ -1,7 +1,7 @@
 Config = Config or {}
 
 Config.ScrapyardLocations = {
-    [1] = {['Name'] = 'Yellow Jack', ['X'] = 2352.27, ['Y'] = 3133.19, ['Z'] = 48.20},
+    [1] = {['Name'] = 'Khu rã xe', ['X'] = 2352.27, ['Y'] = 3133.19, ['Z'] = 48.20},
    -- [2] = {['Name'] = 'Secret Location', ['X'] = 2352.27, ['Y'] = 3133.19, ['Z'] = 48.20}
 }
 

@@ -20,7 +20,7 @@ AddEventHandler('pepe-items:client:drink', function(ItemName, PropName)
 	--TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items[ItemName], "remove")
  Citizen.SetTimeout(1000, function()
  	TriggerEvent('pepe-assets:addprop:with:anim', PropName, 'amb@world_human_drinking@coffee@male@idle_a', "idle_c", 10000)
- 	Framework.Functions.Progressbar("drink", "Drinking..", 6000, false, true, {
+ 	Framework.Functions.Progressbar("drink", "Đang uống..", 6000, false, true, {
 		disableMovement = true,
 		disableCarMovement = false,
 		disableMouse = false,
@@ -30,7 +30,7 @@ AddEventHandler('pepe-items:client:drink', function(ItemName, PropName)
 		 TriggerServerEvent("Framework:Server:SetMetaData", "thirst", Framework.Functions.GetPlayerData().metadata["thirst"] + math.random(20, 35))
 	 end, function()
 		exports['pepe-assets']:RemoveProp()
- 		Framework.Functions.Notify("Cancelled..", "error")
+ 		Framework.Functions.Notify("Hủy bỏ..", "error")
 		 TriggerServerEvent('Framework:Server:AddItem', ItemName, 1)
 		 --TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items[ItemName], "add")
  	end)
@@ -47,7 +47,7 @@ AddEventHandler('pepe-items:client:drink:alcohol', function(ItemName, PropName)
     			TriggerEvent('pepe-inventory:client:set:busy', true)
     			exports['pepe-assets']:RequestAnimationDict("amb@world_human_drinking@coffee@male@idle_a")
     			TaskPlayAnim(PlayerPedId(), 'amb@world_human_drinking@coffee@male@idle_a', "idle_c", 8.0, 1.0, -1, 49, 0, 0, 0, 0)
-    	 		Framework.Functions.Progressbar("drink", "Drinking..", 10000, false, true, {
+    	 		Framework.Functions.Progressbar("drink", "Đang uống..", 10000, false, true, {
     	 			disableMovement = false,
     	 			disableCarMovement = false,
     	 			disableMouse = false,
@@ -80,7 +80,7 @@ AddEventHandler('pepe-items:client:drink:slushy', function()
 	--TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['slushy'], "remove")
  Citizen.SetTimeout(1000, function()
  	TriggerEvent('pepe-assets:addprop:with:anim', 'Cup', 'amb@world_human_drinking@coffee@male@idle_a', "idle_c", 10000)
- 	Framework.Functions.Progressbar("drink", "Drinking..", 6000, false, true, {
+ 	Framework.Functions.Progressbar("drink", "Đang uống..", 6000, false, true, {
 		disableMovement = true,
 		disableCarMovement = false,
 		disableMouse = false,
@@ -108,7 +108,7 @@ AddEventHandler('pepe-items:client:eat', function(ItemName, PropName)
 				TriggerEvent('pepe-inventory:client:set:busy', true)
 				exports['pepe-assets']:RequestAnimationDict("mp_player_inteat@burger")
 				TaskPlayAnim(PlayerPedId(), 'mp_player_inteat@burger', 'mp_player_int_eat_burger', 8.0, 1.0, -1, 49, 0, 0, 0, 0)
- 				Framework.Functions.Progressbar("eat", "Eating..", 10000, false, true, {
+ 				Framework.Functions.Progressbar("eat", "Đang ăn..", 10000, false, true, {
  					disableMovement = false,
  					disableCarMovement = false,
  					disableMouse = false,
@@ -146,7 +146,7 @@ AddEventHandler('pepe-items:client:use:armor', function()
 	if CurrentArmor + 33 >= 100 or CurrentArmor >= 100 then NewArmor = 100 end
 	TriggerServerEvent('Framework:Server:RemoveItem', 'armor', 1)
 	--TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['armor'], "remove")
-     Framework.Functions.Progressbar("vest", "Putting on vest..", 1000, false, true, {
+     Framework.Functions.Progressbar("vest", "Đang mặc..", 1000, false, true, {
 		disableMovement = true,
 		disableCarMovement = false,
 		disableMouse = false,
@@ -154,14 +154,14 @@ AddEventHandler('pepe-items:client:use:armor', function()
      }, {}, {}, {}, function() -- Done
    	 	 SetPedArmour(PlayerPedId(), NewArmor)
 		 TriggerServerEvent('pepe-hospital:server:save:health:armor', GetEntityHealth(PlayerPedId()), GetPedArmour(PlayerPedId()))
-     	 Framework.Functions.Notify("Success", "success")
+     	 Framework.Functions.Notify("Thành công", "success")
      end, function()
-     	Framework.Functions.Notify("Cancelled..", "error")
+     	Framework.Functions.Notify("Hủy bỏ..", "error")
 		 TriggerServerEvent('Framework:Server:AddItem', 'armor', 1)
     	 --TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['armor'], "add")
      end)
  else
-	Framework.Functions.Notify("You are already wearing an armor..", "error")
+	Framework.Functions.Notify("Bạn đã mặc áo giáp..", "error")
  end
 end)
 
@@ -172,7 +172,7 @@ AddEventHandler("pepe-items:client:use:heavy", function()
     if Framework.Functions.GetPlayerData().charinfo.gender == 1 then
       Sex = "Vrouw"
     end
-    Framework.Functions.Progressbar("use_heavyarmor", "Putting on vest..", 5000, false, true, {
+    Framework.Functions.Progressbar("use_heavyarmor", "Đang mặc..", 5000, false, true, {
 		disableMovement = true,
 		disableCarMovement = false,
 		disableMouse = false,
@@ -206,7 +206,7 @@ RegisterNetEvent("pepe-items:client:reset:armor")
 AddEventHandler("pepe-items:client:reset:armor", function()
     local ped = PlayerPedId()
     if currentVest ~= nil and currentVestTexture ~= nil then 
-        Framework.Functions.Progressbar("remove-armor", "Taking off vest..", 2500, false, true, {
+        Framework.Functions.Progressbar("remove-armor", "Đang cởi áo..", 2500, false, true, {
             disableMovement = true,
             disableCarMovement = false,
             disableMouse = false,
@@ -218,7 +218,7 @@ AddEventHandler("pepe-items:client:reset:armor", function()
 			TriggerServerEvent('pepe-hospital:server:save:health:armor', GetEntityHealth(PlayerPedId()), GetPedArmour(PlayerPedId()))
         end)
     else
-        Framework.Functions.Notify("You are not wearing a vest.", "error")
+        Framework.Functions.Notify("Bạn không mặc áo vest.", "error")
     end
 end)
 
@@ -246,7 +246,7 @@ AddEventHandler('pepe-items:client:use:repairkit', function()
 			SetVehicleDoorOpen(Vehicle, VehicleDoor, false, false)
 			TriggerServerEvent('Framework:Server:RemoveItem', 'repairkit', 1)
 			Citizen.Wait(450)
-			Framework.Functions.Progressbar("repair_vehicle", "Working On Vehicle..", math.random(10000, 20000), false, true, {
+			Framework.Functions.Progressbar("repair_vehicle", "Đang sửa xe..", math.random(10000, 20000), false, true, {
 				disableMovement = true,
 				disableCarMovement = true,
 				disableMouse = false,
@@ -261,19 +261,19 @@ AddEventHandler('pepe-items:client:use:repairkit', function()
 				end
 				SetVehicleDoorShut(Vehicle, VehicleDoor, false)
 				StopAnimTask(PlayerPedId(), "mini@repair", "fixing_a_player", 1.0)
-				Framework.Functions.Notify("Vehicle has been repaired", "success")
+				Framework.Functions.Notify("Xe đã được sửa chữa", "success")
 				SetVehicleEngineHealth(Vehicle, NewHealth) 
 				for i = 1, 6 do
 				 SetVehicleTyreFixed(Vehicle, i)
 				end
 			end, function() -- Cancel
 				StopAnimTask(PlayerPedId(), "mini@repair", "fixing_a_player", 1.0)
-				Framework.Functions.Notify("Failed!", "error")
+				Framework.Functions.Notify("Thất bại!", "error")
 				SetVehicleDoorShut(Vehicle, VehicleDoor, false)
 			end)
 		end
 	 else
-		Framework.Functions.Notify("No vehicle nearby", "error")
+		Framework.Functions.Notify("Không có phương tiện ở gần", "error")
 	end
 	end	
 end)
@@ -343,7 +343,7 @@ function CreateRollText(rollTable, sides)
             s = s .. " | " .. roll .. "/" .. sides
         end
     end
-    s = s .. " | (Total: ~g~"..total.."~s~)"
+    s = s .. " | (Tổng số: ~g~"..total.."~s~)"
     return s
 end
 
@@ -352,7 +352,7 @@ end
 RegisterNetEvent('pepe-items:client:use:cigarette')
 AddEventHandler('pepe-items:client:use:cigarette', function()
   Citizen.SetTimeout(1000, function()
-    Framework.Functions.Progressbar("smoke-cigarette", "Taking out a cigarette..", 4500, false, true, {
+    Framework.Functions.Progressbar("smoke-cigarette", "Lấy một điếu thuốc..", 4500, false, true, {
      disableMovement = false,
      disableCarMovement = false,
      disableMouse = false,

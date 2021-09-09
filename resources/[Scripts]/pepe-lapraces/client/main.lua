@@ -56,7 +56,7 @@ AddEventHandler('pepe-lapraces:client:StartRaceEditor', function(RaceName)
         CreatorUI()
         CreatorLoop()
     else
-        Framework.Functions.Notify('Your already making a race.', 'error')
+        Framework.Functions.Notify('Bạn đã thực hiện một cuộc đua.', 'error')
     end 
 end)
 
@@ -134,7 +134,7 @@ function CreatorLoop()
                     if CreatorData.Checkpoints ~= nil and next(CreatorData.Checkpoints) ~= nil then
                         DeleteCheckpoint()
                     else
-                        Framework.Functions.Notify('You have not placed a checkpoint ..', 'error')
+                        Framework.Functions.Notify('Bạn chưa đặt điểm đánh dấu ..', 'error')
                     end
                 end
 
@@ -142,7 +142,7 @@ function CreatorLoop()
                     if CreatorData.Checkpoints ~= nil and #CreatorData.Checkpoints >= 2 then
                         SaveRace()
                     else
-                        Framework.Functions.Notify('The minimum of checkpoints is 10', 'error')
+                        Framework.Functions.Notify('Tối thiểu các điểm đánh dấu là 10', 'error')
                     end
                 end
 
@@ -150,7 +150,7 @@ function CreatorLoop()
                     if CreatorData.TireDistance + 1.0 ~= 16.0 then
                         CreatorData.TireDistance = CreatorData.TireDistance + 1.0
                     else
-                        Framework.Functions.Notify('You cant go higher then 15', 'error')
+                        Framework.Functions.Notify('Bạn không thể đi cao hơn sau 15', 'error')
                     end
                 end
 
@@ -158,18 +158,18 @@ function CreatorLoop()
                     if CreatorData.TireDistance - 1.0 ~= 1.0 then
                         CreatorData.TireDistance = CreatorData.TireDistance - 1.0
                     else
-                        Framework.Functions.Notify('You cant go lower then 2', 'error')
+                        Framework.Functions.Notify('Bạn không thể đi thấp hơn 2', 'error')
                     end
                 end
             else
                 local coords = GetEntityCoords(PlayerPedId())
-                DrawText3Ds(coords.x, coords.y, coords.z, 'You have to be in a vehicle .')
+                DrawText3Ds(coords.x, coords.y, coords.z, 'Bạn phải ở trong một chiếc xe .')
             end
 
             if IsControlJustPressed(0, Keys["9"]) or IsDisabledControlJustPressed(0, Keys["9"]) then
                 if not CreatorData.ConfirmDelete then
                     CreatorData.ConfirmDelete = true
-                    Framework.Functions.Notify('Press [9] again to confirm', 'error', 5000)
+                    Framework.Functions.Notify('Nhấn [9] một lần nữa để xác nhận', 'error', 5000)
                 else
                     for id, CheckpointData in pairs(CreatorData.Checkpoints) do
                         if CheckpointData.blip ~= nil then
@@ -198,7 +198,7 @@ function CreatorLoop()
                     RaceData.InCreator = false
                     CreatorData.RaceName = nil
                     CreatorData.Checkpoints = {}
-                    Framework.Functions.Notify('Race-editor Canceled!', 'error')
+                    Framework.Functions.Notify('Race-editor đã huỷ bỏ!', 'error')
                     CreatorData.ConfirmDelete = false
                 end
             end
@@ -221,7 +221,7 @@ function SaveRace()
 
     TriggerServerEvent('pepe-lapraces:server:SaveRace', CreatorData)
 
-    Framework.Functions.Notify('Race: '..CreatorData.RaceName..' is saved!', 'success')
+    Framework.Functions.Notify('Cuộc đua: '..CreatorData.RaceName..' đã được lưu!', 'success')
 
     for id,_ in pairs(CreatorData.Checkpoints) do
         if CreatorData.Checkpoints[id].blip ~= nil then
@@ -328,10 +328,10 @@ function DeleteCheckpoint()
             end
             CreatorData.Checkpoints = NewCheckpoints
         else
-            Framework.Functions.Notify('You cant go to fast..', 'error')
+            Framework.Functions.Notify('Bạn không thể đi nhanh..', 'error')
         end
     else
-        Framework.Functions.Notify('You cant go to fast..', 'error')
+        Framework.Functions.Notify('Bạn không thể đi nhanh..', 'error')
     end
 end
 
@@ -437,13 +437,13 @@ AddEventHandler('pepe-lapraces:client:JoinRace', function(Data, Laps)
         SetupRace(Data, Laps)
         TriggerServerEvent('pepe-lapraces:server:UpdateRaceState', CurrentRaceData.RaceId, false, true)
     else
-        Framework.Functions.Notify('Your already in a race..', 'error')
+        Framework.Functions.Notify('Bạn đã có trong một cuộc đua..', 'error')
     end
 end)
 
 RegisterNetEvent('pepe-lapraces:client:LeaveRace')
 AddEventHandler('pepe-lapraces:client:LeaveRace', function(data)
-    Framework.Functions.Notify('You have left the race!', 'success')
+    Framework.Functions.Notify('Bạn đã rời khỏi cuộc đua!', 'success')
     for k, v in pairs(CurrentRaceData.Checkpoints) do
         if CurrentRaceData.Checkpoints[k].blip ~= nil then
             RemoveBlip(CurrentRaceData.Checkpoints[k].blip)
@@ -603,7 +603,7 @@ AddEventHandler('pepe-lapraces:client:RaceCountdown', function()
         while Countdown ~= 0 do
             if CurrentRaceData.RaceName ~= nil then
                 if Countdown == 10 then
-                    Framework.Functions.Notify('The race will start in 10 seconds', 'error', 2500)
+                    Framework.Functions.Notify('Cuộc đua sẽ bắt đầu sau 10 giây', 'error', 2500)
                     PlaySound(-1, "slow", "SHORT_PLAYER_SWITCH_SOUND_SET", 0, 0, 1)
                 elseif Countdown <= 5 then
                     Framework.Functions.Notify(Countdown, 'error', 500)
@@ -629,7 +629,7 @@ AddEventHandler('pepe-lapraces:client:RaceCountdown', function()
             Countdown = 10
         end
     else
-        Framework.Functions.Notify('You are currently notin a race..', 'error')
+        Framework.Functions.Notify('Bạn hiện đang không phải là một cuộc đua..', 'error')
     end
 end)
 
@@ -757,7 +757,7 @@ end
 function FinishRace()
     TriggerServerEvent('pepe-lapraces:server:FinishPlayer', CurrentRaceData, CurrentRaceData.TotalTime, CurrentRaceData.TotalLaps, CurrentRaceData.BestLap)
     if CurrentRaceData.BestLap ~= 0 then
-        Framework.Functions.Notify('Race finished '..SecondsToClock(CurrentRaceData.TotalTime)..', With best lap : '..SecondsToClock(CurrentRaceData.BestLap), 'success')
+        Framework.Functions.Notify('Đua kết thúc '..SecondsToClock(CurrentRaceData.TotalTime)..', Với vòng tốt nhất : '..SecondsToClock(CurrentRaceData.BestLap), 'success')
     else
         Framework.Functions.Notify('Race finished '..SecondsToClock(CurrentRaceData.TotalTime), 'success')
     end
@@ -798,7 +798,7 @@ RegisterNetEvent('pepe-lapraces:client:PlayerFinishs')
 AddEventHandler('pepe-lapraces:client:PlayerFinishs', function(RaceId, Place, FinisherData)
     if CurrentRaceData.RaceId ~= nil then
         if CurrentRaceData.RaceId == RaceId then
-            Framework.Functions.Notify(FinisherData.PlayerData.charinfo.firstname..' Finished in place : '..Place, 'error', 3500)
+            Framework.Functions.Notify(FinisherData.PlayerData.charinfo.firstname..' Hoàn thành tại chỗ : '..Place, 'error', 3500)
         end
     end
 end)
@@ -829,7 +829,7 @@ AddEventHandler('pepe-lapraces:client:WaitingDistanceCheck', function()
                     if dist > 115.0 then
                         if ToFarCountdown ~= 0 then
                             ToFarCountdown = ToFarCountdown - 1
-                            Framework.Functions.Notify('Go back to the start within 10 seconds: '..ToFarCountdown..'s', 'error', 500)
+                            Framework.Functions.Notify('Quay trở lại bắt đầu trong vòng 10 giây: '..ToFarCountdown..'s', 'error', 500)
                         else
                             TriggerServerEvent('pepe-lapraces:server:LeaveRace', CurrentRaceData)
                             ToFarCountdown = 10

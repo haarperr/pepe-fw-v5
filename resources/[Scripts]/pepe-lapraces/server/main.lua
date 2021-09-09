@@ -100,7 +100,7 @@ AddEventHandler('pepe-lapraces:server:FinishPlayer', function(RaceData, TotalTim
                 }
             }
             Framework.Functions.ExecuteSql(false, "UPDATE `lapraces` SET `records` = '"..json.encode(Races[RaceData.RaceId].Records).."' WHERE `raceid` = '"..RaceData.RaceId.."'")
-            TriggerClientEvent('pepe-phone:client:RaceNotify', src, 'You have broken the lap record on '..RaceData.RaceName..' with a time of: '..SecondsToClock(BLap)..'!')
+            TriggerClientEvent('pepe-phone:client:RaceNotify', src, 'Bạn đã phá vỡ kỷ lục về lòng '..RaceData.RaceName..' với thời gian: '..SecondsToClock(BLap)..'!')
         end
     else
         Races[RaceData.RaceId].Records = {
@@ -111,7 +111,7 @@ AddEventHandler('pepe-lapraces:server:FinishPlayer', function(RaceData, TotalTim
             }
         }
         Framework.Functions.ExecuteSql(false, "UPDATE `lapraces` SET `records` = '"..json.encode(Races[RaceData.RaceId].Records).."' WHERE `raceid` = '"..RaceData.RaceId.."'")
-        TriggerClientEvent('pepe-phone:client:RaceNotify', src, 'You have set the lap record on '..RaceData.RaceName..' with a time of: '..SecondsToClock(BLap)..'!')
+        TriggerClientEvent('pepe-phone:client:RaceNotify', src, 'Bạn đã đặt bản ghi LAP trên '..RaceData.RaceName..' với thời gian: '..SecondsToClock(BLap)..'!')
     end
     AvailableRaces[AvailableKey].RaceData = Races[RaceData.RaceId]
     TriggerClientEvent('pepe-lapraces:client:PlayerFinishs', -1, RaceData.RaceId, PlayersFinished, Player)
@@ -175,10 +175,10 @@ AddEventHandler('pepe-lapraces:server:CreateLapRace', function(RaceName)
         if IsNameAvailable(RaceName) then
             TriggerClientEvent('pepe-lapraces:client:StartRaceEditor', source, RaceName)
         else
-            TriggerClientEvent('Framework:Notify', source, 'There is already a race with that name.', 'error')
+            TriggerClientEvent('Framework:Notify', source, 'Đã có một cuộc đua với tên đó.', 'error')
         end
     else
-        TriggerClientEvent('Framework:Notify', source, 'You dont have the rights to create a race.', 'error')
+        TriggerClientEvent('Framework:Notify', source, 'Bạn không có quyền tạo ra một cuộc đua.', 'error')
     end
 end)
 
@@ -272,7 +272,7 @@ AddEventHandler('pepe-lapraces:server:JoinRace', function(RaceData)
             Races[CurrentRace].Started = false
             Races[CurrentRace].Waiting = false
             table.remove(AvailableRaces, PreviousRaceKey)
-            TriggerClientEvent('Framework:Notify', src, 'You were the only one in the race, the race will end.', 'error')
+            TriggerClientEvent('Framework:Notify', src, 'Bạn là người duy nhất trong cuộc đua, cuộc đua sẽ kết thúc.', 'error')
             TriggerClientEvent('pepe-lapraces:client:LeaveRace', src, Races[CurrentRace])
         else
             AvailableRaces[PreviousRaceKey].RaceData = Races[CurrentRace]
@@ -366,7 +366,7 @@ AddEventHandler('pepe-lapraces:server:LeaveRace', function(RaceData)
         Races[RaceId].Started = false
         Races[RaceId].Waiting = false
         table.remove(AvailableRaces, AvailableKey)
-        TriggerClientEvent('Framework:Notify', src, 'You were the only one in the race, the race will end.', 'error')
+        TriggerClientEvent('Framework:Notify', src, 'Bạn là người duy nhất trong cuộc đua, cuộc đua sẽ kết thúc.', 'error')
         TriggerClientEvent('pepe-lapraces:client:LeaveRace', src, Races[RaceId])
         LastRaces[RaceId] = nil
         NotFinished[RaceId] = nil
@@ -410,13 +410,13 @@ AddEventHandler('pepe-lapraces:server:SetupRace', function(RaceId, Laps)
                     end
                 end)
             else
-                Framework.Functions.Notify('Race is already active', 'error', 5000)
+                Framework.Functions.Notify('Cuộc đua đã hoạt động', 'error', 5000)
             end
         else
-            TriggerClientEvent('Framework:Notify', source, 'The race is already active..', 'error')
+            TriggerClientEvent('Framework:Notify', source, 'Cuộc đua đã hoạt động..', 'error')
         end
     else
-        TriggerClientEvent('Framework:Notify', source, 'This race does not exsist :(', 'error')
+        TriggerClientEvent('Framework:Notify', source, 'Cuộc đua này không có EXSIST :(', 'error')
     end
 end)
 
@@ -457,10 +457,10 @@ AddEventHandler('pepe-lapraces:server:StartRace', function(RaceId)
             end
             TriggerClientEvent('pepe-phone:client:UpdateLapraces', -1)
         else
-            TriggerClientEvent('Framework:Notify', src, 'You are not the creator of the race..', 'error')
+            TriggerClientEvent('Framework:Notify', src, 'Bạn không phải là người tạo ra cuộc đua..', 'error')
         end
     else
-        TriggerClientEvent('Framework:Notify', src, 'You are not in a race..', 'error')
+        TriggerClientEvent('Framework:Notify', src, 'Bạn không ở trong một cuộc đua..', 'error')
     end
 end)
 
@@ -510,22 +510,22 @@ function GenerateRaceId()
     return RaceId
 end
 
-Framework.Commands.Add("togglesetup", "Turn Racing setup on/off", {}, false, function(source, args)
+Framework.Commands.Add("togglesetup", "Bật / tắt thiết lập Racing", {}, false, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
 
     if IsWhitelisted(Player.PlayerData.citizenid) then
         Config.RaceSetupAllowed = not Config.RaceSetupAllowed
         if not Config.RaceSetupAllowed then
-            TriggerClientEvent('Framework:Notify', source, 'There cant be made any more races', 'error')
+            TriggerClientEvent('Framework:Notify', source, 'Không thể có thêm một cuộc đua', 'error')
         else
-            TriggerClientEvent('Framework:Notify', source, 'You can make races again!', 'success')
+            TriggerClientEvent('Framework:Notify', source, 'Bạn có thể thực hiện cuộc đua một lần nữa!', 'success')
         end
     else
-        TriggerClientEvent('Framework:Notify', source, 'You do not have the rights to do this.', 'error')
+        TriggerClientEvent('Framework:Notify', source, 'Bạn không có quyền để làm điều này.', 'error')
     end
 end)
 
-Framework.Commands.Add("cancelrace", "Cancel ongoing race..", {}, false, function(source, args)
+Framework.Commands.Add("cancelrace", "Hủy cuộc đua đang diễn ra..", {}, false, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
 
     if IsWhitelisted(Player.PlayerData.citizenid) then
@@ -548,11 +548,11 @@ Framework.Commands.Add("cancelrace", "Cancel ongoing race..", {}, false, functio
                 LastRaces[RaceId] = nil
                 TriggerClientEvent('pepe-phone:client:UpdateLapraces', -1)
             else
-                TriggerClientEvent('Framework:Notify', source, 'This race has not started yet.', 'error')
+                TriggerClientEvent('Framework:Notify', source, 'Cuộc đua này chưa bắt đầu.', 'error')
             end
         end
     else
-        TriggerClientEvent('Framework:Notify', source, 'You do not have rights to do this', 'error')
+        TriggerClientEvent('Framework:Notify', source, 'Bạn không có quyền để làm điều này', 'error')
     end
 end)
 

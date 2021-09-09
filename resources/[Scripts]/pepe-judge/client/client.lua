@@ -36,7 +36,7 @@ AddEventHandler("pepe-judge:client:show:pass", function(SourceId, data)
     local PlayerCoords = GetEntityCoords(PlayerPedId(), false)
     if (GetDistanceBetweenCoords(PlayerCoords.x, PlayerCoords.y, PlayerCoords.z, SourceCoords.x, SourceCoords.y, SourceCoords.z, true) < 2.0) then
         TriggerEvent('chat:addMessage', {
-            template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>Pass-ID:</strong> {1} <br><strong>First name:</strong> {2} <br><strong>Last name:</strong> {3} <br><strong>CID:</strong> {4} </div></div>',
+            template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>Pass-ID:</strong> {1} <br><strong>Họ:</strong> {2} <br><strong>Tên:</strong> {3} <br><strong>CID:</strong> {4} </div></div>',
             args = {'Lawyerpass', data.id, data.firstname, data.lastname, data.citizenid}
         })
     end

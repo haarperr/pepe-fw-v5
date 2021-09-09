@@ -11,8 +11,8 @@ local LawyerInfo = {id = math.random(100000, 999999), firstname = TagetPlayer.Pl
     TagetPlayer.Functions.SetJob('lawyer')
     TagetPlayer.Functions.AddItem("lawyerpass", 1, false, LawyerInfo)
     TriggerClientEvent('pepe-inventory:client:ItemBox', TagetPlayer.PlayerData.source, Framework.Shared.Items["lawyerpass"], "add")
-    TriggerClientEvent('Framework:Notify', SelfPlayer.PlayerData.source, 'You hired '..TagetPlayer.PlayerData.charinfo.firstname..' '..TagetPlayer.PlayerData.charinfo.lastname..'!', 'success')
-    TriggerClientEvent('Framework:Notify', TagetPlayer.PlayerData.source, 'You have been hired as a lawyer', 'success')
+    TriggerClientEvent('Framework:Notify', SelfPlayer.PlayerData.source, 'Bạn đã thuê '..TagetPlayer.PlayerData.charinfo.firstname..' '..TagetPlayer.PlayerData.charinfo.lastname..'!', 'success')
+    TriggerClientEvent('Framework:Notify', TagetPlayer.PlayerData.source, 'Bạn đã được thuê như một luật sư', 'success')
  end
 end)
 

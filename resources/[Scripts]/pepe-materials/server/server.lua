@@ -22,18 +22,18 @@ Framework.Functions.CreateCallback('pepe-materials:server:get:reward', function(
     local RandomValue = math.random(1, 100)
     local RandomItems = Config.BinItems[math.random(#Config.BinItems)]
     if RandomValue <= 55 then
-     Player.Functions.AddItem(RandomItems, math.random(8, 20))
+     Player.Functions.AddItem(RandomItems, math.random(1, 10))
      TriggerClientEvent('pepe-inventory:client:ItemBox', Player.PlayerData.source, Framework.Shared.Items[RandomItems], 'add')
-    elseif RandomValue >= 87 and RandomValue <= 89 then
-        if math.random(1, 2) == 1 then
-            Player.Functions.AddItem('rifle-body', 1)
-            TriggerClientEvent('pepe-inventory:client:ItemBox', Player.PlayerData.source, Framework.Shared.Items['rifle-body'], 'add')
-        else
-            Player.Functions.AddItem('rifle-clip', 1)
-            TriggerClientEvent('pepe-inventory:client:ItemBox', Player.PlayerData.source, Framework.Shared.Items['rifle-clip'], 'add')
-        end
+    -- elseif RandomValue >= 87 and RandomValue <= 89 then
+    --     if math.random(1, 2) == 1 then
+    --         Player.Functions.AddItem('rifle-body', 1)
+    --         TriggerClientEvent('pepe-inventory:client:ItemBox', Player.PlayerData.source, Framework.Shared.Items['rifle-body'], 'add')
+    --     else
+    --         Player.Functions.AddItem('rifle-clip', 1)
+    --         TriggerClientEvent('pepe-inventory:client:ItemBox', Player.PlayerData.source, Framework.Shared.Items['rifle-clip'], 'add')
+    --     end
     else
-        TriggerClientEvent('Framework:Notify', Player.PlayerData.source, 'You did not find anything..', 'error')
+        TriggerClientEvent('Framework:Notify', Player.PlayerData.source, 'Bạn đã không tìm thấy thứ gì..', 'error')
     end
 end)
 
@@ -50,7 +50,7 @@ Framework.Functions.CreateCallback('pepe-materials:server:scrap:reward', functio
       Citizen.Wait(500)
   end
   if math.random(1, 100) <= 35 then
-    Player.Functions.AddItem('rubber', math.random(25, 55))
+    Player.Functions.AddItem('rubber', math.random(1, 10))
     TriggerClientEvent('pepe-inventory:client:ItemBox', Player.PlayerData.source, Framework.Shared.Items['rubber'], 'add')
   end
 end)

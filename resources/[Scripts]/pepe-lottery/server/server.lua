@@ -40,8 +40,8 @@ AddEventHandler('pepe-lottery:server:sell:card', function()
 		local WorthAmount = Item.info.card
 		Player.Functions.RemoveItem('used-card', 1)
 		Player.Functions.AddMoney('cash', WorthAmount, "used-card")
-    	TriggerClientEvent('Framework:Notify', source, 'Lottery cards check out worth: $' ..WorthAmount.. '.', 'success')
+    	TriggerClientEvent('Framework:Notify', source, 'Thẻ xổ số kiểm tra giá trị: $' ..WorthAmount.. '.', 'success')
 	else
-		TriggerClientEvent('Framework:Notify', source, 'You dont have any used lottery cards...', 'error')
+		TriggerClientEvent('Framework:Notify', source, 'Bạn không có bất kỳ thẻ xổ số được sử dụng...', 'error')
 	end
 end)
