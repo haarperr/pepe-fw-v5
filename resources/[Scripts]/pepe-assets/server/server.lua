@@ -20,14 +20,14 @@ AddEventHandler('pepe-assets:server:drop', function()
 	end
 end)
 
-Framework.Commands.Add("id", "What is my id?", {}, false, function(source, args)
+Framework.Commands.Add("id", "Xem số id của bạn", {}, false, function(source, args)
     TriggerClientEvent('chatMessage', source, "SYSTEM", "warning", "ID: "..source)
 end)
-Framework.Commands.Add("shuff", "Shuffle seats", {}, false, function(source, args)
+Framework.Commands.Add("shuff", "Ghế shuffle.", {}, false, function(source, args)
  TriggerClientEvent('pepe-assets:client:seat:shuffle', source)
 end)
 
-Framework.Commands.Add("me", "Perform a text on ped", {}, false, function(source, args)
+Framework.Commands.Add("me", "Thực hiện một văn bản trên PED", {}, false, function(source, args)
   local Text = table.concat(args, ' ')
   TriggerClientEvent('pepe-assets:client:me:show', -1, Text, source)
 end)

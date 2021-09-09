@@ -159,7 +159,7 @@ Citizen.CreateThread(function()
         --(11-11-2018) New Natives:
 
         --Here you can add hover text for the "large" icon.
-        SetDiscordRichPresenceAssetText('Pepe Framework')
+        SetDiscordRichPresenceAssetText('server Framework')
         
         --Here you will have to put the image name for the "small" icon.
         SetDiscordRichPresenceAssetSmall('logonew')
@@ -172,8 +172,8 @@ Citizen.CreateThread(function()
             First paramater is the button index (0 or 1), second is the title and 
             last is the url (this has to start with "fivem://connect/" or "https://") 
         ]]--
-		SetDiscordRichPresenceAction(0, "Join Discord!", "https://discord.gg/SNQg3GH")
-        SetDiscordRichPresenceAction(1, "Join FiveM!", "fivem://connect/195.85.49.25:30120")
+		SetDiscordRichPresenceAction(0, "Join Discord!", "link")
+        SetDiscordRichPresenceAction(1, "Join FiveM!", "fivem://connect/:30120")
 
         --It updates every one minute just in case.
 		Citizen.Wait(60000)

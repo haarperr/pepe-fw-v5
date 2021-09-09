@@ -930,7 +930,7 @@ Citizen.CreateThread(function()
             for k, v in pairs(AvailableWeatherTypes) do
                 if WarMenu.MenuButton(AvailableWeatherTypes[k].label, 'weatherOptions') then
                     TriggerServerEvent('pepe-weathersync:server:setWeather', AvailableWeatherTypes[k].weather)
-                    Framework.Functions.Notify('Weather changed to: '..AvailableWeatherTypes[k].label)
+                    Framework.Functions.Notify('Thời tiết thay đổi thành: '..AvailableWeatherTypes[k].label)
                 end
             end
             
