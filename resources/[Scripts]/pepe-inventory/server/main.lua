@@ -66,10 +66,10 @@ AddEventHandler('pepe-inventory:server:combineItem', function(item, fromItem, to
 			Player.Functions.SetMetaData("inventorydisabled", false)
 			TriggerClientEvent('pepe-inventory:client:ItemBox', src, Framework.Shared.Items[item], 'add')
 		else
-		Framework.Functions.BanInjection(source, 'Items spawned that were not whitelisted.')
+		Framework.Functions.BanInjection(source, 'Các mặt hàng spawn không được liệt kê.')
 		end
 	else
-	  TriggerClientEvent('Framework:Notify', src, "How are you supposed to do this with out the needed items?", "error")
+	  TriggerClientEvent('Framework:Notify', src, "Làm thế nào bạn phải làm điều này với các mặt hàng cần thiết?", "error")
 	end
 end)
 
@@ -184,13 +184,13 @@ AddEventHandler('pepe-inventory:server:OpenInventory', function(name, id, other)
 					end
 				end
 				secondInv.name = "trunk-"..id
-				secondInv.label = "Trunk-"..id
+				secondInv.label = "Cốp xe-"..id
 				secondInv.maxweight = other.maxweight ~= nil and other.maxweight or 60000
 				secondInv.inventory = {}
 				secondInv.slots = other.slots ~= nil and other.slots or 50
 				if (Trunks[id] ~= nil and Trunks[id].isOpen) or (Framework.Shared.SplitStr(id, "PLZI")[2] ~= nil and Player.PlayerData.job.name ~= "police") then
 					secondInv.name = "none-inv"
-					secondInv.label = "Trunk-Geen"
+					secondInv.label = "Cốp-Geen"
 					secondInv.maxweight = other.maxweight ~= nil and other.maxweight or 60000
 					secondInv.inventory = {}
 					secondInv.slots = 0
@@ -366,10 +366,10 @@ AddEventHandler('pepe-inventory:server:UseItemSlot', function(slot)
 				if itemData.info.quality ~= 0 then
 					TriggerClientEvent("pepe-inventory:client:UseWeapon", src, itemData, true)
 				else
-					TriggerClientEvent('Framework:Notify', src, "Weapon is broken.", "error")
+					TriggerClientEvent('Framework:Notify', src, "Vũ khí bị hỏng.", "error")
 				end
 			else
-				TriggerClientEvent('Framework:Notify', src, "No weapon quality found.", "info")
+				TriggerClientEvent('Framework:Notify', src, "Không tìm thấy chất lượng vũ khí.", "info")
 			end
 			TriggerClientEvent('pepe-inventory:client:ItemBox', src, itemInfo, "use")
 		elseif itemData.useable then
@@ -531,7 +531,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 						TriggerClientEvent("pepe-inventory:client:close:inventory", src)
 					end
 				else
-					TriggerClientEvent('Framework:Notify', src, "This can not go in here..", 'error')
+					TriggerClientEvent('Framework:Notify', src, "Điều này không thể đi vào đây..", 'error')
 					TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, true)
 					TriggerClientEvent("pepe-inventory:client:close:inventory", src)
 				end
@@ -564,7 +564,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 				end
 			end
 		else
-			TriggerClientEvent("Framework:Notify", src, "Je hebt dit item niet!", "error")
+			TriggerClientEvent("Framework:Notify", src, "Bạn không có mặt hàng này!", "error")
 		end
 	elseif Framework.Shared.SplitStr(fromInventory, "-")[1] == "otherplayer" then
 		local playerId = tonumber(Framework.Shared.SplitStr(fromInventory, "-")[2])
@@ -609,7 +609,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 				OtherPlayer.Functions.AddItem(itemInfo["name"], fromAmount, toSlot, fromItemData.info)
 			end
 		else
-			TriggerClientEvent("Framework:Notify", src, "Item does not exist", "error")
+			TriggerClientEvent("Framework:Notify", src, "Mục không tồn tại", "error")
 		end
 	elseif Framework.Shared.SplitStr(fromInventory, "-")[1] == "trunk" then
 		local plate = Framework.Shared.SplitStr(fromInventory, "-")[2]
@@ -655,7 +655,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 				AddToTrunk(plate, toSlot, fromSlot, itemInfo["name"], fromAmount, fromItemData.info)
 			end
 		else
-			TriggerClientEvent("Framework:Notify", src, "Item does not exist??", "error")
+			TriggerClientEvent("Framework:Notify", src, "Mục không tồn tại??", "error")
 		end
 	elseif Framework.Shared.SplitStr(fromInventory, "-")[1] == "glovebox" then
 		local plate = Framework.Shared.SplitStr(fromInventory, "-")[2]
@@ -700,7 +700,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 				AddToGlovebox(plate, toSlot, fromSlot, itemInfo["name"], fromAmount, fromItemData.info)
 			end
 		else
-			TriggerClientEvent("Framework:Notify", src, "Item does not exist??", "error")
+			TriggerClientEvent("Framework:Notify", src, "Mục không tồn tại??", "error")
 		end
 	elseif Framework.Shared.SplitStr(fromInventory, "-")[1] == "stash" then
 		local stashId = Framework.Shared.SplitStr(fromInventory, "-")[2]
@@ -745,7 +745,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 				AddToStash(stashId, toSlot, fromSlot, itemInfo["name"], fromAmount, fromItemData.info)
 			end
 		else
-			TriggerClientEvent("Framework:Notify", src, "Item does not exist??", "error")
+			TriggerClientEvent("Framework:Notify", src, "Mục không tồn tại??", "error")
 		end
 	elseif Framework.Shared.SplitStr(fromInventory, "-")[1] == "lab" then
 		local LabId = Framework.Shared.SplitStr(fromInventory, "-")[2]
@@ -795,7 +795,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 				end
 			end
 		else
-			TriggerClientEvent("Framework:Notify", src, "Item does not exist??", "error")
+			TriggerClientEvent("Framework:Notify", src, "Mục không tồn tại??", "error")
 		end
 	elseif Framework.Shared.SplitStr(fromInventory, "-")[1] == "itemshop" then
 		local shopType = Framework.Shared.SplitStr(fromInventory, "-")[2]
@@ -813,10 +813,10 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 					TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, false)
 					TriggerClientEvent('pepe-dealers:client:update:dealer:items', src, itemData, 1)
 					TriggerClientEvent('Framework:Notify', src, itemInfo["label"] .. " purchased!", "success")
-					TriggerEvent("pepe-logs:server:SendLog", "dealers", "Dealer item purchased", "green", "**"..GetPlayerName(src) .. "** Bought a " .. itemInfo["label"] .. " purchased for $"..price)
+					TriggerEvent("pepe-logs:server:SendLog", "dealers", "Mục đại lý đã mua", "green", "**"..GetPlayerName(src) .. "** Bought a " .. itemInfo["label"] .. " purchased for $"..price)
 				else
 					TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, true)
-					TriggerClientEvent('Framework:Notify', src, "You do not have enough cash", "error")
+					TriggerClientEvent('Framework:Notify', src, "Bạn không có đủ tiền mặt", "error")
 				end
 			else
 				if Player.Functions.RemoveMoney("cash", price, "dealer-item-bought") then
@@ -827,14 +827,14 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 					TriggerEvent("pepe-logs:server:SendLog", "dealers", "Dealer item purchased", "green", "**"..GetPlayerName(src) .. "** Bought a " .. itemInfo["label"] .. " purchased for $"..price)
 				else
 					TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, true)
-					TriggerClientEvent('Framework:Notify', src, "You do not have enough cash", "error")
+					TriggerClientEvent('Framework:Notify', src, "Bạn không có đủ tiền mặt", "error")
 				end
 			end
 		elseif Framework.Shared.SplitStr(shopType, "_")[1] == "custom" then
 			if Player.Functions.RemoveMoney("cash", price, "dealer-item-bought") then
 				Player.Functions.AddItem(itemData.name, fromAmount, toSlot, itemData.info)
 				TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, false)
-				TriggerClientEvent('Framework:Notify', src, itemInfo["label"] .. " purchased!", "success")
+				TriggerClientEvent('Framework:Notify', src, itemInfo["label"] .. " đã mua", "success")
 			else
 				TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, true)
 				TriggerClientEvent('Framework:Notify', src, "You do not have enough cash", "error")
@@ -843,10 +843,10 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 			if Player.Functions.RemoveMoney("cash", price, "dealer-item-bought") then
 				Player.Functions.AddItem(itemData.name, fromAmount, toSlot, itemData.info)
 				TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, false)
-				TriggerClientEvent('Framework:Notify', src, itemInfo["label"] .. " purchased!", "success")
+				TriggerClientEvent('Framework:Notify', src, itemInfo["label"] .. " đã mua!", "success")
 			else
 				TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, true)
-				TriggerClientEvent('Framework:Notify', src, "You do not have enough cash", "error")
+				TriggerClientEvent('Framework:Notify', src, "Bạn không có đủ tiền mặt", "error")
 			end
 		elseif Framework.Shared.SplitStr(shopType, "_")[1] == "Itemshop" then
 			if Player.Functions.RemoveMoney("cash", price, "itemshop-bought-item") then
@@ -886,7 +886,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 				TriggerEvent("pepe-logs:server:SendLog", "shops", "Shop item purchased", "green", "**"..GetPlayerName(src) .. "** Bought a " .. itemInfo["label"] .. " purchased for $"..price)
 			else
 				TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, true)
-				TriggerClientEvent('Framework:Notify', src, "You do not have enough cash", "error")
+				TriggerClientEvent('Framework:Notify', src, "Bạn không có đủ tiền mặt", "error")
 			end
 		end
 	elseif fromInventory == "crafting" then
@@ -896,7 +896,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 			TriggerClientEvent("pepe-inventory:client:CraftItems", src, itemData.name, itemData.costs, fromAmount, toSlot, itemData.points)
 		else
 			TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, true)
-			TriggerClientEvent('Framework:Notify', src, "You do not have the required items", "error")
+			TriggerClientEvent('Framework:Notify', src, "Bạn không có các mặt hàng cần thiết", "error")
 		end
 	elseif fromInventory == "crafting_weapon" then
 		local itemData = exports['pepe-crafting']:GetWeaponCraftingConfig(fromSlot)
@@ -905,7 +905,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 			TriggerClientEvent("pepe-inventory:client:CraftWeapon", src, itemData.name, itemData.costs, fromAmount, toSlot, itemData.type)
 		else
 			TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, true)
-			TriggerClientEvent('Framework:Notify', src, "You do not have the required items", "error")
+			TriggerClientEvent('Framework:Notify', src, "Bạn không có các mặt hàng cần thiết", "error")
 		end
 	elseif fromInventory == "cokecrafting" then
 		local itemData = exports['pepe-labs']:GetCokeCrafting(fromSlot)
@@ -914,7 +914,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 			TriggerClientEvent("pepe-inventory:client:CraftItems", src, itemData.name, itemData.costs, fromAmount, toSlot, itemData.type)
 		else
 			TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, true)
-			TriggerClientEvent('Framework:Notify', src, "You do not have the required items", "error")
+			TriggerClientEvent('Framework:Notify', src, "Bạn không có các mặt hàng cần thiết", "error")
 		end
 	elseif fromInventory == "methcrafting" then
 		local itemData = exports['pepe-labs']:GetMethCrafting(fromSlot)
@@ -923,7 +923,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 			TriggerClientEvent("pepe-inventory:client:CraftItems", src, itemData.name, itemData.costs, fromAmount, toSlot, itemData.type)
 		else
 			TriggerClientEvent("pepe-inventory:client:UpdatePlayerInventory", src, true)
-			TriggerClientEvent('Framework:Notify', src, "You do not have the required items", "error")
+			TriggerClientEvent('Framework:Notify', src, "Bạn không có các mặt hàng cần thiết", "error")
 		end
 	else
 		-- drop
@@ -978,7 +978,7 @@ AddEventHandler('pepe-inventory:server:SetInventoryData', function(fromInventory
 				end
 			end
 		else
-			TriggerClientEvent("Framework:Notify", src, "Item does not exist", "error")
+			TriggerClientEvent("Framework:Notify", src, "Mục không tồn tại", "error")
 		end
 	end
 end)
@@ -1522,7 +1522,7 @@ function CreateNewDrop(source, fromSlot, toSlot, itemAmount)
 		TriggerClientEvent('pepe-radio:drop:radio', source)
 		end
 	else
-		TriggerClientEvent("Framework:Notify", src, "You dont have this item.", "error")
+		TriggerClientEvent("Framework:Notify", src, "Bạn không có mặt hàng này.", "error")
 		return
 	end
 end
@@ -1545,10 +1545,10 @@ Framework.Commands.Add("resetinv", "Reset inventory (in case for -None)", {{name
 				Stashes[invId].isOpen = false
 			end
 		else
-			TriggerClientEvent('Framework:Notify', source,  "No valid type.", "error")
+			TriggerClientEvent('Framework:Notify', source,  "Không có loại nào hợp lệ.", "error")
 		end
 	else
-		TriggerClientEvent('Framework:Notify', source,  "Please fill in all arguments.", "error")
+		TriggerClientEvent('Framework:Notify', source,  "Vui lòng điền vào tất cả các thông tin.", "error")
 	end
 end, "admin")
 
@@ -1580,18 +1580,18 @@ Framework.Commands.Add("giveitem", "Give item to player.", {{name="id", help="CI
 				end
 				if Player.Functions.AddItem(itemData["name"], amount, false, info) then
 					TriggerClientEvent('pepe-inventory:client:ItemBox', tonumber(args[1]), Framework.Shared.Items[itemData["name"]], 'add')
-					TriggerClientEvent('Framework:Notify', source, "You gave " ..GetPlayerName(tonumber(args[1])).." to " .. itemData["name"] .. " ("..amount.. ")", "success")
+					TriggerClientEvent('Framework:Notify', source, "Bạn đã cho " ..GetPlayerName(tonumber(args[1])).." đến " .. itemData["name"] .. " ("..amount.. ")", "success")
 				else
-					TriggerClientEvent('Framework:Notify', source,  "Can not give this item, inventory full?", "error")
+					TriggerClientEvent('Framework:Notify', source,  "Không thể cho mặt hàng này, túi đang đầy?", "error")
 				end
 			else
-				TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Item does not exist")
+				TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Mục không tồn tại")
 			end
 		else
-			TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Amount must be higher then 0.")
+			TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Số tiền phải cao hơn 0.")
 		end
 	else
-		TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Citizen not available.")
+		TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Công dân không có sẵn.")
 	end
 end, "admin")
 

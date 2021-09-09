@@ -70,7 +70,7 @@ Citizen.CreateThread(function()
                                        curVeh = vehicle
                                        CurrentGlovebox = nil
                                    else
-                                       Framework.Functions.Notify("Vehicle Locked.", "error")
+                                       Framework.Functions.Notify("Đã khoá phương tiện.", "error")
                                        return
                                    end
                                else
@@ -398,7 +398,7 @@ RegisterNetEvent("pepe-inventory:bag:UseBag")
 AddEventHandler("pepe-inventory:bag:UseBag", function()
     TaskPlayAnim(PlayerPedId(), "clothingshirt", "try_shirt_positive_d", 8.0, 1.0, -1, 49, 0, 0, 0, 0)
     print('Bag is Opining')
-    Framework.Functions.Notify("Opening bag..", "inform")
+    Framework.Functions.Notify("Đang mở túi..", "inform")
     Framework.Functions.Progressbar("use_bag", "Opening Bag", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -415,7 +415,7 @@ AddEventHandler("pepe-inventory:bag:UseBag", function()
         TriggerEvent("pepe-inventory:client:SetCurrentStash", "bag_"..Framework.Functions.GetPlayerData().citizenid)
         TriggerServerEvent("InteractSound_SV:PlayOnSource", "stash", 0.5)
         TaskPlayAnim(ped, "clothingshirt", "exit", 8.0, 1.0, -1, 49, 0, 0, 0, 0)
-        Framework.Functions.Notify("Bag succesfully opened.", "success")
+        Framework.Functions.Notify("Túi thành công được mở..", "success")
     end)
 end)
 
@@ -579,7 +579,7 @@ AddEventHandler("pepe-inventory:client:CraftWeapon", function(itemName, itemCost
         action = "close",
     })
     Config.InventoryBusy = true
-    Framework.Functions.Progressbar("repair_vehicle", "Crafting...", (math.random(10000, 12000) * amount), false, true, {
+    Framework.Functions.Progressbar("repair_vehicle", "Đang chế tạo...", (math.random(10000, 12000) * amount), false, true, {
 		disableMovement = true,
 		disableCarMovement = true,
 		disableMouse = false,
@@ -595,7 +595,7 @@ AddEventHandler("pepe-inventory:client:CraftWeapon", function(itemName, itemCost
         Config.InventoryBusy = false
 	end, function() -- Cancel
 		StopAnimTask(PlayerPedId(), "mini@repair", "fixing_a_player", 1.0)
-        Framework.Functions.Notify("Failed!", "error")
+        Framework.Functions.Notify("Thất bại!", "error")
         Config.InventoryBusy = false
 	end)
 end)
@@ -695,8 +695,8 @@ AddEventHandler("pepe-inventory:client:ShowId", function(sourceId, citizenid, ch
             gender = "Female"
         end
         TriggerEvent('chat:addMessage', {
-            template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>CID:</strong> {1} <br><strong>First name</strong> {2} <br><strong>Last name</strong> {3} <br><strong>Date of Birth</strong> {4} <br><strong>Gender</strong> {5} <br><strong>Nationality</strong> {6}</div></div>',
-            args = {'ID-card', character.citizenid, character.firstname, character.lastname, character.birthdate, gender, character.nationality}
+            template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>CID:</strong> {1} <br><strong>Họ</strong> {2} <br><strong>Tên</strong> {3} <br><strong>Ngày Sinh</strong> {4} <br><strong>Giới tính</strong> {5} <br><strong>Quốc tịch</strong> {6}</div></div>',
+            args = {'Thẻ căn cước', character.citizenid, character.firstname, character.lastname, character.birthdate, gender, character.nationality}
         })
     end
 end)
@@ -707,8 +707,8 @@ AddEventHandler("pepe-inventory:client:ShowDriverLicense", function(sourceId, ci
     local pos = GetEntityCoords(PlayerPedId(), false)
     if (GetDistanceBetweenCoords(pos.x, pos.y, pos.z, sourcePos.x, sourcePos.y, sourcePos.z, true) < 2.0) then
         TriggerEvent('chat:addMessage', {
-            template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>First name</strong> {1} <br><strong>Last name</strong> {2} <br><strong>Date of Birth</strong> {3} <br><strong>Licenses:</strong> {4}</div></div>',
-            args = {'Drivers license', character.firstname, character.lastname, character.birthdate, character.type}
+            template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>Họ</strong> {1} <br><strong>Tên</strong> {2} <br><strong>Ngày sinh</strong> {3} <br><strong>Giấy phép:</strong> {4}</div></div>',
+            args = {'Bằng lái xe', character.firstname, character.lastname, character.birthdate, character.type}
         })
     end
 end)
