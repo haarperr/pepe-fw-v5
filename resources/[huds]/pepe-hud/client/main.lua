@@ -32,7 +32,7 @@ end)
 RegisterNetEvent("Framework:Client:OnPlayerUnload")
 AddEventHandler("Framework:Client:OnPlayerUnload", function()
     isLoggedIn = false
-    QBHud.Show = false
+    QBHud.Show = true
     SendNUIMessage({
         action = "hudtick",
         show = true,
