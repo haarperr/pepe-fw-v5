@@ -57,7 +57,7 @@ $('.cityhall-option-block').click(function(e){
 
     if (blockPage == "identity") {
         $(".identity-page-blocks").html("");
-        $(".identity-page-blocks").html('<div class="identity-page-block" data-type="id-kaart" onmouseover="'+hoverDescription("id-kaart")+'" onmouseout="'+hoverDescription("id-kaart")+'"><p>IDCard</p></div>');
+        $(".identity-page-blocks").html('<div class="identity-page-block" data-type="id-kaart" onmouseover="'+hoverDescription("id-kaart")+'" onmouseout="'+hoverDescription("id-kaart")+'"><p>Thẻ căn cước</p></div>');
         $.post('http://pepe-cityhall/requestLicenses', JSON.stringify({}), function(licenses){
             $.each(licenses, function(i, license){
                 var elem = '<div class="identity-page-block" data-type="'+license.idType+'" onmouseover="hoverDescription("'+license.idType+'")" onmouseout="hoverDescription("'+license.idType+'")"><p>'+license.label+'</p></div>';
@@ -72,10 +72,10 @@ hoverDescription = function(type) {
     if (!mouseOver) {
         if (type == "id-kaart") {
             $(".hover-description").fadeIn(10);
-            $(".hover-description").html('<p>You are forced to have this on you at any time due to the law <br>This gives ems and police always a quick answer for whom they are dealing with in any situation.</p>');
+            $(".hover-description").html('<p>Bạn bị buộc phải có điều này cho bạn bất cứ lúc nào do pháp luật <br> Điều này mang lại cho EMS và cảnh sát luôn trả lời nhanh chóng mà họ đang đối phó trong mọi tình huống.</p>');
         } else if (type == "rijbewijs") {
             $(".hover-description").fadeIn(10);
-            $(".hover-description").html('<p>If you drive you need this, trust me.</p>');
+            $(".hover-description").html('<p>Nếu bạn lái xe bạn cần điều này, hãy tin tôi.</p>');
         }
     } else {
         if(selectedIdentity == null) {
@@ -100,10 +100,10 @@ $(document).on("click", ".identity-page-block", function(e){
         selectedIdentity = this;
         if (idType== "id-kaart") {
             $(".request-identity-button").fadeIn(100);
-            $(".request-identity-button").html("<p>Request IDCard ($50,-)</p>")
+            $(".request-identity-button").html("<p>Lấy thẻ với ($50,-)</p>")
         } else {
             $(".request-identity-button").fadeIn(100);
-            $(".request-identity-button").html("<p>Driverlicense ($50,-)</p>")
+            $(".request-identity-button").html("<p>Bằng lái xe ($50,-)</p>")
         }
     } else if (selectedIdentity == this) {
         $(this).removeClass("identity-selected");
@@ -114,9 +114,9 @@ $(document).on("click", ".identity-page-block", function(e){
         $(this).addClass("identity-selected");
         selectedIdentity = this;
         if($(this).data('type') == "id-kaart") {
-            $(".request-identity-button").html("<p>Request IDCard ($50,-)</p>")
+            $(".request-identity-button").html("<p>Lấy thẻ với ($50,-)</p>")
         } else {
-            $(".request-identity-button").html("<p>Driverlicense ($50,-)</p>")
+            $(".request-identity-button").html("<p>Bằng lái xe ($50,-)</p>")
         }
     }
     $.post('http://pepe-cityhall/Click', JSON.stringify({}))
