@@ -34,7 +34,7 @@ RegisterNetEvent('pepe-materials:client:search:trash')
 AddEventHandler('pepe-materials:client:search:trash', function()
     if CurrentBin ~= nil then
       if not Config.OpenedBins[CurrentBin] then
-        Framework.Functions.Progressbar("search-trash", "Searching..", math.random(10000, 12500), false, true, {
+        Framework.Functions.Progressbar("search-trash", "Đang lục thùng rác...", math.random(10000, 12500), false, true, {
             disableMovement = true,
             disableCarMovement = false,
             disableMouse = false,
@@ -49,10 +49,10 @@ AddEventHandler('pepe-materials:client:search:trash', function()
             StopAnimTask(PlayerPedId(), 'mini@repair', "fixing_a_ped", 1.0)
         end, function() -- Cancel
             StopAnimTask(PlayerPedId(), 'mini@repair', "fixing_a_ped", 1.0)
-            Framework.Functions.Notify("Failed!", "error")
+            Framework.Functions.Notify("Thất bại!", "error")
         end)
        else
-        Framework.Functions.Notify("You have already searched this bin..", "error")
+        Framework.Functions.Notify("Bạn đã tìm kiếm thùng này..", "error")
       end
     end
 end)

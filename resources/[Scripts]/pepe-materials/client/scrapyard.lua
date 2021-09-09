@@ -35,7 +35,7 @@ AddEventHandler('pepe-materials:client:scrap:vehicle', function()
             -- start scrap
             local Time = math.random(30000, 40000)
 	        ScrapVehicleAnim(Time)
-	    	Framework.Functions.Progressbar("scrap-vehicle", "Scrapping the vehicle..", Time, false, true, {
+	    	Framework.Functions.Progressbar("scrap-vehicle", "Đang rã phương tiện..", Time, false, true, {
                 disableMovement = true,
                 disableCarMovement = true,
                 disableMouse = false,
@@ -50,17 +50,17 @@ AddEventHandler('pepe-materials:client:scrap:vehicle', function()
                 end)
             end, function() -- Cancel
                 StopAnimTask(PlayerPedId(), "mp_car_bomb", "car_bomb_mechanic", 1.0)
-                Framework.Functions.Notify("Canceled..", "error")
+                Framework.Functions.Notify("Hủy bỏ..", "error")
             end)
             else
-                Framework.Functions.Notify("You are not in the drivers seat..", "error")
+                Framework.Functions.Notify("Bạn không ở trong ghế lái xe..", "error")
             end
 
 	    else
-	    	Framework.Functions.Notify("This vehicle is not scrapable..", "error")									end
+	    	Framework.Functions.Notify("Chiếc xe này không ổn định..", "error")									end
         end, GetVehicleNumberPlateText(Vehicle))
     else
-      Framework.Functions.Notify("You have to wait a little longer..", "error")	
+      Framework.Functions.Notify("Bạn phải đợi lâu hơn một chút..", "error")	
     end								
 end)
 

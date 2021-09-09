@@ -19,10 +19,10 @@ end)
     
 Framework.Functions.CreateCallback('pepe-materials:server:get:reward', function(source)
     local Player = Framework.Functions.GetPlayer(source)
-    local RandomValue = math.random(0, 15)
+    local RandomValue = math.random(1, 10)
     local RandomItems = Config.BinItems[math.random(#Config.BinItems)]
-    if RandomValue <= 15 then
-     Player.Functions.AddItem(RandomItems, math.random(0, 15))
+    if RandomValue <= 10 then
+     Player.Functions.AddItem(RandomItems, math.random(1, 10))
      TriggerClientEvent('pepe-inventory:client:ItemBox', Player.PlayerData.source, Framework.Shared.Items[RandomItems], 'add')
     -- elseif RandomValue >= 87 and RandomValue <= 89 then
     --     if math.random(1, 2) == 1 then
@@ -44,12 +44,12 @@ Framework.Functions.CreateCallback('pepe-materials:server:scrap:reward', functio
   local Player = Framework.Functions.GetPlayer(source)
   for i = 1, math.random(4, 8), 1 do
       local Items = Config.CarItems[math.random(1, #Config.CarItems)]
-      local RandomNum = math.random(0, 15)
+      local RandomNum = math.random(1, 10)
       Player.Functions.AddItem(Items, RandomNum)
       TriggerClientEvent('pepe-inventory:client:ItemBox', Player.PlayerData.source, Framework.Shared.Items[Items], 'add')
       Citizen.Wait(500)
   end
-  if math.random(0, 15) <= 15 then
+  if math.random(1, 10) <= 15 then
     Player.Functions.AddItem('rubber', math.random(1, 10))
     TriggerClientEvent('pepe-inventory:client:ItemBox', Player.PlayerData.source, Framework.Shared.Items['rubber'], 'add')
   end
