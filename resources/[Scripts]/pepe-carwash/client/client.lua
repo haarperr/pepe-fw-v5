@@ -65,11 +65,11 @@ Citizen.CreateThread(function()
                             if CanWash then
                              StartCarWashing(k, GetVehiclePedIsIn(PlayerPedId(), false))
                             else
-                             Framework.Functions.Notify('You do not have enough cash.', 'error')
+                             Framework.Functions.Notify('Bạn không có đủ tiền mặt.', 'error')
                             end
                         end, Config.CarWashLocations[k]['Price'])
                         else
-                         Framework.Functions.Notify('Car wash is already in use.', 'error')
+                         Framework.Functions.Notify('Rửa xe đã được sử dụng.', 'error')
                         end
                      end
                     elseif Gebied <= 2.0 then

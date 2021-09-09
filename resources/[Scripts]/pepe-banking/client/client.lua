@@ -144,7 +144,7 @@ RegisterNUICallback('CloseApp', function()
     }, {}, {}, {}, function() -- Done
         ClearPedTasks(PlayerPedId())
     end, function()
-        Framework.Functions.Notify("Cancelled..", "error")
+        Framework.Functions.Notify("Bị hủy bỏ..", "error")
     end)
 end)
 
@@ -167,10 +167,10 @@ AddEventHandler('pepe-banking:client:check:players:near', function(TargetPlayer,
             TaskPlayAnim(PlayerPedId(), 'friends@laf@ig_5', 'nephew', 5.0, 1.0, 5.0,48, 0.0, 0, 0, 0)
             TriggerServerEvent('pepe-banking:server:give:cash', TargetPlayer, Amount) 
         else
-            Framework.Functions.Notify("Citizen not correct..", "error")
+            Framework.Functions.Notify("Công dân không đúng..", "error")
         end
     else
-        Framework.Functions.Notify("No citizen found..", "error")
+        Framework.Functions.Notify("Không tìm thấy công dân..", "error")
     end
 end)
 
@@ -191,7 +191,7 @@ function OpenBank(CanDeposit, UseAnim)
             chardata = Framework.Functions.GetPlayerData(),
         })
     end, function()
-        Framework.Functions.Notify("Cancelled..", "error")
+        Framework.Functions.Notify("Bị huỷ bỏ..", "error")
     end)
 end
 

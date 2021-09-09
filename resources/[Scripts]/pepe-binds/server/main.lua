@@ -4,7 +4,7 @@ TriggerEvent('Framework:GetObject', function(obj) Framework = obj end)
 
 -- Code
 
-Framework.Commands.Add("binds", "Open commandbinding menu", {}, false, function(source, args)
+Framework.Commands.Add("binds", "Mở menu CommandBinding", {}, false, function(source, args)
 	TriggerClientEvent("pepe-binds:client:openUI", source)
 end)
 
