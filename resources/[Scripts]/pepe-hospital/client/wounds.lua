@@ -58,18 +58,18 @@ Citizen.CreateThread(function()
                    Citizen.Wait(25)
                    if v['Pain'] then
                       if TotalPain > 1 then
-                        Framework.Functions.Notify("You are in serious pain in several places of your body..", 'info')
+                        Framework.Functions.Notify("Bạn đang đau đớn nghiêm trọng ở một số nơi của cơ thể bạn..", 'info')
                       else
-                        Framework.Functions.Notify("You are struggling with pain in your "..v['Name']..'..', 'info')
+                        Framework.Functions.Notify("Bạn đang vật lộn với nỗi đau trong bạn "..v['Name']..'..', 'info')
                       end
                       ApplyDamageToBodyPart(k)
                       HurtPlayer(TotalPain)
                       Citizen.Wait(30000)
                     elseif not v['Pain'] and v['IsDead'] then
                         if TotalBroken > 1 then
-                            Framework.Functions.Notify("Multiple broken bones..", 'error')
+                            Framework.Functions.Notify("Bạn đang bị gãy xương..", 'error')
                         else
-                            Framework.Functions.Notify("Your "..v['Name'].. ' is broken..', 'error')
+                            Framework.Functions.Notify("Của bạn "..v['Name'].. ' bị vỡ..', 'error')
                         end
                         if k == 'HEAD' then
                             if math.random(1, 100) <= 55 then
@@ -98,7 +98,7 @@ RegisterNetEvent('pepe-hospital:client:use:bandage')
 AddEventHandler('pepe-hospital:client:use:bandage', function()
   Citizen.SetTimeout(1000, function()
      exports['pepe-assets']:AddProp('HealthPack')
-     Framework.Functions.Progressbar("use_bandage", "Applying bandage..", 4000, false, true, {
+     Framework.Functions.Progressbar("use_bandage", "Đang quấn băng gạc..", 4000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
      	disableMouse = false,
@@ -128,7 +128,7 @@ AddEventHandler('pepe-hospital:client:use:health-pack', function()
     local RandomTime = math.random(15000, 20000)
     if Player ~= -1 and Distance < 1.5 then
       if IsTargetDead(GetPlayerServerId(Player)) then
-         Framework.Functions.Progressbar("hospital_revive", "Helping Citizen..", RandomTime, false, true, {
+         Framework.Functions.Progressbar("hospital_revive", "Giúp đỡ công dân...", RandomTime, false, true, {
              disableMovement = false,
              disableCarMovement = false,
              disableMouse = false,
@@ -148,7 +148,7 @@ AddEventHandler('pepe-hospital:client:use:health-pack', function()
              Framework.Functions.Notify("Failed!", "error")
          end)
         else
-            Framework.Functions.Notify("Citizen is not unconscious..", "error")
+            Framework.Functions.Notify("Công dân không bất tỉnh..", "error")
         end
     end
 end)
@@ -157,7 +157,7 @@ RegisterNetEvent('pepe-hospital:client:use:painkillers')
 AddEventHandler('pepe-hospital:client:use:painkillers', function()
     Citizen.SetTimeout(1000, function()
         if not Config.OnOxy then
-        Framework.Functions.Progressbar("use_bandage", "Taking Oxycodons..", 3000, false, true, {
+        Framework.Functions.Progressbar("use_bandage", "Đang dùng oxycodons...", 3000, false, true, {
             disableMovement = false,
             disableCarMovement = false,
             disableMouse = false,
@@ -176,10 +176,10 @@ AddEventHandler('pepe-hospital:client:use:painkillers', function()
              end)
         end, function() -- Cancel
             StopAnimTask(PlayerPedId(), "mp_suicide", "pill", 1.0)
-            Framework.Functions.Notify("Failed", "error")
+            Framework.Functions.Notify("Thất bại", "error")
         end)
        else
-         Framework.Functions.Notify("You still have remains of oxycodon in your body..", "error")
+         Framework.Functions.Notify("Bạn vẫn còn oxycodon trong cơ thể..", "error")
        end 
     end)
 end)

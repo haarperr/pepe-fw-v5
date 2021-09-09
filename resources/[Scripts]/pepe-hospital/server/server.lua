@@ -11,7 +11,7 @@ Framework.Functions.CreateCallback('pepe-hospital:server:pay:hospital', function
 		Player.Functions.RemoveMoney('cash', Config.BedPayment, 'Hospital')
 		cb(true)
 	else
-		TriggerClientEvent('Framework:Notify', source, "You dont have enough cash..", "error", 4500)
+		TriggerClientEvent('Framework:Notify', source, "Bạn không đủ tiền mặt..", "error", 4500)
 		cb(false)
 	end
 
@@ -79,38 +79,38 @@ AddEventHandler('pepe-hospital:server:set:bed:state', function(BedData, bool)
 	TriggerClientEvent('pepe-hospital:client:set:bed:state', -1 , BedData, bool)
 end)
 
-Framework.Commands.Add("revive", "Revive a player or yourself", {{name="id", help="Player ID (can be empty)"}}, false, function(source, args)
+Framework.Commands.Add("revive", "Hồi sinh người chơi hoặc chính bạn", {{name="id", help="ID người chơi"}}, false, function(source, args)
 	if args[1] ~= nil then
 		local Player = Framework.Functions.GetPlayer(tonumber(args[1]))
 		if Player ~= nil then
 			TriggerClientEvent('pepe-hospital:client:revive', Player.PlayerData.source, true, true)
 		else
-			TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Player is not online!")
+			TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Người chơi không online!")
 		end
 	else
 		TriggerClientEvent('pepe-hospital:client:revive', source, true, true)
 	end
 end, "admin")
 
-Framework.Commands.Add("setems", "Hire someone to EMS", {{name="id", help="Player ID"}}, true, function(source, args)
+Framework.Commands.Add("setems", "Thuê nhân viên cho bệnh viện", {{name="id", help="ID người chơi"}}, true, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     local TargetPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
     if Player.PlayerData.metadata['ishighcommand'] then
       if TargetPlayer ~= nil then
-          TriggerClientEvent('Framework:Notify', TargetPlayer.PlayerData.source, 'You have been hired as an EMS employee!', 'success')
-          TriggerClientEvent('Framework:Notify', Player.PlayerData.source, 'You have hired'..TargetPlayer.PlayerData.charinfo.firstname..' '..TargetPlayer.PlayerData.charinfo.lastname..' as EMS!', 'success')
+          TriggerClientEvent('Framework:Notify', TargetPlayer.PlayerData.source, 'Bạn đã được thuê làm nhân viên EMS!', 'success')
+          TriggerClientEvent('Framework:Notify', Player.PlayerData.source, 'Bạn đã thuê'..TargetPlayer.PlayerData.charinfo.firstname..' '..TargetPlayer.PlayerData.charinfo.lastname..' là nhân viên ems.!', 'success')
           TargetPlayer.Functions.SetJob('ambulance', 0)
       end
     end
 end)
 
-Framework.Commands.Add("fireems", "Fire a ems employee", {{name="id", help="Player ID"}}, true, function(source, args)
+Framework.Commands.Add("fireems", "Sa thải một nhân viên ems", {{name="id", help="ID người chơi"}}, true, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     local TargetPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
     if Player.PlayerData.metadata['ishighcommand'] then
       if TargetPlayer ~= nil then
-          TriggerClientEvent('Framework:Notify', TargetPlayer.PlayerData.source, 'You are fired from your last job!', 'error')
-          TriggerClientEvent('Framework:Notify', Player.PlayerData.source, 'You have fired '..TargetPlayer.PlayerData.charinfo.firstname..' '..TargetPlayer.PlayerData.charinfo.lastname..'!', 'success')
+          TriggerClientEvent('Framework:Notify', TargetPlayer.PlayerData.source, 'Bạn bị sa thải từ công việc cuối cùng của bạn!', 'error')
+          TriggerClientEvent('Framework:Notify', Player.PlayerData.source, 'Bạn đã bị sa thải '..TargetPlayer.PlayerData.charinfo.firstname..' '..TargetPlayer.PlayerData.charinfo.lastname..'!', 'success')
           TargetPlayer.Functions.SetJob('unemployed', 0)
       end
     end

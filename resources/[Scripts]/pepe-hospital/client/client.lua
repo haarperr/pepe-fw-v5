@@ -62,12 +62,12 @@ Citizen.CreateThread(function()
                   DrawMarker(2, Config.Locations["Duty"][1]['X'], Config.Locations["Duty"][1]['Y'], Config.Locations["Duty"][1]['Z'], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 255, 255, 255, 255, false, false, false, 1, false, false, false)
                   NearSomething = true
                   if not onDuty then
-                    DrawText3D(Config.Locations["Duty"][1]['X'], Config.Locations["Duty"][1]['Y'], Config.Locations["Duty"][1]['Z'] + 0.15, '~g~E~w~ - On Duty')
+                    DrawText3D(Config.Locations["Duty"][1]['X'], Config.Locations["Duty"][1]['Y'], Config.Locations["Duty"][1]['Z'] + 0.15, '~g~E~w~ - Vào ca')
                     if IsControlJustReleased(0, 38) then
                         TriggerServerEvent("Framework:ToggleDuty", true)
                     end
                 else
-                    DrawText3D(Config.Locations["Duty"][1]['X'], Config.Locations["Duty"][1]['Y'], Config.Locations["Duty"][1]['Z'] + 0.15, '~r~E~w~ - Off Duty')
+                    DrawText3D(Config.Locations["Duty"][1]['X'], Config.Locations["Duty"][1]['Y'], Config.Locations["Duty"][1]['Z'] + 0.15, '~r~E~w~ - Ra ca')
                     if IsControlJustReleased(0, 38) then
                         TriggerServerEvent("Framework:ToggleDuty", false)
                     end
@@ -79,7 +79,7 @@ Citizen.CreateThread(function()
 
              if (GetDistanceBetweenCoords(PlayerCoords.x, PlayerCoords.y, PlayerCoords.z, Config.Locations["Shop"][1]['X'], Config.Locations["Shop"][1]['Y'], Config.Locations["Shop"][1]['Z'], true) < 1.5) then
                  if (Framework.Functions.GetPlayerData().job.name == "ambulance") and Framework.Functions.GetPlayerData().job.onduty then
-                   DrawText3D(Config.Locations["Shop"][1]['X'], Config.Locations["Shop"][1]['Y'], Config.Locations["Shop"][1]['Z'] + 0.15, '~g~E~s~ - EMS Closet')
+                   DrawText3D(Config.Locations["Shop"][1]['X'], Config.Locations["Shop"][1]['Y'], Config.Locations["Shop"][1]['Z'] + 0.15, '~g~E~s~ - Tủ quần áo của EMS.')
                    DrawMarker(2, Config.Locations["Shop"][1]['X'], Config.Locations["Shop"][1]['Y'], Config.Locations["Shop"][1]['Z'], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 255, 255, 255, 255, false, false, false, 1, false, false, false)
                    NearSomething = true
                    if IsControlJustReleased(0, 38) then
@@ -90,7 +90,7 @@ Citizen.CreateThread(function()
 
              if (GetDistanceBetweenCoords(PlayerCoords.x, PlayerCoords.y, PlayerCoords.z, Config.Locations["Storage"][1]['X'], Config.Locations["Storage"][1]['Y'], Config.Locations["Storage"][1]['Z'], true) < 1.5) then
                 if (Framework.Functions.GetPlayerData().job.name == "ambulance") and Framework.Functions.GetPlayerData().job.onduty then
-                  DrawText3D(Config.Locations["Storage"][1]['X'], Config.Locations["Storage"][1]['Y'], Config.Locations["Storage"][1]['Z'] + 0.15, '~g~E~s~ - EMS Stash')
+                  DrawText3D(Config.Locations["Storage"][1]['X'], Config.Locations["Storage"][1]['Y'], Config.Locations["Storage"][1]['Z'] + 0.15, '~g~E~s~ - Thùng rác')
                   DrawMarker(2, Config.Locations["Storage"][1]['X'], Config.Locations["Storage"][1]['Y'], Config.Locations["Storage"][1]['Z'], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 255, 255, 255, 255, false, false, false, 1, false, false, false)
                   NearSomething = true
                   if IsControlJustReleased(0, 38) then
@@ -125,7 +125,7 @@ Citizen.CreateThread(function()
                     Framework.Functions.TriggerCallback("pepe-hospital:server:pay:hospital", function(HasPaid)
                         if HasPaid then
                             TriggerEvent('animations:client:EmoteCommandStart', {"notepad"})
-                            Framework.Functions.Progressbar("lockpick-door", "Checking in..", 2500, false, false, {
+                            Framework.Functions.Progressbar("lockpick-door", "Đang đăng ký..", 2500, false, false, {
                                 disableMovement = true,
                                 disableCarMovement = true,
                                 disableMouse = false,
@@ -134,18 +134,18 @@ Citizen.CreateThread(function()
                                 TriggerEvent('animations:client:EmoteCommandStart', {"c"})
                                 TriggerEvent('pepe-hospital:client:send:to:bed', BedSomething)
                             end, function() -- Cancel
-                                Framework.Functions.Notify("Canceled..", "error")
+                                Framework.Functions.Notify("Hủy bỏ..", "error")
                             end)
                         end
                     end)
                 else
-                    Framework.Functions.Notify("All beds are taken..", 'error')
+                    Framework.Functions.Notify("Tất cả các giường được chụp..", 'error')
                 end
              end
             end
 
             if (GetDistanceBetweenCoords(PlayerCoords.x, PlayerCoords.y, PlayerCoords.z, Config.Locations['Teleporters']['ToHeli']['X'], Config.Locations['Teleporters']['ToHeli']['Y'], Config.Locations['Teleporters']['ToHeli']['Z'], true) < 1.5) then
-                DrawText3D(Config.Locations['Teleporters']['ToHeli']['X'], Config.Locations['Teleporters']['ToHeli']['Y'], Config.Locations['Teleporters']['ToHeli']['Z'] + 0.15, '~g~E~s~ - Upstairs')
+                DrawText3D(Config.Locations['Teleporters']['ToHeli']['X'], Config.Locations['Teleporters']['ToHeli']['Y'], Config.Locations['Teleporters']['ToHeli']['Z'] + 0.15, '~g~E~s~ - Lên tầng trên')
                 DrawMarker(2, Config.Locations['Teleporters']['ToHeli']['X'], Config.Locations['Teleporters']['ToHeli']['Y'], Config.Locations['Teleporters']['ToHeli']['Z'], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 255, 255, 255, 255, false, false, false, 1, false, false, false)
                 NearSomething = true
                 if IsControlJustReleased(0, 38) then
@@ -159,7 +159,7 @@ Citizen.CreateThread(function()
             end
 
             if (GetDistanceBetweenCoords(PlayerCoords.x, PlayerCoords.y, PlayerCoords.z, Config.Locations['Teleporters']['ToHospitalFirst']['X'], Config.Locations['Teleporters']['ToHospitalFirst']['Y'], Config.Locations['Teleporters']['ToHospitalFirst']['Z'], true) < 1.5) then
-                DrawText3D(Config.Locations['Teleporters']['ToHospitalFirst']['X'], Config.Locations['Teleporters']['ToHospitalFirst']['Y'], Config.Locations['Teleporters']['ToHospitalFirst']['Z'] + 0.15, '~g~E~s~ - Downstairs')
+                DrawText3D(Config.Locations['Teleporters']['ToHospitalFirst']['X'], Config.Locations['Teleporters']['ToHospitalFirst']['Y'], Config.Locations['Teleporters']['ToHospitalFirst']['Z'] + 0.15, '~g~E~s~ - Xuống tầng dưới')
                 DrawMarker(2, Config.Locations['Teleporters']['ToHospitalFirst']['X'], Config.Locations['Teleporters']['ToHospitalFirst']['Y'], Config.Locations['Teleporters']['ToHospitalFirst']['Z'], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 255, 255, 255, 255, false, false, false, 1, false, false, false)
                 NearSomething = true
                 if IsControlJustReleased(0, 38) then
@@ -173,7 +173,7 @@ Citizen.CreateThread(function()
             end
 
             if (GetDistanceBetweenCoords(PlayerCoords.x, PlayerCoords.y, PlayerCoords.z, Config.Locations['Teleporters']['ToLower']['X'], Config.Locations['Teleporters']['ToLower']['Y'], Config.Locations['Teleporters']['ToLower']['Z'], true) < 1.5) then
-                DrawText3D(Config.Locations['Teleporters']['ToLower']['X'], Config.Locations['Teleporters']['ToLower']['Y'], Config.Locations['Teleporters']['ToLower']['Z'] + 0.15, '~g~E~s~ - Upstairs')
+                DrawText3D(Config.Locations['Teleporters']['ToLower']['X'], Config.Locations['Teleporters']['ToLower']['Y'], Config.Locations['Teleporters']['ToLower']['Z'] + 0.15, '~g~E~s~ - Lên tầng trên')
                 DrawMarker(2, Config.Locations['Teleporters']['ToLower']['X'], Config.Locations['Teleporters']['ToLower']['Y'], Config.Locations['Teleporters']['ToLower']['Z'], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 255, 255, 255, 255, false, false, false, 1, false, false, false)
                 NearSomething = true
                 if IsControlJustReleased(0, 38) then
@@ -187,7 +187,7 @@ Citizen.CreateThread(function()
             end
             
             if (GetDistanceBetweenCoords(PlayerCoords.x, PlayerCoords.y, PlayerCoords.z, Config.Locations['Teleporters']['ToHospitalSecond']['X'], Config.Locations['Teleporters']['ToHospitalSecond']['Y'], Config.Locations['Teleporters']['ToHospitalSecond']['Z'], true) < 1.5) then
-                DrawText3D(Config.Locations['Teleporters']['ToHospitalSecond']['X'], Config.Locations['Teleporters']['ToHospitalSecond']['Y'], Config.Locations['Teleporters']['ToHospitalSecond']['Z'] + 0.15, '~g~E~s~ - Downstairs')
+                DrawText3D(Config.Locations['Teleporters']['ToHospitalSecond']['X'], Config.Locations['Teleporters']['ToHospitalSecond']['Y'], Config.Locations['Teleporters']['ToHospitalSecond']['Z'] + 0.15, '~g~E~s~ - Xuống tầng dưới')
                 DrawMarker(2, Config.Locations['Teleporters']['ToHospitalSecond']['X'], Config.Locations['Teleporters']['ToHospitalSecond']['Y'], Config.Locations['Teleporters']['ToHospitalSecond']['Z'], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 255, 255, 255, 255, false, false, false, 1, false, false, false)
                 NearSomething = true
                 if IsControlJustReleased(0, 38) then
@@ -246,19 +246,19 @@ AddEventHandler('pepe-hospital:client:heal:closest', function()
     if Player ~= -1 and Distance < 1.5 then
         if not IsTargetDead(GetPlayerServerId(Player)) then
            HealAnim(RandomTime)
-           Framework.Functions.Progressbar("healing-citizen", "Healing Citizen..", RandomTime, false, true, {
+           Framework.Functions.Progressbar("healing-citizen", "Đang chữa bệnh..", RandomTime, false, true, {
                disableMovement = true,
                disableCarMovement = true,
                disableMouse = false,
                disableCombat = true,
            }, {}, {}, {}, function() -- Done
                TriggerServerEvent('pepe-hospital:server:heal:player', GetPlayerServerId(Player))
-               Framework.Functions.Notify("Citizen healed", "success")
+               Framework.Functions.Notify("Công dân được chữa lành", "success")
            end, function() -- Cancel
-               Framework.Functions.Notify("Process cancelled..", "error")
+               Framework.Functions.Notify("Quá trình bị hủy..", "error")
            end)
         else
-            Framework.Functions.Notify("Citizen is not unconscious..", "error")
+            Framework.Functions.Notify("Công dân không bất tỉnh..", "error")
         end
     end
 end)
@@ -269,7 +269,7 @@ AddEventHandler('pepe-hospital:client:revive:closest', function()
     local RandomTime = math.random(10000, 15000)
     if Player ~= -1 and Distance < 1.5 then
       if IsTargetDead(GetPlayerServerId(Player)) then
-         Framework.Functions.Progressbar("hospital_revive", "Helping Citizen..", RandomTime, false, true, {
+         Framework.Functions.Progressbar("hospital_revive", "Giúp đỡ công dân...", RandomTime, false, true, {
              disableMovement = false,
              disableCarMovement = false,
              disableMouse = false,
@@ -287,7 +287,7 @@ AddEventHandler('pepe-hospital:client:revive:closest', function()
              Framework.Functions.Notify("Failed!", "error")
          end)
         else
-            Framework.Functions.Notify("Citizen is not unconscious..", "error")
+            Framework.Functions.Notify("Công dân không bất tỉnh..", "error")
         end
     end
 end)
@@ -298,7 +298,7 @@ AddEventHandler('pepe-hospital:client:take:blood:closest', function()
     local RandomTime = math.random(7500, 10500)
     if Player ~= -1 and Distance < 1.5 then
       HealAnim(RandomTime)
-      Framework.Functions.Progressbar("healing-citizen", "Taking blood sample..", RandomTime, false, true, {
+      Framework.Functions.Progressbar("healing-citizen", "Lấy mẫu máu..", RandomTime, false, true, {
           disableMovement = true,
           disableCarMovement = true,
           disableMouse = false,
@@ -342,7 +342,7 @@ RegisterNetEvent('pepe-hospital:client:send:to:bed')
 AddEventHandler('pepe-hospital:client:send:to:bed', function(BedId)
     Citizen.SetTimeout(50, function()
         EnterBedCam(BedId)
-        Framework.Functions.Notify('You are recieving medical attention..', 'info')
+        Framework.Functions.Notify('Bạn đang nhận được sự chăm sóc y tế..', 'info')
         Citizen.Wait(25000)
         TriggerEvent('pepe-hospital:client:revive', false, false)
         LeaveBed()
@@ -359,7 +359,7 @@ AddEventHandler('pepe-hospital:client:spawn:vehicle', function(VehicleName)
           exports['pepe-vehiclekeys']:SetVehicleKey(GetVehicleNumberPlateText(Vehicle), true)
           exports['pepe-fuel']:SetFuelLevel(Vehicle, GetVehicleNumberPlateText(Vehicle), 100, false)
           exports['pepe-emergencylights']:SetupEmergencyVehicle(Vehicle)
-          Framework.Functions.Notify('Duty vehicle parked on the parkingspot', 'info')
+          Framework.Functions.Notify('Xe làm nhiệm vụ đậu trên Parkingspot', 'info')
           CurrentGarage = nil
          end, CoordTable, true, false)
       else
@@ -368,7 +368,7 @@ AddEventHandler('pepe-hospital:client:spawn:vehicle', function(VehicleName)
            Citizen.Wait(25)
            exports['pepe-vehiclekeys']:SetVehicleKey(GetVehicleNumberPlateText(Vehicle), true)
            exports['pepe-fuel']:SetFuelLevel(Vehicle, GetVehicleNumberPlateText(Vehicle), 100, false)
-           Framework.Functions.Notify('Helicopter has landed on the roof!', 'info')
+           Framework.Functions.Notify('Máy bay trực thăng đã hạ cánh trên mái nhà!', 'info')
            CurrentGarage = nil
           end, CoordTable, true, false)
       end
