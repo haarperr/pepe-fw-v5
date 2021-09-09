@@ -136,7 +136,7 @@ Citizen.CreateThread( function()
                 travelSpeed = 1
             end
 
-            Framework.Functions.Notify("Current speed: ".. speeds[travelSpeed])
+            Framework.Functions.Notify("Tốc độ hiện tại: ".. speeds[travelSpeed])
 
             updateForwardPush();
         end

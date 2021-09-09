@@ -583,7 +583,7 @@ Citizen.CreateThread(function()
                 TriggerServerEvent("pepe-admin:server:togglePlayerNoclip", targetId)
             end
 
-            WarMenu.CheckBox("Show Player Names", showNames, function(checked) showNames = checked end)
+            WarMenu.CheckBox("Hiển thị tên người chơi", showNames, function(checked) showNames = checked end)
             if WarMenu.CheckBox("Show Player Blips", showBlips, function(checked) showBlips = checked end) then
                 toggleBlips()
             end
@@ -644,11 +644,11 @@ Citizen.CreateThread(function()
                 SetPedArmour(ped, 200)
             end
 
-            if WarMenu.CheckBox("Delete Lazer", deleteLazer, function(checked) deleteLazer = checked end) then
+            if WarMenu.CheckBox("Xóa Lazer.", deleteLazer, function(checked) deleteLazer = checked end) then
             end
             
 
-            if WarMenu.CheckBox("Invisible", isInvisible, function(checked) isInvisible = checked end) then
+            if WarMenu.CheckBox("Vô hình", isInvisible, function(checked) isInvisible = checked end) then
                 local myPed = PlayerPedId()
                 
                 if isInvisible then
@@ -671,20 +671,20 @@ Citizen.CreateThread(function()
             WarMenu.Display()
             
         elseif WarMenu.IsMenuOpened('vehicleMan') then
-            if WarMenu.MenuButton('Unlock vehicle', 'unlock') then
+            if WarMenu.MenuButton('Mở khóa xe', 'unlock') then
                 local vehicle = Framework.Functions.GetClosestVehicle()
                 SetVehicleDoorsLockedForAllPlayers(vehicle,false)
                 SetVehicleDoorsLocked(vehicle, 1)
                 PlayVehicleDoorOpenSound(vehicle, 0)
             end
-            if WarMenu.MenuButton('Set Driver', 'drive') then
+            if WarMenu.MenuButton('Đặt lái xe', 'drive') then
                 local vehicle = Framework.Functions.GetClosestVehicle()
                 if IsVehicleSeatFree(vehicle,-1) then
                     SetPedIntoVehicle(PlayerPedId(),vehicle,-1)
                 end
             end
 
-            if WarMenu.MenuButton('Set Passenger', 'passenger') then
+            if WarMenu.MenuButton('Đặt hành khách', 'passenger') then
                 local vehicle = Framework.Functions.GetClosestVehicle()
                 if seat == nil then
                     seat = 0 
@@ -696,10 +696,10 @@ Citizen.CreateThread(function()
                 if IsVehicleSeatFree(vehicle,seat) then
                     SetPedIntoVehicle(PlayerPedId(),vehicle,seat)
                 else
-                    Framework.Functions.Notify('Vehicle seats are not empty', 'error')
+                    Framework.Functions.Notify('Ghế xe không trống', 'error')
                 end
             end
-            if WarMenu.MenuButton('Delete Closest Vehicle', 'deletevehicle') then
+            if WarMenu.MenuButton('Xóa xe gần nhất', 'deletevehicle') then
                 local vehicle = Framework.Functions.GetClosestVehicle()
                 if IsVehicleSeatFree(vehicle,-1) then
                     SetPedIntoVehicle(PlayerPedId(),vehicle,-1)
@@ -709,11 +709,11 @@ Citizen.CreateThread(function()
             end
 			
         --if myPermissionRank == "god" then
-            if WarMenu.MenuButton('Fix Vehicle', 'vehOptions') then
+            if WarMenu.MenuButton('Sửa phương tiện', 'vehOptions') then
                 SetVehicleFixed(GetVehiclePedIsIn(PlayerPedId()))
             end
 		--end
-            if WarMenu.MenuButton('Clean Vehicle', 'vehOptions') then
+            if WarMenu.MenuButton('Dọn dẹp phương tiện', 'vehOptions') then
                 SetVehicleDirtLevel(GetVehiclePedIsIn(PlayerPedId()), 0.0)
             end
 
@@ -723,7 +723,7 @@ Citizen.CreateThread(function()
             end
             WarMenu.Display()
         elseif WarMenu.IsMenuOpened('vehOptions') then
-            if WarMenu.ComboBox('Change Color', VehicleColors, currentColorIndex, selectedColorIndex, function(currentIndex, selectedIndex)
+            if WarMenu.ComboBox('Thay đổi màu phương tiện', VehicleColors, currentColorIndex, selectedColorIndex, function(currentIndex, selectedIndex)
                 currentColorIndex = currentIndex
                 selectedColorIndex = selectedIndex
             end) then
@@ -732,28 +732,28 @@ Citizen.CreateThread(function()
             end
 
         if myPermissionRank == "god" then
-            if WarMenu.MenuButton('Fill Fuel', 'vehOptions') then
+            if WarMenu.MenuButton('Đổ đầy nhiên liệu', 'vehOptions') then
                 local vehicle = (GetVehiclePedIsIn(PlayerPedId()))
                     exports['pepe-fuel']:SetFuelLevel(vehicle, GetVehicleNumberPlateText(vehicle), 99, false)
             end
 
-            if WarMenu.MenuButton('Flip Vehicle', 'vehOptions') then
+            if WarMenu.MenuButton('Lật xe', 'vehOptions') then
                 SetVehicleOnGroundProperly(GetVehiclePedIsIn(PlayerPedId()))
             end
 
-            if WarMenu.MenuButton('Delete Vehicle', 'vehOptions') then
+            if WarMenu.MenuButton('Xóa xe', 'vehOptions') then
                 Framework.Functions.DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))
             end
 
-            if WarMenu.CheckBox("Rainbow Car", RainbowVehicle, function(checked) RainbowVehicle = checked end) then
+            if WarMenu.CheckBox("Xe cầu vồng", RainbowVehicle, function(checked) RainbowVehicle = checked end) then
             end
         end
 
             WarMenu.Display()
         elseif WarMenu.IsMenuOpened('serverMan') then
-            WarMenu.MenuButton('Weather Options', 'weatherOptions')
+            WarMenu.MenuButton('Tùy chọn thời tiết', 'weatherOptions')
             WarMenu.MenuButton('Polyzones', 'polyzone')
-            if WarMenu.ComboBox('Server time', times, currentBanIndex, selectedBanIndex, function(currentIndex, selectedIndex)
+            if WarMenu.ComboBox('Thời gian server', times, currentBanIndex, selectedBanIndex, function(currentIndex, selectedIndex)
                 currentBanIndex = currentIndex
                 selectedBanIndex = selectedIndex
             end) then
@@ -763,24 +763,24 @@ Citizen.CreateThread(function()
             
             WarMenu.Display()
         elseif WarMenu.IsMenuOpened(currentPlayer) then
-            WarMenu.MenuButton('Player Options', 'playerOptions')
-            WarMenu.MenuButton('Teleport Options', 'teleportOptions')
-            WarMenu.MenuButton('Admin Options', 'adminOptions')
+            WarMenu.MenuButton('Tuỳ chịn người chơi', 'playerOptions')
+            WarMenu.MenuButton('Tuỳ chọn Teleport', 'teleportOptions')
+            WarMenu.MenuButton('Tuỳ chọn Admin', 'adminOptions')
 
             if myPermissionRank == "god" then
-                WarMenu.MenuButton('Permission Options', 'permissionOptions')
+                WarMenu.MenuButton('Tuỳ chọn quyền', 'permissionOptions')
             end
 
             WarMenu.Display()
         elseif WarMenu.IsMenuOpened('playerOptions') then
-            if WarMenu.MenuButton('Crash', currentPlayer) then
+            if WarMenu.MenuButton('Tai nạn', currentPlayer) then
                 TriggerServerEvent('pepe-admin:server:crash', GetPlayerServerId(currentPlayer))
             end
             
-            if WarMenu.MenuButton('Kill', currentPlayer) then
+            if WarMenu.MenuButton('Giết chết', currentPlayer) then
                 TriggerServerEvent("pepe-admin:server:killPlayer", GetPlayerServerId(currentPlayer))
             end
-            if WarMenu.MenuButton('Revive', currentPlayer) then
+            if WarMenu.MenuButton('Hồi sinh', currentPlayer) then
                 local targetId = GetPlayerServerId(currentPlayer)
                 TriggerEvent('pepe-hospital:client:revive')
             end
@@ -789,15 +789,15 @@ Citizen.CreateThread(function()
                 TriggerServerEvent("pepe-admin:server:togglePlayerNoclip", GetPlayerServerId(currentPlayer))
             end
             
-            if WarMenu.CheckBox("Freeze", isFreeze, function(checked) isFreeze = checked end) then
+            if WarMenu.CheckBox("Đóng băng", isFreeze, function(checked) isFreeze = checked end) then
                 TriggerServerEvent("pepe-admin:server:Freeze", GetPlayerServerId(currentPlayer), isFreeze)
             end
 
-            if WarMenu.MenuButton("Open Inventory", currentPlayer) then
+            if WarMenu.MenuButton("Mở túi", currentPlayer) then
                 OpenTargetInventory(GetPlayerServerId(currentPlayer))
             end
 
-            if WarMenu.MenuButton("Spectate", currentPlayer) then
+            if WarMenu.MenuButton("Theo dõi", currentPlayer) then
                 WarMenu.CloseMenu()
 
                 local playerPed = PlayerPedId()
@@ -822,22 +822,22 @@ Citizen.CreateThread(function()
                 end)
             end
 
-            if WarMenu.MenuButton("Clothing Menu", currentPlayer) then
+            if WarMenu.MenuButton("Menu quần áo", currentPlayer) then
                 WarMenu.CloseMenu()
                 TriggerServerEvent('pepe-admin:server:OpenSkinMenu', GetPlayerServerId(PlayerId()), 'clothesmenu')
             end
             
-            if WarMenu.MenuButton("Outfits Menu", currentPlayer) then
+            if WarMenu.MenuButton("Menu trang phục", currentPlayer) then
                 WarMenu.CloseMenu()
                 TriggerServerEvent("pepe-outfits:server:openUI", true)
             end
 
-            if WarMenu.MenuButton("Barber Menu", currentPlayer) then
+            if WarMenu.MenuButton("Menu cắt tóc", currentPlayer) then
                 WarMenu.CloseMenu()
                 TriggerServerEvent('pepe-admin:server:OpenSkinMenu', GetPlayerServerId(PlayerId()), 'barbermenu')
             end
 
-            if WarMenu.MenuButton("Tattoos Menu", currentPlayer) then
+            if WarMenu.MenuButton("Menu hình xăm", currentPlayer) then
                 WarMenu.CloseMenu()
                 TriggerServerEvent('pepe-admin:server:OpenSkinMenu', GetPlayerServerId(PlayerId()), 'tattoomenu')
             end
@@ -849,7 +849,7 @@ Citizen.CreateThread(function()
             WarMenu.Display()
             
         elseif WarMenu.IsMenuOpened('teleportOptions') then
-            if WarMenu.MenuButton('Goto', currentPlayer) then
+            if WarMenu.MenuButton('Đi đến', currentPlayer) then
                 if in_noclip_mode then
                     turnNoClipOff()
                     TriggerServerEvent('pepe-admin:server:gotoTp', GetPlayerServerId(currentPlayer), GetPlayerServerId(PlayerId()))
@@ -860,7 +860,7 @@ Citizen.CreateThread(function()
                     TriggerServerEvent('pepe-admin:server:gotoTp', GetPlayerServerId(currentPlayer), GetPlayerServerId(PlayerId()))
                 end
             end
-            if WarMenu.MenuButton('Bring', currentPlayer) then
+            if WarMenu.MenuButton('Mang đến', currentPlayer) then
                 local target = GetPlayerPed(currentPlayer)
                 local plyCoords = GetEntityCoords(PlayerPedId())
 
@@ -871,7 +871,7 @@ Citizen.CreateThread(function()
             elseif WarMenu.IsMenuOpened('permissionOptions') then
                     
            -- if myPermissionRank == "god" then
-                    if WarMenu.ComboBox('Permission Group', perms, currentPermIndex, selectedPermIndex, function(currentIndex, selectedIndex)
+                    if WarMenu.ComboBox('Nhóm quyền', perms, currentPermIndex, selectedPermIndex, function(currentIndex, selectedIndex)
                 currentPermIndex = currentIndex
                 selectedPermIndex = selectedIndex
                     end) then
@@ -880,13 +880,13 @@ Citizen.CreateThread(function()
 
                 TriggerServerEvent('pepe-admin:server:setPermissions', target, group)
 
-                Framework.Functions.Notify('You have ' .. GetPlayerName(currentPlayer) .. '\'s group has changed to '..group.label)
+                Framework.Functions.Notify(' ' .. GetPlayerName(currentPlayer) .. '\'s group has changed to '..group.label)
             end
             WarMenu.Display()
         --end
 
         elseif WarMenu.IsMenuOpened('adminOptions') then
-            if WarMenu.ComboBox('Ban Length', bans, currentBanIndex, selectedBanIndex, function(currentIndex, selectedIndex)
+            if WarMenu.ComboBox('Thời gian Ban', bans, currentBanIndex, selectedBanIndex, function(currentIndex, selectedIndex)
                 currentBanIndex = currentIndex
                 selectedBanIndex = selectedIndex
             end) then
