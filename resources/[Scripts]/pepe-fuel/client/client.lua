@@ -78,14 +78,14 @@ Citizen.CreateThread(function()
                 if VehDistance < 2.5 and not IsPedSittingInVehicle(GetPlayerPed(-1), Vehicle) and GetFuelLevel(Plate) ~= 100 then
                   local VehicleCoords = GetEntityCoords(Vehicle)
                   DrawMarker(2, VehicleCoords.x, VehicleCoords.y, VehicleCoords.z + 1.15, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 35, 161, 48, 255, false, false, false, 1, false, false, false)     
-                  DrawText3D(VehicleCoords.x, VehicleCoords.y, VehicleCoords.z + 1.10, '~g~Content~s~: '..GetFuelLevel(Plate).. '%\n~g~E~s~ - Fuel | Price ~g~$~s~'..Config.TankLocations[k]['Tank-Price'])
+                  DrawText3D(VehicleCoords.x, VehicleCoords.y, VehicleCoords.z + 1.10, '~g~Bình xăng~s~: '..GetFuelLevel(Plate).. '%\n~g~E~s~ - Nhiên liệu | Giá bán ~g~$~s~'..Config.TankLocations[k]['Tank-Price'])
                 if IsControlJustReleased(0, 38) and not IsBusy then
                     Framework.Functions.TriggerCallback("pepe-fuel:server:can:fuel", function(CanFuel)
                         if CanFuel then
                          IsBusy = true
                          RefuelCar(Vehicle, Plate)
                         else
-                         Framework.Functions.Notify('Not enough money.', 'error')
+                         Framework.Functions.Notify('Không đủ tiền.', 'error')
                         end
                     end, Config.TankLocations[k]["Tank-Price"])
                 end
@@ -129,7 +129,7 @@ end
 function RefuelCar(Vehicle, Plate)
  exports['pepe-assets']:RequestAnimationDict("weapon@w_sp_jerrycan")
  TaskPlayAnim( PlayerPedId(), "weapon@w_sp_jerrycan", "fire", 8.0, 1.0, -1, 1, 0, 0, 0, 0 )
- Framework.Functions.Progressbar("refuel-car", "Fueling up vehicle..", math.random(5000, 6500), false, true, {
+ Framework.Functions.Progressbar("refuel-car", "Đang đổ xăng..", math.random(5000, 6500), false, true, {
      disableMovement = true,
      disableCarMovement = true,
      disableMouse = false,
@@ -138,7 +138,7 @@ function RefuelCar(Vehicle, Plate)
     IsBusy = false
     SetFuelLevel(Vehicle, Plate, 100, false)
     PlaySound(-1, "5_SEC_WARNING", "HUD_MINI_GAME_SOUNDSET", 0, 0, 1)
-    Framework.Functions.Notify('Vehicles refueled!', 'success')
+    Framework.Functions.Notify('Xăng đầy!', 'success')
     StopAnimTask(GetPlayerPed(-1), "weapon@w_sp_jerrycan", "fire", 3.0, 3.0, -1, 2, 0, 0, 0, 0)
  end, function() -- Cancel
     IsBusy = false

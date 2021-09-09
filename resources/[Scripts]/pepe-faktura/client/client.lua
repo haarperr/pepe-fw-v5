@@ -18,7 +18,7 @@ local data = {}
         TriggerServerEvent('pepe-phone:server:sendNewMail', {
             sender = name,
             subject = "Bill",
-            message = "You have recived a bill that has to be paid. <br>The billed amount is: $" ..price.."<br> Reasoning: " ..reason.."<br><br> Press accept at the bottom of your phone to pay the bill.",
+            message = "Bạn đã nhận được một hóa đơn phải được thanh toán. <br> Số tiền thanh toán là: $" ..price.."<br> Nội dung: " ..reason.."<br><br> Nhấn Chấp nhận ở dưới cùng của điện thoại để thanh toán hóa đơn.",
             button = {
                 enabled = true,
                 buttonEvent = "billing:client:Acceptbill",
@@ -31,7 +31,7 @@ local data = {}
     RegisterNetEvent('billing:client:Acceptbill')
     AddEventHandler('billing:client:Acceptbill',function (data)
 
-        Framework.Functions.Notify('You have paid a bill for $'..data[1], 'success')
+        Framework.Functions.Notify('Bạn đã trả một hóa đơn cho $'..data[1], 'success')
 
         TriggerServerEvent('billing:server:PayBill',data)
     end)

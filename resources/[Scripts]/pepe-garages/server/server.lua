@@ -56,10 +56,10 @@ end)
 Framework.Functions.CreateCallback("pepe-garage:server:pay:depot", function(source, cb, price)
   local src = source
   local Player = Framework.Functions.GetPlayer(src)
-  if Player.Functions.RemoveMoney("cash", price, "Depot Paid") then
+  if Player.Functions.RemoveMoney("cash", price, "Kho thanh toán") then
     cb(true)
   else
-    TriggerClientEvent('Framework:Notify', src, "You do not have enough cash..", "error")
+    TriggerClientEvent('Framework:Notify', src, "Bạn không có đủ tiền mặt..", "error")
     cb(false)
   end
 end)

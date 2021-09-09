@@ -52,11 +52,11 @@ local Plate = GetVehicleNumberPlateText(Vehicle)
          if IsOwner then
            TriggerEvent('pepe-garages:client:set:vehicle:in:garage', Vehicle, Plate)
          else
-          Framework.Functions.Notify('This is not your vehicle', 'error')
+          Framework.Functions.Notify('Đây không phải là phương tiện của bạn', 'error')
          end
      end, Plate)
   else
-    Framework.Functions.Notify('No vehicles found?', 'error')
+    Framework.Functions.Notify('Không tìm thấy phương tiện nào?', 'error')
   end
 end)
 
@@ -68,7 +68,7 @@ AddEventHandler('pepe-garages:client:set:vehicle:in:garage', function(Vehicle, P
     Citizen.SetTimeout(1650, function()
       TriggerServerEvent('pepe-garages:server:set:in:garage', Plate, GarageData, 'in', VehicleMeta)
       Framework.Functions.DeleteVehicle(Vehicle)
-      Framework.Functions.Notify('Vehicle parked in '..Config.CurrentGarageData['GarageName'], 'success')
+      Framework.Functions.Notify('Xe đã đỗ trong '..Config.CurrentGarageData['GarageName'], 'success')
     end)
 end)
 
@@ -92,7 +92,7 @@ AddEventHandler('pepe-garages:client:spawn:vehicle', function(Plate, VehicleName
     Citizen.Wait(25)
     exports['pepe-vehiclekeys']:SetVehicleKey(GetVehicleNumberPlateText(Vehicle), true)
     exports['pepe-fuel']:SetFuelLevel(Vehicle, GetVehicleNumberPlateText(Vehicle), Metadata.Fuel, false)
-    Framework.Functions.Notify('Vehicle parked.', 'success')
+    Framework.Functions.Notify('Xe đã đậu.', 'success')
   end, CoordTable, true, false)
 end)
 
@@ -118,12 +118,12 @@ RegisterNUICallback('TakeOutVehicle', function(data)
           Citizen.Wait(25)
           exports['pepe-vehiclekeys']:SetVehicleKey(GetVehicleNumberPlateText(Vehicle), true)
           exports['pepe-fuel']:SetFuelLevel(Vehicle, GetVehicleNumberPlateText(Vehicle), data.Fuel, false)
-          Framework.Functions.Notify('Your vehicle has been parked in a parking spot', 'info')
+          Framework.Functions.Notify('Xe của bạn đã được đỗ ga-ra', 'info')
           TriggerServerEvent('pepe-garages:server:set:garage:state', data.Plate, 'out')
         end, data.Plate)
       end, CoordTable, true, false)
     else
-        Framework.Functions.Notify("Vehicle is in the impound.", "info", 3500)
+        Framework.Functions.Notify("Phương tiện đang bị giam.", "info", 3500)
     end
   elseif IsNearDepot() then
     Framework.Functions.TriggerCallback('pepe-garage:server:pay:depot', function(DidPayment)
@@ -139,7 +139,7 @@ RegisterNUICallback('TakeOutVehicle', function(data)
           TaskWarpPedIntoVehicle(PlayerPedId(), Vehicle, -1)
           exports['pepe-vehiclekeys']:SetVehicleKey(GetVehicleNumberPlateText(Vehicle), true)
           exports['pepe-fuel']:SetFuelLevel(Vehicle, GetVehicleNumberPlateText(Vehicle), data.Fuel, false)
-          Framework.Functions.Notify('Retrieved vehicle out of impound', 'success')
+          Framework.Functions.Notify('Lấy xe ra khỏi noi giam giữ', 'success')
           TriggerServerEvent('pepe-garages:server:set:depot:price', data.Plate, 0)
           TriggerServerEvent('pepe-garages:server:set:garage:state', data.Plate, 'out')
           CloseMenuFull()
@@ -161,7 +161,7 @@ RegisterNUICallback('TakeOutVehicle', function(data)
           TaskWarpPedIntoVehicle(PlayerPedId(), Vehicle, -1)
           exports['pepe-vehiclekeys']:SetVehicleKey(GetVehicleNumberPlateText(Vehicle), true)
           exports['pepe-fuel']:SetFuelLevel(Vehicle, GetVehicleNumberPlateText(Vehicle), data.Fuel, false)
-          Framework.Functions.Notify('Retrieved vehicle out of impound', 'success')
+          Framework.Functions.Notify('ấy xe ra khỏi noi giam giữ', 'success')
           TriggerServerEvent('pepe-garages:server:set:depot:price', data.Plate, 0)
           TriggerServerEvent('pepe-garages:server:set:garage:state', data.Plate, 'out')
           CloseMenuFull()
@@ -183,13 +183,13 @@ RegisterNUICallback('TakeOutVehicle', function(data)
              TaskWarpPedIntoVehicle(PlayerPedId(), Vehicle, -1)
              exports['pepe-vehiclekeys']:SetVehicleKey(GetVehicleNumberPlateText(Vehicle), true)
              exports['pepe-fuel']:SetFuelLevel(Vehicle, GetVehicleNumberPlateText(Vehicle), data.Fuel, false)
-             Framework.Functions.Notify('Retrieved vehicle out of impound', 'success')
+             Framework.Functions.Notify('lấy xe ra khỏi noi giam giữ', 'success')
              TriggerServerEvent('pepe-garages:server:set:garage:state', data.Plate, 'out')
              CloseMenuFull()
            end, data.Plate)
         end, CoordTable, true, false)
       else
-        Framework.Functions.Notify("Your vehicle is in the impound.", "info", 3500)
+        Framework.Functions.Notify("Phương tiện của bạn đang bị giam cầm", "info", 3500)
     end
   end
 end)
@@ -281,7 +281,7 @@ function OpenGarageMenu()
           Citizen.InvokeNative(0xFC695459D4D0E219, 0.9, 0.25)
           SendNUIMessage({action = "OpenGarage", garagevehicles = VehicleTable})
       else
-        Framework.Functions.Notify("You have no vehicles or boats in this garage", "error", 5000)
+        Framework.Functions.Notify("Bạn không có phương tiện trong ga-ra này", "error", 5000)
       end
   end, Config.CurrentGarageData['GarageName'])
 end
@@ -303,7 +303,7 @@ function OpenDepotMenu()
           Citizen.InvokeNative(0xFC695459D4D0E219, 0.9, 0.25)
           SendNUIMessage({action = "OpenDepot", depotvehicles = VehicleTable})
       else
-        Framework.Functions.Notify("No impounded vehicles", "error", 5000)
+        Framework.Functions.Notify("Không có phương tiện bị tạm giữ", "error", 5000)
       end
   end)
 end
@@ -323,7 +323,7 @@ function OpenHouseGarage(HouseId)
           Citizen.InvokeNative(0xFC695459D4D0E219, 0.9, 0.25)
           SendNUIMessage({action = "OpenGarage", garagevehicles = VehicleTable})
       else
-        Framework.Functions.Notify("You have no vehicles or boats in this garage", "error", 5000)
+        Framework.Functions.Notify("Bạn không có phương tiện trong ga-ra này", "error", 5000)
       end
   end, HouseId)
 end

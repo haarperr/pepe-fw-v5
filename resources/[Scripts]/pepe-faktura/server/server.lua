@@ -1,7 +1,7 @@
 Framework = nil
 TriggerEvent("Framework:GetObject", function(obj) Framework = obj end)
 
-Framework.Commands.Add("bill", "Create an invoice and send to another citizen", {{name="id", help="Player ID"},{name="Amount", help="The bills value"},{name="Reason", help="Reason for bill"}}, false, function(source, args)
+Framework.Commands.Add("bill", "Viết một hoá đơn", {{name="id", help="ID người chơi"},{name="Amount", help="Số tiền"},{name="Reason", help="Nội dung"}}, false, function(source, args)
     Player = Framework.Functions.GetPlayer(source)
     OtherPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
         if Player ~= nil then
@@ -17,7 +17,7 @@ Framework.Commands.Add("bill", "Create an invoice and send to another citizen", 
 
             TriggerClientEvent('billing:client:sendBillingMail', playerId, name, price, reason, citizenid)
         else
-            TriggerClientEvent('Framework:Notify', source, "The citizen is not online..", "error", 4500)
+            TriggerClientEvent('Framework:Notify', source, "Công dân không trực tuyến..", "error", 4500)
         end
     end
 end)
@@ -35,7 +35,7 @@ AddEventHandler('billing:server:PayBill', function(data)
             if OtherPlayer ~= nil then
                 OtherPlayer.Functions.AddMoney("cash",data[1], "recived-bill")
 
-                TriggerClientEvent('Framework:Notify', OtherPlayer.PlayerData.source, 'You recived $'..data[1].. ' from '..Player.PlayerData.charinfo.firstname.. ' ' ..Player.PlayerData.charinfo.lastname, 'success')
+                TriggerClientEvent('Framework:Notify', OtherPlayer.PlayerData.source, 'Bạn đã nhận $'..data[1].. ' từ '..Player.PlayerData.charinfo.firstname.. ' ' ..Player.PlayerData.charinfo.lastname, 'success')
             end
         end
     end
