@@ -25,7 +25,7 @@ RegisterServerEvent('pepe-admin:server:kickPlayer')
 AddEventHandler('pepe-admin:server:kickPlayer', function(playerId, reason)
     local src = source
     if Framework.Functions.HasPermission(src, permissions["kick"]) then
-        DropPlayer(playerId, "You have been kicked out of the server for reason:\n"..reason.."\n\n🔸 Discord: ")
+        DropPlayer(playerId, "Bạn đã bị đuổi ra khỏi máy chủ vì lý do:\n"..reason.."\n\n🔸 Discord: ")
     else
     end
 end)
@@ -47,7 +47,7 @@ AddEventHandler('pepe-admin:server:banPlayer', function(playerId, time, reason)
         end
         local timeTable = os.date("*t", banTime)
         Framework.Functions.ExecuteSql(false, "INSERT INTO `bans` (`name`, `steam`, `license`, `discord`,`ip`, `reason`, `expire`, `bannedby`) VALUES ('"..GetPlayerName(playerId).."', '"..GetPlayerIdentifiers(playerId)[1].."', '"..GetPlayerIdentifiers(playerId)[2].."', '"..GetPlayerIdentifiers(playerId)[3].."', '"..GetPlayerIdentifiers(playerId)[4].."', '"..reason.."', "..banTime..", '"..GetPlayerName(src).."')")
-        DropPlayer(playerId, "You have been banned:\n"..reason.."\nExpire date "..timeTable["day"].. "/" .. timeTable["month"] .. "/" .. timeTable["year"] .. " " .. timeTable["hour"].. ":" .. timeTable["min"] .. "\n")
+        DropPlayer(playerId, "Bạn đã bị cấm:\n"..reason.."\nThời gian kết thúc "..timeTable["day"].. "/" .. timeTable["month"] .. "/" .. timeTable["year"] .. " " .. timeTable["hour"].. ":" .. timeTable["min"] .. "\n")
     end
 end)
 
@@ -61,7 +61,7 @@ AddEventHandler('pepe-admin:server:open:inventory', function(TagetId)
   if Framework.Functions.HasPermission(source, 'admin') then
     TriggerClientEvent('pepe-admin:client:open:target:inventory', source, TagetId)
   else
-    TriggerClientEvent('Framework:Notify', source, "You have no perms", 'error')
+    TriggerClientEvent('Framework:Notify', source, "Bạn không đủ quyền để thực hiện", 'error')
   end
 end)
 -- Old QB Clothing Menu
@@ -87,18 +87,18 @@ Framework.Commands.Add("admin", "Open admin menu", {}, false, function(source, a
 	end
 end)
 
-Framework.Commands.Add("sm", "Server announcement", {}, false, function(source, args)
+Framework.Commands.Add("sm", "Thông báo máy chủ", {}, false, function(source, args)
 	--if source == 0 then
 	--	return
 	--end
     local msg = table.concat(args, " ")
 	TriggerClientEvent('chat:addMessage', _source, {
-    	template = '<div class="chat-message" style="background-color: rgba(66, 66, 66, 0.75); color: white;"><b>ANNOUNCEMENT</b> {0}</div>',
+    	template = '<div class="chat-message" style="background-color: rgba(66, 66, 66, 0.75); color: white;"><b>THÔNG BÁO SERVER</b> {0}</div>',
     	args = {msg}
     })
 end, "admin")
 
-Framework.Commands.Add("admincar", "Add vehicle to your garage", {}, false, function(source, args)
+Framework.Commands.Add("admincar", "Thêm phương tiện vào nhà để phương tiện của bạn", {}, false, function(source, args)
     local ply = Framework.Functions.GetPlayer(source)
     TriggerClientEvent('pepe-admin:client:SaveCar', source)
 end, "admin")
@@ -130,13 +130,13 @@ Framework.Commands.Add("givenuifocus", "Give nui focus", {{name="id", help="Spel
     TriggerClientEvent('pepe-admin:client:GiveNuiFocus', playerid, focus, mouse)
 end, "admin")
 
-Framework.Commands.Add("enablekeys", "Enable all keys for player.", {{name="id", help="Player id"}}, true, function(source, args)
+Framework.Commands.Add("enablekeys", "Kích hoạt tất cả các phím cho người chơi.", {{name="id", help="ID người chơi"}}, true, function(source, args)
     local playerid = tonumber(args[1])
 
     TriggerClientEvent('pepe-admin:client:EnableKeys', playerid)
 end, "admin")
 
-Framework.Commands.Add("vehwipe", "Vehicle wiper.", {}, false, function(source, args)
+Framework.Commands.Add("vehwipe", "Khăn lau xe.", {}, false, function(source, args)
     local group = Framework.Functions.GetPermission(source)
 	    local src = source
     if group == "mod" or group == "admin" or group == 'god' then
@@ -151,7 +151,7 @@ Framework.Commands.Add("vehwipe", "Vehicle wiper.", {}, false, function(source, 
 end)
 
 
-Framework.Commands.Add("objectwipe", "Object wiper.", {}, false, function(source, args)
+Framework.Commands.Add("objectwipe", "Wiper đối tượng.", {}, false, function(source, args)
     local group = Framework.Functions.GetPermission(source)
 	    local src = source
     if group == "mod" or group == "admin" or group == 'god' then
@@ -165,7 +165,7 @@ Framework.Commands.Add("objectwipe", "Object wiper.", {}, false, function(source
 	end
 end)
 
-Framework.Commands.Add("warn", "Geef speler een waarschuwing", {{name="ID", help="Person"}, {name="Reden", help="Wat is de reden?"}}, true, function(source, args)
+Framework.Commands.Add("warn", "Cảnh báo người chơi", {{name="ID", help="ID người chơi"}, {name="Reden", help="Lý do cần thông báo?"}}, true, function(source, args)
     local targetPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
     local senderPlayer = Framework.Functions.GetPlayer(source)
     table.remove(args, 1)
@@ -176,19 +176,19 @@ Framework.Commands.Add("warn", "Geef speler een waarschuwing", {{name="ID", help
     local warnId = "WARN-"..math.random(1111, 9999)
 
     if targetPlayer ~= nil then
-        TriggerClientEvent('chatMessage', targetPlayer.PlayerData.source, "SYSTEM", "error", "Je bent gewaarschuwd door: "..GetPlayerName(source)..", met als reden: "..msg)
-        TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "You have "..GetPlayerName(targetPlayer.PlayerData.source).." warned for: "..msg)
+        TriggerClientEvent('chatMessage', targetPlayer.PlayerData.source, "HÊ THỐNG", "error", "Bạn đã được cảnh báo bởi: "..GetPlayerName(source)..", với lý do: "..msg)
+        TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Bạn có "..GetPlayerName(targetPlayer.PlayerData.source).." cảnh báo cho: "..msg)
         Framework.Functions.ExecuteSql(false, "INSERT INTO `characters_warns` (`senderIdentifier`, `targetIdentifier`, `reason`, `warnId`) VALUES ('"..senderPlayer.PlayerData.steam.."', '"..targetPlayer.PlayerData.steam.."', '"..msg.."', '"..warnId.."')")
     else
-        TriggerClientEvent('Framework:Notify', source, 'Niet aanwezig.', 'error')
+        TriggerClientEvent('Framework:Notify', source, 'Không online', 'error')
     end 
 end, "admin")
 
-Framework.Commands.Add("checkwarns", "Check waarschuwingen op speler", {{name="ID", help="Persoon"}, {name="Warning", help="Number of warning, (1, 2 of 3 etc..)"}}, false, function(source, args)
+Framework.Commands.Add("checkwarns", "Kiểm tra cảnh báo", {{name="ID", help="ID người chơi"}, {name="Warning", help="Số lần cảnh báo (1, 2 of 3 etc..)"}}, false, function(source, args)
     if args[2] == nil then
         local targetPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
         Framework.Functions.ExecuteSql(false, "SELECT * FROM `characters_warns` WHERE `targetIdentifier` = '"..targetPlayer.PlayerData.steam.."'", function(result)
-            TriggerClientEvent('chatMessage', source, "SYSTEM", "warning", targetPlayer.PlayerData.name.." heeft "..tablelength(result).." warnings!")
+            TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "warning", targetPlayer.PlayerData.name.." có "..tablelength(result).." cảnh báo!")
         end)
     else
         local targetPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
@@ -199,13 +199,13 @@ Framework.Commands.Add("checkwarns", "Check waarschuwingen op speler", {{name="I
             if warnings[selectedWarning] ~= nil then
                 local sender = Framework.Functions.GetPlayer(warnings[selectedWarning].senderIdentifier)
 
-                TriggerClientEvent('chatMessage', source, "SYSTEM", "warning", targetPlayer.PlayerData.name.." door "..sender.PlayerData.name..", Reden: "..warnings[selectedWarning].reason)
+                TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "warning", targetPlayer.PlayerData.name.." Bằng cách "..sender.PlayerData.name..", Reden: "..warnings[selectedWarning].reason)
             end
         end)
     end
 end, "admin")
 
-Framework.Commands.Add("remove", "Remove warning from person", {{name="ID", help="Persoon"}, {name="Warning", help="Number of warning, (1, 2 of 3 etc..)"}}, true, function(source, args)
+Framework.Commands.Add("remove", "Gỡ cảnh báo cho người chơi", {{name="ID", help="ID người chơi"}, {name="Warning", help="Số cảnh báo (1, 2 of 3 etc..)"}}, true, function(source, args)
     local targetPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
 
     Framework.Functions.ExecuteSql(false, "SELECT * FROM `characters_warns` WHERE `targetIdentifier` = '"..targetPlayer.PlayerData.steam.."'", function(warnings)
@@ -214,7 +214,7 @@ Framework.Commands.Add("remove", "Remove warning from person", {{name="ID", help
         if warnings[selectedWarning] ~= nil then
             local sender = Framework.Functions.GetPlayer(warnings[selectedWarning].senderIdentifier)
 
-            TriggerClientEvent('chatMessage', source, "SYSTEM", "warning", "You have warning ("..selectedWarning..") removed, Reason: "..warnings[selectedWarning].reason)
+            TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "warning", "Bạn có cảnh báo ("..selectedWarning..") đã gỡ, Lý do: "..warnings[selectedWarning].reason)
             Framework.Functions.ExecuteSql(false, "DELETE FROM `characters_warns` WHERE `warnId` = '"..warnings[selectedWarning].warnId.."'")
         end
     end)
@@ -228,7 +228,7 @@ function tablelength(table)
     return count
 end
 
-Framework.Commands.Add("setmodel", "Change into a model of your choice..", {{name="model", help="Name of the model"}, {name="id", help="Player ID (leave blank for yourself)"}}, false, function(source, args)
+Framework.Commands.Add("setmodel", "Thay đổi phong cách thời trang..", {{name="model", help="Tên thời trang"}, {name="id", help="Id người chơi (leave blank for yourself)"}}, false, function(source, args)
     local model = args[1]
     local target = tonumber(args[2])
 
@@ -240,11 +240,11 @@ Framework.Commands.Add("setmodel", "Change into a model of your choice..", {{nam
             if Trgt ~= nil then
                 TriggerClientEvent('pepe-admin:client:SetModel', target, tostring(model))
             else
-                TriggerClientEvent('Framework:Notify', source, "This person is not in town yeet..", "error")
+                TriggerClientEvent('Framework:Notify', source, "Người này không ở trong thành phố..", "error")
             end
         end
     else
-        TriggerClientEvent('Framework:Notify', source, "You have not provided a Model ..", "error")
+        TriggerClientEvent('Framework:Notify', source, "Bạn không có thời trang nào ..", "error")
     end
 end, "admin")
 
@@ -265,9 +265,9 @@ AddEventHandler('pepe-admin:server:SaveCar', function(mods, vehicle, hash, plate
     Framework.Functions.ExecuteSql(false, "SELECT * FROM `characters_vehicles` WHERE `plate` = '"..plate.."'", function(result)
         if result[1] == nil then
             Framework.Functions.ExecuteSql(false, "INSERT INTO `characters_vehicles` (`steam`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `state`) VALUES ('"..Player.PlayerData.steam.."', '"..Player.PlayerData.citizenid.."', '"..vehicle.model.."', '"..vehicle.hash.."', '"..json.encode(mods).."', '"..plate.."', 0)")
-            TriggerClientEvent('Framework:Notify', src, 'The vehicle is now in your name!', 'success', 5000)
+            TriggerClientEvent('Framework:Notify', src, 'Phương tiện bây giờ đứng tên của bạn!', 'success', 5000)
         else
-            TriggerClientEvent('Framework:Notify', src, 'This vehicle is already in your garage..', 'error', 3000)
+            TriggerClientEvent('Framework:Notify', src, 'Phương tiện đã ở trong Ga-ra..', 'error', 3000)
         end
     end)
 end)
@@ -304,7 +304,7 @@ end)
 RegisterServerEvent('pepe-admin:server:setPermissions')
 AddEventHandler('pepe-admin:server:setPermissions', function(targetId, group)
     Framework.Functions.AddPermission(targetId, group.rank)
-    TriggerClientEvent('Framework:Notify', targetId, 'Your permission group is set to '..group.label)
+    TriggerClientEvent('Framework:Notify', targetId, 'Nhóm quyền của bạn được đặt thành '..group.label)
 end)
 
 RegisterServerEvent('pepe-admin:server:OpenSkinMenu')
@@ -342,12 +342,12 @@ AddEventHandler('pepe-admin:server:SendReport', function(name, targetSrc, msg)
         end
     end
 end)
-Framework.Commands.Add("reporttoggle", "Toggle incoming reports", {}, false, function(source, args)
+Framework.Commands.Add("reporttoggle", "Chuyển đổi báo cáo đến.", {}, false, function(source, args)
     Framework.Functions.ToggleOptin(source)
     if Framework.Functions.IsOptin(source) then
-        TriggerClientEvent('Framework:Notify', source, "You are receiving reports", "success")
+        TriggerClientEvent('Framework:Notify', source, "Bạn đang nhận báo cáo", "success")
     else
-        TriggerClientEvent('Framework:Notify', source, "You are not receiving reports", "error")
+        TriggerClientEvent('Framework:Notify', source, "Bạn không nhận được báo cáo", "error")
     end
 end, "admin")
 
@@ -367,27 +367,27 @@ AddEventHandler('pepe-admin:server:StaffChatMessage', function(name, msg)
     end
 end)
 
-Framework.Commands.Add("report", "Send a report to the staff team in game.", {{name="message", help="Message"}}, true, function(source, args)
+Framework.Commands.Add("report", "Gửi một báo cáo cho đội ngũ Admin trong trò chơi.", {{name="message", help="Nội dung"}}, true, function(source, args)
     local msg = table.concat(args, " ")
     local Player = Framework.Functions.GetPlayer(source)
     TriggerClientEvent('pepe-admin:client:SendReport', -1, GetPlayerName(source), source, msg)
    -- TriggerClientEvent('chatMessage', source, "Report verstuurd enige geduld aub", "system", msg)
 	
             TriggerClientEvent('chat:addMessage', source , {
-                template = '<div class="chat-message server">Report send! Please be patient</div>',
+                template = '<div class="chat-message server">Báo cáo gửi! Xin hãy chờ đợi</div>',
                 args = { "Report - " .. msg }
             })
     TriggerEvent("pepe-log:server:CreateLog", "report", "Report", "green", "**"..GetPlayerName(source).."** (CitizenID: "..Player.PlayerData.citizenid.." | ID: "..source..") **Report:** " ..msg, false)
     TriggerEvent("pepe-log:server:sendLog", Player.PlayerData.citizenid, "reportreply", {message=msg})
 end)
 
-Framework.Commands.Add("staffchat", "Send a message to all staff members", {{name="message", help="Message"}}, true, function(source, args)
+Framework.Commands.Add("staffchat", "Gửi tin nhắn cho tất cả Admin", {{name="message", help="Nôi dung"}}, true, function(source, args)
     local msg = table.concat(args, " ")
 
     TriggerClientEvent('pepe-admin:client:SendStaffChat', -1, GetPlayerName(source), msg)
 end, "admin")
 
-Framework.Commands.Add("reportr", "Reply to a report", {}, false, function(source, args)
+Framework.Commands.Add("reportr", "Trả lời một báo cáo", {}, false, function(source, args)
     local playerId = tonumber(args[1])
     table.remove(args, 1)
     local msg = table.concat(args, " ")
@@ -405,7 +405,7 @@ Framework.Commands.Add("reportr", "Reply to a report", {}, false, function(sourc
 				            })
 				
 				
-        TriggerClientEvent('Framework:Notify', source, "Sent reply")
+        TriggerClientEvent('Framework:Notify', source, "Đã gửi trả lời")
         TriggerEvent("pepe-log:server:sendLog", Player.PlayerData.citizenid, "reportreply", {otherCitizenId=OtherPlayer.PlayerData.citizenid, message=msg})
         for k, v in pairs(Framework.Functions.GetPlayers()) do
             if Framework.Functions.HasPermission(v, "admin") then
@@ -423,11 +423,11 @@ Framework.Commands.Add("reportr", "Reply to a report", {}, false, function(sourc
             end
         end
     else
-        TriggerClientEvent('Framework:Notify', source, "Player is not online", "error")
+        TriggerClientEvent('Framework:Notify', source, "Người chơi không online", "error")
     end
 end, "admin")
 
-Framework.Commands.Add("setammo", "Staff: Set manual ammo for a weapon.", {{name="amount", help="The amount of bullets, e.g .: 20"}, {name="weapon", help="Name of weapon, eg: WEAPON_RAILGUN"}}, false, function(source, args)
+Framework.Commands.Add("setammo", "Nhân viên: Đặt đạn thủ công cho vũ khí.", {{name="amount", help="Số lượng đạn, e.g .: 20"}, {name="weapon", help="Tên vũ khí., vd: WEAPON_RAILGUN"}}, false, function(source, args)
     local src = source
     local weapon = args[2] ~= nil and args[2] or "current"
     local amount = tonumber(args[1]) ~= nil and tonumber(args[1]) or 250
