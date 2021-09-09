@@ -67,7 +67,7 @@ AddEventHandler('pepe-hud:Server:RelieveStress', function(amount)
         end
         Player.Functions.SetMetaData("stress", newStress)
         TriggerClientEvent("hud:client:UpdateStress", src, newStress)
-        TriggerClientEvent('Framework:Notify', src, 'Stress relieved', 'success')
+        TriggerClientEvent('Framework:Notify', src, 'Giảm căng thẳng', 'success')
 	end
 end)
 
