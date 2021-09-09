@@ -19,10 +19,10 @@ end)
     
 Framework.Functions.CreateCallback('pepe-materials:server:get:reward', function(source)
     local Player = Framework.Functions.GetPlayer(source)
-    local RandomValue = math.random(1, 100)
+    local RandomValue = math.random(1, 15)
     local RandomItems = Config.BinItems[math.random(#Config.BinItems)]
-    if RandomValue <= 55 then
-     Player.Functions.AddItem(RandomItems, math.random(1, 10))
+    if RandomValue <= 15 then
+     Player.Functions.AddItem(RandomItems, math.random(1, 15))
      TriggerClientEvent('pepe-inventory:client:ItemBox', Player.PlayerData.source, Framework.Shared.Items[RandomItems], 'add')
     -- elseif RandomValue >= 87 and RandomValue <= 89 then
     --     if math.random(1, 2) == 1 then
