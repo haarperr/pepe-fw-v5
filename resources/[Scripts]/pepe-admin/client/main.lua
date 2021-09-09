@@ -104,20 +104,20 @@ Citizen.CreateThread(function()
 	end
 end)
 AvailableWeatherTypes = {
-    {label = "Extra Sunny",         weather = 'EXTRASUNNY',}, 
-    {label = "Clear",               weather = 'CLEAR',}, 
-    {label = "Neutral",             weather = 'NEUTRAL',}, 
-    {label = "Smog",                weather = 'SMOG',}, 
-    {label = "Foggy",               weather = 'FOGGY',}, 
-    {label = "Overcast",            weather = 'OVERCAST',}, 
-    {label = "Clouds",              weather = 'CLOUDS',}, 
-    {label = "Clearing",            weather = 'CLEARING',}, 
-    {label = "Rain",                weather = 'RAIN',}, 
-    {label = "Thunder",             weather = 'THUNDER',}, 
-    {label = "Snow",                weather = 'SNOW',}, 
-    {label = "Blizzard",            weather = 'BLIZZARD',}, 
+    {label = "Thêm nắng",         weather = 'EXTRASUNNY',}, 
+    {label = "Trời trong",               weather = 'CLEAR',}, 
+    {label = "Trung lập",             weather = 'NEUTRAL',}, 
+    {label = "Khói bụi",                weather = 'SMOG',}, 
+    {label = "Sương mù",               weather = 'FOGGY',}, 
+    {label = "U ám.",            weather = 'OVERCAST',}, 
+    {label = "Mây",              weather = 'CLOUDS',}, 
+    {label = "Trong xanh",            weather = 'CLEARING',}, 
+    {label = "Mưa",                weather = 'RAIN',}, 
+    {label = "Sấm sét",             weather = 'THUNDER',}, 
+    {label = "Tuyết",                weather = 'SNOW',}, 
+    {label = "Bão tuyết",            weather = 'BLIZZARD',}, 
     {label = "Snowlight",           weather = 'SNOWLIGHT',}, 
-    {label = "XMAS (Heavy Snow)",   weather = 'XMAS',}, 
+    {label = "XMAS (Tuyết rơi nhiều)",   weather = 'XMAS',}, 
     {label = "Halloween (Scarry)",  weather = 'HALLOWEEN',},
 }
 
@@ -323,7 +323,7 @@ local VehicleColors = {
 }
 
 PermissionLevels = {
-    [1] = {rank = "user", label = "User"},
+    [1] = {rank = "user", label = "Người dùng"},
     [2] = {rank = "admin", label = "Admin"},
     [3] = {rank = "god", label = "God"},
 }
@@ -506,7 +506,7 @@ Citizen.CreateThread(function()
     local currentPermIndex = 1
     local selectedPermIndex = 1
 
-    WarMenu.CreateMenu('admin', 'Pepe Admin')
+    WarMenu.CreateMenu('admin', 'KingKong Admin')
     WarMenu.CreateSubMenu('playerMan', 'admin')
     WarMenu.CreateSubMenu('serverMan', 'admin')
     WarMenu.CreateSubMenu('exitSpectate', 'admin')
@@ -533,21 +533,21 @@ Citizen.CreateThread(function()
 
     while true do
         if WarMenu.IsMenuOpened('admin') then
-            WarMenu.MenuButton('Admin Options', 'adminOpt')
-            WarMenu.MenuButton('Players Options', 'playerMan')
-            WarMenu.MenuButton('Server Options', 'serverMan')
-            WarMenu.MenuButton('Vehicle Options', 'vehicleMan')
+            WarMenu.MenuButton('Tuỳ chọn Admin', 'adminOpt')
+            WarMenu.MenuButton('Tuỳ chọn người chơi', 'playerMan')
+            WarMenu.MenuButton('Tuỳ chọn Server', 'serverMan')
+            WarMenu.MenuButton('Tuỳ chọn phương tiện', 'vehicleMan')
 
             if IsPedInAnyVehicle(PlayerPedId()) and myPermissionRank == "god" then
-                WarMenu.MenuButton('Vehicle Customisation', 'vehOptions')
+                WarMenu.MenuButton('Tuỳ chỉnh phương tiện', 'vehOptions')
             end
 
             if myPermissionRank == "god" then
-                WarMenu.MenuButton('Management Options', 'managementOptions')
+                WarMenu.MenuButton('Tùy chọn quản lý', 'managementOptions')
             end
 
             if InSpectatorMode then
-                WarMenu.MenuButton('Exit Spectate', 'exitSpectate')
+                WarMenu.MenuButton('Thoát khỏi Spectate.', 'exitSpectate')
             end
 
             WarMenu.Display()
@@ -567,13 +567,13 @@ Citizen.CreateThread(function()
         elseif WarMenu.IsMenuOpened('adminOpt') then
 
             
-            if WarMenu.Button('Revive') then
+            if WarMenu.Button('Hồi sinh') then
                 local target = PlayerId()
                 local targetId = GetPlayerServerId(target)
                 TriggerServerEvent('pepe-admin:server:revivePlayer', targetId)
             end
             
-            if WarMenu.Button('Uncuff') then
+            if WarMenu.Button('Mở còng') then
                 TriggerEvent('police:client:Uncuffed')
             end
 
