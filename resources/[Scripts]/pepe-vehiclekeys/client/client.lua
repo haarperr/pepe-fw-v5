@@ -146,33 +146,34 @@ AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
        if IsPedInAnyVehicle(PlayerPedId(), false) then
           exports['pepe-assets']:RequestAnimationDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
           TaskPlayAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer' ,3.0, 3.0, -1, 16, 0, false, false, false)
-        --   exports['pepe-lockpick']:OpenLockpickGame(function(Success)
-            TriggerEvent('pepe-lockpick:client:openLockpick', function(Success)
+          exports['pepe-lockpick']:OpenLockpickGame(function(Success)
+            -- TriggerEvent('pepe-lockpick:client:openLockpick', function(Success)
         --     exports['pepe-lockpick']:StartLockPickCircle(function(Success)
-        --      if Success then
-        --          SetVehicleKey(Plate, true)
-        --          StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
-        --      else
-        --           if IsAdvanced then
-        --             if math.random(1,100) < 19 then
-        --               TriggerServerEvent('Framework:Server:RemoveItem', 'advancedlockpick', 1)
-        --               TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['advancedlockpick'], "remove")
-        --             end
-        --           else
-        --             if math.random(1,100) < 35 then
-        --               TriggerServerEvent('Framework:Server:RemoveItem', 'lockpick', 1)
-        --               TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['lockpick'], "remove")
-        --             end
-        --           end
-        --          Framework.Functions.Notify("Mislukt.", 'error')
-        --          StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
-        --      end
-        --   end)
+             if Success then
+                 SetVehicleKey(Plate, true)
+                 StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
+             else
+                  if IsAdvanced then
+                    if math.random(1,100) < 19 then
+                      TriggerServerEvent('Framework:Server:RemoveItem', 'advancedlockpick', 1)
+                      TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['advancedlockpick'], "remove")
+                    end
+                  else
+                    if math.random(1,100) < 35 then
+                      TriggerServerEvent('Framework:Server:RemoveItem', 'lockpick', 1)
+                      TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['lockpick'], "remove")
+                    end
+                  end
+                 Framework.Functions.Notify("Mislukt.", 'error')
+                 StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
+             end
+          end)
        else
           if VehicleLocks == 2 then
           exports['pepe-assets']:RequestAnimationDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
           TaskPlayAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer' ,3.0, 3.0, -1, 16, 0, false, false, false)
         --  exports['pepe-lockpick']:StartLockPickCircle(function(Success)
+        exports['pepe-lockpick']:OpenLockpickGame(function(Success)
             TriggerEvent('pepe-lockpick:client:openLockpick', function(Success)
              if Success then
                  SetVehicleDoorsLocked(Vehicle, 1)
