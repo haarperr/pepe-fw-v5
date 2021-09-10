@@ -130,7 +130,7 @@ AddEventHandler('pepe-police:server:AddEvidenceToInventory', function(EvidenceTy
         TriggerClientEvent("pepe-inventory:client:ItemBox", src, Framework.Shared.Items["filled_evidence_bag"], "add")
     end
  else
-    TriggerClientEvent('Framework:Notify', src, "You must have an empty evidence bag with you", "error")
+    TriggerClientEvent('Framework:Notify', src, "Bạn phải có một túi bằng chứng trống", "error")
  end
 end)
 
@@ -159,13 +159,13 @@ AddEventHandler('pepe-police:server:set:tracker', function(TargetId)
     local TrackerMeta = Target.PlayerData.metadata["tracker"]
     if TrackerMeta then
         Target.Functions.SetMetaData("tracker", false)
-        TriggerClientEvent('Framework:Notify', TargetId, 'Your ankle strap has been taken off.', 'error', 5000)
-        TriggerClientEvent('Framework:Notify', source, 'You have taken off an anklet from '..Target.PlayerData.charinfo.firstname.." "..Target.PlayerData.charinfo.lastname, 'error', 5000)
+        TriggerClientEvent('Framework:Notify', TargetId, 'Dây đeo mắt cá chân của bạn đã được tháo ra.', 'error', 5000)
+        TriggerClientEvent('Framework:Notify', source, 'Bạn đã tháo một chiếc vòng chân từ '..Target.PlayerData.charinfo.firstname.." "..Target.PlayerData.charinfo.lastname, 'error', 5000)
         TriggerClientEvent('pepe-police:client:set:tracker', TargetId, false)
     else
         Target.Functions.SetMetaData("tracker", true)
-        TriggerClientEvent('Framework:Notify', TargetId, 'You got an ankle bracelet.', 'error', 5000)
-        TriggerClientEvent('Framework:Notify', source, 'You put on an ankle bracelet '..Target.PlayerData.charinfo.firstname.." "..Target.PlayerData.charinfo.lastname, 'error', 5000)
+        TriggerClientEvent('Framework:Notify', TargetId, 'Bạn có một chiếc vòng cổ chân.', 'error', 5000)
+        TriggerClientEvent('Framework:Notify', source, 'Bạn đeo vòng tay vào mắt cá chân '..Target.PlayerData.charinfo.firstname.." "..Target.PlayerData.charinfo.lastname, 'error', 5000)
         TriggerClientEvent('pepe-police:client:set:tracker', TargetId, true)
     end
 end)
@@ -327,7 +327,7 @@ end
 
 -- // Commands \\ --
 
-Framework.Commands.Add("cuff", "toggle handcuffs (Admin)", {{name="ID", help="Player Id"}}, true, function(source, args)
+Framework.Commands.Add("cuff", "chuyển đổi còng tay (Admin)", {{name="ID", help="ID người chơi"}}, true, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     if args ~= nil then
      local TargetPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
@@ -335,101 +335,101 @@ Framework.Commands.Add("cuff", "toggle handcuffs (Admin)", {{name="ID", help="Pl
          TriggerClientEvent("pepe-police:client:get:cuffed", TargetPlayer.PlayerData.source, Player.PlayerData.source)
        end
     end
-end, "user")
+end, "admin")
 
-Framework.Commands.Add("unjail", "Unjail a person.", {{name="id", help="Player ID"}}, true, function(source, args)
+Framework.Commands.Add("unjail", "Bỏ mạng một người.", {{name="id", help="ID người chơi"}}, true, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         local playerId = tonumber(args[1])
         TriggerClientEvent("pepe-prison:client:leave:prison", playerId)
     else
-        TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "This command is for emergency services!", "success")
+        TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Lệnh này dành cho các dịch vụ khẩn cấp!", "success")
     end
 end)
 
-Framework.Commands.Add("sethighcommand", "Put someone's high command status", {{name="ID", help="PlayerId"}, {name="Status", help="True/False"}}, true, function(source, args)
+Framework.Commands.Add("sethighcommand", "Đặt trạng thái chỉ huy cao của ai đó", {{name="ID", help="ID người chơi"}, {name="Status", help="True/False"}}, true, function(source, args)
   if args ~= nil then
     local TargetPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
     if TargetPlayer ~= nil then
       if args[2]:lower() == 'true' then
           TargetPlayer.Functions.SetMetaData("ishighcommand", true)
-          TriggerClientEvent('Framework:Notify', TargetPlayer.PlayerData.source, 'You are now in charge!', 'success')
-          TriggerClientEvent('Framework:Notify', source, 'Player is now in charge!', 'success')
+          TriggerClientEvent('Framework:Notify', TargetPlayer.PlayerData.source, 'Bây giờ bạn đang phụ trách!', 'success')
+          TriggerClientEvent('Framework:Notify', source, 'Người chơi hiện đang phụ trách!', 'success')
       else
           TargetPlayer.Functions.SetMetaData("ishighcommand", false)
-          TriggerClientEvent('Framework:Notify', TargetPlayer.PlayerData.source, 'You are no longer in charge!', 'error')
-          TriggerClientEvent('Framework:Notify', source, 'Player is NOT a High Command anymore!', 'error')
+          TriggerClientEvent('Framework:Notify', TargetPlayer.PlayerData.source, 'Bạn không còn phụ trách!', 'error')
+          TriggerClientEvent('Framework:Notify', source, 'Người chơi KHÔNG còn là một lệnh cao nữa!', 'error')
       end
     end
   end
 end, "user")
 
-Framework.Commands.Add("setpolice", "Hire a citizen as a police officer", {{name="id", help="Player ID"}}, true, function(source, args)
+Framework.Commands.Add("setpolice", "Thuê một công dân như một sĩ quan cảnh sát", {{name="id", help="ID người chơi"}}, true, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     local TargetPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
     if Player.PlayerData.metadata['ishighcommand'] then
       if TargetPlayer ~= nil then
-          TriggerClientEvent('Framework:Notify', TargetPlayer.PlayerData.source, 'You have been hired as an officer! congratulations!', 'success')
-          TriggerClientEvent('Framework:Notify', Player.PlayerData.source, 'You have hired '..TargetPlayer.PlayerData.charinfo.firstname..' '..TargetPlayer.PlayerData.charinfo.lastname..' as a officer!', 'success')
+          TriggerClientEvent('Framework:Notify', TargetPlayer.PlayerData.source, 'Bạn đã được thuê như một sĩ quan! Xin chúc mừng!', 'success')
+          TriggerClientEvent('Framework:Notify', Player.PlayerData.source, 'Bạn đã thuê '..TargetPlayer.PlayerData.charinfo.firstname..' '..TargetPlayer.PlayerData.charinfo.lastname..' như một sĩ quan.!', 'success')
           TargetPlayer.Functions.SetJob('police', 0)
       end
     end
 end)
 
-Framework.Commands.Add("firepolice", "Fire a officer", {{name="id", help="Player ID"}}, true, function(source, args)
+Framework.Commands.Add("firepolice", "Sa thải một sĩ quan.", {{name="id", help="ID người chơi"}}, true, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     local TargetPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
     if Player.PlayerData.metadata['ishighcommand'] then
       if TargetPlayer ~= nil then
-          TriggerClientEvent('Framework:Notify', TargetPlayer.PlayerData.source, 'You have been fired!', 'error')
-          TriggerClientEvent('Framework:Notify', Player.PlayerData.source, 'You fired '..TargetPlayer.PlayerData.charinfo.firstname..' '..TargetPlayer.PlayerData.charinfo.lastname..' !', 'success')
+          TriggerClientEvent('Framework:Notify', TargetPlayer.PlayerData.source, 'Bạn đã bị sa thải!', 'error')
+          TriggerClientEvent('Framework:Notify', Player.PlayerData.source, 'Bạn bị sa thải '..TargetPlayer.PlayerData.charinfo.firstname..' '..TargetPlayer.PlayerData.charinfo.lastname..' !', 'success')
           TargetPlayer.Functions.SetJob('unemployed', 0)
       end
     end
 end)
 
-Framework.Commands.Add("callsign", "Change your callsign", {{name="Number", help="Callsign"}}, true, function(source, args)
+Framework.Commands.Add("callsign", "Thay đổi cuộc gọi của bạn", {{name="Number", help="Dấu hiệu cuộc gọi"}}, true, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     if args[1] ~= nil then
         if Player.PlayerData.job.name == 'police' or Player.PlayerData.job.name == 'ambulance' and Player.PlayerData.job.onduty then
          Player.Functions.SetMetaData("callsign", args[1])
-         TriggerClientEvent('Framework:Notify', source, 'Callsign successfully changed, You are now: ' ..args[1], 'success')
+         TriggerClientEvent('Framework:Notify', source, 'Gọi thành công đã thay đổi, bây giờ bạn đang có: ' ..args[1], 'success')
         else
-            TriggerClientEvent('Framework:Notify', source, 'This is for emergency services only..', 'error')
+            TriggerClientEvent('Framework:Notify', source, 'Đây chỉ dành cho các dịch vụ khẩn cấp..', 'error')
         end
     end
 end)
 
-Framework.Commands.Add("setplate", "Change your license plate", {{name="Number", help="Callsign"}}, true, function(source, args)
+Framework.Commands.Add("setplate", "Thay đổi biển số giấy phép của bạn", {{name="Number", help="Dấu hiệu cuộc gọi"}}, true, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     if args[1] ~= nil then
         if Player.PlayerData.job.name == 'police' or Player.PlayerData.job.name == 'ambulance' and Player.PlayerData.job.onduty then
            if args[1]:len() == 8 then
              Player.Functions.SetDutyPlate(args[1])
-             TriggerClientEvent('Framework:Notify', source, 'License plate changed successfully. Your service registration number is now: ' ..args[1], 'success')
+             TriggerClientEvent('Framework:Notify', source, 'Tấm giấy phép thay đổi thành công. Số đăng ký dịch vụ của bạn bây giờ: ' ..args[1], 'success')
            else
-               TriggerClientEvent('Framework:Notify', source, 'It must be exactly 8 characters long..', 'error')
+               TriggerClientEvent('Framework:Notify', source, 'Nó phải dài 8 ký tự..', 'error')
            end
         else
-            TriggerClientEvent('Framework:Notify', source, 'This is for emergency services only..', 'error')
+            TriggerClientEvent('Framework:Notify', source, 'Đây chỉ dành cho các dịch vụ khẩn cấp..', 'error')
         end
     end
 end)
 
-Framework.Commands.Add("safe", "Open evidence safe", {{"cid", "CID number"}}, true, function(source, args)
+Framework.Commands.Add("safe", "Bằng chứng mở an toàn", {{"cid", "Số CID"}}, true, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     if args[1] ~= nil then 
     if ((Player.PlayerData.job.name == "police") and Player.PlayerData.job.onduty) then
         TriggerClientEvent("pepe-police:client:open:evidence", source, args[1])
     else
-        TriggerClientEvent('Framework:Notify', source, "This is for emergency services only..", "error")
+        TriggerClientEvent('Framework:Notify', source, "Đây chỉ dành cho các dịch vụ khẩn cấp..", "error")
     end
   else
-    TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Fill in all arguments.")
+    TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Điền vào tất cả các số.")
  end
 end)
 
-Framework.Commands.Add("setdutyvehicle", "Set duty vehicle class to a officer", {{name="Id", help="Player ID"}, {name="Vehicle", help="Standard / Audi / Heli / Motor / Unmarked / Sheriff"}, {name="state", help="True / False"}}, true, function(source, args)
+Framework.Commands.Add("setdutyvehicle", "Đặt lớp xe nhiệm vụ cho một sĩ quan", {{name="Id", help="ID người chơi"}, {name="Vehicle", help="Standard / Audi / Heli / Motor / UnbleDed / Cảnh sát trưởng"}, {name="state", help="True / False"}}, true, function(source, args)
     local SelfPlayerData = Framework.Functions.GetPlayer(source)
     local TargetPlayerData = Framework.Functions.GetPlayer(tonumber(args[1]))
     if TargetPlayerData ~= nil then
@@ -476,17 +476,17 @@ Framework.Commands.Add("setdutyvehicle", "Set duty vehicle class to a officer", 
        TargetPlayerData.Functions.SetMetaData("duty-vehicles", VehicleList)
        TriggerClientEvent('pepe-radialmenu:client:update:duty:vehicles', TargetPlayerData.PlayerData.source)
        if args[3] == 'true' then
-           TriggerClientEvent('Framework:Notify', TargetPlayerData.PlayerData.source, 'You have received a vehicle specialisation ('..args[2]:upper()..')', 'success')
-           TriggerClientEvent('Framework:Notify', SelfPlayerData.PlayerData.source, 'You have successfully assigned the vehicle specialisation ('..args [2]: upper () ..') to '..PlayerCredentials, 'success')
+           TriggerClientEvent('Framework:Notify', TargetPlayerData.PlayerData.source, 'Bạn đã nhận được một chuyên môn về xe ('..args[2]:upper()..')', 'success')
+           TriggerClientEvent('Framework:Notify', SelfPlayerData.PlayerData.source, 'Bạn đã chỉ định thành công chuyên môn xe ('..args [2]: upper () ..') to '..PlayerCredentials, 'success')
        else
-           TriggerClientEvent('Framework:Notify', TargetPlayerData.PlayerData.source, 'Your ('..args[2]:upper()..') vehicle specialisation has been taken..', 'error')
-           TriggerClientEvent('Framework:Notify', SelfPlayerData.PlayerData.source, 'You have successfully completed the vehicle specialisation ('..args [2]: upper () ..') from '..PlayerCredentials, 'error')
+           TriggerClientEvent('Framework:Notify', TargetPlayerData.PlayerData.source, 'Your ('..args[2]:upper()..') chuyên môn hóa xe đã được thực hiện..', 'error')
+           TriggerClientEvent('Framework:Notify', SelfPlayerData.PlayerData.source, 'Bạn đã hoàn thành thành công chuyên môn hóa xe ('..args [2]: upper () ..') từ '..PlayerCredentials, 'error')
            end
         end
     end
 end)
 
-Framework.Commands.Add("Fine", "Write a fine", {{name="id", help="Player ID"},{name="money", help="amount"}}, true, function(source, args)
+Framework.Commands.Add("Fine", "Viết phạt tiền", {{name="id", help="ID người chơi"},{name="money", help="Số tiền"}}, true, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     local TargetPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
     local Amount = tonumber(args[2])
@@ -495,26 +495,26 @@ Framework.Commands.Add("Fine", "Write a fine", {{name="id", help="Player ID"},{n
          if Amount > 0 then
           TargetPlayer.Functions.RemoveMoney("bank", Amount, "Payed-PoliceFine")
           TriggerClientEvent("pepe-police:client:bill:player", TargetPlayer.PlayerData.source, Amount)
-          TriggerClientEvent('Framework:Notify', source, 'You sent a fine to For a total of ' ..Amount, "error")
+          TriggerClientEvent('Framework:Notify', source, 'Bạn đã gửi một khoản tiền phạt tổng cộng là ' ..Amount, "error")
           TriggerEvent("pepe-bossmenu:server:addAccountMoney", "police", 0.85 * Amount)
 
 
          else
-             TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "The amount must be greater than 0")
+             TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Số tiền phải lớn hơn 0")
          end
        elseif Player.PlayerData.job.name == "realestate" then
         if Amount > 0 then
                TriggerEvent('pepe-phone:server:add:invoice', TargetPlayer.PlayerData.citizenid, Amount, 'Real Estate', 'realestate')  
            else
-               TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "The amount must be greater than 0")
+               TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Số tiền phải lớn hơn 0")
            end
        else
-           TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "This command is for emergency services only!")
+           TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Lệnh này chỉ dành cho các dịch vụ khẩn cấp!")
        end
     end
 end)
 
-Framework.Commands.Add("paylaw", "Pay a lawyer", {{name="id", help="Player ID"}, {name="amount", help="How much?"}}, true, function(source, args)
+Framework.Commands.Add("paylaw", "Trả một luật sư", {{name="id", help="ID người chơi"}, {name="amount", help="Giá?"}}, true, function(source, args)
 	local Player = Framework.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" or Player.PlayerData.job.name == "judge" then
         local playerId = tonumber(args[1])
@@ -523,14 +523,14 @@ Framework.Commands.Add("paylaw", "Pay a lawyer", {{name="id", help="Player ID"},
         if OtherPlayer ~= nil then
             if OtherPlayer.PlayerData.job.name == "lawyer" then
                 OtherPlayer.Functions.AddMoney("bank", Amount, "police-lawyer-paid")
-                TriggerClientEvent('chatMessage', OtherPlayer.PlayerData.source, "SYSTEM", "warning", "You have received $ ".. Amount ..", - for your given services!")
-                TriggerClientEvent('Framework:Notify', source, 'You paid your lawyer')
+                TriggerClientEvent('chatMessage', OtherPlayer.PlayerData.source, "HỆ THỐNG", "warning", "Bạn đã nhận được $ ".. Amount ..", - Đối với các dịch vụ nhất định của bạn!")
+                TriggerClientEvent('Framework:Notify', source, 'Bạn đã trả tiền luật sư của bạn')
             else
-                TriggerClientEvent('Framework:Notify', source, 'Person is not a lawyer', "error")
+                TriggerClientEvent('Framework:Notify', source, 'Người không phải là luật sư', "error")
             end
         end
     else
-        TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "This command is for emergency services only!")
+        TriggerClientEvent('chatMessage', source, "HỆ THỐNG", "error", "Lệnh này chỉ dành cho các dịch vụ khẩn cấp!")
     end
 end)
 Framework.Commands.Add("paymechanic", "Pay a Mechanic", {{name="id", help="Player ID"}, {name="amount", help="How much?"}}, true, function(source, args)
