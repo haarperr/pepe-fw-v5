@@ -4,6 +4,8 @@ local IsRobbing = false
 local LastVehicle = nil
 local isLoggedIn = false
 
+local HasKey = false
+
 RegisterNetEvent('Framework:Client:OnPlayerLoaded')
 AddEventHandler('Framework:Client:OnPlayerLoaded', function()
   Citizen.SetTimeout(1250, function()
@@ -137,6 +139,17 @@ end)
 
 RegisterNetEvent('pepe-items:client:use:lockpick')
 AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
+--     if (IsPedInAnyVehicle(GetPlayerPed(-1))) then
+--         if not HasKey then
+--             LockpickIgnition(isAdvanced)
+--         end        
+--         else
+--             HasKey = false
+--         SetVehicleEngineOn(veh, false, false, true)
+
+-- function LockpickIgnition(IsAdvanced)
+
+-- end
  local Vehicle, VehDistance = Framework.Functions.GetClosestVehicle()
  local Plate = GetVehicleNumberPlateText(Vehicle)
  local VehicleLocks = GetVehicleDoorLockStatus(Vehicle)
@@ -149,6 +162,7 @@ AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
           exports['pepe-lockpick']:OpenLockpickGame(function(Success)
             -- TriggerEvent('pepe-lockpick:client:openLockpick', function(Success)
         --     exports['pepe-lockpick']:StartLockPickCircle(function(Success)
+            exports['pepe-lockpick']:openLockpick(function(Success)
              if Success then
                  SetVehicleKey(Plate, true)
                  StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
@@ -173,7 +187,7 @@ AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
           exports['pepe-assets']:RequestAnimationDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
           TaskPlayAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer' ,3.0, 3.0, -1, 16, 0, false, false, false)
         --  exports['pepe-lockpick']:StartLockPickCircle(function(Success)
-        exports['pepe-lockpick']:OpenLockpickGame(function(Success)
+        exports['pepe-lockpick']:openLockpick(function(Success)
             TriggerEvent('pepe-lockpick:client:openLockpick', function(Success)
              if Success then
                  SetVehicleDoorsLocked(Vehicle, 1)
@@ -202,8 +216,9 @@ AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
       end
    end, Plate)  
  end
-end)
 
+-- end)
+-- end)
 -- // Functions \\ --
 
 function SetVehicleKey(Plate, bool)
