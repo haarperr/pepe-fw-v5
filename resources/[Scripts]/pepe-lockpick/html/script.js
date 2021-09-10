@@ -81,7 +81,9 @@ $(function () {
     
     document.onkeyup = function (data) {
         if (data.which == 27 ) {
-            $.post('http://qb-lockpick/exit');
+         $.post('http://pepe-lockpick/exit', JSON.stringify({
+             success: false
+         }));
         }
     };
 }); //docready
@@ -226,7 +228,7 @@ function reset() {
 
 function outOfPins() {
     gameOver = true;
-    $.post('http://qb-lockpick/callback', JSON.stringify({
+    $.post('http://pepe-lockpick/callback', JSON.stringify({
         success: false
     }));
     setTimeout(function(){
@@ -236,7 +238,7 @@ function outOfPins() {
 
 function unlock() {
     gameOver = true;
-    $.post('http://qb-lockpick/callback', JSON.stringify({
+    $.post('http://pepe-lockpick/callback', JSON.stringify({
         success: true
     }));
     solveDeg = (Math.random() * 180) - 90

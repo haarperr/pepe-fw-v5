@@ -41,20 +41,17 @@ AddEventHandler('pepe-vehiclekeys:server:give:keys', function(Target, Plate, boo
     TriggerClientEvent('pepe-vehiclekeys:client:set:keys', -1, Plate, Player.PlayerData.citizenid, bool)
   end
 end)
-
--- // Commands \\ -- 
-
-Framework.Commands.Add("engine", "Chuyển đổi động cơ xe", {}, false, function(source, args)
-  TriggerClientEvent('pepe-vehiclekeys:client:toggle:engine', source)
-end)
-
-
 Framework.Functions.CreateUseableItem("lockpick", function(source, item)
   local Player = Framework.Functions.GetPlayer(source)
-  TriggerClientEvent("lockpicks:UseLockpick", source, false)
+  TriggerClientEvent("lockpick:UseLockpick", source, false)
 end)
 
 Framework.Functions.CreateUseableItem("advancedlockpick", function(source, item)
   local Player = Framework.Functions.GetPlayer(source)
-  TriggerClientEvent("lockpicks:UseAdvancedLockpick", source, true)
+  TriggerClientEvent("lockpick:UseAdvancedLockpick", source, true)
+end)
+-- // Commands \\ -- 
+
+Framework.Commands.Add("engine", "Toggle vehicle engine", {}, false, function(source, args)
+  TriggerClientEvent('pepe-vehiclekeys:client:toggle:engine', source)
 end)
