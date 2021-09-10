@@ -138,6 +138,6 @@ AddEventHandler("pepe-openfishing:sellFish", function()
             end
         end
         Player.Functions.AddMoney("cash", price, "sold-fish")
-		TriggerClientEvent('Framework:Notify', src, "You have sold your fish", 'success')
+		TriggerClientEvent('Framework:Notify', src, "Bạn đã bán cá của bạn", 'success')
 	end
 end)

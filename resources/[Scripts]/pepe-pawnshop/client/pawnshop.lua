@@ -57,7 +57,7 @@ end)
 function SellGoldBars()
     Framework.Functions.TriggerCallback('Framework:HasItem', function(HasGold)
         if HasGold then
-         Framework.Functions.Progressbar("sell-gold", "Selling Goods...", math.random(5000, 7000), false, true, {
+         Framework.Functions.Progressbar("sell-gold", "Bán vàng...", math.random(5000, 7000), false, true, {
              disableMovement = true,
              disableCarMovement = true,
              disableMouse = false,
@@ -70,7 +70,7 @@ function SellGoldBars()
              Framework.Functions.Notify("Cancelled", "error")
          end)
         else
-            Framework.Functions.Notify("You dont have any acceptable goods on you", "error")
+            Framework.Functions.Notify("Bạn không có bất kỳ hàng hóa nào được chấp nhận trên bạn", "error")
         end
     end, 'gold-bar')
 end
@@ -78,7 +78,7 @@ end
 function SellGoldItems(PawnId)
     Framework.Functions.TriggerCallback('pepe-pawnshop:server:has:gold', function(HasGold)
         if HasGold then
-         Framework.Functions.Progressbar("sell-gold", "Selling Goods...", math.random(5000, 7000), false, true, {
+         Framework.Functions.Progressbar("sell-gold", "Bán vàng...", math.random(5000, 7000), false, true, {
              disableMovement = true,
              disableCarMovement = true,
              disableMouse = false,
@@ -92,7 +92,7 @@ function SellGoldItems(PawnId)
              Framework.Functions.Notify("Cancelled", "error")
          end)
         else
-            Framework.Functions.Notify("You dont have any acceptable goods on you", "error")
+            Framework.Functions.Notify("Bạn không có bất kỳ hàng hóa nào được chấp nhận trên bạn", "error")
         end
     end)
 end

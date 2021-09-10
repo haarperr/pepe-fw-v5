@@ -30,7 +30,7 @@ AddEventHandler('pepe-pawnshop:server:sell:gold:items', function()
      end
      if Price > 0 then
        Player.Functions.AddMoney("cash", Price, "sold-pawn-items")
-       TriggerClientEvent('Framework:Notify', source, "You sold your gold", 'success')
+       TriggerClientEvent('Framework:Notify', source, "Bạn đã bán vàng của bạn", 'success')
      end
   end
 end)

@@ -44,7 +44,7 @@ Citizen.CreateThread(function()
             if Notes[closestNote] ~= nil and not Notes[closestNote].active then 
                 local pos = GetEntityCoords(PlayerPedId())
                 if GetDistanceBetweenCoords(pos.x, pos.y, pos.z, Notes[closestNote].coords.x, Notes[closestNote].coords.y, Notes[closestNote].coords.z, true) < 1.5 then
-                    DrawText3D(Notes[closestNote].coords.x, Notes[closestNote].coords.y, Notes[closestNote].coords.z, "~g~E~w~ - Read ~g~G~w~ - Destroy")
+                    DrawText3D(Notes[closestNote].coords.x, Notes[closestNote].coords.y, Notes[closestNote].coords.z, "~g~E~w~ - Đọc ~g~G~w~ - Huỷ")
                     if IsControlJustReleased(0, Keys["E"]) then
                         TriggerServerEvent("notes:server:OpenNoteData", closestNote)
                     end

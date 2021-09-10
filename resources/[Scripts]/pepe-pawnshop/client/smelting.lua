@@ -11,7 +11,7 @@ Citizen.CreateThread(function()
                 if not Config.Smelting then
                     if Config.CanTake then
                         DrawMarker(2, Config.Locations['Smeltery'][1]['X'], Config.Locations['Smeltery'][1]['Y'], Config.Locations['Smeltery'][1]['Z'], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 255, 255, 255, 255, false, false, false, 1, false, false, false)
-                        DrawText3D(Config.Locations['Smeltery'][1]['X'], Config.Locations['Smeltery'][1]['Y'], Config.Locations['Smeltery'][1]['Z'] + 0.15, "~g~E~w~ - Retrieve Gold")
+                        DrawText3D(Config.Locations['Smeltery'][1]['X'], Config.Locations['Smeltery'][1]['Y'], Config.Locations['Smeltery'][1]['Z'] + 0.15, "~g~E~w~ - Lấy vàng")
                         if IsControlJustReleased(0, 38) then
                             Config.Smelting = false
                             Config.CanTake = false
@@ -20,9 +20,9 @@ Citizen.CreateThread(function()
                         end
                     else
                         DrawMarker(2, Config.Locations['Smeltery'][1]['X'], Config.Locations['Smeltery'][1]['Y'], Config.Locations['Smeltery'][1]['Z'], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 39, 196, 27, 255, false, false, false, 1, false, false, false)
-                        DrawText3D(Config.Locations['Smeltery'][1]['X'], Config.Locations['Smeltery'][1]['Y'], Config.Locations['Smeltery'][1]['Z'] + 0.15, "~g~E~w~ - Melt Gold")
+                        DrawText3D(Config.Locations['Smeltery'][1]['X'], Config.Locations['Smeltery'][1]['Y'], Config.Locations['Smeltery'][1]['Z'] + 0.15, "~g~E~w~ - Vàng nóng chảy")
                         if IsControlJustReleased(0, 38) then
-                            Framework.Functions.Progressbar("sell-gold", "Smelting Gold..", math.random(10000, 15000), false, true, {
+                            Framework.Functions.Progressbar("sell-gold", "Vàng nung..", math.random(10000, 15000), false, true, {
                                 disableMovement = true,
                                 disableCarMovement = true,
                                 disableMouse = false,
@@ -30,7 +30,7 @@ Citizen.CreateThread(function()
                             }, {}, {}, {}, function() -- Done
                                 TriggerServerEvent('pepe-pawnshop:server:smelt:gold')
                             end, function() -- Cancel
-                                Framework.Functions.Notify("Cancelled..", "error")
+                                Framework.Functions.Notify("Hủy bỏ..", "error")
                             end)
                         end
                     end

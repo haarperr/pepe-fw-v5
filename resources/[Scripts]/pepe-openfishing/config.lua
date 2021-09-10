@@ -10,7 +10,7 @@ Config.MarkerData = {
 }
 
 Config.FishingRestaurant = {
-    ["name"] = "La Spada Fish Restaurant",
+    ["name"] = "Nhà hàng cá La Spada",
     ["blip"] = {
         ["sprite"] = 628,
         ["color"] = 3
@@ -25,11 +25,11 @@ Config.FishingRestaurant = {
 Config.FishingItems = {
     ["rod"] = {
         ["name"] = "fishrod",
-        ["label"] = "Fishing Rod"
+        ["label"] = "Cần câu"
     },
     ["bait"] = {
         ["name"] = "fishingbait",
-        ["label"] = "Fishing Bait"
+        ["label"] = "Mồi câu cá"
     },
     ["fish"] = {
         ["price"] = 50 

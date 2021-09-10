@@ -43,6 +43,6 @@ function CreateNoteId()
 	return noteId
 end
 
-Framework.Commands.Add("notes", "Open notebook", {}, false, function(source, args)
+Framework.Commands.Add("notes", "Mở Notebook", {}, false, function(source, args)
 	TriggerClientEvent("notes:client:OpenNotepad", source)
 end)

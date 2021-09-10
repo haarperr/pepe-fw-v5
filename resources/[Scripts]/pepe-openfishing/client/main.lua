@@ -61,7 +61,7 @@ Citizen.CreateThread(function()
 			if dstCheck < 3.0 then
 				if JobBusy == true then
 					sleepThread = 5
-					local displayText = not IsEntityDead(cachedData["storeOwner"]) and "Press ~INPUT_CONTEXT~ to sell your fish to the owner." or "The owner is dead, and therefore can not speak."
+					local displayText = not IsEntityDead(cachedData["storeOwner"]) and "nhấn ~INPUT_CONTEXT~ bán cá của bạn cho chủ sở hữu." or "Chủ sở hữu đã chết, và do đó không thể nói."
 					if IsControlJustPressed(0, 38) then
 						DeleteBlips()
 						SellFish()
@@ -69,7 +69,7 @@ Citizen.CreateThread(function()
 					ShowHelpNotification(displayText)
 				elseif JobBusy == false then
 					sleepThread = 5
-					local displayText = not IsEntityDead(cachedData["storeOwner"]) and "Press ~INPUT_CONTEXT~ to start working."
+					local displayText = not IsEntityDead(cachedData["storeOwner"]) and "nhấn ~INPUT_CONTEXT~ để bắt đầu làm việc."
 					if IsControlJustPressed(0, 38) then
 						JobBusy = true
 						CreateBlips()

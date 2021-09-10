@@ -1,10 +1,10 @@
 TryToFish = function()
     Framework.Functions.TriggerCallback('pepe-openfishing:GetItemData', function(count)
-        if IsPedSwimming(cachedData["ped"]) then return Framework.Functions.Notify("You can't be swimming and fishing at the same time.", "error") end 
-        if IsPedInAnyVehicle(cachedData["ped"]) then return Framework.Functions.Notify("You need to exit your vehicle to start fishing.", "error") end 
+        if IsPedSwimming(cachedData["ped"]) then return Framework.Functions.Notify("Bạn không thể bơi và câu cá cùng một lúc.", "error") end 
+        if IsPedInAnyVehicle(cachedData["ped"]) then return Framework.Functions.Notify("Bạn cần thoát khỏi xe của bạn để bắt đầu câu cá.", "error") end 
         if count ~= nil then
             if count == 0 then
-                Framework.Functions.Notify("You need both a fishing rod and bait to fish.", "primary")
+                Framework.Functions.Notify("Bạn cần cả một cây gậy và mồi câu cá.", "primary")
             else
                 local waterValidated, castLocation = IsInWater()
 
@@ -13,7 +13,7 @@ TryToFish = function()
 
                     CastBait(fishingRod, castLocation)
                 else
-                    Framework.Functions.Notify("You need to aim towards the water to fish", "primary")
+                    Framework.Functions.Notify("Bạn cần nhằm vào nước để câu cá", "primary")
                 end
             end
         end
@@ -28,7 +28,7 @@ CastBait = function(rodHandle, castLocation)
     local startedCasting = GetGameTimer()
 
     if not HasFishingBait() then
-        Framework.Functions.Notify('You don\'t have any bait!', 'error')
+        Framework.Functions.Notify('Bạn không có bất kỳ mồi câu nào!', 'error')
 
         isFishing = false
         return DeleteEntity(rodHandle)
@@ -37,10 +37,10 @@ CastBait = function(rodHandle, castLocation)
     while not IsControlJustPressed(0, 47) do
         Citizen.Wait(5)
 
-        ShowHelpNotification("Cast your line by pressing ~INPUT_DETONATE~")
+        ShowHelpNotification("Truyền đường dây của bạn bằng cách nhấn ~INPUT_DETONATE~")
 
         if GetGameTimer() - startedCasting > 5000 then
-            Framework.Functions.Notify("You need to cast the bait.", "primary")
+            Framework.Functions.Notify("Bạn cần sử dụng mồi.", "primary")
 
             isFishing = false
             return DeleteEntity(rodHandle)
@@ -63,7 +63,7 @@ CastBait = function(rodHandle, castLocation)
     local randomBait = math.random(10000, 30000)
 
     -- DrawBusySpinner("Waiting for a fish that is biting..")
-    Framework.Functions.Notify("Waiting for a fish to bite...", "success", "10000")
+    Framework.Functions.Notify("Chờ đợi một con cá cắn câu...", "success", "10000")
     TriggerServerEvent('Framework:Server:RemoveItem', "fishingbait", 1)
 	TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items["fishingbait"], "remove")
 
@@ -99,7 +99,7 @@ CastBait = function(rodHandle, castLocation)
         TriggerServerEvent("pepe-openfishing:receiveFish", castLocation, function(received) end)
         TriggerServerEvent('pepe-hud:Server:RelieveStress', 1)
     else
-        Framework.Functions.Notify("The fish got loose.", "error")
+        Framework.Functions.Notify("Cá bị lỏng.", "error")
     end
     
     isFishing = false
@@ -133,7 +133,7 @@ TryToCatchFish = function()
     while true do
         Citizen.Wait(5)
 
-        ShowHelpNotification("Press ~INPUT_CONTEXT~ in the green area.")
+        ShowHelpNotification("Nhấn ~INPUT_CONTEXT~ Trong khu vực xanh.")
 
         DrawSprite(minigameSprites["powerDict"], minigameSprites["powerName"], 0.5, 0.4, 0.01, 0.2, 0.0, 255, 0, 0, 255)
 
@@ -193,7 +193,7 @@ IsInWater = function()
     SetEntityAlpha(fishHandle, 0, true) -- makes the fish invisible.
 
     -- DrawBusySpinner("Checking fishing location....")
-    Framework.Functions.Notify("Checking fishing location...", "success", "3000")
+    Framework.Functions.Notify("Kiểm tra vị trí câu cá...", "success", "3000")
 
     while GetGameTimer() - startedCheck < 3000 do
         Citizen.Wait(0)
