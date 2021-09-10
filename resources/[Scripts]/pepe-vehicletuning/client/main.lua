@@ -123,7 +123,7 @@ Citizen.CreateThread(function()
                         DrawMarker(2, Config.Locations["stash"].x, Config.Locations["stash"].y, Config.Locations["stash"].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.2, 210, 50, 9, 255, false, false, false, true, false, false, false)
 
                         if StashDistance < 1 then
-                            DrawText3Ds(Config.Locations["stash"].x, Config.Locations["stash"].y, Config.Locations["stash"].z, "[E] Open Stash")
+                            DrawText3Ds(Config.Locations["stash"].x, Config.Locations["stash"].y, Config.Locations["stash"].z, "[E] Mở")
                             if IsControlJustReleased(0, Keys["E"]) then
                                 TriggerEvent("pepe-inventory:client:SetCurrentStash", "mechanicstash")
                                 TriggerServerEvent("pepe-inventory:server:OpenInventory", "stash", "mechanicstash", {
@@ -135,31 +135,31 @@ Citizen.CreateThread(function()
                     end
                 end
 
-                if onDuty then
-                    if VehicleDistance < 20 then
-                        inRange = true
-                        DrawMarker(2, Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.2, 210, 50, 9, 255, false, false, false, true, false, false, false)
-                        if VehicleDistance < 1 then
-                            local InVehicle = IsPedInAnyVehicle(PlayerPedId())
+                -- if onDuty then
+                --     if VehicleDistance < 20 then
+                --         inRange = true
+                --         DrawMarker(2, Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.2, 210, 50, 9, 255, false, false, false, true, false, false, false)
+                --         if VehicleDistance < 1 then
+                --             local InVehicle = IsPedInAnyVehicle(PlayerPedId())
 
-                            if InVehicle then
-                                DrawText3Ds(Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, '[E] Hide the vehicle')
-                                if IsControlJustPressed(0, Keys["E"]) then
-                                    DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))
-                                end
-                            else
-                                DrawText3Ds(Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, '[E] Grab vehicle')
-                                if IsControlJustPressed(0, Keys["E"]) then
-                                    if IsControlJustPressed(0, Keys["E"]) then
-                                        VehicleList()
-                                        Menu.hidden = not Menu.hidden
-                                    end
-                                end
-                                Menu.renderGUI()
-                            end
-                        end
-                    end
-                end
+                --             if InVehicle then
+                --                 -- DrawText3Ds(Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, '[E] Giấu xe')
+                --                 -- if IsControlJustPressed(0, Keys["E"]) then
+                --                 --     DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))
+                --                 -- end
+                --             else
+                --                 DrawText3Ds(Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, '[E] Lấy xe')
+                --                 if IsControlJustPressed(0, Keys["E"]) then
+                --                     if IsControlJustPressed(0, Keys["E"]) then
+                --                         VehicleList()
+                --                         Menu.hidden = not Menu.hidden
+                --                     end
+                --                 end
+                --                 Menu.renderGUI()
+                --             end
+                --         end
+                --     end
+                -- end
 
                 if OnDutyDistance < 20 then
                     inRange = true
@@ -167,9 +167,9 @@ Citizen.CreateThread(function()
 
                     if OnDutyDistance < 1 then
                         if onDuty then
-                            DrawText3Ds(Config.Locations["duty"].x, Config.Locations["duty"].y, Config.Locations["duty"].z, "[E] Go Off Duty")
+                            DrawText3Ds(Config.Locations["duty"].x, Config.Locations["duty"].y, Config.Locations["duty"].z, "[E] Thoát ca làm")
                         else
-                            DrawText3Ds(Config.Locations["duty"].x, Config.Locations["duty"].y, Config.Locations["duty"].z, "[E] Go On Duty")
+                            DrawText3Ds(Config.Locations["duty"].x, Config.Locations["duty"].y, Config.Locations["duty"].z, "[E] Vào ca làm")
                         end
                         if IsControlJustReleased(0, Keys["E"]) then
                             TriggerServerEvent("Framework:ToggleDuty")
@@ -188,7 +188,7 @@ Citizen.CreateThread(function()
                                     local veh = GetVehiclePedIsIn(PlayerPedId())
                                     if IsPedInAnyVehicle(PlayerPedId()) then
                                         if not IsThisModelABicycle(GetEntityModel(veh)) then
-                                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z + 0.3, "[E] Place the vehicle on the platform")
+                                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z + 0.3, "[E] Đặt chiếc xe trên nền tảng")
                                             if IsControlJustPressed(0, Config.Keys["E"]) then
                                                 DoScreenFadeOut(150)
                                                 Wait(150)
@@ -201,7 +201,7 @@ Citizen.CreateThread(function()
                                                 TriggerServerEvent('pepe-vehicletuning:server:SetAttachedVehicle', veh, k)
                                             end
                                         else
-                                            Framework.Functions.Notify("You cannot put bicycles on the plate!", "error")
+                                            Framework.Functions.Notify("Bạn không thể đặt xe đạp trên đĩa!", "error")
                                         end
                                     end
                                 end
@@ -210,7 +210,7 @@ Citizen.CreateThread(function()
                             local PlateDistance = GetDistanceBetweenCoords(pos, v.coords.x, v.coords.y, v.coords.z)
                             if PlateDistance < 3 then
                                 inRange = true
-                                DrawText3Ds(v.coords.x, v.coords.y, v.coords.z, "[E] Open options menu")
+                                DrawText3Ds(v.coords.x, v.coords.y, v.coords.z, "[E] Menu tùy chọn mở")
                                 if IsControlJustPressed(0, Keys["E"]) then
                                     OpenMenu()
                                     Menu.hidden = not Menu.hidden
@@ -241,8 +241,8 @@ end
 
 function OpenMenu()
     ClearMenu()
-    Menu.addButton("Options", "VehicleOptions", nil)
-    Menu.addButton("Close Menu", "CloseMenu", nil) 
+    Menu.addButton("Tùy chọn", "VehicleOptions", nil)
+    Menu.addButton("Đóng menu", "CloseMenu", nil) 
 end
 
 function VehicleList()
@@ -250,7 +250,7 @@ function VehicleList()
     for k, v in pairs(Config.Vehicles) do
         Menu.addButton(v, "SpawnListVehicle", k) 
     end
-    Menu.addButton("Close Menu", "CloseMenu", nil) 
+    Menu.addButton("Đóng menu", "CloseMenu", nil) 
 end
 
 function SpawnListVehicle(model)
@@ -274,10 +274,10 @@ end
 
 function VehicleOptions()
     ClearMenu()
-    Menu.addButton("Unattach vehicle", "UnattachVehicle", nil)
+    Menu.addButton("Bỏ qua xe", "UnattachVehicle", nil)
     -- Menu.addButton("Check Status", "CheckStatus", nil)
-    Menu.addButton("Parts menu", "PartsMenu", nil)
-    Menu.addButton("Close Menu", "CloseMenu", nil)
+    Menu.addButton("Menu các bộ phận", "PartsMenu", nil)
+    Menu.addButton("Đóng menu", "CloseMenu", nil)
 end
 
 function PartsMenu()
@@ -308,8 +308,8 @@ function PartsMenu()
             Menu.addButton(v..": "..percentage.."%", "NoDamage", nil) 
         end
     end
-    Menu.addButton("Back", "VehicleOptions", nil) 
-    Menu.addButton("Close Menu", "CloseMenu", nil) 
+    Menu.addButton("Quay lại", "VehicleOptions", nil) 
+    Menu.addButton("Đóng menu", "CloseMenu", nil) 
 end
 
 function CheckStatus()
@@ -319,16 +319,16 @@ end
 
 function PartMenu(part)
     ClearMenu()
-    Menu.addButton("Repair ("..Framework.Shared.Items[Config.RepairCostAmount[part].item]["label"].." "..Config.RepairCostAmount[part].costs.."x)", "RepairPart", part)
-    Menu.addButton("Back", "VehicleOptions", nil)
-    Menu.addButton("Close Menu", "CloseMenu", nil) 
+    Menu.addButton("Sửa chữa ("..Framework.Shared.Items[Config.RepairCostAmount[part].item]["label"].." "..Config.RepairCostAmount[part].costs.."x)", "RepairPart", part)
+    Menu.addButton("Quay lại", "VehicleOptions", nil)
+    Menu.addButton("Đóng menu", "CloseMenu", nil) 
 end
 
 function NoDamage(part)
     ClearMenu()
-    Menu.addButton("There is no damage to this part!", "PartsMenu", part)
-    Menu.addButton("Back", "VehicleOptions", nil)
-    Menu.addButton("Close Menu", "CloseMenu", nil) 
+    Menu.addButton("Không có thiệt hại cho phần này!", "PartsMenu", part)
+    Menu.addButton("Quay lại", "VehicleOptions", nil)
+    Menu.addButton("Đóng menu", "CloseMenu", nil) 
 end
 
 function RepairPart(part)
@@ -339,7 +339,7 @@ function RepairPart(part)
         for k, v in pairs(StashItems) do
             if v.name == PartData.item then
                 if v.amount >= PartData.costs then
-                    Framework.Functions.Progressbar("repair_part", Config.ValuesLabels[part].." repairing", math.random(5000, 10000), false, true, {
+                    Framework.Functions.Progressbar("repair_part", Config.ValuesLabels[part].." Đang sửa chữa", math.random(5000, 10000), false, true, {
                         disableMovement = true,
                         disableCarMovement = true,
                         disableMouse = false,
@@ -356,11 +356,11 @@ function RepairPart(part)
                             PartsMenu()
                         end)
                     end, function()
-                        Framework.Functions.Notify("Repair canceled..", "error")
+                        Framework.Functions.Notify("Sửa chữa bị hủy bỏ..", "error")
                     end)
                     break
                 else
-                    Framework.Functions.Notify('There are not enough materials in the safe..', 'error')
+                    Framework.Functions.Notify('Không có đủ vật liệu trong kho..', 'error')
                 end
                 break
         --  else
@@ -386,7 +386,7 @@ AddEventHandler('pepe-vehicletuning:client:RepaireeePart', function(part)
     else
         TriggerServerEvent("vehiclemod:server:updatePart", plate, part, Config.MaxStatusValues[part])
     end
-    Framework.Functions.Notify("The "..Config.ValuesLabels[part].." is repaired!", 'success')
+    Framework.Functions.Notify("Các "..Config.ValuesLabels[part].." đã được sửa chữa!", 'success')
 end)
 
 function UnattachVehicle()
@@ -545,10 +545,10 @@ AddEventHandler('vehiclemod:client:getVehicleStatus', function(plate, status)
                     if VehicleStatus[plate] ~= nil then 
                         SendStatusMessage(VehicleStatus[plate])
                     else
-                        Framework.Functions.Notify("No status known..", "error")
+                        Framework.Functions.Notify("Không có trạng thái được biết đến..", "error")
                     end
                 else
-                    Framework.Functions.Notify("Not a valid vehicle..", "error")
+                    Framework.Functions.Notify("Không phải là một chiếc xe hợp lệ..", "error")
                 end
             else
                 Framework.Functions.Notify("You are not close enough to the vehicle..", "error")
@@ -569,10 +569,10 @@ AddEventHandler('vehiclemod:client:fixEverything', function()
             local plate = GetVehicleNumberPlateText(veh)
             TriggerServerEvent("vehiclemod:server:fixEverything", plate)
         else
-            Framework.Functions.Notify("You are not a driver or on a bicycle..", "error")
+            Framework.Functions.Notify("Bạn không phải là một người lái xe hoặc trên một chiếc xe đạp..", "error")
         end
     else
-        Framework.Functions.Notify("You are not in a vehicle..", "error")
+        Framework.Functions.Notify("Bạn không ở trong một chiếc xe..", "error")
     end
 end)
 
@@ -592,10 +592,10 @@ AddEventHandler('vehiclemod:client:setPartLevel', function(part, level)
                 TriggerServerEvent("vehiclemod:server:updatePart", plate, part, level)
             end
         else
-            Framework.Functions.Notify("You are not a driver or on a bicycle..", "error")
+            Framework.Functions.Notify("Bạn không phải là một người lái xe hoặc trên một chiếc xe đạp..", "error")
         end
     else
-        Framework.Functions.Notify("You are not in a vehicle..", "error")
+        Framework.Functions.Notify("Bạn không ở trong một chiếc xe..", "error")
     end
 end)
 local openingDoor = false
@@ -617,7 +617,7 @@ AddEventHandler('vehiclemod:client:repairPart', function(part, level, needAmount
                                 lockpickTime = lockpickTime / 10
                             end
                             ScrapAnim(lockpickTime)
-                            Framework.Functions.Progressbar("repair_advanced", "Repairing..", lockpickTime, false, true, {
+                            Framework.Functions.Progressbar("repair_advanced", "Đang sửa chữa..", lockpickTime, false, true, {
                                 disableMovement = true,
                                 disableCarMovement = true,
                                 disableMouse = false,
@@ -643,22 +643,22 @@ AddEventHandler('vehiclemod:client:repairPart', function(part, level, needAmount
                             end, function() -- Cancel
                                 openingDoor = false
                                 ClearPedTasks(PlayerPedId())
-                                Framework.Functions.Notify("Canceled..", "error")
+                                Framework.Functions.Notify("Hủy bỏ..", "error")
                             end)
                         else
-                            Framework.Functions.Notify("Not a valid part..", "error")
+                            Framework.Functions.Notify("Không phải là một phần hợp lệ..", "error")
                         end
                     else
-                        Framework.Functions.Notify("Not a valid vehicle..", "error")
+                        Framework.Functions.Notify("Không phải là một chiếc xe hợp lệ..", "error")
                     end
                 else
-                    Framework.Functions.Notify("You are not close enough to the vehicle..", "error")
+                    Framework.Functions.Notify("Bạn không đủ gần với xe..", "error")
                 end
             else
-                Framework.Functions.Notify("You must be in the vehicle first..", "error")
+                Framework.Functions.Notify("Bạn phải ở trong xe trước..", "error")
             end
         else
-            Framework.Functions.Notify("You are not in a vehicle..", "error")
+            Framework.Functions.Notify("Bạn không ở trong một chiếc xe..", "error")
         end
     -- end
 end)
@@ -879,8 +879,8 @@ end
 function SendStatusMessage(statusList)
     if statusList ~= nil then 
         TriggerEvent('chat:addMessage', {
-            template = '<div class="chat-message normal"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>'.. Config.ValuesLabels["engine"] ..' (engine):</strong> {1} <br><strong>'.. Config.ValuesLabels["body"] ..' (body):</strong> {2} <br><strong>'.. Config.ValuesLabels["radiator"] ..' (radiator):</strong> {3} <br><strong>'.. Config.ValuesLabels["axle"] ..' (axle):</strong> {4}<br><strong>'.. Config.ValuesLabels["brakes"] ..' (brakes):</strong> {5}<br><strong>'.. Config.ValuesLabels["clutch"] ..' (clutch):</strong> {6}<br><strong>'.. Config.ValuesLabels["fuel"] ..' (fuel):</strong> {7}</div></div>',
-            args = {'Vehicle Status', round(statusList["engine"]) .. "/" .. Config.MaxStatusValues["engine"] .. " ("..Framework.Shared.Items["advancedrepairkit"]["label"]..")", round(statusList["body"]) .. "/" .. Config.MaxStatusValues["body"] .. " ("..Framework.Shared.Items[Config.RepairCost["body"]]["label"]..")", round(statusList["radiator"]) .. "/" .. Config.MaxStatusValues["radiator"] .. ".0 ("..Framework.Shared.Items[Config.RepairCost["radiator"]]["label"]..")", round(statusList["axle"]) .. "/" .. Config.MaxStatusValues["axle"] .. ".0 ("..Framework.Shared.Items[Config.RepairCost["axle"]]["label"]..")", round(statusList["brakes"]) .. "/" .. Config.MaxStatusValues["brakes"] .. ".0 ("..Framework.Shared.Items[Config.RepairCost["brakes"]]["label"]..")", round(statusList["clutch"]) .. "/" .. Config.MaxStatusValues["clutch"] .. ".0 ("..Framework.Shared.Items[Config.RepairCost["clutch"]]["label"]..")", round(statusList["fuel"]) .. "/" .. Config.MaxStatusValues["fuel"] .. ".0 ("..Framework.Shared.Items[Config.RepairCost["fuel"]]["label"]..")"}
+            template = '<div class="chat-message normal"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>'.. Config.ValuesLabels["engine"] ..' (Động cơ):</strong> {1} <br><strong>'.. Config.ValuesLabels["body"] ..' (body):</strong> {2} <br><strong>'.. Config.ValuesLabels["radiator"] ..' (radiator):</strong> {3} <br><strong>'.. Config.ValuesLabels["axle"] ..' (axle):</strong> {4}<br><strong>'.. Config.ValuesLabels["brakes"] ..' (brakes):</strong> {5}<br><strong>'.. Config.ValuesLabels["clutch"] ..' (clutch):</strong> {6}<br><strong>'.. Config.ValuesLabels["fuel"] ..' (fuel):</strong> {7}</div></div>',
+            args = {'Tình trạng xe', round(statusList["engine"]) .. "/" .. Config.MaxStatusValues["engine"] .. " ("..Framework.Shared.Items["advancedrepairkit"]["label"]..")", round(statusList["body"]) .. "/" .. Config.MaxStatusValues["body"] .. " ("..Framework.Shared.Items[Config.RepairCost["body"]]["label"]..")", round(statusList["radiator"]) .. "/" .. Config.MaxStatusValues["radiator"] .. ".0 ("..Framework.Shared.Items[Config.RepairCost["radiator"]]["label"]..")", round(statusList["axle"]) .. "/" .. Config.MaxStatusValues["axle"] .. ".0 ("..Framework.Shared.Items[Config.RepairCost["axle"]]["label"]..")", round(statusList["brakes"]) .. "/" .. Config.MaxStatusValues["brakes"] .. ".0 ("..Framework.Shared.Items[Config.RepairCost["brakes"]]["label"]..")", round(statusList["clutch"]) .. "/" .. Config.MaxStatusValues["clutch"] .. ".0 ("..Framework.Shared.Items[Config.RepairCost["clutch"]]["label"]..")", round(statusList["fuel"]) .. "/" .. Config.MaxStatusValues["fuel"] .. ".0 ("..Framework.Shared.Items[Config.RepairCost["fuel"]]["label"]..")"}
         })
     end
 end

@@ -193,10 +193,10 @@ AddEventHandler('pepe-vehicletuning:server:CheckForItems', function(part)
                 Citizen.Wait(500)
             end
         else
-            TriggerClientEvent('Framework:Notify', src, "You don't have enough "..Framework.Shared.Items[Config.RepairCostAmount[part].item]["label"].." (min. "..Config.RepairCostAmount[part].costs.."x)", "error")
+            TriggerClientEvent('Framework:Notify', src, "Bạn không có đủ "..Framework.Shared.Items[Config.RepairCostAmount[part].item]["label"].." (min. "..Config.RepairCostAmount[part].costs.."x)", "error")
         end
     else
-        TriggerClientEvent('Framework:Notify', src, "You do not have "..Framework.Shared.Items[Config.RepairCostAmount[part].item]["label"].." with you!", "error")
+        TriggerClientEvent('Framework:Notify', src, "Bạn không có "..Framework.Shared.Items[Config.RepairCostAmount[part].item]["label"].." với bạn!", "error")
     end
 end)
 
@@ -211,7 +211,7 @@ function IsAuthorized(CitizenId)
     return retval
 end
 
-Framework.Commands.Add("setmechanic", "Give the mechanic job", {{name="id", help="ID of the player"}}, false, function(source, args)
+Framework.Commands.Add("setmechanic", "Cài thợ sửa", {{name="id", help="ID người chơi"}}, false, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
 
     if IsAuthorized(Player.PlayerData.citizenid) then
@@ -220,14 +220,14 @@ Framework.Commands.Add("setmechanic", "Give the mechanic job", {{name="id", help
             local TargetData = Framework.Functions.GetPlayer(TargetId)
             if TargetData ~= nil then
                 TargetData.Functions.SetJob("mechanic")
-                TriggerClientEvent('Framework:Notify', TargetData.PlayerData.source, "You were hired as an Autocare employee!")
-                TriggerClientEvent('Framework:Notify', source, "You hired ("..TargetData.PlayerData.charinfo.firstname..") as an Autocare employee!")
+                TriggerClientEvent('Framework:Notify', TargetData.PlayerData.source, "Bạn đã được thuê như một nhân viên autocare!")
+                TriggerClientEvent('Framework:Notify', source, "Bạn đã thuê ("..TargetData.PlayerData.charinfo.firstname..") là một nhân viên autocare!")
             end
         else
-            TriggerClientEvent('Framework:Notify', source, "You must provide a Player ID!")
+            TriggerClientEvent('Framework:Notify', source, "Bạn phải cung cấp ID người chơi!")
         end
     else
-        TriggerClientEvent('Framework:Notify', source, "You cannot do this!", "error") 
+        TriggerClientEvent('Framework:Notify', source, "Bạn không thể làm điều này!", "error") 
     end
 end)
 
@@ -241,17 +241,17 @@ Framework.Commands.Add("takemechanic", "Take someone's Mechanic job", {{name="id
             if TargetData ~= nil then
                 if TargetData.PlayerData.job.name == "mechanic" then
                     TargetData.Functions.SetJob("unemployed")
-                    TriggerClientEvent('Framework:Notify', TargetData.PlayerData.source, "You were fired as an Autocare employee!")
-                    TriggerClientEvent('Framework:Notify', source, "You fired ("..TargetData.PlayerData.charinfo.firstname..") as Autocare employee!")
+                    TriggerClientEvent('Framework:Notify', TargetData.PlayerData.source, "Bạn đã bị sa thải như một nhân viên autocare!")
+                    TriggerClientEvent('Framework:Notify', source, "Bạn bị sa thải ("..TargetData.PlayerData.charinfo.firstname..") nhân viên autocare.!")
                 else
-                    TriggerClientEvent('Framework:Notify', source, "This is not an employee of Autocare!", "error")
+                    TriggerClientEvent('Framework:Notify', source, "Đây không phải là một nhân viên của Autocare!", "error")
                 end
             end
         else
-            TriggerClientEvent('Framework:Notify', source, "You must provide a Player ID!", "error")
+            TriggerClientEvent('Framework:Notify', source, "Bạn phải cung cấp ID người chơi!", "error")
         end
     else
-        TriggerClientEvent('Framework:Notify', source, "You cannot do this!", "error")
+        TriggerClientEvent('Framework:Notify', source, "Bạn không thể làm điều này!", "error")
     end
 end)
 
