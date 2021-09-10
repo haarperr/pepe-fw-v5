@@ -62,7 +62,7 @@ Citizen.CreateThread(function()
                     if Driver ~= 0 and not IsPedAPlayer(Driver) then
                        if IsEntityDead(Driver) then
                            IsRobbing = true
-                           Framework.Functions.Progressbar("rob_keys", "Robbing car keys...", 3000, false, true,
+                           Framework.Functions.Progressbar("rob_keys", "Đang cướp chìa khóa xe...", 3000, false, true,
                             {}, {}, {}, {}, function()
                               SetVehicleKey(GetVehicleNumberPlateText(Vehicle, true), true)
                               IsRobbing = false
@@ -105,7 +105,7 @@ AddEventHandler('pepe-vehiclekeys:client:toggle:engine', function()
              SetVehicleEngineOn(Vehicle, true, false, true)
          end
      else
-         Framework.Functions.Notify("You have no keys to this vehicle.", 'error')
+         Framework.Functions.Notify("Bạn không có chìa khóa cho phương tiện này.", 'error')
      end
  end, Plate)
 end)
@@ -124,13 +124,13 @@ AddEventHandler('pepe-vehiclekeys:client:give:key', function(TargetPlayer)
     Framework.Functions.TriggerCallback("pepe-vehiclekeys:server:has:keys", function(HasKey)
         if HasKey then
             if Player ~= -1 and Player ~= 0 and Distance < 2.3 then
-                 Framework.Functions.Notify("You have keys with the current licenseplate: "..Plate, 'success')
+                 Framework.Functions.Notify("Bạn có chìa khóa với biển số xe: "..Plate, 'success')
                  TriggerServerEvent('pepe-vehiclekeys:server:give:keys', GetPlayerServerId(Player), Plate, true)
             else
-                Framework.Functions.Notify("No one nearby?", 'error')
+                Framework.Functions.Notify("Không có ai gần đó?", 'error')
             end
         else
-            Framework.Functions.Notify("You have no keys to this vehicle.", 'error')
+            Framework.Functions.Notify("Bạn không có chìa khóa cho phương tiện này.", 'error')
         end
     end, Plate)
 end)
@@ -226,18 +226,18 @@ function ToggleLocks()
                 SetVehicleDoorsLocked(Vehicle, 2)
                 ClearPedTasks(PlayerPedId())
                 TriggerEvent('pepe-vehicleley:client:blink:lights', Vehicle)
-                Framework.Functions.Notify("Vehicle locked", 'error')
+                Framework.Functions.Notify("Phương tiện đã khoá!", 'error')
                 TriggerServerEvent("pepe-sound:server:play:distance", 5, "car-lock", 0.2)
             else
                 Citizen.Wait(450)
                 SetVehicleDoorsLocked(Vehicle, 1)
                 ClearPedTasks(PlayerPedId())
                 TriggerEvent('pepe-vehicleley:client:blink:lights', Vehicle)
-                Framework.Functions.Notify("Vehicle unlocked", 'success')
+                Framework.Functions.Notify("Phương tiện đã mở khoá", 'success')
                 TriggerServerEvent("pepe-sound:server:play:distance", 5, "car-unlock", 0.2)
             end
          else
-            Framework.Functions.Notify("You have no keys to this vehicle.", 'error')
+            Framework.Functions.Notify("Bạn không có chìa khóa cho phương tiện này.", 'error')
         end
     end, Plate)
     end

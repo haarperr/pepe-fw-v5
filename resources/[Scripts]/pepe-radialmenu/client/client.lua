@@ -197,7 +197,7 @@ RegisterNetEvent('pepe-radialmenu:client:flip:vehicle')
 AddEventHandler('pepe-radialmenu:client:flip:vehicle', function()
     local Vehicle, Distance = Framework.Functions.GetClosestVehicle()
     if Vehicle ~= 0 and Distance < 1.7 then
-        Framework.Functions.Progressbar("flip-vehicle", "Flippin the freaking car..", math.random(10000, 15000), false, true, {
+        Framework.Functions.Progressbar("flip-vehicle", "Đang lật xe..", math.random(10000, 15000), false, true, {
             disableMovement = true,
             disableCarMovement = false,
             disableMouse = false,
@@ -208,12 +208,12 @@ AddEventHandler('pepe-radialmenu:client:flip:vehicle', function()
             flags = 49,
         }, {}, {}, function() -- Done
              SetVehicleOnGroundProperly(Vehicle)
-             Framework.Functions.Notify("Succes", "success")
+             Framework.Functions.Notify("Thành công", "success")
         end, function()
-            Framework.Functions.Notify("Cancelled..", "error")
+            Framework.Functions.Notify("Hủy bỏ..", "error")
         end)
     else
-        Framework.Functions.Notify("No vehicle found..", "error")
+        Framework.Functions.Notify("Không tìm thấy phương tiện..", "error")
     end
 end)
 
@@ -236,20 +236,20 @@ AddEventHandler('pepe-radialmenu:client:setExtra', function(data)
                     SetVehicleExtra(veh, extra, 1)
                     SetVehicleEngineHealth(veh, enginehealth)
                     SetVehicleBodyHealth(veh, bodydamage)
-                    Framework.Functions.Notify('Extra ' .. extra .. ' turned off', 'error', 2500)
+                    Framework.Functions.Notify('Phụ ' .. extra .. ' đã tắt', 'error', 2500)
                 else
                     enginehealth = GetVehicleEngineHealth(veh)
                     bodydamage = GetVehicleBodyHealth(veh)
                     SetVehicleExtra(veh, extra, 0)
                     SetVehicleEngineHealth(veh, enginehealth)
                     SetVehicleBodyHealth(veh, bodydamage)
-                    Framework.Functions.Notify('Extra ' .. extra .. ' turned on', 'success', 2500)
+                    Framework.Functions.Notify('Phụ ' .. extra .. ' đã mở', 'success', 2500)
                 end    
             else
-                Framework.Functions.Notify('Extra ' .. extra .. ' does not exist on this car', 'error', 2500)
+                Framework.Functions.Notify('Phụ ' .. extra .. ' không tồn tại trên chiếc xe này', 'error', 2500)
             end
         else
-            Framework.Functions.Notify('Your not a driver for this vehicle!', 'error', 2500)
+            Framework.Functions.Notify('Bạn không phải là tài xế cho chiếc xe này!', 'error', 2500)
         end
     end
 end)
@@ -263,7 +263,7 @@ AddEventHandler("pepe-radialmenu:client:send:panic:button",function()
           local StreetLabel = Framework.Functions.GetStreetLabel()
           TriggerServerEvent('pepe-police:server:send:alert:panic:button', GetEntityCoords(PlayerPedId()), StreetLabel, Info)
       else
-          Framework.Functions.Notify("You dont have a radio..", "error")
+          Framework.Functions.Notify("Bạn không có radio..", "error")
       end
   end, "radio")
 end)

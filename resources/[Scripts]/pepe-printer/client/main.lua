@@ -87,7 +87,7 @@ Citizen.CreateThread(function()
 
         if PrinterObject ~= 0 then
             local PrinterCoords = GetEntityCoords(PrinterObject)
-            DrawText3Ds(PrinterCoords.x, PrinterCoords.y, PrinterCoords.z, '~g~E~w~ - Use printer')
+            DrawText3Ds(PrinterCoords.x, PrinterCoords.y, PrinterCoords.z, '~g~E~w~ - Sử dụng máy in')
             if IsControlJustPressed(0, Keys["E"]) then
                 SendNUIMessage({
                     action = "start"

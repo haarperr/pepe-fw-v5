@@ -8,7 +8,7 @@ Framework.Functions.CreateUseableItem("printerdocument", function(source, item)
     TriggerClientEvent('pepe-printer:client:UseDocument', source, item)
 end)
 
-Framework.Commands.Add("spawnprinter", "Spawn a printer", {}, true, function(source, args)
+Framework.Commands.Add("spawnprinter", "Lấy một máy in", {}, true, function(source, args)
 	TriggerClientEvent('pepe-printer:client:SpawnPrinter', source)
 end, "user")
 

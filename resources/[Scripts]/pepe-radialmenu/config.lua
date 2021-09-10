@@ -974,14 +974,14 @@ Config.SubMenus = {
 
 
     ['garage:putin'] = {
-     title = "Đậu xe",
+     title = "Cất xe",
      icon = "#citizen-put-in-veh",
      close = true,
      functiontype = "client",
      functionName = "pepe-garages:client:check:owner"
     },
     ['garage:getout'] = {
-     title = "Đi xe",
+     title = "Lấy xe",
      icon = "#citizen-put-out-veh",
      close = true,
      functiontype = "client",

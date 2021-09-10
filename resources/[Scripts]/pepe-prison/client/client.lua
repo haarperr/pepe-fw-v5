@@ -40,7 +40,7 @@ AddEventHandler('pepe-prison:client:spawn:prison', function()
      Citizen.Wait(2000)
      InJail = true
      JailTime = PlayerData.metadata["jailtime"]
-     Framework.Functions.Notify("You are in prison for "..JailTime.." month(s)..", "error", 6500)
+     Framework.Functions.Notify("Bạn đang ở trong tù "..JailTime.." tháng(s)..", "error", 6500)
      DoScreenFadeIn(1000)
      currentJob = "electrician"
 
@@ -101,7 +101,7 @@ Citizen.CreateThread(function()
               AlertSended = true
               JailTime = 0
               TriggerServerEvent("pepe-prison:server:set:jail:leave")
-              Framework.Functions.Notify("Time well served, you can check out at the desk!", "success")
+              Framework.Functions.Notify("Thời gian phục vụ tốt, bạn có thể kiểm tra tại bàn!", "success")
             end
           end
         end
@@ -123,7 +123,7 @@ Citizen.CreateThread(function()
           AlertSended = false
           TriggerServerEvent("pepe-prison:server:set:jail:leave")
           TriggerServerEvent('pepe-prison:server:set:alarm', true)
-          Framework.Functions.Notify("You escaped! Get the hell out of this area!", "error")
+          Framework.Functions.Notify("Bạn đã thoát! Thoát khỏi khu vực này!", "error")
         else
           Citizen.Wait(5000)
         end
@@ -206,7 +206,7 @@ end)
 -- // Functions \\ --
 
 function SearchPlace(Reward, Chance)
-  local Label = 'Searching..'
+  local Label = 'Đang tìm..'
   if Reward == 'slushy' then
     Label = 'Making slushy..'
   end
@@ -219,12 +219,12 @@ function SearchPlace(Reward, Chance)
     if math.random(1,100) < Chance then
       -- GiveItem Reward
       TriggerServerEvent('pepe-prison:server:find:reward', Reward)
-      Framework.Functions.Notify("WOW Thats hot!", "success")
+      Framework.Functions.Notify("WOW Đó là nóng!", "success")
     else
-      Framework.Functions.Notify("Found nothing..", "error") 
+      Framework.Functions.Notify("Không tìm thấy gì..", "error") 
     end
   end, function() -- Cancel
-    Framework.Functions.Notify("Canceled..", "error") 
+    Framework.Functions.Notify("Hủy bỏ..", "error") 
   end)
 end
 

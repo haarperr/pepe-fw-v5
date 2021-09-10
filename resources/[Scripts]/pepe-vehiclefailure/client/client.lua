@@ -381,5 +381,5 @@ AddEventHandler('pepe-vehiclefailure:client:fix:veh', function()
 		local Vehicle = Framework.Functions.GetClosestVehicle()
 		SetVehicleFixed(Vehicle)
 	end
-	Framework.Functions.Notify("Vehicle repaired", 'success')
+	Framework.Functions.Notify("Xe đã được sửa chữa", 'success')
 end)

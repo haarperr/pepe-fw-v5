@@ -27,7 +27,7 @@ Citizen.CreateThread(function ()
     SetBlipScale(RecycleBlip, 0.8)
     SetBlipAsShortRange(RecycleBlip, true)
     BeginTextCommandSetBlipName("STRING")
-    AddTextComponentString("Recycle Center")
+    AddTextComponentString("Trung tâm tái chế")
     EndTextCommandSetBlipName(RecycleBlip)
     while true do
         Citizen.Wait(7)
@@ -64,16 +64,16 @@ Citizen.CreateThread(function ()
             DrawMarker(25, 1049.15,-3100.63,-39.95, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5001, 255, 0, 0,100, 0, 0, 0,0)
             if GetDistanceBetweenCoords(pos.x, pos.y, pos.z, 1049.15,-3100.63,-39.95, true) < 1.3 then
                 if onDuty then
-                    DrawText3D(1049.15,-3100.63,-39.95 + 1, "~g~E~w~ - To clock out")
+                    DrawText3D(1049.15,-3100.63,-39.95 + 1, "~g~E~w~ - Giờ ra")
                 else
-                    DrawText3D(1049.15,-3100.63,-39.95 + 1, "~g~E~w~ -  To clock in")
+                    DrawText3D(1049.15,-3100.63,-39.95 + 1, "~g~E~w~ -  Giờ vào")
                 end
                 if IsControlJustReleased(0, Keys["E"]) then
                     onDuty = not onDuty
                     if onDuty then
-                        Framework.Functions.Notify("You have clocked in!", "success")
+                        Framework.Functions.Notify("Bạn đã vào!", "success")
                     else
-                        Framework.Functions.Notify("You have clocked out!", "error")
+                        Framework.Functions.Notify("Bạn đã ra!", "error")
                     end
                 end
             end
@@ -98,10 +98,10 @@ Citizen.CreateThread(function ()
                 local pos = GetEntityCoords(PlayerPedId(), true)
                 if carryPackage == nil then
                     if GetDistanceBetweenCoords(pos.x, pos.y, pos.z, packagePos.x,packagePos.y,packagePos.z, true) < 2.3 then
-                        DrawText3D(packagePos.x,packagePos.y,packagePos.z+ 1, "~g~E~w~ - Grab package")
+                        DrawText3D(packagePos.x,packagePos.y,packagePos.z+ 1, "~g~E~w~ - Lấy gói")
                         if IsControlJustReleased(0, Keys["E"]) then
                             TaskStartScenarioInPlace(PlayerPedId(), "PROP_HUMAN_BUM_BIN", 0, true)
-                            Framework.Functions.Progressbar("pickup_reycle_package", "Picking up box..", 5000, false, true, {}, {}, {}, {}, function() -- Done
+                            Framework.Functions.Progressbar("pickup_reycle_package", "Chọn hộp..", 5000, false, true, {}, {}, {}, {}, function() -- Done
                                 ClearPedTasks(PlayerPedId())
                                 PickupPackage()
                             end)
@@ -111,11 +111,11 @@ Citizen.CreateThread(function ()
                     end
                 else
                     if GetDistanceBetweenCoords(pos.x, pos.y, pos.z, Config['delivery'].dropLocation.x, Config['delivery'].dropLocation.y, Config['delivery'].dropLocation.z, true) < 2.0 then
-                        DrawText3D(Config['delivery'].dropLocation.x, Config['delivery'].dropLocation.y, Config['delivery'].dropLocation.z, "~g~E~w~ - Deliver package")
+                        DrawText3D(Config['delivery'].dropLocation.x, Config['delivery'].dropLocation.y, Config['delivery'].dropLocation.z, "~g~E~w~ - Cung cấp gói")
                         if IsControlJustReleased(0, Keys["E"]) then
                             DropPackage()
                             ScrapAnim()
-                            Framework.Functions.Progressbar("deliver_reycle_package", "Unpacking the package..", 5000, false, true, {
+                            Framework.Functions.Progressbar("deliver_reycle_package", "Mở gói hàng..", 5000, false, true, {
                                 disableMovement = true,
                                 disableCarMovement = true,
                                 disableMouse = false,

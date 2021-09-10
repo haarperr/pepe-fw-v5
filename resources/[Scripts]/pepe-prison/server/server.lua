@@ -4,7 +4,7 @@ TriggerEvent('Framework:GetObject', function(obj) Framework = obj end)
 
 -- Code
 
-Framework.Commands.Add("jail", "Send a citizen to jail", {{name="id", help="Player ID"}, {name="time", help="Time to serve in numbers!"}}, true, function(source, args)
+Framework.Commands.Add("jail", "Gửi một công dân vào tù", {{name="id", help="ID người chơi"}, {name="time", help="Thời gian!"}}, true, function(source, args)
     local Player = Framework.Functions.GetPlayer(source)
     local JailPlayer = Framework.Functions.GetPlayer(tonumber(args[1]))
     if Player.PlayerData.job.name == "police" or Player.PlayerData.job.name == "judge" then
@@ -14,7 +14,7 @@ Framework.Commands.Add("jail", "Send a citizen to jail", {{name="id", help="Play
             local Name = JailPlayer.PlayerData.charinfo.firstname..' '..JailPlayer.PlayerData.charinfo.lastname
             if JailPlayer.PlayerData.job.name ~= 'police' or JailPlayer.PlayerData.job.name ~= 'ambulance' then
              JailPlayer.Functions.SetJob("unemployed")
-             TriggerClientEvent('Framework:Notify', JailPlayer.PlayerData.source, "Your job has been notified and they have removed you as an employee..", 'error')
+             TriggerClientEvent('Framework:Notify', JailPlayer.PlayerData.source, "Công việc của bạn đã được thông báo và họ đã loại bỏ bạn như một nhân viên..", 'error')
             end
             JailPlayer.Functions.SetMetaData("jailtime", Time)
             TriggerClientEvent('pepe-prison:client:set:in:jail', JailPlayer.PlayerData.source, Name, Time, JailPlayer.PlayerData.citizenid, os.date('%d-'..'%m-'..'%y'))
@@ -23,7 +23,7 @@ Framework.Commands.Add("jail", "Send a citizen to jail", {{name="id", help="Play
     end
 end)
 
-Framework.Commands.Add("rehab", "Send a citizen to rehab", {{name="id", help="Player ID"}, {name="tijd", help="Time to serve in numbers!"}}, true, function(source, args)
+Framework.Commands.Add("rehab", "Gửi một công dân đến trại cai nghiện", {{name="id", help="ID người chơi"}, {name="tijd", help="Thời gian!"}}, true, function(source, args)
     local src = source
     local Player = Framework.Functions.GetPlayer(source)
     
@@ -35,7 +35,7 @@ Framework.Commands.Add("rehab", "Send a citizen to rehab", {{name="id", help="Pl
                 TriggerClientEvent("beginJailRehab", args[1], false)
             end
         else
-            TriggerClientEvent('Framework:Notify', source, 'No player found', 'error')
+            TriggerClientEvent('Framework:Notify', source, 'Không tìm thấy người chơi', 'error')
         end
     end
 end)

@@ -376,32 +376,32 @@ Config.Products = {
       type = "item",
       slot = 1,
     },
-    [2] = {
-      name = "toolkit",
-      price = 450,
-      amount = 100,
-      info = {},
-      type = "item",
-      slot = 2,
-     },
+    -- [2] = {
+    --   name = "toolkit",
+    --   price = 450,
+    --   amount = 100,
+    --   info = {},
+    --   type = "item",
+    --   slot = 2,
+    --  },
   },
   ['Hardware-2'] = {
-    [1] = {
-      name = "repairkit",
-      price = 250,
-      amount = 50,
-      info = {},
-      type = "item",
-      slot = 1,
-    },
-    [2] = {
-      name = "advancedrepairkit",
-      price = 500,
-      amount = 100,
-      info = {},
-      type = "item",
-      slot = 2,
-     },
+    -- [1] = {
+    --   name = "repairkit",
+    --   price = 250,
+    --   amount = 50,
+    --   info = {},
+    --   type = "item",
+    --   slot = 1,
+    -- },
+    -- [2] = {
+    --   name = "advancedrepairkit",
+    --   price = 500,
+    --   amount = 100,
+    --   info = {},
+    --   type = "item",
+    --   slot = 2,
+    --  },
     --[[[3] = {
       name = "drill",
       price = 2500,
@@ -418,7 +418,7 @@ Config.Products = {
       type = "item",
       slot = 4,
     },]]--
-    [5] = {
+    [1] = {
       name = "phone",
       price = 500,
       amount = 50,
@@ -434,14 +434,14 @@ Config.Products = {
       type = "item",
       slot = 6,
      },
-     [7] = {
-      name = "coin",
-      price = 15,
-      amount = 50,
-      info = {},
-      type = "item",
-      slot = 7,
-     },
+    --  [7] = {
+    --   name = "coin",
+    --   price = 15,
+    --   amount = 50,
+    --   info = {},
+    --   type = "item",
+    --   slot = 7,
+    --  },
      [8] = {
       name = "duffel-bag",
       price = 1500,
@@ -458,7 +458,7 @@ Config.Products = {
       type = "item",
       slot = 9,
      },]]--
-     [10] = {
+     [7] = {
       name = "radio",
       price = 500,
       amount = 50,
@@ -466,7 +466,7 @@ Config.Products = {
       type = "item",
       slot = 10,
      },
-     [11] = {
+     [2] = {
       name = "lockpick",
       price = 350,
       amount = 25,
@@ -474,14 +474,14 @@ Config.Products = {
       type = "item",
       slot = 11,
     },
-    [12] = {
-      name = "toolkit",
-      price = 450,
-      amount = 100,
-      info = {},
-      type = "item",
-      slot = 12,
-     },
+    -- [12] = {
+    --   name = "toolkit",
+    --   price = 450,
+    --   amount = 100,
+    --   info = {},
+    --   type = "item",
+    --   slot = 12,
+    --  },
      [13] = {
       name = "scissor",
       price = 95,
