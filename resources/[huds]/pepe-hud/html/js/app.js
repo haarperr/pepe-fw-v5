@@ -114,7 +114,7 @@ var CurrentProx = 0;
     QBHud.UpdateHud = function(data) {
         var Show = "block";
         if (data.show) {
-            Show = "none";
+            // Show = "none";
             $(".ui-container").css("display", Show);
             return;
         }
