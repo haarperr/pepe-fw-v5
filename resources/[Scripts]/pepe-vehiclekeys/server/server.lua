@@ -48,11 +48,13 @@ Framework.Commands.Add("engine", "Chuyển đổi động cơ xe", {}, false, fu
   TriggerClientEvent('pepe-vehiclekeys:client:toggle:engine', source)
 end)
 
+
 Framework.Functions.CreateUseableItem("lockpick", function(source, item)
   local Player = Framework.Functions.GetPlayer(source)
   TriggerClientEvent("lockpicks:UseLockpick", source, false)
 end)
+
 Framework.Functions.CreateUseableItem("advancedlockpick", function(source, item)
   local Player = Framework.Functions.GetPlayer(source)
-  TriggerClientEvent("lockpicks:UseLockpick", source, true)
+  TriggerClientEvent("lockpicks:UseAdvancedLockpick", source, true)
 end)
