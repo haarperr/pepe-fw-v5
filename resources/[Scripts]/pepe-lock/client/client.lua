@@ -59,7 +59,7 @@ RegisterNUICallback('success', function()
         --if vehicle ~= nil then
         local lockpickTime = 2000
         LockpickDoorAnim(lockpickTime)
-        Framework.Functions.Progressbar("veh_slot", "Buộc đánh lửa...", lockpickTime, false, true, {
+        Framework.Functions.Progressbar("veh_slot", "Đang phá khoá xe...", lockpickTime, false, true, {
             disableMovement = true,
             disableCarMovement = true,
             disableMouse = false,
