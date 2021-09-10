@@ -67,11 +67,11 @@ end, "god")
 
 Framework.Commands.Add("sv", "Lấy phương tiện nhanh", {{name="model", help="Tên phương tiện cần lấy"}}, true, function(source, args)
 	TriggerClientEvent('Framework:Command:SpawnVehicle', source, args[1])
-end, "admin")
+end, "god")
 
 Framework.Commands.Add("debug", "Debug mode mở hoặc tắt", {}, false, function(source, args)
 	TriggerClientEvent('koil-debug:toggle', source)
-end, "admin")
+end, "god")
 
 Framework.Commands.Add("closenui", "Đóng nui", {}, false, function(source, args)
 	TriggerClientEvent('pepe-core:client:closenui', source)
@@ -87,7 +87,7 @@ end, "admin")
 
 Framework.Commands.Add("tpm", "Teleport đến điểm đánh dấu trên bản đồ", {}, false, function(source, args)
 	TriggerClientEvent('Framework:Command:GoToMarker', source)
-end, "admin")
+end, "god")
 
 Framework.Commands.Add("givemoney", "Đưa tiền cho người chơi", {{name="id", help="ID người chơi"},{name="moneytype", help="Loại tiền (cash hoặc bank)"}, {name="amount", help="Số tiền"}}, true, function(source, args)
 	local Player = Framework.Functions.GetPlayer(tonumber(args[1]))
