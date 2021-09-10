@@ -135,31 +135,31 @@ Citizen.CreateThread(function()
                     end
                 end
 
-                -- if onDuty then
-                --     if VehicleDistance < 20 then
-                --         inRange = true
-                --         DrawMarker(2, Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.2, 210, 50, 9, 255, false, false, false, true, false, false, false)
-                --         if VehicleDistance < 1 then
-                --             local InVehicle = IsPedInAnyVehicle(PlayerPedId())
+                if onDuty then
+                    if VehicleDistance < 20 then
+                        inRange = true
+                        DrawMarker(2, Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.2, 210, 50, 9, 255, false, false, false, true, false, false, false)
+                        if VehicleDistance < 1 then
+                            local InVehicle = IsPedInAnyVehicle(PlayerPedId())
 
-                --             if InVehicle then
-                --                 -- DrawText3Ds(Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, '[E] Giấu xe')
-                --                 -- if IsControlJustPressed(0, Keys["E"]) then
-                --                 --     DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))
-                --                 -- end
-                --             else
-                --                 DrawText3Ds(Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, '[E] Lấy xe')
-                --                 if IsControlJustPressed(0, Keys["E"]) then
-                --                     if IsControlJustPressed(0, Keys["E"]) then
-                --                         VehicleList()
-                --                         Menu.hidden = not Menu.hidden
-                --                     end
-                --                 end
-                --                 Menu.renderGUI()
-                --             end
-                --         end
-                --     end
-                -- end
+                            if InVehicle then
+                                DrawText3Ds(Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, '[E] Giấu xe')
+                                if IsControlJustPressed(0, Keys["E"]) then
+                                    DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))
+                                end
+                            else
+                                DrawText3Ds(Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, '[E] Lấy xe')
+                                if IsControlJustPressed(0, Keys["E"]) then
+                                    if IsControlJustPressed(0, Keys["E"]) then
+                                        VehicleList()
+                                        Menu.hidden = not Menu.hidden
+                                    end
+                                end
+                                Menu.renderGUI()
+                            end
+                        end
+                    end
+                end
 
                 if OnDutyDistance < 20 then
                     inRange = true
@@ -177,49 +177,49 @@ Citizen.CreateThread(function()
                     end
                 end
 
-                if onDuty then
-                    for k, v in pairs(Config.Plates) do
-                        if v.AttachedVehicle == nil then
-                            local PlateDistance = GetDistanceBetweenCoords(pos, v.coords.x, v.coords.y, v.coords.z)
-                            if PlateDistance < 20 then
-                                inRange = true
-                                DrawMarker(2, v.coords.x, v.coords.y, v.coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
-                                if PlateDistance < 2 then
-                                    local veh = GetVehiclePedIsIn(PlayerPedId())
-                                    if IsPedInAnyVehicle(PlayerPedId()) then
-                                        if not IsThisModelABicycle(GetEntityModel(veh)) then
-                                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z + 0.3, "[E] Đặt chiếc xe trên nền tảng")
-                                            if IsControlJustPressed(0, Config.Keys["E"]) then
-                                                DoScreenFadeOut(150)
-                                                Wait(150)
-                                                Config.Plates[ClosestPlate].AttachedVehicle = veh
-                                                SetEntityCoords(veh, v.coords.x, v.coords.y, v.coords.z)
-                                                SetEntityHeading(veh, v.coords.h)
-                                                FreezeEntityPosition(veh, true)
-                                                Wait(500)
-                                                DoScreenFadeIn(250)
-                                                TriggerServerEvent('pepe-vehicletuning:server:SetAttachedVehicle', veh, k)
-                                            end
-                                        else
-                                            Framework.Functions.Notify("Bạn không thể đặt xe đạp trên đĩa!", "error")
-                                        end
-                                    end
-                                end
-                            end
-                        else
-                            local PlateDistance = GetDistanceBetweenCoords(pos, v.coords.x, v.coords.y, v.coords.z)
-                            if PlateDistance < 3 then
-                                inRange = true
-                                DrawText3Ds(v.coords.x, v.coords.y, v.coords.z, "[E] Menu tùy chọn mở")
-                                if IsControlJustPressed(0, Keys["E"]) then
-                                    OpenMenu()
-                                    Menu.hidden = not Menu.hidden
-                                end
-                                Menu.renderGUI()
-                            end
-                        end
-                    end
-                end
+                -- if onDuty then
+                --     for k, v in pairs(Config.Plates) do
+                --         if v.AttachedVehicle == nil then
+                --             local PlateDistance = GetDistanceBetweenCoords(pos, v.coords.x, v.coords.y, v.coords.z)
+                --             if PlateDistance < 20 then
+                --                 inRange = true
+                --                 DrawMarker(2, v.coords.x, v.coords.y, v.coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
+                --                 if PlateDistance < 2 then
+                --                     local veh = GetVehiclePedIsIn(PlayerPedId())
+                --                     if IsPedInAnyVehicle(PlayerPedId()) then
+                --                         if not IsThisModelABicycle(GetEntityModel(veh)) then
+                --                             DrawText3Ds(v.coords.x, v.coords.y, v.coords.z + 0.3, "[E] Đặt chiếc xe trên nền tảng")
+                --                             if IsControlJustPressed(0, Config.Keys["E"]) then
+                --                                 DoScreenFadeOut(150)
+                --                                 Wait(150)
+                --                                 Config.Plates[ClosestPlate].AttachedVehicle = veh
+                --                                 SetEntityCoords(veh, v.coords.x, v.coords.y, v.coords.z)
+                --                                 SetEntityHeading(veh, v.coords.h)
+                --                                 FreezeEntityPosition(veh, true)
+                --                                 Wait(500)
+                --                                 DoScreenFadeIn(250)
+                --                                 TriggerServerEvent('pepe-vehicletuning:server:SetAttachedVehicle', veh, k)
+                --                             end
+                --                         else
+                --                             Framework.Functions.Notify("Bạn không thể đặt xe đạp trên đĩa!", "error")
+                --                         end
+                --                     end
+                --                 end
+                --             end
+                --         else
+                --             local PlateDistance = GetDistanceBetweenCoords(pos, v.coords.x, v.coords.y, v.coords.z)
+                --             if PlateDistance < 3 then
+                --                 inRange = true
+                --                 DrawText3Ds(v.coords.x, v.coords.y, v.coords.z, "[E] Menu tùy chọn mở")
+                --                 if IsControlJustPressed(0, Keys["E"]) then
+                --                     OpenMenu()
+                --                     Menu.hidden = not Menu.hidden
+                --                 end
+                --                 Menu.renderGUI()
+                --             end
+                --         end
+                --     end
+                -- end
 
                 if not inRange then
                     Citizen.Wait(1500)
