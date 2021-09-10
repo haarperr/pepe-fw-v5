@@ -34,7 +34,7 @@ AddEventHandler("pepe-bossmenu:server:withdrawMoney", function(amount)
         Accounts[job] = Accounts[job] - amount
         xPlayer.Functions.AddMoney("cash", amount)
     else
-        TriggerClientEvent('Framework:Notify', src, "Invaild Amount :/", "error")
+        TriggerClientEvent('Framework:Notify', src, "Số tiền sai :/", "error")
         return
     end
 
@@ -56,7 +56,7 @@ AddEventHandler("pepe-bossmenu:server:depositMoney", function(amount)
     if xPlayer.Functions.RemoveMoney("cash", amount) then
         Accounts[job] = Accounts[job] + amount
     else
-        TriggerClientEvent('Framework:Notify', src, "Invaild Amount :/", "error")
+        TriggerClientEvent('Framework:Notify', src, "Số tiền sai :/", "error")
         return
     end
 
@@ -129,7 +129,7 @@ AddEventHandler("pepe-bossmenu:server:openMenu", function()
             TriggerClientEvent('pepe-bossmenu:client:refreshSociety', -1, job.name, Accounts[job.name])
         end)
     else
-        TriggerClientEvent('Framework:Notify', src, "You are not the boss, how did you reach here bitch?!", "error")
+        TriggerClientEvent('Framework:Notify', src, "Bạn không phải là ông chủ, làm thế nào bạn đến đây?!", "error")
     end
 end)
 
@@ -143,8 +143,8 @@ AddEventHandler('pepe-bossmenu:server:fireEmployee', function(data)
         if xEmployee.Functions.SetJob("unemployed", '0') then
             TriggerEvent('pepe-logs:server:createLog', 'bossmenu', 'Job Fire', "Successfully fired " .. GetPlayerName(xEmployee.PlayerData.source) .. ' (' .. xPlayer.PlayerData.job.name .. ')', src)
 
-            TriggerClientEvent('Framework:Notify', src, "Fired successfully!", "success")
-            TriggerClientEvent('Framework:Notify', xEmployee.PlayerData.source , "You got fired.", "success")
+            TriggerClientEvent('Framework:Notify', src, "Sa thải thành công!", "success")
+            TriggerClientEvent('Framework:Notify', xEmployee.PlayerData.source , "Bạn đã bị sa thải.", "success")
 
             Wait(500)
             local employees = {}
@@ -173,7 +173,7 @@ AddEventHandler('pepe-bossmenu:server:fireEmployee', function(data)
                 end
             end)
         else
-            TriggerClientEvent('Framework:Notify', src, "Error.", "error")
+            TriggerClientEvent('Framework:Notify', src, "Lỗi.", "error")
         end
     else
         Framework.Functions.ExecuteSql(false, "SELECT * FROM `characters_metadata` WHERE `citizenid` = '" .. data.source .. "' LIMIT 1", function(player)
@@ -191,8 +191,8 @@ AddEventHandler('pepe-bossmenu:server:fireEmployee', function(data)
                 job.grade.level = 0
 
                 Framework.Functions.ExecuteSql(false, "UPDATE `characters_metadata` SET `job` = '"..json.encode(job).."' WHERE `citizenid` = '".. data.source .."'")
-                TriggerClientEvent('Framework:Notify', src, "Fired successfully!", "success")
-                TriggerEvent('pepe-logs:server:createLog', 'bossmenu', 'Fire', "Successfully fired " .. data.source .. ' (' .. xPlayer.PlayerData.job.name .. ')', src)
+                TriggerClientEvent('Framework:Notify', src, "Sa thải thành công!", "success")
+                TriggerEvent('pepe-logs:server:createLog', 'bossmenu', 'Fire', "Sa thải thành công. " .. data.source .. ' (' .. xPlayer.PlayerData.job.name .. ')', src)
                 
                 Wait(500)
                 local employees = {}
@@ -222,7 +222,7 @@ AddEventHandler('pepe-bossmenu:server:fireEmployee', function(data)
                     end
                 end)
             else
-                TriggerClientEvent('Framework:Notify', src, "Error. Could not find player.", "error")
+                TriggerClientEvent('Framework:Notify', src, "Lỗi. Không thể tìm thấy người chơi.", "error")
             end
         end)
     end
@@ -237,11 +237,11 @@ AddEventHandler('pepe-bossmenu:server:giveJob', function(data)
     if xPlayer.PlayerData.job.isboss == true then
         if xTarget and xTarget.Functions.SetJob(xPlayer.PlayerData.job.name, '0') then
             TriggerClientEvent('Framework:Notify', src, "You promoted " .. (xTarget.PlayerData.charinfo.firstname .. ' ' .. xTarget.PlayerData.charinfo.lastname) .. " to " .. xPlayer.PlayerData.job.label .. ".", "success")
-            TriggerClientEvent('Framework:Notify', xTarget.PlayerData.source , "You've been recruited to " .. xPlayer.PlayerData.job.label .. ".", "success")
-            TriggerEvent('pepe-logs:server:createLog', 'bossmenu', 'Recruit', "Successfully recruited " .. (xTarget.PlayerData.charinfo.firstname .. ' ' .. xTarget.PlayerData.charinfo.lastname) .. ' (' .. job .. ')', src)
+            TriggerClientEvent('Framework:Notify', xTarget.PlayerData.source , "Bạn đã được tuyển dụng để " .. xPlayer.PlayerData.job.label .. ".", "success")
+            TriggerEvent('pepe-logs:server:createLog', 'bossmenu', 'Recruit', "Tuyển dụng thành công. " .. (xTarget.PlayerData.charinfo.firstname .. ' ' .. xTarget.PlayerData.charinfo.lastname) .. ' (' .. job .. ')', src)
         end
     else
-        TriggerClientEvent('Framework:Notify', src, "You are not the boss, how did you even get here?!", "error")
+        TriggerClientEvent('Framework:Notify', src, "Bạn không phải là ông chủ, làm thế nào bạn đến đây?!", "error")
     end
 end)
 
@@ -253,8 +253,8 @@ AddEventHandler('pepe-bossmenu:server:updateGrade', function(data)
 
     if xEmployee then
         if xEmployee.Functions.SetJob(xPlayer.PlayerData.job.name, data.grade) then
-            TriggerClientEvent('Framework:Notify', src, "Promoted successfully!", "success")
-            TriggerClientEvent('Framework:Notify', xEmployee.PlayerData.source , "You just got promoted [" .. data.grade .."].", "success")
+            TriggerClientEvent('Framework:Notify', src, "Quảng bá thành công!", "success")
+            TriggerClientEvent('Framework:Notify', xEmployee.PlayerData.source , "Bạn vừa được thăng chức [" .. data.grade .."].", "success")
 
             Wait(500)
             local employees = {}
@@ -284,7 +284,7 @@ AddEventHandler('pepe-bossmenu:server:updateGrade', function(data)
                 end
             end)
         else
-            TriggerClientEvent('Framework:Notify', src, "Error.", "error")
+            TriggerClientEvent('Framework:Notify', src, "Lỗi.", "error")
         end
     else
         Framework.Functions.ExecuteSql(false, "SELECT * FROM `characters_metadata` WHERE `citizenid` = '" .. data.source .. "' LIMIT 1", function(player)
@@ -294,7 +294,7 @@ AddEventHandler('pepe-bossmenu:server:updateGrade', function(data)
                 local employeejob = json.decode(xEmployee.job)
                 employeejob.grade = job.grades[data.grade]
                 Framework.Functions.ExecuteSql(false, "UPDATE `characters_metadata` SET `job` = '"..json.encode(employeejob).."' WHERE `citizenid` = '".. data.source .."'")
-                TriggerClientEvent('Framework:Notify', src, "Promoted successfully!", "success")
+                TriggerClientEvent('Framework:Notify', src, "Quảng bá thành công!", "success")
                 
                 Wait(500)
                 local employees = {}
@@ -324,7 +324,7 @@ AddEventHandler('pepe-bossmenu:server:updateGrade', function(data)
                     end
                 end)
             else
-                TriggerClientEvent('Framework:Notify', src, "Error. Could not find player.", "error")
+                TriggerClientEvent('Framework:Notify', src, "Lỗi. Không thể tìm thấy người chơi.", "error")
             end
         end)
     end
