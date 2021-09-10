@@ -559,7 +559,7 @@ RegisterNUICallback('SendMessage', function(data, cb)
                 })
             elseif ChatType == "location" then
                 table.insert(PhoneData.Chats[NumberKey].messages[ChatKey].messages, {
-                    message = "Shared location",
+                    message = "Đã chia sẻ vị trí",
                     time = ChatTime,
                     sender = PhoneData.PlayerData.citizenid,
                     type = ChatType,
@@ -589,7 +589,7 @@ RegisterNUICallback('SendMessage', function(data, cb)
                 })
             elseif ChatType == "location" then
                 table.insert(PhoneData.Chats[NumberKey].messages[ChatDate].messages, {
-                    message = "Shared location",
+                    message = "Đã chia sẻ vị trí",
                     time = ChatTime,
                     sender = PhoneData.PlayerData.citizenid,
                     type = ChatType,
@@ -625,7 +625,7 @@ RegisterNUICallback('SendMessage', function(data, cb)
             })
         elseif ChatType == "location" then
             table.insert(PhoneData.Chats[NumberKey].messages[ChatKey].messages, {
-                message = "Shared Location",
+                message = "Đã chia sẻ vị trí",
                 time = ChatTime,
                 sender = PhoneData.PlayerData.citizenid,
                 type = ChatType,
@@ -736,7 +736,7 @@ RegisterNUICallback('SharedLocation', function(data)
         action = "PhoneNotification",
         PhoneNotify = {
             title = "Whatsapp",
-            text = "Location set!",
+            text = "Đã cài vị trí!",
             icon = "fab fa-whatsapp",
             color = "#25D366",
             timeout = 1500,
@@ -766,9 +766,9 @@ AddEventHandler('pepe-phone:client:UpdateMessages', function(ChatMessages, Sende
 
         if PhoneData.isOpen then
             if SenderNumber ~= PhoneData.PlayerData.charinfo.phone then
-                print('new message')
+                print('Tin nhắn mới')
             else
-                print('new message')
+                print('Tin nhắn mới')
             end
 
             NumberKey = GetKeyByNumber(SenderNumber)
@@ -788,7 +788,7 @@ AddEventHandler('pepe-phone:client:UpdateMessages', function(ChatMessages, Sende
                 action = "PhoneNotification",
                 PhoneNotify = {
                     title = "Whatsapp",
-                    text = "New message from "..IsNumberInContacts(SenderNumber).."!",
+                    text = "Tin nhắn mới từ. "..IsNumberInContacts(SenderNumber).."!",
                     icon = "fab fa-whatsapp",
                     color = "#25D366",
                     timeout = 1500,
@@ -808,9 +808,9 @@ AddEventHandler('pepe-phone:client:UpdateMessages', function(ChatMessages, Sende
 
         if PhoneData.isOpen then
             if SenderNumber ~= PhoneData.PlayerData.charinfo.phone then
-                print('new message')
+                print('Tin nhắn mới')
             else
-                print('new message')
+                print('Tin nhắn mới')
             end
 
             NumberKey = GetKeyByNumber(SenderNumber)
@@ -830,7 +830,7 @@ AddEventHandler('pepe-phone:client:UpdateMessages', function(ChatMessages, Sende
                 action = "PhoneNotification",
                 PhoneNotify = {
                     title = "Whatsapp",
-                    text = "You have a new whatsapp message",
+                    text = "Bạn có một tin nhắn WhatsApp mới",
                     -- text = "Nieuw bericht van "..IsNumberInContacts(SenderNumber).."!",
                     icon = "fab fa-whatsapp",
                     color = "#25D366",
@@ -852,7 +852,7 @@ AddEventHandler("pepe-phone-new:client:BankNotify", function(text)
     SendNUIMessage({
         action = "Notification",
         NotifyData = {
-            title = "Bank", 
+            title = "Ngân hàng", 
             content = text, 
             icon = "fas fa-university", 
             timeout = 3500, 
@@ -864,7 +864,7 @@ end)
 RegisterNetEvent('pepe-phone:client:NewMailNotify')
 AddEventHandler('pepe-phone:client:NewMailNotify', function(MailData)
     if PhoneData.isOpen then
-        print('nieuwe mail')
+        print('New mail')
     else
         SendNUIMessage({
             action = "PhoneNotification",
@@ -899,8 +899,8 @@ AddEventHandler('pepe-phone:client:send:email:bought:vehicle', function(Plate)
     SetTimeout(math.random(4500, 8000), function()
         TriggerServerEvent('pepe-phone:server:sendNewMail', {
             sender = "Autoscout24",
-            subject = "Purchased a new vehicle!",
-            message = "Dear " .. Player.charinfo.firstname .. " " .. Player.charinfo.lastname .. ",<br /><br />You have purchased a new vehicle <br><br>license Plate: <b>" .. Plate .. "</b> <br><br>We wish you many safe miles!<br /><br />Sincerely,<br />Autoscout24",
+            subject = "Mua một chiếc xe mới!",
+            message = "Thân mến " .. Player.charinfo.firstname .. " " .. Player.charinfo.lastname .. ",<br /><br />Bạn đã mua một chiếc xe mới <br><br>biển số xe: <b>" .. Plate .. "</b> <br><br>Chúng tôi chúc bạn vạn dặm an toàn!<br /><br />Trân trọng,<br />Auto 24",
             button = {}
         })
     end)
@@ -911,8 +911,8 @@ AddEventHandler('pepe-phone:client:send:email:sold:vehicle', function(SellPrice,
     SetTimeout(math.random(4500, 8000), function()
         TriggerServerEvent('pepe-phone:server:sendNewMail', {
             sender = "Autoscout24",
-            subject = "Your advertisement",
-            message = "Dear reader,<br/><br/>HYou will also receive an e-mail of your recent advertisement.<br><br>License Plate: <strong>" ..VehiclePlate.. "</strong> <br>Selling price: <strong>$"..SellPrice.. '</strong><br><br>Your vehicle has been successfully sold and the amount has been credited to your bank.<br><br>Sincerely,<br>Autoscout24',
+            subject = "Quảng cáo của chúng tôi",
+            message = "Kính gửi người đọc,<br/><br/>HBạn cũng sẽ nhận được một e-mail của quảng cáo gần đây của bạn.<br><br>Biển số xe: <strong>" ..VehiclePlate.. "</strong> <br>Giá bán: <strong>$"..SellPrice.. '</strong><br><br>Xe của bạn đã được bán thành công và số tiền đã được ghi có vào ngân hàng của bạn.<br><br>Sincerely,<br>Auto 24',
             button = {}
         })
     end)
@@ -923,7 +923,7 @@ AddEventHandler('pepe-phone:client:UpdateAdverts', function(Adverts, LastAd)
     PhoneData.Adverts = Adverts
 
     if PhoneData.isOpen then
-        print('new ad')
+        print('Quảng cáo mới')
     else
         SendNUIMessage({
             action = "PhoneNotification",
@@ -1111,7 +1111,7 @@ RegisterNUICallback('PostNewTweet', function(data, cb)
                     TriggerServerEvent('pepe-phone:server:MentionedPlayer', Firstname, Lastname, TweetMessage)
                 else
                     SetTimeout(2500, function()
-                        print('you can not mention yourself')
+                        print('Bạn không thể đề cập đến chính mình')
                     end)
                 end
             end
@@ -1160,7 +1160,7 @@ AddEventHandler('pepe-phone:client:TransferMoney', function(amount, newmoney)
         print('scary money')
         SendNUIMessage({ action = "UpdateBank", NewBalance = PhoneData.PlayerData.money.bank })
     else
-        SendNUIMessage({ action = "PhoneNotification", PhoneNotify = { title = "Bank", text = "$"..amount.."has been added to your bank account!", icon = "fas fa-university", color = "#8c7ae6", }, })
+        SendNUIMessage({ action = "PhoneNotification", PhoneNotify = { title = "Ngân hàng", text = "$"..amount.."đã được thêm vào tài khoản ngân hàng của bạn!", icon = "fas fa-university", color = "#8c7ae6", }, })
     end
 end)
 
@@ -1170,7 +1170,7 @@ AddEventHandler('pepe-phone:client:UpdateTweets', function(src, Tweets, NewTweet
     if PhoneData ~= nil and PhoneData.PlayerData ~= nil then
       local MyPlayerId = PhoneData.PlayerData.source
        if src ~= MyPlayerId then
-          local titel = "New tweet (@"..NewTweetData.firstName..")"
+          local titel = "Tweet mới (@"..NewTweetData.firstName..")"
               if not PhoneData.isOpen then
                 SendNUIMessage({
                     action = "PhoneNotification",
@@ -1204,7 +1204,7 @@ RegisterNetEvent('pepe-phone:client:GetMentioned')
 AddEventHandler('pepe-phone:client:GetMentioned', function(TweetMessage, AppAlerts)
     Config.PhoneApplications["twitter"].Alerts = AppAlerts
     if not PhoneData.isOpen then
-        SendNUIMessage({ action = "PhoneNotification", PhoneNotify = { title = "You were mentioned in a tweet!", text = TweetMessage.message, icon = "fab fa-twitter", color = "#1DA1F2", }, })
+        SendNUIMessage({ action = "PhoneNotification", PhoneNotify = { title = "Bạn đã được đề cập trong một tweet!", text = TweetMessage.message, icon = "fab fa-twitter", color = "#1DA1F2", }, })
     else
         print('pingfuck')
     end
@@ -1351,7 +1351,7 @@ CancelCall = function()
         SendNUIMessage({ 
             action = "PhoneNotification", 
             PhoneNotify = { 
-                title = "Phone", 
+                title = "Điện thoại", 
                 text = "Call ended", 
                 icon = "fas fa-phone", 
                 color = "#e84118", 
@@ -1400,7 +1400,7 @@ AddEventHandler('pepe-phone:client:CancelCall', function()
         SendNUIMessage({ 
             action = "PhoneNotification", 
             PhoneNotify = { 
-                title = "Phone", 
+                title = "Điện thoại", 
                 text = "Call ended", 
                 icon = "fas fa-phone", 
                 color = "#e84118", 
@@ -1550,8 +1550,8 @@ function AnswerCall()
         SendNUIMessage({ 
             action = "PhoneNotification", 
             PhoneNotify = { 
-                title = "Phone", 
-                text = "You have no incoming calls...", 
+                title = "Điện thoại", 
+                text = "Bạn không có cuộc gọi đến...", 
                 icon = "fas fa-phone", 
                 color = "#e84118", 
             }, 
@@ -1603,8 +1603,8 @@ AddEventHandler('pepe-phone:client:AnswerCall', function()
         SendNUIMessage({ 
             action = "PhoneNotification", 
             PhoneNotify = { 
-                title = "Phone", 
-                text = "You have no incoming calls...", 
+                title = "Điện thoại", 
+                text = "Bạn không có cuộc gọi đếns...", 
                 icon = "fas fa-phone", 
                 color = "#e84118", 
             }, 
@@ -1654,7 +1654,7 @@ end)
 RegisterNUICallback('SetAlertWaypoint', function(data)
     local coords = data.alert.coords
 
-    Framework.Functions.Notify('GPS Location set: '..data.alert.title)
+    Framework.Functions.Notify('Vị trí GPS đã cài: '..data.alert.title)
     SetNewWaypoint(coords.x, coords.y)
 end)
 
@@ -1697,7 +1697,7 @@ AddEventHandler('pepe-phone:client:GiveContactDetails', function()
         local PlayerId = GetPlayerServerId(player)
         TriggerServerEvent('pepe-phone:server:GiveContactDetails', PlayerId)
     else
-        Framework.Functions.Notify("Nobody nearby!", "error")
+        Framework.Functions.Notify("Không ai gần bạn!", "error")
     end
 end)
 
@@ -1720,8 +1720,8 @@ RegisterNUICallback('DeleteContact', function(data, cb)
                 SendNUIMessage({
                     action = "PhoneNotification",
                     PhoneNotify = {
-                        title = "Phone",
-                        text = "You deleted " ..data.CurrentContactName.. "", 
+                        title = "Điện thoại",
+                        text = "Bạn đã xóa " ..data.CurrentContactName.. "", 
                         icon = "fa fa-phone-alt",
                         color = "#04b543",
                         timeout = 1500,
@@ -1749,8 +1749,8 @@ AddEventHandler('pepe-phone:client:AddNewSuggestion', function(SuggestionData)
         SendNUIMessage({
             action = "PhoneNotification",
             PhoneNotify = {
-                title = "Phone",
-                text = "You have a new suggested contact!", 
+                title = "Điện thoại",
+                text = "Bạn có một liên hệ được đề xuất mới!", 
                 icon = "fa fa-phone-alt",
                 color = "#04b543",
                 timeout = 1500,
@@ -1794,8 +1794,8 @@ AddEventHandler('pepe-phone:client:RemoveBankMoney', function(amount)
         SendNUIMessage({
             action = "PhoneNotification",
             PhoneNotify = {
-                title = "Bank",
-                text = "$"..amount..",- has been written off your bank account!", 
+                title = "Ngân hàng",
+                text = "$"..amount..",- đã được chuyển ra khỏi tài khoản ngân hàng của bạn!", 
                 icon = "fas fa-university", 
                 color = "#ff002f",
                 timeout = 3500,
@@ -1813,8 +1813,8 @@ AddEventHandler('pepe-phone:client:induty', function(alert)
         SendNUIMessage({
             action = "PhoneNotification",
             PhoneNotify = {
-                title = "Duty",
-                text = "You are now on duty", 
+                title = "Ca làm",
+                text = "Bây giờ bạn đang vào ca làm việc", 
                 icon = "fas fa-clock",
                 color = "#ffffff",
                 timeout = 1500,
@@ -1834,8 +1834,8 @@ AddEventHandler('pepe-phone:client:offduty', function(alert)
         SendNUIMessage({
             action = "PhoneNotification",
             PhoneNotify = {
-                title = "Duty",
-                text = "You are now off duty", 
+                title = "Ca làm",
+                text = "Bây giờ bạn đang hết ca làm việc", 
                 icon = "fas fa-clock",
                 color = "#ffffff",
                 timeout = 1500,
@@ -1857,7 +1857,7 @@ AddEventHandler('pepe-phone:client:deliverto', function(alert)
             action = "PhoneNotification",
             PhoneNotify = {
                 title = "Pizza",
-                text = "Deliver the pizza to the costumer", 
+                text = "Giao bánh pizza cho người dùng", 
                 icon = "fas fa-clock",
                 color = "#ffffff",
                 timeout = 1500,
@@ -1877,8 +1877,8 @@ AddEventHandler('pepe-phone:client:completedjob', function(alert)
         SendNUIMessage({
             action = "PhoneNotification",
             PhoneNotify = {
-                title = "General",
-                text = "You have completed your current job!", 
+                title = "Tổng quan",
+                text = "Bạn đã hoàn thành công việc hiện tại của bạn!", 
                 icon = "fas fa-clock",
                 color = "#ffffff",
                 timeout = 1500,
@@ -1898,8 +1898,8 @@ AddEventHandler('pepe-phone:client:oneleft', function(alert)
         SendNUIMessage({
             action = "PhoneNotification",
             PhoneNotify = {
-                title = "General",
-                text = "You have one delivery remaining!", 
+                title = "Tổng quan",
+                text = "Bạn có một giao hàng còn lại!", 
                 icon = "fas fa-clock",
                 color = "#ffffff",
                 timeout = 1500,
@@ -1919,8 +1919,8 @@ AddEventHandler('pepe-phone:client:canceledjob', function(alert)
         SendNUIMessage({
             action = "PhoneNotification",
             PhoneNotify = {
-                title = "General",
-                text = "You have canceled your current job!", 
+                title = "Tổng quan",
+                text = "Bạn đã hủy công việc hiện tại của bạn!", 
                 icon = "fas fa-clock",
                 color = "#ffffff",
                 timeout = 1500,
@@ -1940,8 +1940,8 @@ AddEventHandler('pepe-phone:client:vehicleinfo', function(alert)
         SendNUIMessage({
             action = "PhoneNotification",
             PhoneNotify = {
-                title = "General",
-                text = "Return to your vehicle, or if you lost your vehicle, deliver it on foot!", 
+                title = "Tổng quan",
+                text = "Quay trở lại xe của bạn, hoặc nếu bạn bị mất xe, hãy đi bộ bằng chân!", 
                 icon = "fas fa-clock",
                 color = "#ffffff",
                 timeout = 1500,
@@ -2011,7 +2011,7 @@ end)
 
 RegisterNUICallback('SetHouseLocation', function(data, cb)
     SetNewWaypoint(data.HouseData.HouseData['Coords']['Enter']['X'], data.HouseData.HouseData['Coords']['Enter']['Y'])
-    Framework.Functions.Notify("GPS set to " .. data.HouseData.HouseData['Adres'] .. "!", "info")
+    Framework.Functions.Notify("GPS đặt thành. " .. data.HouseData.HouseData['Adres'] .. "!", "info")
 end)
 
 RegisterNUICallback('FetchPlayerHouses', function(data, cb)
@@ -2030,14 +2030,14 @@ end)
 RegisterNUICallback('SetGPSLocation', function(data, cb)
     local ped = PlayerPedId()
     SetNewWaypoint(data.coords.x, data.coords.y)
-    Framework.Functions.Notify('GPS set!', 'success')
+    Framework.Functions.Notify('Đã cài GPS.!', 'success')
 end)
 
 RegisterNUICallback('SetApartmentLocation', function(data, cb)
     local ApartmentData = data.data.appartmentdata
     local TypeData = Apartments.Locations[ApartmentData.type]
     SetNewWaypoint(TypeData.coords.enter.x, TypeData.coords.enter.y)
-    Framework.Functions.Notify('Apartment Location set!', 'success')
+    Framework.Functions.Notify('Vị trí căn hộ đài cài!', 'success')
 end)
 
 RegisterNUICallback('GetCurrentLawyers', function(data, cb)
