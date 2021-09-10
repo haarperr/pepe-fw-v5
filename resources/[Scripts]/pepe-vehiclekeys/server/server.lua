@@ -36,20 +36,12 @@ RegisterServerEvent('pepe-vehiclekeys:server:give:keys')
 AddEventHandler('pepe-vehiclekeys:server:give:keys', function(Target, Plate, bool)
   local Player = Framework.Functions.GetPlayer(Target)
   if Player ~= nil then
-    TriggerClientEvent('Framework:Notify', Player.PlayerData.source, "Bạn nhận được chìa khóa của phương tiện: "..Plate, 'success')
+    TriggerClientEvent('Framework:Notify', Player.PlayerData.source, "You recieved the keys to the following vehicle: "..Plate, 'success')
     Config.VehicleKeys[Plate] = {['CitizenId'] = Player.PlayerData.citizenid, ['HasKey'] = bool}
     TriggerClientEvent('pepe-vehiclekeys:client:set:keys', -1, Plate, Player.PlayerData.citizenid, bool)
   end
 end)
-Framework.Functions.CreateUseableItem("lockpick", function(source, item)
-  local Player = Framework.Functions.GetPlayer(source)
-  TriggerClientEvent("lockpick:UseLockpick", source, false)
-end)
 
-Framework.Functions.CreateUseableItem("advancedlockpick", function(source, item)
-  local Player = Framework.Functions.GetPlayer(source)
-  TriggerClientEvent("lockpick:UseAdvancedLockpick", source, true)
-end)
 -- // Commands \\ -- 
 
 Framework.Commands.Add("engine", "Toggle vehicle engine", {}, false, function(source, args)

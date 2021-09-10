@@ -62,7 +62,7 @@ Citizen.CreateThread(function()
                     if Driver ~= 0 and not IsPedAPlayer(Driver) then
                        if IsEntityDead(Driver) then
                            IsRobbing = true
-                           Framework.Functions.Progressbar("rob_keys", "Cướp chìa khóa xe...", 3000, false, true,
+                           Framework.Functions.Progressbar("rob_keys", "Robbing car keys...", 3000, false, true,
                             {}, {}, {}, {}, function()
                               SetVehicleKey(GetVehicleNumberPlateText(Vehicle, true), true)
                               IsRobbing = false
@@ -105,7 +105,7 @@ AddEventHandler('pepe-vehiclekeys:client:toggle:engine', function()
              SetVehicleEngineOn(Vehicle, true, false, true)
          end
      else
-         Framework.Functions.Notify("Bạn không có chìa khóa của phương tiện này.", 'error')
+         Framework.Functions.Notify("You have no keys to this vehicle.", 'error')
      end
  end, Plate)
 end)
@@ -127,10 +127,10 @@ AddEventHandler('pepe-vehiclekeys:client:give:key', function(TargetPlayer)
                  Framework.Functions.Notify("You have keys with the current licenseplate: "..Plate, 'success')
                  TriggerServerEvent('pepe-vehiclekeys:server:give:keys', GetPlayerServerId(Player), Plate, true)
             else
-                Framework.Functions.Notify("Không có ai gần đó?", 'error')
+                Framework.Functions.Notify("No one nearby?", 'error')
             end
         else
-            Framework.Functions.Notify("Bạn không có chìa khóa của phương tiện này.", 'error')
+            Framework.Functions.Notify("You have no keys to this vehicle.", 'error')
         end
     end, Plate)
 end)
@@ -146,9 +146,9 @@ AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
        if IsPedInAnyVehicle(PlayerPedId(), false) then
           exports['pepe-assets']:RequestAnimationDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
           TaskPlayAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer' ,3.0, 3.0, -1, 16, 0, false, false, false)
-          exports['pepe-lockpick']:OpenLockpickGame(function(Success)
-            TriggerEvent('pepe-lockpick:client:openLockpick', function(Success)
-            -- exports['pepe-lock']:StartLockPickCircle(function(Success)
+          --exports['pepe-lockpick']:OpenLockpickGame(function(Success)
+            --TriggerEvent('kwk-lockpick:client:openLockpick', function(Success)
+            exports['pepe-lock']:StartLockPickCircle(function(Success)
              if Success then
                  SetVehicleKey(Plate, true)
                  StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
@@ -172,9 +172,8 @@ AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
           if VehicleLocks == 2 then
           exports['pepe-assets']:RequestAnimationDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
           TaskPlayAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer' ,3.0, 3.0, -1, 16, 0, false, false, false)
-        --  exports['pepe-lock']:StartLockPickCircle(function(Success)
-            -- TriggerEvent('kwk-lockpick:client:openLockpick', function(Success)
-                exports['pepe-lockpick']:OpenLockpickGame(function(Success)
+         exports['pepe-lock']:StartLockPickCircle(function(Success)
+            --TriggerEvent('kwk-lockpick:client:openLockpick', function(Success)
              if Success then
                  SetVehicleDoorsLocked(Vehicle, 1)
                  Framework.Functions.Notify("Deur opengebroken", 'success')
@@ -217,7 +216,7 @@ function ToggleLocks()
     local PlayerCoords = GetEntityCoords(PlayerPedId())
     local VehicleLocks = GetVehicleDoorLockStatus(Vehicle)
     local Plate = GetVehicleNumberPlateText(Vehicle)
-    if VehDistance <= 5.2 then
+    if VehDistance <= 2.2 then
         Framework.Functions.TriggerCallback("pepe-vehiclekeys:server:has:keys", function(HasKey)
          if HasKey then
             exports['pepe-assets']:RequestAnimationDict("anim@mp_player_intmenu@key_fob@")
@@ -227,18 +226,18 @@ function ToggleLocks()
                 SetVehicleDoorsLocked(Vehicle, 2)
                 ClearPedTasks(PlayerPedId())
                 TriggerEvent('pepe-vehicleley:client:blink:lights', Vehicle)
-                Framework.Functions.Notify("Đã khoá phương tiện!", 'error')
+                Framework.Functions.Notify("Vehicle locked", 'error')
                 TriggerServerEvent("pepe-sound:server:play:distance", 5, "car-lock", 0.2)
             else
                 Citizen.Wait(450)
                 SetVehicleDoorsLocked(Vehicle, 1)
                 ClearPedTasks(PlayerPedId())
                 TriggerEvent('pepe-vehicleley:client:blink:lights', Vehicle)
-                Framework.Functions.Notify("Đã mở khoá phương tiện!", 'success')
+                Framework.Functions.Notify("Vehicle unlocked", 'success')
                 TriggerServerEvent("pepe-sound:server:play:distance", 5, "car-unlock", 0.2)
             end
          else
-            Framework.Functions.Notify("Bạn không có chìa khóa của phương tiện này.", 'error')
+            Framework.Functions.Notify("You have no keys to this vehicle.", 'error')
         end
     end, Plate)
     end
