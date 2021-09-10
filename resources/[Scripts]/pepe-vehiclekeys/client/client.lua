@@ -148,7 +148,7 @@ AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
           TaskPlayAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer' ,3.0, 3.0, -1, 16, 0, false, false, false)
           --exports['pepe-lockpick']:OpenLockpickGame(function(Success)
             --TriggerEvent('kwk-lockpick:client:openLockpick', function(Success)
-            exports['pepe-lock']:StartLockPickCircle(function(Success)
+            exports['pepe-lockpick']:StartLockPickCircle(function(Success)
              if Success then
                  SetVehicleKey(Plate, true)
                  StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
@@ -172,7 +172,7 @@ AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
           if VehicleLocks == 2 then
           exports['pepe-assets']:RequestAnimationDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
           TaskPlayAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer' ,3.0, 3.0, -1, 16, 0, false, false, false)
-         exports['pepe-lock']:StartLockPickCircle(function(Success)
+         exports['pepe-lockpick']:StartLockPickCircle(function(Success)
             --TriggerEvent('kwk-lockpick:client:openLockpick', function(Success)
              if Success then
                  SetVehicleDoorsLocked(Vehicle, 1)
