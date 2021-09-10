@@ -14,10 +14,10 @@ Config.RestrictedChannels = 10 -- channels that are encrypted (EMS, Fire and pol
 Config.MaxFrequency = 500
 
 Config.messages = {
-  ['not_on_radio'] = 'Your not connected to a signal',
-  ['on_radio'] = 'Your already connected to this signal: <b>',
-  ['joined_to_radio'] = 'Your connected to: <b>',
-  ['restricted_channel_error'] = 'You can not connect to this signal!',
-  ['you_on_radio'] = 'Your already connected to this signal: <b>',
-  ['you_leave'] = 'You left the signal: <b>'
+  ['not_on_radio'] = 'Bạn không kết nối với tín hiệu',
+  ['on_radio'] = 'Radio của bạn đã kết nối với: <b>',
+  ['joined_to_radio'] = 'Bạn đã kết nối: <b>',
+  ['restricted_channel_error'] = 'Bạn không thể kết nối với radio này!',
+  ['you_on_radio'] = 'Bạn đã kết nối với radio này: <b>',
+  ['you_leave'] = 'Bạn đã thoát radio: <b>'
 }

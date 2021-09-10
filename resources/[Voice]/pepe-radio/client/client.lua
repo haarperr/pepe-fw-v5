@@ -51,7 +51,7 @@ Citizen.CreateThread(function()
                 exports["pma-voice"]:removePlayerFromRadio(getPlayerRadioChannel)
                 exports["pma-voice"]:SetRadioChannel(playerName, "radio:channel", "nil", true)
                 exports["pma-voice"]:SetMumbleProperty("radioEnabled", true)
-                Framework.Functions.Notify('You are removed from your current frequency!', 'error')
+                Framework.Functions.Notify('Bạn bị xóa khỏi tần số hiện tại của bạn!', 'error')
               end
             end
           end
