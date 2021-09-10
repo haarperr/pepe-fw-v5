@@ -147,7 +147,7 @@ AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
           exports['pepe-assets']:RequestAnimationDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
           TaskPlayAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer' ,3.0, 3.0, -1, 16, 0, false, false, false)
           exports['pepe-lockpick']:OpenLockpickGame(function(Success)
-            TriggerEvent('kwk-lockpick:client:openLockpick', function(Success)
+            TriggerEvent('pepe-lockpick:client:openLockpick', function(Success)
             -- exports['pepe-lock']:StartLockPickCircle(function(Success)
              if Success then
                  SetVehicleKey(Plate, true)
