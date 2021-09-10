@@ -81,9 +81,7 @@ $(function () {
     
     document.onkeyup = function (data) {
         if (data.which == 27 ) {
-         $.post('http://qb-lockpick/exit', JSON.stringify({
-             success: false
-         }));
+            $.post('http://qb-lockpick/exit');
         }
     };
 }); //docready
