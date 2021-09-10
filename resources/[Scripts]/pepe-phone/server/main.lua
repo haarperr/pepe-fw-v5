@@ -317,7 +317,7 @@ AddEventHandler('pepe-phone:server:buy:chosen:vehicle', function(VehiclePlate, C
            Framework.Functions.ExecuteSql(false, "UPDATE characters_vehicles SET `citizenid` = '" .. Player.PlayerData.citizenid .. "', `garage` = '"..GarageData.."', `state` = 'in', `forSale` = '0', `salePrice` = '0' WHERE `plate` = '" ..VehiclePlate.. "'")
            TriggerClientEvent('pepe-phone:client:send:email:bought:vehicle', src, VehiclePlate) 
            TriggerClientEvent('pepe-phone:client:send:email:sold:vehicle', TargetPlayer.PlayerData.source, SellPrice, VehiclePlate) 
-           TriggerClientEvent('Framework:Notify', src, "Vehicle with number plate '" .. VehiclePlate .. "' bought for $'" .. SellPrice .. "'", "success")
+           TriggerClientEvent('Framework:Notify', src, "Xe có biển số '" .. VehiclePlate .. "' mua cho $'" .. SellPrice .. "'", "success")
         else
             Framework.Functions.ExecuteSql(false, 'SELECT `money` FROM characters_metadata WHERE citizenid ="'..CitizenId..'"',function(result)
                 if result ~= nil then
@@ -332,8 +332,8 @@ AddEventHandler('pepe-phone:server:buy:chosen:vehicle', function(VehiclePlate, C
                  end
                  local MailData = {
                     sender = "autoscout",
-                    subject = "Your advertisement",
-                    message = "Dear reader,<br/><br/>You will receive an email of your recent ad.<br><br>License Plate: <strong>" ..VehiclePlate.. "</strong> <br>Selling price: <strong>$"..SellPrice.. '</strong><br><br>Your vehicle has been sold successfully and the amount has been credited to your bank.<br><br>Kind regards,<br>autoscout',
+                    subject = "Quảng cáo của bạn",
+                    message = "Kính gửi người đọc,<br/><br/>Bạn sẽ nhận được một email của quảng cáo gần đây của bạn.<br><br>Biển số xe: <strong>" ..VehiclePlate.. "</strong> <br>Gia ban: <strong>$"..SellPrice.. '</strong><br><br>Xe của bạn đã được bán thành công và số tiền đã được ghi có vào ngân hàng của bạn.<br><br>Kind regards,<br>autoscout',
                     button = {}
                  }
                  TriggerEvent("pepe-phone:server:sendNewEventMail", CitizenId, MailData)
@@ -341,12 +341,12 @@ AddEventHandler('pepe-phone:server:buy:chosen:vehicle', function(VehiclePlate, C
                  Framework.Functions.ExecuteSql(false, "UPDATE characters_vehicles SET `citizenid` = '" .. Player.PlayerData.citizenid .. "', `garage` = '"..GarageData.."', `state` = 'in', `forSale` = '0', `salePrice` = '0' WHERE `plate` = '" ..VehiclePlate.. "'")
                  Framework.Functions.ExecuteSql(false, "UPDATE characters_metadata SET `money` = '" ..json.encode(NewMoneyTable).. "' WHERE `citizenid` = '" ..CitizenId.. "'")
                  TriggerClientEvent('pepe-phone:client:send:email:bought:vehicle', src, VehiclePlate)
-                 TriggerClientEvent('Framework:Notify', src, "Vehicle with number plate '" .. VehiclePlate .. "' bought for $'" .. SellPrice .. "'", "success")
+                 TriggerClientEvent('Framework:Notify', src, "Xe có biển số '" .. VehiclePlate .. "' mua cho $'" .. SellPrice .. "'", "success")
                 end
             end)
         end
     else
-        TriggerClientEvent('Framework:Notify', src, "You don't have enough money on your bank account...", "error")
+        TriggerClientEvent('Framework:Notify', src, "Bạn không có đủ tiền trên tài khoản ngân hàng của mình...", "error")
     end
 end)
 
@@ -609,7 +609,7 @@ AddEventHandler('pepe-phone:server:TransferMoney', function(iban, amount)
                 sender.Functions.RemoveMoney('bank', amount, "phone-transfered")
             end
         else
-            TriggerClientEvent('Framework:Notify', src, "This account number does not exist!", "error")
+            TriggerClientEvent('Framework:Notify', src, "Số tài khoản này không tồn tại!", "error")
         end
     end)
 end)
@@ -801,7 +801,7 @@ Framework.Functions.CreateCallback('pepe-phone:server:GetVehicleSearchResults', 
                     status = GeneratedPlates[search].status,
                     owner = GeneratedPlates[search].owner,
                     citizenid = GeneratedPlates[search].citizenid,
-                    label = "Brand unknown.."
+                    label = "Không có thương hiệu.."
                 })
             else
                 local ownerInfo = GenerateOwnerName()
@@ -816,7 +816,7 @@ Framework.Functions.CreateCallback('pepe-phone:server:GetVehicleSearchResults', 
                     status = true,
                     owner = ownerInfo.name,
                     citizenid = ownerInfo.citizenid,
-                    label = "Brand unknown.."
+                    label = "Không có thương hiệu.."
                 })
             end
         end
@@ -859,7 +859,7 @@ Framework.Functions.CreateCallback('pepe-phone:server:ScanPlate', function(sourc
             cb(vehicleData)
         end)
     else
-        TriggerClientEvent('Framework:Notify', src, "No vehicle nearby..", "error")
+        TriggerClientEvent('Framework:Notify', src, "Không có phương tiện gần đó..", "error")
         cb(nil)
     end
 end)
@@ -1092,6 +1092,6 @@ Framework.Functions.CreateCallback('pepe-phone:server:GetCurrentLawyers', functi
     cb(Lawyers)
 end)
 
-Framework.Commands.Add("notify", "Test the notification system", {}, false, function(source, args)
+Framework.Commands.Add("notify", "Kiểm tra hệ thống thông báo", {}, false, function(source, args)
     TriggerClientEvent('pepe-phone:client:voertuigready', source)
 end, "user")
