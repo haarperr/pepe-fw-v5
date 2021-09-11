@@ -424,7 +424,7 @@ Config.Products = {
       amount = 50,
       info = {},
       type = "item",
-      slot = 5,
+      slot = 3,
      },
      [6] = {
       name = "dice",
@@ -432,7 +432,7 @@ Config.Products = {
       amount = 50,
       info = {},
       type = "item",
-      slot = 6,
+      slot = 4,
      },
      [7] = {
       name = "coin",
@@ -440,7 +440,7 @@ Config.Products = {
       amount = 50,
       info = {},
       type = "item",
-      slot = 7,
+      slot = 5,
      },
      [8] = {
       name = "duffel-bag",
@@ -448,7 +448,7 @@ Config.Products = {
       amount = 50,
       info = {},
       type = "item",
-      slot = 8,
+      slot = 6,
      },
     --[[ [9] = {
       name = "boombox",
@@ -464,7 +464,7 @@ Config.Products = {
       amount = 50,
       info = {},
       type = "item",
-      slot = 10,
+      slot = 7,
      },
      [11] = {
       name = "lockpick",
@@ -472,7 +472,7 @@ Config.Products = {
       amount = 25,
       info = {},
       type = "item",
-      slot = 11,
+      slot = 8,
     },
     [12] = {
       name = "toolkit",
@@ -480,7 +480,7 @@ Config.Products = {
       amount = 100,
       info = {},
       type = "item",
-      slot = 12,
+      slot = 9,
      },
      [13] = {
       name = "scissor",
@@ -488,7 +488,7 @@ Config.Products = {
       amount = 100,
       info = {},
       type = "item",
-      slot = 13,
+      slot = 10,
      },
   },
 }
