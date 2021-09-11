@@ -426,7 +426,7 @@ Config.Products = {
       type = "item",
       slot = 5,
      },
-     [6] = {
+     [2] = {
       name = "dice",
       price = 15,
       amount = 50,
@@ -442,7 +442,7 @@ Config.Products = {
     --   type = "item",
     --   slot = 7,
     --  },
-     [8] = {
+     [3] = {
       name = "duffel-bag",
       price = 1500,
       amount = 50,
@@ -458,7 +458,7 @@ Config.Products = {
       type = "item",
       slot = 9,
      },]]--
-     [7] = {
+     [4] = {
       name = "radio",
       price = 500,
       amount = 50,
@@ -466,7 +466,7 @@ Config.Products = {
       type = "item",
       slot = 10,
      },
-     [2] = {
+     [5] = {
       name = "lockpick",
       price = 350,
       amount = 25,
@@ -482,7 +482,7 @@ Config.Products = {
     --   type = "item",
     --   slot = 12,
     --  },
-     [13] = {
+     [6] = {
       name = "scissor",
       price = 95,
       amount = 100,
