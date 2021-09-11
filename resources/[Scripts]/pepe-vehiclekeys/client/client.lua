@@ -141,7 +141,7 @@ AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
  local Plate = GetVehicleNumberPlateText(Vehicle)
  local VehicleLocks = GetVehicleDoorLockStatus(Vehicle)
  if VehDistance <= 4.5 then
-   Framework.Functions.TriggerCallback("pepe-vehiclekeys:server:has:keys", function(HasKey)
+--    Framework.Functions.TriggerCallback("pepe-vehiclekeys:server:has:keys", function(HasKey)
       if not HasKey then
        if IsPedInAnyVehicle(PlayerPedId(), false) then
           exports['pepe-assets']:RequestAnimationDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
