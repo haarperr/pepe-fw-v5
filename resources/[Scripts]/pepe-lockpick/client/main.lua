@@ -72,7 +72,7 @@ function StartLockPickCircle(callback)
     Result = nil
     NUI_status = true
     SendNUIMessage({
-        action = 'start',
+        action = 'ui',
         value = 4,
     })
     while NUI_status do
