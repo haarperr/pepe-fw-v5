@@ -4,6 +4,16 @@ local IsRobbing = false
 local LastVehicle = nil
 local isLoggedIn = false
 
+local HasKey = false
+-- local LastVehicle = nil
+local IsHotwiring = false
+-- local IsRobbing = false
+-- local isLoggedIn = false
+local NeededAttempts = 0
+local SucceededAttempts = 0
+local FailedAttemps = 0
+local AlertSend = false
+
 RegisterNetEvent('Framework:Client:OnPlayerLoaded')
 AddEventHandler('Framework:Client:OnPlayerLoaded', function()
   Citizen.SetTimeout(1250, function()
@@ -62,7 +72,7 @@ Citizen.CreateThread(function()
                     if Driver ~= 0 and not IsPedAPlayer(Driver) then
                        if IsEntityDead(Driver) then
                            IsRobbing = true
-                           Framework.Functions.Progressbar("rob_keys", "Cướp chìa khóa xe...", 3000, false, true,
+                           Framework.Functions.Progressbar("rob_keys", "Robbing car keys...", 3000, false, true,
                             {}, {}, {}, {}, function()
                               SetVehicleKey(GetVehicleNumberPlateText(Vehicle, true), true)
                               IsRobbing = false
@@ -105,7 +115,7 @@ AddEventHandler('pepe-vehiclekeys:client:toggle:engine', function()
              SetVehicleEngineOn(Vehicle, true, false, true)
          end
      else
-         Framework.Functions.Notify("Bạn không có chìa khóa cho phương tiện này.", 'error')
+         Framework.Functions.Notify("You have no keys to this vehicle.", 'error')
      end
  end, Plate)
 end)
@@ -127,84 +137,276 @@ AddEventHandler('pepe-vehiclekeys:client:give:key', function(TargetPlayer)
                  Framework.Functions.Notify("You have keys with the current licenseplate: "..Plate, 'success')
                  TriggerServerEvent('pepe-vehiclekeys:server:give:keys', GetPlayerServerId(Player), Plate, true)
             else
-                Framework.Functions.Notify("Không có ai gần đó?", 'error')
+                Framework.Functions.Notify("No one nearby?", 'error')
             end
         else
-            Framework.Functions.Notify("Bạn không có chìa khoá cho phương tiện này.", 'error')
+            Framework.Functions.Notify("You have no keys to this vehicle.", 'error')
         end
     end, Plate)
 end)
 
-RegisterNetEvent('pepe-items:client:use:lockpick')
-AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
- local Vehicle, VehDistance = Framework.Functions.GetClosestVehicle()
- local Plate = GetVehicleNumberPlateText(Vehicle)
- local VehicleLocks = GetVehicleDoorLockStatus(Vehicle)
- if VehDistance <= 4.5 then
-   Framework.Functions.TriggerCallback("pepe-vehiclekeys:server:has:keys", function(HasKey)
-      if not HasKey then
-       if IsPedInAnyVehicle(PlayerPedId(), false) then
-          exports['pepe-assets']:RequestAnimationDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
-          TaskPlayAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer' ,3.0, 3.0, -1, 16, 0, false, false, false)
-          exports['pepe-lockpick']:OpenLockpickGame(function(Success)
-            TriggerEvent('pepe-lockpick:client:openLockpick', function(Success)
-            -- exports['pepe-lock']:StartLockPickCircle(function(Success)
-                -- exports['pepe-lockpick']:StartLockPickCircle(function(Success)
-             if Success then
-                 SetVehicleKey(Plate, true)
-                 StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
-             else
-                  if IsAdvanced then
-                    if math.random(1,100) < 19 then
-                      TriggerServerEvent('Framework:Server:RemoveItem', 'advancedlockpick', 1)
-                      TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['advancedlockpick'], "remove")
-                    end
-                  else
-                    if math.random(1,100) < 35 then
-                      TriggerServerEvent('Framework:Server:RemoveItem', 'lockpick', 1)
-                      TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['lockpick'], "remove")
-                    end
-                  end
-                 Framework.Functions.Notify("Mislukt.", 'error')
-                 StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
-             end
-          end)
-       else
-          if VehicleLocks == 2 then
-          exports['pepe-assets']:RequestAnimationDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
-          TaskPlayAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer' ,3.0, 3.0, -1, 16, 0, false, false, false)
-        --  exports['pepe-lock']:StartLockPickCircle(function(Success)
-            -- exports['pepe-lockpick']:StartLockPickCircle(function(Success)
-            exports['pepe-lockpick']:OpenLockpickGame(function(Success)
-            TriggerEvent('pepe-lockpick:client:openLockpick', function(Success)
-             if Success then
-                 SetVehicleDoorsLocked(Vehicle, 1)
-                 Framework.Functions.Notify("Deur opengebroken", 'success')
-                 TriggerEvent('pepe-vehicleley:client:blink:lights', Vehicle)
-                 TriggerServerEvent("pepe-sound:server:play:distance", 5, "car-unlock", 0.2)
-                 StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
-             else
-                if IsAdvanced then
-                    if math.random(1,100) < 25 then
-                      TriggerServerEvent('Framework:Server:RemoveItem', 'advancedlockpick', 1)
-                      TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['advancedlockpick'], "remove")
-                    end
-                  else
-                    if math.random(1,100) < 35 then
-                      TriggerServerEvent('Framework:Server:RemoveItem', 'lockpick', 1)
-                      TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['lockpick'], "remove")
-                    end
-                end
-                Framework.Functions.Notify("Mislukt.", 'error')
-                StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
-             end
-           end)
-          end
-       end
-      end
-   end, Plate)  
- end
+-- RegisterNetEvent('pepe-items:client:use:lockpick')
+-- AddEventHandler('pepe-items:client:use:lockpick', function(IsAdvanced)
+--  local Vehicle, VehDistance = Framework.Functions.GetClosestVehicle()
+--  local Plate = GetVehicleNumberPlateText(Vehicle)
+--  local VehicleLocks = GetVehicleDoorLockStatus(Vehicle)
+--  if VehDistance <= 4.5 then
+--    Framework.Functions.TriggerCallback("pepe-vehiclekeys:server:has:keys", function(HasKey)
+--       if not HasKey then
+--        if IsPedInAnyVehicle(PlayerPedId(), false) then
+--           exports['pepe-assets']:RequestAnimationDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
+--           TaskPlayAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer' ,3.0, 3.0, -1, 16, 0, false, false, false)
+--           --exports['pepe-lockpick']:OpenLockpickGame(function(Success)
+--             --TriggerEvent('kwk-lockpick:client:openLockpick', function(Success)
+--             exports['pepe-lock']:StartLockPickCircle(function(Success)
+--              if Success then
+--                  SetVehicleKey(Plate, true)
+--                  StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
+--              else
+--                   if IsAdvanced then
+--                     if math.random(1,100) < 19 then
+--                       TriggerServerEvent('Framework:Server:RemoveItem', 'advancedlockpick', 1)
+--                       TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['advancedlockpick'], "remove")
+--                     end
+--                   else
+--                     if math.random(1,100) < 35 then
+--                       TriggerServerEvent('Framework:Server:RemoveItem', 'lockpick', 1)
+--                       TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['lockpick'], "remove")
+--                     end
+--                   end
+--                  Framework.Functions.Notify("Mislukt.", 'error')
+--                  StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
+--              end
+--           end)
+--        else
+--           if VehicleLocks == 2 then
+--           exports['pepe-assets']:RequestAnimationDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
+--           TaskPlayAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer' ,3.0, 3.0, -1, 16, 0, false, false, false)
+--          exports['pepe-lock']:StartLockPickCircle(function(Success)
+--             --TriggerEvent('kwk-lockpick:client:openLockpick', function(Success)
+--              if Success then
+--                  SetVehicleDoorsLocked(Vehicle, 1)
+--                  Framework.Functions.Notify("Deur opengebroken", 'success')
+--                  TriggerEvent('pepe-vehicleley:client:blink:lights', Vehicle)
+--                  TriggerServerEvent("pepe-sound:server:play:distance", 5, "car-unlock", 0.2)
+--                  StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
+--              else
+--                 if IsAdvanced then
+--                     if math.random(1,100) < 25 then
+--                       TriggerServerEvent('Framework:Server:RemoveItem', 'advancedlockpick', 1)
+--                       TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['advancedlockpick'], "remove")
+--                     end
+--                   else
+--                     if math.random(1,100) < 35 then
+--                       TriggerServerEvent('Framework:Server:RemoveItem', 'lockpick', 1)
+--                       TriggerEvent("pepe-inventory:client:ItemBox", Framework.Shared.Items['lockpick'], "remove")
+--                     end
+--                 end
+--                 Framework.Functions.Notify("Mislukt.", 'error')
+--                 StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
+--              end
+--            end)
+--           end
+--        end
+--       end
+--    end, Plate)  
+--  end
+-- end)
+
+-- // Lockpick new \\ --
+RegisterNetEvent('lockpicks:UseLockpick')
+AddEventHandler('lockpicks:UseLockpick', function(isAdvanced)
+    if (IsPedInAnyVehicle(GetPlayerPed(-1))) then
+        if not HasKey then
+            LockpickIgnition(isAdvanced)
+        end
+    else
+        LockpickDoor(isAdvanced)
+    end
 end)
+
+
+function LockpickIgnition(isAdvanced)
+    local Skillbar = exports['qb-skillbar']:GetSkillbarObject()
+    if NeededAttempts == 0 then
+        NeededAttempts = 3
+    end
+    if not HasKey then 
+        local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1), true)
+        if vehicle ~= nil and vehicle ~= 0 then
+            if GetPedInVehicleSeat(vehicle, -1) == GetPlayerPed(-1) then
+                IsHotwiring = true
+                SucceededAttempts = 0
+                PoliceCall()
+
+                if isAdvanced then
+                    local maxwidth = 10
+                    local maxduration = 1750
+                    if FailedAttemps == 1 then
+                        maxwidth = 10
+                        maxduration = 1750
+                    elseif FailedAttemps == 2 then
+                        maxwidth = 9
+                        maxduration = 1750
+                    elseif FailedAttemps >= 3 then
+                        maxwidth = 8
+                        maxduration = 1750
+                    end
+                    widthAmount = math.random(5, maxwidth)
+                    durationAmount = math.random(200, maxduration)
+                else        
+                    local maxwidth = 10
+                    local maxduration = 1750
+                    if FailedAttemps == 1 then
+                        maxwidth = 9
+                        maxduration = 1750
+                    elseif FailedAttemps == 2 then
+                        maxwidth = 8
+                        maxduration = 1750
+                    elseif FailedAttemps >= 3 then
+                        maxwidth = 7
+                        maxduration = 1750
+                    end
+                    widthAmount = math.random(5, maxwidth)
+                    durationAmount = math.random(200, maxduration)
+                end
+
+                local dict = "anim@amb@clubhouse@tutorial@bkr_tut_ig3@"
+                local anim = "machinic_loop_mechandplayer"
+
+                RequestAnimDict(dict)
+                while not HasAnimDictLoaded(dict) do
+                    RequestAnimDict(dict)
+                    Citizen.Wait(100)
+                end
+
+                Skillbar.Start({
+                    duration = math.random(5000, 5100),
+                    pos = math.random(10, 15),
+                    width = math.random(10, 11),
+                }, function()
+                    if IsHotwiring then
+                        if IsHotwiring and NeededAttempts == 0 then
+                            ClearPedTasksImmediately(GetPlayerPed(-1))
+                            HasKey = false
+                            SetVehicleEngineOn(vehicle, false, false, false)
+                            Framework.Functions.Notify("Bạn phải ở trong xe", "error")
+                            IsHotwiring = false
+                            FailedAttemps = 0
+                            SucceededAttempts = 0
+                            NeededAttempts = 0
+                            TriggerServerEvent('pepe-hud:Server:GainStress', math.random(3, 5))
+                            return
+                        end
+                                                if SucceededAttempts + 1 >= NeededAttempts then
+                            local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1), true)
+                            if vehicle ~= nil and vehicle ~= 0 then
+                                StopAnimTask(GetPlayerPed(-1), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
+                                Framework.Functions.Notify("Anh đã đậu")
+                                HasKey = true
+                                TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(vehicle))
+                                IsHotwiring = false
+                                FailedAttemps = 0
+                                SucceededAttempts = 0
+                                NeededAttempts = 0
+--                               FreezeEntityPosition(vehicle, false)
+                                TriggerServerEvent('pepe-hud:Server:GainStress', math.random(1, 4))
+                            else
+                                ClearPedTasksImmediately(GetPlayerPed(-1))
+                                HasKey = false
+                                SetVehicleEngineOn(vehicle, false, false, false)
+                                Framework.Functions.Notify("Bạn phải ở trong xe", "error")
+                                IsHotwiring = false
+                                FailedAttemps = 0
+                                SucceededAttempts = 0
+                                NeededAttempts = 0
+                                TriggerServerEvent('pepe-hud:Server:GainStress', math.random(3, 5))
+                            end
+                        else
+                            if vehicle ~= nil and vehicle ~= 0 then
+                                TaskPlayAnim(GetPlayerPed(-1), dict, anim, 8.0, 8.0, -1, 16, -1, false, false, false)
+                                if isAdvanced then
+                                    local maxwidth = 10
+                                    local maxduration = 1750
+                                    if FailedAttemps == 1 then
+                                        maxwidth = 10
+                                        maxduration = 1750
+                                    elseif FailedAttemps == 2 then
+                                        maxwidth = 9
+                                        maxduration = 1750
+                                    elseif FailedAttemps >= 3 then
+                                        maxwidth = 8
+                                        maxduration = 1750
+                                    end
+                                    widthAmount = math.random(5, maxwidth)
+                                    durationAmount = math.random(400, maxduration)
+                                else        
+                                    local maxwidth = 10
+                                    local maxduration = 1750
+                                    if FailedAttemps == 1 then
+                                        maxwidth = 9
+                                        maxduration = 1750
+                                    elseif FailedAttemps == 2 then
+                                        maxwidth = 8
+                                        maxduration = 1750
+                                    elseif FailedAttemps >= 3 then
+                                        maxwidth = 7
+                                        maxduration = 1750
+                                    end
+                                    widthAmount = math.random(5, maxwidth)
+                                    durationAmount = math.random(300, maxduration)
+                                end
+
+                                SucceededAttempts = SucceededAttempts + 1
+                                Skillbar.Repeat({
+                                    duration = durationAmount,
+                                    pos = math.random(10, 20),
+                                    width = widthAmount,
+                                })
+                            else
+                                ClearPedTasksImmediately(GetPlayerPed(-1))
+                                HasKey = false
+                                SetVehicleEngineOn(vehicle, false, false, false)
+                                Framework.Functions.Notify("Bạn phải troneg trong xe", "error")
+                                IsHotwiring = false
+                                FailedAttemps = FailedAttemps + 1
+                                local c = math.random(2)
+                                local o = math.random(2)
+                                if c == o then
+                                    TriggerServerEvent('pepe-hud:Server:GainStress', math.random(1, 4))
+                                end
+                            end
+                        end
+                    end
+                end, function()
+                    if IsHotwiring then
+                        StopAnimTask(GetPlayerPed(-1), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
+                        HasKey = false
+                        SetVehicleEngineOn(vehicle, false, false, true)
+                        Framework.Functions.Notify("Không thành công", "error")
+                        IsHotwiring = false
+                        FailedAttemps = FailedAttemps + 1
+                        local c = math.random(2)
+                        local o = math.random(2)
+                        if c == o then
+                            TriggerServerEvent('pepe-hud:Server:GainStress', math.random(1, 3))
+                        end
+                    end
+                end)
+                if (math.random(1,10) == 5) then
+                    TriggerServerEvent('Framework:Server:RemoveItem', "lockpick", 1)
+                    TriggerEvent("inventory:client:ItemBox", Framework.Shared.Items["lockpick"], "remove")
+                    Framework.Functions.Notify("Lockpick đã bị phá!", "error")
+                end
+            end
+        end
+    end
+end
+-- // Lockpick new \\ --
+
+
+
+
 
 -- // Functions \\ --
 
@@ -240,7 +442,7 @@ function ToggleLocks()
                 TriggerServerEvent("pepe-sound:server:play:distance", 5, "car-unlock", 0.2)
             end
          else
-            Framework.Functions.Notify("Bạn không có chìa khoá cho phương tiện này.", 'error')
+            Framework.Functions.Notify("You have no keys to this vehicle.", 'error')
         end
     end, Plate)
     end
