@@ -1,10 +1,13 @@
-QBCore = nil
+local IsLockPicking = false
 
-Citizen.CreateThread(function()
-	while QBCore == nil do
-		TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
-		Citizen.Wait(0)
-	end
+Framework = nil
+
+RegisterNetEvent('Framework:Client:OnPlayerLoaded')
+AddEventHandler('Framework:Client:OnPlayerLoaded', function()
+ Citizen.SetTimeout(1250, function()
+     TriggerEvent("Framework:GetObject", function(obj) Framework = obj end)    
+	   Citizen.Wait(250)
+ end)
 end)
 
 -- Code
@@ -14,22 +17,32 @@ AddEventHandler('pepe-lockpick:client:openLockpick', function(callback)
     openLockpick(true)
 end)
 
+function OpenLockpickGame(callback)
+ lockpickCallback = callback
+ openLockpick(true)
+end
+
 RegisterNUICallback('callback', function(data, cb)
     openLockpick(false)
 	lockpickCallback(data.success)
     cb('ok')
 end)
 
-RegisterNUICallback('exit', function()
+RegisterNUICallback('exit', function(data)
+    lockpickCallback(data.success)
     openLockpick(false)
 end)
 
-openLockpick = function(bool)
-    SetNuiFocus(bool, bool)
-    SendNUIMessage({
-        action = "ui",
-        toggle = bool,
-    })
-    SetCursorLocation(0.5, 0.2)
-    lockpicking = bool
+ function openLockpick(bool)
+ SetNuiFocus(bool, bool)
+ SendNUIMessage({
+     action = "ui",
+     toggle = bool,
+ })
+ SetCursorLocation(0.5, 0.2)
+ IsLockPicking = bool
+end
+
+function GetLockPickStatus()
+    return IsLockPicking
 end

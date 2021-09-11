@@ -10,5 +10,15 @@ files {
     'html/index.html',
     'html/script.js',
     'html/style.css',
-    'html/reset.css'
+    'html/reset.css',
+    'html/cylinder.png',
+    'html/driver.png',
+    'html/pinBott.png',
+    'html/pinTop.png',
+    'html/collar.png',
+}
+
+exports {
+ 'OpenLockpickGame',
+ 'GetLockPickStatus',
 }
