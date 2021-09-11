@@ -386,23 +386,23 @@ Config.Products = {
     --  },
   },
   ['Hardware-2'] = {
-    -- [1] = {
-    --   name = "repairkit",
-    --   price = 250,
-    --   amount = 50,
-    --   info = {},
-    --   type = "item",
-    --   slot = 1,
-    -- },
-    -- [2] = {
-    --   name = "advancedrepairkit",
-    --   price = 500,
-    --   amount = 100,
-    --   info = {},
-    --   type = "item",
-    --   slot = 2,
-    --  },
-    --[[[3] = {
+    [1] = {
+      name = "repairkit",
+      price = 250,
+      amount = 50,
+      info = {},
+      type = "item",
+      slot = 1,
+    },
+    [2] = {
+      name = "advancedrepairkit",
+      price = 500,
+      amount = 100,
+      info = {},
+      type = "item",
+      slot = 2,
+     },
+    [3] = {
       name = "drill",
       price = 2500,
       amount = 5,
@@ -417,7 +417,7 @@ Config.Products = {
       info = {},
       type = "item",
       slot = 4,
-    },]]--
+    },
     [1] = {
       name = "phone",
       price = 500,
@@ -426,7 +426,7 @@ Config.Products = {
       type = "item",
       slot = 5,
      },
-     [2] = {
+     [6] = {
       name = "dice",
       price = 15,
       amount = 50,
@@ -442,7 +442,7 @@ Config.Products = {
     --   type = "item",
     --   slot = 7,
     --  },
-     [3] = {
+     [7] = {
       name = "duffel-bag",
       price = 1500,
       amount = 50,
@@ -458,7 +458,7 @@ Config.Products = {
       type = "item",
       slot = 9,
      },]]--
-     [4] = {
+     [8] = {
       name = "radio",
       price = 500,
       amount = 50,
@@ -466,7 +466,7 @@ Config.Products = {
       type = "item",
       slot = 10,
      },
-     [5] = {
+     [9] = {
       name = "lockpick",
       price = 350,
       amount = 25,
@@ -482,7 +482,7 @@ Config.Products = {
     --   type = "item",
     --   slot = 12,
     --  },
-     [6] = {
+     [10] = {
       name = "scissor",
       price = 95,
       amount = 100,
