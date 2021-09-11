@@ -26,7 +26,7 @@ $(function () {
     cyl = $('#cylinder');
     driver = $('#driver');
 
-    $('#wrap').show();
+    $('#wrap').hide();
 
     window.addEventListener('message', function(event){
         var eventData = event.data;
