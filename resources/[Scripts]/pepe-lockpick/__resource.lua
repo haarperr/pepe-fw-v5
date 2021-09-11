@@ -20,6 +20,6 @@ files {
 
 exports {
  'OpenLockpickGame',
- "StartLockPickCircle"
+ "StartLockPickCircle",
  'GetLockPickStatus',
 }
