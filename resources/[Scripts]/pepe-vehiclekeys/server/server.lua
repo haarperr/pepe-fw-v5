@@ -42,6 +42,28 @@ AddEventHandler('pepe-vehiclekeys:server:give:keys', function(Target, Plate, boo
   end
 end)
 
+Framework.Functions.CreateUseableItem("lockpick", function(source, item)
+  local Player = Framework.Functions.GetPlayer(source)
+  TriggerClientEvent("pepe-items:client:use:lockpick", source, false)
+end)
+
+Framework.Functions.CreateUseableItem("advancedlockpick", function(source, item)
+  local Player = Framework.Functions.GetPlayer(source)
+  TriggerClientEvent("lockpicks:UseAdvancedLockpick", source, true)
+end)
+
+Framework.Functions.CreateCallback('vehiclekeys:haslockpick', function(source, cb)
+  local src = source
+  local Ply = Framework.Functions.GetPlayer(src)
+  local lockpick = Ply.Functions.GetItemByName("lockpick")
+  if lockpick ~= nil then
+      cb(true)
+  else
+      cb(false)
+  end
+end)
+
+
 -- // Commands \\ -- 
 
 Framework.Commands.Add("engine", "Toggle vehicle engine", {}, false, function(source, args)
